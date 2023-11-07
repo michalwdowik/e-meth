@@ -1,6 +1,6 @@
 .values-section {
     /* background: url('/src/assets/gradient-1.png') no-repeat top right; */
-    /* background-position: calc(100% + 15rem) calc(0rem - 8rem);  */
+    background-position: calc(100% + 15rem) calc(0rem - 8rem);
     background-size: contain;
     width: 100vw;
     display: flex;
