@@ -1,0 +1,42 @@
+.App {
+    text-align: center;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('assets/gradient-2.png') no-repeat right top;
+    background-size: contain;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 10px;
+    color: white;
+    padding: 20px;
+    width: 250px;
+    height: 250px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.card-icon {
+    font-size: 2em;
+}
+
+.card-title {
+    margin: 16px 0;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.card-description {
+    font-size: 1em;
+}
