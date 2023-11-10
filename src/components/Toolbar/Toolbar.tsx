@@ -1,11 +1,10 @@
 import { useState } from 'react'
 import styled from 'styled-components'
 import Logo from '../Logo/Logo'
-import DiscordIcon from '../Icons/DiscordIcon'
-import TwitterIcon from '../Icons/TwitterIcon'
-import TelegramIcon from '../Icons/TelegramIcon'
 import Button from '../Button/Button'
 import SocialMedia from '../SocialMedia/SocialMedia'
+import Modal from '../Modal/Modal'
+import useModal from '../../hooks/useModal'
 
 const sections = ['DCA', 'About', 'Features', 'Partners', 'FAQ']
 
@@ -82,9 +81,6 @@ const CloseButton = styled.div`
     font-size: 14px;
     color: #fff;
     gap: 8px;
-    /* svg {
-        margin-right: 8px;
-    } */
 `
 
 const CopyrightInfo = styled.div`
@@ -113,6 +109,7 @@ const Navbar = () => {
             {section}
         </DrawerItem>
     ))
+    const { isVisible, toggleModal } = useModal()
 
     return (
         <>
@@ -120,7 +117,8 @@ const Navbar = () => {
                 <Logo />
                 <ItemsWrapper>
                     <NavItems>{navItems}</NavItems>
-                    <Button>Try Emeth Now!</Button>
+                    <Button onClick={toggleModal}>Try Emeth Now!</Button>
+                    <Modal isVisible={isVisible} onClose={toggleModal} />
                 </ItemsWrapper>
 
                 <MobileMenuIcon onClick={() => setIsOpen(!isOpen)}>

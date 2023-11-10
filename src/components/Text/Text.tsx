@@ -4,30 +4,30 @@ import { styled } from 'styled-components'
 export interface TextProps {
     fontSize?: number
     fontWeight?: 'bold' | 'normal' | 'light'
-    lineHeight?: number
-    opacity?: number
+    align?: 'left' | 'center' | 'right'
+    color?: 'white' | 'black' | 'grey'
     children: React.ReactNode
 }
 
 const weight = {
-    bold: 800,
+    bold: 700,
     normal: 600,
-    light: 400,
+    light: 300,
 }
 
 export const Text = ({
     fontSize = 14,
     fontWeight,
-    lineHeight = 100,
-    opacity = 1,
+    color = 'white',
+    align = 'center',
     children,
     ...props
 }: TextProps) => (
     <ContentContainer
         fontSize={fontSize}
         fontWeight={fontWeight}
-        lineHeight={lineHeight}
-        opacity={opacity}
+        color={color}
+        align={align}
         {...props}
     >
         {children}
@@ -36,11 +36,10 @@ export const Text = ({
 
 const ContentContainer = styled.div<TextProps>`
     display: inline-block;
-    line-height: ${(props) => props.lineHeight}%;
     font-size: ${(props) => props.fontSize}px;
     font-weight: ${(props) => weight[props.fontWeight || 'normal']};
     font-family: Sora, sans-serif;
-    color: white;
+    color: ${(props) => props.color};
     text-align: center;
-    opacity: ${(props) => props.opacity};
+    text-align: ${(props) => props.align};
 `

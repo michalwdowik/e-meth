@@ -30,7 +30,7 @@ const StyledButton = styled.button<ButtonProps>`
         right: 0;
         bottom: 0;
         border-radius: 40px;
-        border: 3px solid transparent;
+        border: 2px solid transparent;
         background: linear-gradient(
                 160deg,
                 #da301f 0%,
@@ -54,10 +54,15 @@ const StyledButton = styled.button<ButtonProps>`
 interface ButtonProps {
     children: React.ReactNode
     size?: ButtonSize
+    onClick?: () => void
 }
 
-const Button = ({ children, size = 'normal' }: ButtonProps) => {
-    return <StyledButton size={size}>{children}</StyledButton>
+const Button = ({ children, size = 'normal', onClick }: ButtonProps) => {
+    return (
+        <StyledButton onClick={onClick} size={size}>
+            {children}
+        </StyledButton>
+    )
 }
 
 export default Button
