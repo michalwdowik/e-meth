@@ -53,7 +53,9 @@ const ValuesSection = () => (
         <div className="section-heading">
             <Badge>VALUES</Badge>
             <Text fontSize={56} fontWeight="bold">
-                {`Anchored in Values,\nDriven by Innovation`}
+                Anchored in Values
+                <br />
+                Driven by Innovation
             </Text>
             <Text fontSize={20} fontWeight="light">
                 At the heart of Emeth lies a steadfast commitment to a set of

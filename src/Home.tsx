@@ -1,4 +1,5 @@
 import FaqAccordion from './components/Faq/FaqAccordion'
+import Footer from './components/Footer/Footer'
 import GlassyBanner from './components/GlassyBanner/GlassyBanner'
 import Hero from './components/Hero/Hero'
 import OurMission from './components/OurMission/OurMission'
@@ -16,6 +17,8 @@ const Home = () => {
             <OurMission />
             <FaqAccordion />
             <GlassyBanner />
+            <Navbar />
+            <Footer />
         </div>
     )
 }

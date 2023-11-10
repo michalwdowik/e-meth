@@ -5,6 +5,7 @@ import DiscordIcon from '../Icons/DiscordIcon'
 import TwitterIcon from '../Icons/TwitterIcon'
 import TelegramIcon from '../Icons/TelegramIcon'
 import Button from '../Button/Button'
+import SocialMedia from '../SocialMedia/SocialMedia'
 
 const sections = ['DCA', 'About', 'Features', 'Partners', 'FAQ']
 
@@ -12,8 +13,8 @@ const NavbarContainer = styled.nav`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
-    background: #000;
+    padding: 10px 80px;
+    background: transparent;
     color: #fff;
     z-index: 3;
 
@@ -86,19 +87,21 @@ const CloseButton = styled.div`
     } */
 `
 
-const SocialMedia = styled.div`
-    display: flex;
-    justify-content: center;
-    a {
-        margin: 0 10px;
-    }
-`
-
 const CopyrightInfo = styled.div`
     color: #aaa;
     font-size: 14px;
     text-align: center;
     padding: 20px 0;
+`
+
+const ItemsWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 32px;
+
+    @media (max-width: 768px) {
+        display: none;
+    }
 `
 
 const Navbar = () => {
@@ -115,8 +118,10 @@ const Navbar = () => {
         <>
             <NavbarContainer>
                 <Logo />
-                <NavItems>{navItems}</NavItems>
-                <Button>Try Emeth Now!</Button>
+                <ItemsWrapper>
+                    <NavItems>{navItems}</NavItems>
+                    <Button>Try Emeth Now!</Button>
+                </ItemsWrapper>
 
                 <MobileMenuIcon onClick={() => setIsOpen(!isOpen)}>
                     ☰
@@ -140,17 +145,7 @@ const Navbar = () => {
                 </CloseButton>
                 {drawerItems}
                 <Button>Try Emeth Now!</Button>
-                <SocialMedia>
-                    <a href="https://twitter.com">
-                        <TwitterIcon />
-                    </a>
-                    <a href="https://discord.com">
-                        <DiscordIcon />
-                    </a>
-                    <a href="https://telegram.org">
-                        <TelegramIcon />
-                    </a>
-                </SocialMedia>
+                <SocialMedia />
                 <CopyrightInfo>
                     © 2023 Emeth. All rights reserved.
                 </CopyrightInfo>
