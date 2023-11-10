@@ -1,4 +1,5 @@
 /* eslint-disable react/no-array-index-key */
+import Badge from '../Badge/Badge'
 import { Text } from '../Text/Text'
 import './small-glassy-card.css'
 
@@ -50,6 +51,7 @@ const Card = ({ title, description, icon }: CardProps) => (
 const ValuesSection = () => (
     <div className="values-section">
         <div className="section-heading">
+            <Badge>VALUES</Badge>
             <Text fontSize={56} fontWeight="bold">
                 {`Anchored in Values,\nDriven by Innovation`}
             </Text>

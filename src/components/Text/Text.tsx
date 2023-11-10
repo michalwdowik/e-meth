@@ -5,7 +5,6 @@ export interface TextProps {
     fontSize?: number
     fontWeight?: 'bold' | 'normal' | 'light'
     lineHeight?: number
-    isUnderlined?: boolean
     opacity?: number
     children: React.ReactNode
 }
@@ -20,7 +19,6 @@ export const Text = ({
     fontSize = 14,
     fontWeight,
     lineHeight = 100,
-    isUnderlined = false,
     opacity = 1,
     children,
     ...props
@@ -29,7 +27,6 @@ export const Text = ({
         fontSize={fontSize}
         fontWeight={fontWeight}
         lineHeight={lineHeight}
-        isUnderlined={isUnderlined}
         opacity={opacity}
         {...props}
     >
@@ -44,7 +41,6 @@ const ContentContainer = styled.div<TextProps>`
     font-weight: ${(props) => weight[props.fontWeight || 'normal']};
     font-family: Sora, sans-serif;
     color: white;
-    text-decoration: ${(props) => (props.isUnderlined ? 'underline' : 'none')};
+    text-align: center;
     opacity: ${(props) => props.opacity};
-    /* white-space: pre; */
 `
