@@ -17,7 +17,7 @@ const OurMission = () => {
     return (
         <OurMissionStyled>
             <Badge>OUR MISSION</Badge>
-            <Text fontSize={40}>
+            <Text fontWeight="bold" fontSize={40}>
                 To streamline and automate DeFi operations, delivering
                 unprecedented efficiency, cost-effectiveness, and transparency
                 in managing digital assets.
