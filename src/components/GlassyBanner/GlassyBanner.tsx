@@ -34,7 +34,6 @@ const GlassyBannerContainer = styled.div`
     border-radius: 16px;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(50px);
-    /* height: 557px; */
     height: max-content;
     gap: 40px;
     border-color: transparent;

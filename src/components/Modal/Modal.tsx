@@ -1,3 +1,4 @@
+import React from 'react'
 import styled, { keyframes, css } from 'styled-components'
 import { createPortal } from 'react-dom'
 import { Text } from '../Text/Text'
@@ -12,6 +13,7 @@ const fadeOut = keyframes`
   from { opacity: 1; }
   to { opacity: 0; }
 `
+
 interface OverlayProps {
     isVisible: boolean
 }
@@ -33,9 +35,11 @@ const Overlay = styled.div<OverlayProps>`
                   ${fadeOut} 0.3s ease-in-out both
               `};
 `
+
 interface StyledModalProps {
     isVisible: boolean
 }
+
 const StyledModal = styled.div<StyledModalProps>`
     position: fixed;
     top: 50%;
@@ -56,7 +60,6 @@ const StyledModal = styled.div<StyledModalProps>`
     flex-direction: column;
     gap: 24px;
     align-items: flex-start;
-
     &::before {
         content: '';
         position: absolute;
@@ -85,51 +88,55 @@ const StyledModal = styled.div<StyledModalProps>`
         mask-composite: exclude;
     }
 `
-interface InputProps {
-    placeholder: string
-}
-const StyledInput = styled.input`
+
+const InputButtonContainer = styled.div`
+    position: relative;
     width: 100%;
-    padding: 12px;
     margin-top: 20px;
-    border: 1px solid #333;
+`
+
+const StyledInput = styled.input`
+    width: calc(
+        100% - 120px
+    ); // Adjust the subtracted value based on the button width
+    padding: 12px;
+    border: none;
     background-color: #000;
     color: #fff;
-    cursor: pointer;
+    cursor: text;
     border-radius: 56px;
     border: 1px solid rgba(255, 255, 255, 0.5);
     background: rgba(255, 255, 255, 0.1);
-
     ::placeholder {
         color: #555;
     }
-
     :focus {
         outline: none;
-        border-color: #da301f; // Highlight color when focused
+        border-color: #da301f;
     }
 `
 
-const Input = ({ placeholder }: InputProps) => {
-    return <StyledInput placeholder={placeholder} />
-}
+const PositionedButton = styled(Button)`
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-radius: 56px;
+    height: 100%;
+`
 
 interface ModalProps {
     isVisible: boolean
     onClose: () => void
 }
 const Modal: React.FC<ModalProps> = ({ isVisible, onClose }) => {
-    // Prevents the modal from closing when clicking inside it
     const stopPropagation = (e: React.MouseEvent) => {
         e.stopPropagation()
     }
 
-    // This is the modal content that will be portaled
     const modalContent = isVisible ? (
         <>
             <Overlay isVisible={isVisible} onClick={onClose} />
             <StyledModal isVisible={isVisible} onClick={stopPropagation}>
-                {/* i want to have content here */}
                 <Text fontSize={32}>Join the Emeth Revolution Early!</Text>
                 <Text align="left" fontSize={16} fontWeight="light">
                     Emeth is under construction, and we&apos;re excited to share
@@ -146,9 +153,12 @@ const Modal: React.FC<ModalProps> = ({ isVisible, onClose }) => {
                     <br />
                     Don&apos;t miss out!
                 </Text>
-                <Input placeholder="Enter your e-mail address...">
-                    <Button>Sign Up for Early Access</Button>
-                </Input>
+                <InputButtonContainer placeholder="Enter your e-mail address...">
+                    <StyledInput placeholder="Enter your e-mail address..." />
+                    <PositionedButton>
+                        Sign Up for Early Access
+                    </PositionedButton>
+                </InputButtonContainer>
             </StyledModal>
         </>
     ) : null

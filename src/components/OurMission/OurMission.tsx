@@ -10,7 +10,8 @@ const OurMissionStyled = styled.div`
     justify-content: center;
     align-items: center;
     gap: 32px;
-    background: url('src/assets/OurMission.png') no-repeat center;
+    background: url('src/assets/OurMission.png') no-repeat right;
+    background-color: black;
 `
 
 const OurMission = () => {
@@ -18,9 +19,9 @@ const OurMission = () => {
         <OurMissionStyled>
             <Badge>OUR MISSION</Badge>
             <Text fontWeight="bold" fontSize={40}>
-                To streamline and automate DeFi operations, delivering
-                unprecedented efficiency, cost-effectiveness, and transparency
-                in managing digital assets.
+                To streamline and automate DeFi operations, delivering <br />
+                unprecedented efficiency, cost-effectiveness, and <br />
+                transparency in managing digital assets.
             </Text>
             <Button size="big">JOIN NOW</Button>
         </OurMissionStyled>

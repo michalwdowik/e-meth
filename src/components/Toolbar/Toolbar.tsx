@@ -10,12 +10,12 @@ const sections = ['DCA', 'About', 'Features', 'Partners', 'FAQ']
 
 const NavbarContainer = styled.nav`
     display: flex;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
     padding: 10px 80px;
     background: transparent;
     color: #fff;
-    z-index: 3;
 
     @media (max-width: 768px) {
         justify-content: flex-end;
@@ -60,9 +60,10 @@ const DrawerMenu = styled.div`
     align-items: center;
     justify-content: space-between;
     padding: 40px 20px;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.4s ease-in-out;
     transform: ${({ isOpen }) =>
         isOpen ? 'translateY(0)' : 'translateY(-100%)'};
+    z-index: 4;
 `
 
 const DrawerItem = styled.div`
