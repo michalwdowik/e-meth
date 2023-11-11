@@ -8,6 +8,7 @@ import OurPartners from './components/OurPartners/OurPartners'
 import ValuesSection from './components/SmallGlassyCard/SmallGlassyCard'
 import Navbar from './components/Toolbar/Toolbar'
 import FeaturesSection from './components/FeaturesSection/FeaturesSection'
+import IntroSection from './components/IntroSection/IntroSection'
 
 const HomeStyled = styled.div`
     display: flex;
@@ -22,7 +23,8 @@ const Home = () => {
             <Navbar />
             <HomeStyled>
                 {/* <Hero /> */}
-                <FeaturesSection />
+                <IntroSection />
+                {/* <FeaturesSection /> */}
                 {/* <ValuesSection />
                 <OurPartners />
                 <OurMission />

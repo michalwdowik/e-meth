@@ -11,7 +11,6 @@ const StyledHero = styled.div`
     background: url('src/assets/HeroGradient-NoVideo.png') no-repeat center;
     background-size: cover;
     height: 600px;
-    /* background-position: center 20%; */
 `
 
 const Hero = () => {
