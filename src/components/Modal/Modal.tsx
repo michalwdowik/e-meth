@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import styled, { keyframes, css } from 'styled-components'
 import { createPortal } from 'react-dom'
 import { Text } from '../Text/Text'
@@ -6,6 +6,7 @@ import Button from '../Button/Button'
 import linearGradient from '../../utils/gradient'
 import SocialMediaButtons from '../SocialMedia/SocialMediaButtons'
 import CloseIcon from '../Icons/CloseIcon'
+import validateEmail from '../../utils/validateEmail'
 
 const fadeIn = keyframes`
   from { opacity: 0; }
@@ -85,17 +86,25 @@ const InputButtonContainer = styled.div`
     position: relative;
     width: 100%;
     margin-top: 20px;
+    font-size: 16px;
 `
 
 const StyledInput = styled.input`
-    width: calc(100% - 120px);
     padding: 12px;
+    width: 100%;
     border: none;
     background-color: #000;
+    height: 56px;
     color: #fff;
     cursor: text;
+    position: relative;
     border-radius: 56px;
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 1px solid
+        ${({ isValid }) => (isValid ? 'rgba(255, 255, 255, 0.5)' : 'red')};
+    :focus {
+        outline: none;
+        border-color: ${({ isValid }) => (isValid ? '#da301f' : 'red')};
+    }
     background: rgba(255, 255, 255, 0.1);
     ::placeholder {
         color: #555;
@@ -106,12 +115,11 @@ const StyledInput = styled.input`
     }
 `
 
-const PositionedButton = styled(Button)`
+const PositionedButton = styled.div`
     position: absolute;
-    right: 0;
-    top: 0;
-    border-radius: 56px;
-    height: 100%;
+    right: 8px;
+    top: 50%;
+    transform: translateY(calc(-50%));
 `
 
 const Divider = styled.div`
@@ -136,16 +144,28 @@ interface ModalProps {
     isVisible: boolean
     onClose: () => void
 }
-
-const Modal: React.FC<ModalProps> = ({ isVisible, onClose }) => {
+const Modal = ({ isVisible, onClose }: ModalProps) => {
     const [isSignedUp, setIsSignedUp] = useState(false)
+    const [email, setEmail] = useState('')
+    const [isValidEmail, setIsValidEmail] = useState(true)
 
-    const stopPropagation = (e: React.MouseEvent) => {
-        e.stopPropagation()
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value)
+        if (!isValidEmail) {
+            setIsValidEmail(true) // Reset validation state when user starts typing
+        }
     }
 
     const handleSignUp = () => {
-        setIsSignedUp(true)
+        if (validateEmail(email)) {
+            setIsSignedUp(true)
+        } else {
+            setIsValidEmail(false) // Set to false if validation fails
+        }
+    }
+
+    const stopPropagation = (e: React.MouseEvent) => {
+        e.stopPropagation()
     }
 
     const modalContent = isVisible ? (
@@ -174,10 +194,16 @@ const Modal: React.FC<ModalProps> = ({ isVisible, onClose }) => {
                             <br />
                             Don&apos;t miss out!
                         </Text>
-                        <InputButtonContainer placeholder="Enter your e-mail address...">
-                            <StyledInput placeholder="Enter your e-mail address..." />
+                        <InputButtonContainer>
+                            <StyledInput
+                                placeholder="Enter your e-mail address..."
+                                onChange={handleEmailChange}
+                                isValid={isValidEmail}
+                            />
                             <PositionedButton onClick={handleSignUp}>
-                                Sign Up for Early Access
+                                <Button size="normal">
+                                    Sign Up for Early Access
+                                </Button>
                             </PositionedButton>
                         </InputButtonContainer>
                     </>
