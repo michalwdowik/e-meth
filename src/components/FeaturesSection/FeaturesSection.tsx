@@ -38,10 +38,9 @@ const FeaturesSectionStyled = styled.div`
     flex-direction: column;
     justify-content: center;
     gap: 10px;
-    background-color: #000000;
-    /* background: url('../src/assets/FeaturesSectionGradient.png') no-repeat left
-        center;
-    background-size: contain; */
+    background-color: transparent;
+    position: relative; // This makes it the positioning context for absolutely positioned children
+    overflow: hidden; // This ensures that the gradient doesn't flow outside the component
 `
 
 const FeaturesSectionHero = styled.div`
@@ -68,9 +67,12 @@ const FeaturesSectionHeroDescription = styled.div`
 
 const GradientOverlay = styled.img`
     position: absolute;
-    top: 50%;
-    transform: translateY(-43%);
-    z-index: 0;
+    top: -168px;
+    left: 0; // Start at the left of the FeaturesSectionStyled
+    background-image: url('../src/assets/FeaturesSectionGradient.png');
+    background-size: contain; // Cover the entire size of the GradientOverlay
+    background-repeat: no-repeat;
+    z-index: -1; // Ensure it's behind all other content
 `
 const FeaturesSection = () => {
     return (

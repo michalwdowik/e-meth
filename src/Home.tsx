@@ -24,7 +24,7 @@ const Home = () => {
             <HomeStyled>
                 {/* <Hero /> */}
                 <IntroSection />
-                {/* <FeaturesSection /> */}
+                <FeaturesSection />
                 {/* <ValuesSection />
                 <OurPartners />
                 <OurMission />
