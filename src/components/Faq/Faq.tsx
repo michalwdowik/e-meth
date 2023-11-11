@@ -45,7 +45,7 @@ const AccordionTitle = styled.h3`
     margin: 0;
     font-size: 16px;
     font-weight: bold;
-    padding: 1rem;
+    padding: 32px 0px 32px 0px;
     cursor: pointer;
     display: flex;
     align-items: center;

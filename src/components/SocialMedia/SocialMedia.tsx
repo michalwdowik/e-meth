@@ -8,9 +8,6 @@ const SocialMediaStyled = styled.div`
     justify-content: center;
     align-items: center;
     gap: 10px;
-    /* a {
-        margin: 0 10px;
-    } */
 `
 
 const SocialMedia = () => {

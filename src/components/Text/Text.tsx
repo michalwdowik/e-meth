@@ -35,7 +35,6 @@ export const Text = ({
 )
 
 const ContentContainer = styled.div<TextProps>`
-    /* display: inline-block; */
     font-size: ${(props) => props.fontSize}px;
     font-weight: ${(props) => weight[props.fontWeight || 'normal']};
     font-family: Sora, sans-serif;

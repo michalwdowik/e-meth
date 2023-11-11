@@ -25,7 +25,7 @@ const IntroSection = () => {
     return (
         <>
             <IntroSectionHeadingStyled className="intro-section">
-                <Badge>Introducing Emeth</Badge>
+                <Badge>INTRODUCING EMETH</Badge>
                 <Text fontSize={56} fontWeight="bold" align="left">
                     Next-Gen DeFi <br /> Portfolio Management
                 </Text>

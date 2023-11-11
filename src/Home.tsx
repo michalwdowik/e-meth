@@ -1,6 +1,4 @@
 import styled from 'styled-components'
-import { useRef, useState } from 'react'
-import FaqAccordion from './components/Faq/FaqAccordion'
 import Footer from './components/Footer/Footer'
 import GlassyBanner from './components/GlassyBanner/GlassyBanner'
 import Hero from './components/Hero/Hero'
@@ -10,9 +8,8 @@ import ValuesSection from './components/SmallGlassyCard/SmallGlassyCard'
 import Navbar from './components/Toolbar/Toolbar'
 import FeaturesSection from './components/FeaturesSection/FeaturesSection'
 import IntroSection from './components/IntroSection/IntroSection'
-import VideoPlayer from './components/Video/Video'
-import AccordionItems from './components/Faq/FaqAccordion'
-import Faq from './components/Faq/FaqAccordion'
+// import VideoPlayer from './components/Video/Video'
+import Faq from './components/Faq/Faq'
 
 const HomeStyled = styled.div`
     display: flex;
@@ -26,12 +23,12 @@ const Home = () => {
             <Navbar />
             <HomeStyled>
                 {/* <VideoPlayer /> */}
-                {/* <Hero /> */}
-                {/* <IntroSection /> */}
-                {/* <FeaturesSection /> */}
-                {/* <ValuesSection /> */}
-                {/* <OurPartners /> */}
-                {/* <OurMission /> */}
+                <Hero />
+                <IntroSection />
+                <OurMission />
+                <FeaturesSection />
+                <ValuesSection />
+                <OurPartners />
                 <Faq />
                 <GlassyBanner />
                 <Navbar />

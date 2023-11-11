@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled, { keyframes, css } from 'styled-components'
 import { createPortal } from 'react-dom'
 import { Text } from '../Text/Text'
 import Button from '../Button/Button'
+import linearGradient from '../../utils/gradient'
+import SocialMediaButtons from '../SocialMedia/SocialMediaButtons'
+import CloseIcon from '../Icons/CloseIcon'
 
 const fadeIn = keyframes`
   from { opacity: 0; }
@@ -69,18 +72,7 @@ const StyledModal = styled.div<StyledModalProps>`
         bottom: 0;
         border-radius: 16px;
         border: 2px solid transparent;
-        background: linear-gradient(
-                160deg,
-                #da301f 0%,
-                #f48946 18.229%,
-                #ee3560 35.417%,
-                #fa4784 51.563%,
-                #ff48c0 66.667%,
-                #8e38b5 81.771%,
-                #5542bb 89.063%,
-                #0051c4 100%
-            )
-            border-box;
+        background: ${linearGradient} border-box;
         -webkit-mask:
             linear-gradient(#fff 0 0) padding-box,
             linear-gradient(#fff 0 0);
@@ -96,9 +88,7 @@ const InputButtonContainer = styled.div`
 `
 
 const StyledInput = styled.input`
-    width: calc(
-        100% - 120px
-    ); // Adjust the subtracted value based on the button width
+    width: calc(100% - 120px);
     padding: 12px;
     border: none;
     background-color: #000;
@@ -124,48 +114,113 @@ const PositionedButton = styled(Button)`
     height: 100%;
 `
 
+const Divider = styled.div`
+    width: 100%;
+    border-top: 1px solid grey;
+`
+
+const StyledCloseIcon = styled.button`
+    cursor: pointer;
+    z-index: 1;
+    background-color: transparent;
+`
+
+const HeaderContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+`
+
 interface ModalProps {
     isVisible: boolean
     onClose: () => void
 }
+
 const Modal: React.FC<ModalProps> = ({ isVisible, onClose }) => {
+    const [isSignedUp, setIsSignedUp] = useState(false)
+
     const stopPropagation = (e: React.MouseEvent) => {
         e.stopPropagation()
+    }
+
+    const handleSignUp = () => {
+        setIsSignedUp(true)
     }
 
     const modalContent = isVisible ? (
         <>
             <Overlay isVisible={isVisible} onClick={onClose} />
             <StyledModal isVisible={isVisible} onClick={stopPropagation}>
-                <Text fontSize={32}>Join the Emeth Revolution Early!</Text>
-                <Text align="left" fontSize={16} fontWeight="light">
-                    Emeth is under construction, and we&apos;re excited to share
-                    our journey with you. Be among the first to experience the
-                    future of on-chain digital asset management.
-                    <br />
-                    <br />
-                    By signing up for our waitlist, you&apos;ll receive
-                    exclusive updates, behind-the-scenes glimpses, and the
-                    chance to be a part of our beta testing phase. Emeth is more
-                    than just a platform; it&apos;s the next step in DeFi
-                    operations and portfolio management.
-                    <br />
-                    <br />
-                    Don&apos;t miss out!
-                </Text>
-                <InputButtonContainer placeholder="Enter your e-mail address...">
-                    <StyledInput placeholder="Enter your e-mail address..." />
-                    <PositionedButton>
-                        Sign Up for Early Access
-                    </PositionedButton>
-                </InputButtonContainer>
+                {!isSignedUp ? (
+                    <>
+                        <Text fontSize={32}>
+                            Join the Emeth Revolution Early!
+                        </Text>
+                        <Text align="left" fontSize={16} fontWeight="light">
+                            Emeth is under construction, and we&apos;re excited
+                            to share our journey with you. Be among the first to
+                            experience the future of on-chain digital asset
+                            management.
+                            <br />
+                            <br />
+                            By signing up for our waitlist, you&apos;ll receive
+                            exclusive updates, behind-the-scenes glimpses, and
+                            the chance to be a part of our beta testing phase.
+                            Emeth is more than just a platform; it&apos;s the
+                            next step in DeFi operations and portfolio
+                            management.
+                            <br />
+                            <br />
+                            Don&apos;t miss out!
+                        </Text>
+                        <InputButtonContainer placeholder="Enter your e-mail address...">
+                            <StyledInput placeholder="Enter your e-mail address..." />
+                            <PositionedButton onClick={handleSignUp}>
+                                Sign Up for Early Access
+                            </PositionedButton>
+                        </InputButtonContainer>
+                    </>
+                ) : (
+                    <>
+                        <HeaderContainer>
+                            <Text fontSize={32}>
+                                Success! You&apos;re on the List!
+                            </Text>
+                            <StyledCloseIcon onClick={onClose}>
+                                <CloseIcon />
+                            </StyledCloseIcon>
+                        </HeaderContainer>
+                        <Text align="left" fontSize={16} fontWeight="light">
+                            Thank you for signing up for early access to Emeth!
+                            Your enthusiasm fuels our passion to deliver the
+                            best on-chain digital asset management experience.
+                            <br /> <br />
+                            As a part of our exclusive waitlist, you&apos;ll be
+                            among the first to receive updates, sneak peeks, and
+                            invitations to our beta testing phase. <br /> <br />
+                            We appreciate your trust and can&apos;t wait to
+                            embark on this revolutionary journey with you. Stay
+                            tuned, and get ready to redefine DeFi operations
+                            with Emeth!
+                        </Text>
+                        <Divider />
+                        <Text fontSize={16} fontWeight="light" align="left">
+                            Excited about Emeth? Share the news with your
+                            network and let them know you&apos;ve secured your
+                            spot on the waitlist!
+                        </Text>
+                        <SocialMediaButtons />
+                    </>
+                    // ...
+                )}
             </StyledModal>
         </>
     ) : null
 
     return createPortal(
         modalContent,
-        document.getElementById('modal-root') as HTMLElement // This element should exist in your HTML
+        document.getElementById('modal-root') as HTMLElement
     )
 }
 
