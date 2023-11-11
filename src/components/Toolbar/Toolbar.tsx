@@ -3,8 +3,6 @@ import styled from 'styled-components'
 import Logo from '../Logo/Logo'
 import Button from '../Button/Button'
 import SocialMedia from '../SocialMedia/SocialMedia'
-import Modal from '../Modal/Modal'
-import useModal from '../../hooks/useModal'
 
 const sections = ['DCA', 'About', 'Features', 'Partners', 'FAQ']
 
@@ -40,7 +38,6 @@ const NavItems = styled.ul`
 
 const MobileMenuIcon = styled.div`
     display: none;
-
     @media (max-width: 768px) {
         display: block;
         font-size: 24px;
@@ -110,7 +107,6 @@ const Navbar = () => {
             {section}
         </DrawerItem>
     ))
-    const { isVisible, toggleModal } = useModal()
 
     return (
         <>
@@ -118,8 +114,7 @@ const Navbar = () => {
                 <Logo />
                 <ItemsWrapper>
                     <NavItems>{navItems}</NavItems>
-                    <Button onClick={toggleModal}>Try Emeth Now!</Button>
-                    <Modal isVisible={isVisible} onClose={toggleModal} />
+                    <Button>Try Emeth Now!</Button>
                 </ItemsWrapper>
 
                 <MobileMenuIcon onClick={() => setIsOpen(!isOpen)}>

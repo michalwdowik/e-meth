@@ -1,8 +1,9 @@
 import styled from 'styled-components'
+import { useState } from 'react'
 import linearGradient from '../../utils/gradient'
+import Modal from '../Modal/Modal'
 
 type ButtonSize = 'normal' | 'big'
-
 const StyledButton = styled.button<ButtonProps>`
     position: relative;
     display: flex;
@@ -44,14 +45,25 @@ const StyledButton = styled.button<ButtonProps>`
 interface ButtonProps {
     children: React.ReactNode
     size?: ButtonSize
-    onClick?: () => void
 }
 
-const Button = ({ children, size = 'normal', onClick }: ButtonProps) => {
+const Button = ({ children, size = 'normal' }: ButtonProps) => {
+    const [isModalVisible, setIsModalVisible] = useState(false)
+
+    const toggleModal = (event) => {
+        event.stopPropagation()
+        setIsModalVisible(!isModalVisible)
+    }
+
     return (
-        <StyledButton onClick={onClick} size={size}>
-            {children}
-        </StyledButton>
+        <>
+            <StyledButton onClick={toggleModal} size={size}>
+                {children}
+            </StyledButton>
+            {isModalVisible && (
+                <Modal isVisible={isModalVisible} onClose={toggleModal} />
+            )}
+        </>
     )
 }
 

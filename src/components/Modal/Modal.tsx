@@ -2,11 +2,11 @@ import { useState } from 'react'
 import styled, { keyframes, css } from 'styled-components'
 import { createPortal } from 'react-dom'
 import { Text } from '../Text/Text'
-import Button from '../Button/Button'
 import linearGradient from '../../utils/gradient'
 import SocialMediaButtons from '../SocialMedia/SocialMediaButtons'
 import CloseIcon from '../Icons/CloseIcon'
 import validateEmail from '../../utils/validateEmail'
+import SignUpButton from '../Button/SignUpButton'
 
 const fadeIn = keyframes`
   from { opacity: 0; }
@@ -151,14 +151,13 @@ const Modal = ({ isVisible, onClose }: ModalProps) => {
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value)
-        if (!isValidEmail) {
-            setIsValidEmail(true) // Reset validation state when user starts typing
-        }
+        setIsValidEmail(true) // Reset validation state when user starts typing
     }
 
     const handleSignUp = () => {
         if (validateEmail(email)) {
             setIsSignedUp(true)
+            setIsValidEmail(true)
         } else {
             setIsValidEmail(false) // Set to false if validation fails
         }
@@ -201,9 +200,9 @@ const Modal = ({ isVisible, onClose }: ModalProps) => {
                                 isValid={isValidEmail}
                             />
                             <PositionedButton onClick={handleSignUp}>
-                                <Button size="normal">
+                                <SignUpButton>
                                     Sign Up for Early Access
-                                </Button>
+                                </SignUpButton>
                             </PositionedButton>
                         </InputButtonContainer>
                     </>
