@@ -9,6 +9,7 @@ import ValuesSection from './components/SmallGlassyCard/SmallGlassyCard'
 import Navbar from './components/Toolbar/Toolbar'
 import FeaturesSection from './components/FeaturesSection/FeaturesSection'
 import IntroSection from './components/IntroSection/IntroSection'
+import VideoPlayer from './components/Video/Video'
 
 const HomeStyled = styled.div`
     display: flex;
@@ -22,6 +23,7 @@ const Home = () => {
         <>
             <Navbar />
             <HomeStyled>
+                <VideoPlayer />
                 {/* <Hero /> */}
                 <IntroSection />
                 <FeaturesSection />
