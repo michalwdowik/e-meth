@@ -1,22 +1,13 @@
 import { useState } from 'react'
-import styled, { keyframes, css } from 'styled-components'
+import styled, { css } from 'styled-components'
 import { createPortal } from 'react-dom'
-import { Text } from '../Text/Text'
-import linearGradient from '../../utils/gradient'
-import SocialMediaButtons from '../SocialMedia/SocialMediaButtons'
-import CloseIcon from '../Icons/CloseIcon'
-import validateEmail from '../../utils/validateEmail'
-import SignUpButton from '../Button/SignUpButton'
-
-const fadeIn = keyframes`
-  from { opacity: 0; }
-  to { opacity: 1; }
-`
-
-const fadeOut = keyframes`
-  from { opacity: 1; }
-  to { opacity: 0; }
-`
+import { Text } from './Text'
+import linearGradient from '../utils/gradient'
+import SocialMediaButtons from './SocialMediaButtons'
+import CloseIcon from './Icons/CloseIcon'
+import validateEmail from '../utils/validateEmail'
+import SignUpButton from './SignUpButton'
+import { fadeIn, fadeOut } from '../utils/animations'
 
 interface OverlayProps {
     isVisible: boolean
@@ -89,7 +80,11 @@ const InputButtonContainer = styled.div`
     font-size: 16px;
 `
 
-const StyledInput = styled.input`
+interface StyledInputProps {
+    isValid: boolean
+}
+
+const StyledInput = styled.input<StyledInputProps>`
     padding: 12px;
     width: 100%;
     border: none;
@@ -149,9 +144,9 @@ const Modal = ({ isVisible, onClose }: ModalProps) => {
     const [email, setEmail] = useState('')
     const [isValidEmail, setIsValidEmail] = useState(true)
 
-    const handleEmailChange = (e) => {
+    const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setEmail(e.target.value)
-        setIsValidEmail(true) // Reset validation state when user starts typing
+        setIsValidEmail(true)
     }
 
     const handleSignUp = () => {
@@ -159,7 +154,7 @@ const Modal = ({ isVisible, onClose }: ModalProps) => {
             setIsSignedUp(true)
             setIsValidEmail(true)
         } else {
-            setIsValidEmail(false) // Set to false if validation fails
+            setIsValidEmail(false)
         }
     }
 

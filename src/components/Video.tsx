@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react'
 import styled from 'styled-components'
-import { Text } from '../Text/Text'
-import linearGradient from '../../utils/gradient'
+import { Text } from './Text'
+import linearGradient from '../utils/gradient'
 
 const VideoPlayerContainer = styled.div`
     position: relative;

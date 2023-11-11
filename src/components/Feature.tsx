@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { Text } from '../Text/Text'
-import ArrowRight from '../Icons/ArrowRight'
+import { Text } from './Text'
+import ArrowRight from './Icons/ArrowRight'
 
 const FeatureContainer = styled.div`
     position: relative; // Added to ensure absolute positioning is relative to this container

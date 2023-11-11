@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { Text } from '../Text/Text'
-import Button from '../Button/Button'
+import { Text } from './Text'
+import Button from './Button'
 
 const StyledHero = styled.div`
     display: flex;

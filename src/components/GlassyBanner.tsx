@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import Button from '../Button/Button'
-import { Text } from '../Text/Text'
+import Button from './Button'
+import { Text } from './Text'
 
 const NewsletterSection = styled.div`
     background: url('/src/assets/NewsletterGradient.png');

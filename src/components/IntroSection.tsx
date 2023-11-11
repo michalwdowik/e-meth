@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import Badge from '../Badge/Badge'
-import { Text } from '../Text/Text'
-import './intro-section.css'
+import Badge from './Badge'
+import { Text } from './Text'
 
+// Styled components
 const IntroSectionHeadingStyled = styled.div`
     display: flex;
     flex-direction: column;
@@ -21,10 +21,31 @@ const IntroSectionDescriptionStyled = styled.div`
     gap: 64px;
     margin-bottom: 128px;
 `
+
+const GradientText = styled.span`
+    background: linear-gradient(
+        160deg,
+        #da301f 0%,
+        #f48946 18.229%,
+        #ee3560 35.417%,
+        #fa4784 51.563%,
+        #ff48c0 66.667%,
+        #8e38b5 81.771%,
+        #5542bb 89.063%,
+        #0051c4 100%
+    );
+    font-weight: bold;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    display: inline;
+`
+
 const IntroSection = () => {
     return (
         <>
-            <IntroSectionHeadingStyled className="intro-section">
+            <IntroSectionHeadingStyled>
                 <Badge>INTRODUCING EMETH</Badge>
                 <Text fontSize={56} fontWeight="bold" align="left">
                     Next-Gen DeFi <br /> Portfolio Management
@@ -47,10 +68,8 @@ const IntroSection = () => {
                         align="left"
                     >
                         In a realm where decentralization meets finance, Emeth
-                        stands out as the beacon of intelligent{' '}
-                        <span className="gradient-text">
-                            DeFi portfolio management
-                        </span>
+                        stands out as the beacon of intelligent
+                        <GradientText>DeFi portfolio management</GradientText>
                         , dedicated to empowering businesses, startups, and
                         crypto investors in navigating the vibrant, yet complex,
                         digital asset universe. <br /> <br /> At Emeth, we align

@@ -1,13 +1,16 @@
 import { useState, useRef } from 'react'
 import styled, { css } from 'styled-components'
-import faqs from './faqs'
-import PlusIcon from '../Icons/PlusIcon'
-import MinusIcon from '../Icons/MinusIcon'
-import { Text } from '../Text/Text'
-import Badge from '../Badge/Badge'
-import linearGradient from '../../utils/gradient'
+import PlusIcon from './Icons/PlusIcon'
+import MinusIcon from './Icons/MinusIcon'
+import { Text } from './Text'
+import Badge from './Badge'
+import linearGradient from '../utils/gradient'
+import faqs from '../utils/faqs'
 
-const AccordionItem = styled.div`
+interface AccordionItemProps {
+    isActive: boolean
+}
+const AccordionItem = styled.div<AccordionItemProps>`
     position: relative;
     background: transparent;
     border-top: 1px solid #333;
@@ -89,7 +92,7 @@ const AccordionItems = ({
 }) =>
     accordionContent.map(({ title, content }, i) => (
         <AccordionItem
-            key={`accordion-item-${i}`}
+            key={`accordion-item-${title}`}
             isActive={currentAccordion === i}
         >
             {' '}

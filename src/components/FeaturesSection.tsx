@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import Badge from '../Badge/Badge'
-import { Text } from '../Text/Text'
+import Badge from './Badge'
+import { Text } from './Text'
 import Feature from './Feature'
 
 const features = [

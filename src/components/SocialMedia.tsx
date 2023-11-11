@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import TwitterIcon from '../Icons/TwitterIcon'
-import DiscordIcon from '../Icons/DiscordIcon'
-import TelegramIcon from '../Icons/TelegramIcon'
+import TwitterIcon from './Icons/TwitterIcon'
+import DiscordIcon from './Icons/DiscordIcon'
+import TelegramIcon from './Icons/TelegramIcon'
 
 const SocialMediaStyled = styled.div`
     display: flex;

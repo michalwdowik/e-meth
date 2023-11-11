@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import SocialMedia from '../SocialMedia/SocialMedia'
-import ArrowRight from '../Icons/ArrowRight'
+import SocialMedia from './SocialMedia'
+import ArrowRight from './Icons/ArrowRight'
 
 const navList = ['Terms & Conditions', 'Privacy Policy']
 

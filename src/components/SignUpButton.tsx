@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import linearGradient from '../../utils/gradient'
+import linearGradient from '../utils/gradient'
 
 const StyledSignUpButton = styled.button`
     position: relative;

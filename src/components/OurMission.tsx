@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import Badge from '../Badge/Badge'
-import Button from '../Button/Button'
-import { Text } from '../Text/Text'
+import Badge from './Badge'
+import Button from './Button'
+import { Text } from './Text'
 
 const OurMissionStyled = styled.div`
     height: 559px;

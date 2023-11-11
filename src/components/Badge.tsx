@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import linearGradient from '../../utils/gradient'
+import linearGradient from '../utils/gradient'
 
 const StyledBadge = styled.div`
     position: relative;
@@ -27,8 +27,11 @@ const StyledBadge = styled.div`
         mask-composite: exclude;
     }
 `
+interface BadgeProps {
+    children: React.ReactNode
+}
 
-const Badge = ({ children }) => {
+const Badge = ({ children }: BadgeProps) => {
     return <StyledBadge>{children}</StyledBadge>
 }
 

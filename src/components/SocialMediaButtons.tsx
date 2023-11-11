@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import FacebookIcon from '../Icons/FacebookIcon'
-import LinkedInIcon from '../Icons/LinkedInIcon'
-import TwitterIcon2 from '../Icons/TwitterIcon2'
+import FacebookIcon from './Icons/FacebookIcon'
+import LinkedInIcon from './Icons/LinkedInIcon'
+import TwitterIcon2 from './Icons/TwitterIcon2'
 
 const SocialMediaStyled = styled.div`
     display: flex;

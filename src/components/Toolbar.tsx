@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import styled from 'styled-components'
-import Logo from '../Logo/Logo'
-import Button from '../Button/Button'
-import SocialMedia from '../SocialMedia/SocialMedia'
+import Logo from './Logo'
+import Button from './Button'
+import SocialMedia from './SocialMedia'
 
 const sections = ['DCA', 'About', 'Features', 'Partners', 'FAQ']
 
@@ -44,8 +44,11 @@ const MobileMenuIcon = styled.div`
         cursor: pointer;
     }
 `
+interface DrawerMenuProps {
+    isOpen: boolean
+}
 
-const DrawerMenu = styled.div`
+const DrawerMenu = styled.div<DrawerMenuProps>`
     position: fixed;
     top: 0;
     left: 0;
@@ -97,8 +100,11 @@ const ItemsWrapper = styled.div`
         display: none;
     }
 `
+interface NavbarProps {
+    type: 'upper' | 'lower'
+}
 
-const Navbar = () => {
+const Navbar = ({ type }: NavbarProps) => {
     const [isOpen, setIsOpen] = useState(false)
 
     const navItems = sections.map((section) => <li key={section}>{section}</li>)
@@ -114,7 +120,11 @@ const Navbar = () => {
                 <Logo />
                 <ItemsWrapper>
                     <NavItems>{navItems}</NavItems>
-                    <Button>Try Emeth Now!</Button>
+                    {type === 'upper' ? (
+                        <Button>Try Emeth Now!</Button>
+                    ) : (
+                        <Button>Join Now!</Button>
+                    )}
                 </ItemsWrapper>
 
                 <MobileMenuIcon onClick={() => setIsOpen(!isOpen)}>

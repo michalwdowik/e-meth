@@ -1,11 +1,11 @@
 import styled from 'styled-components'
-import axelar from '../../assets/partners/axelar.png'
-import golem from '../../assets/partners/golem.png'
-import robohero from '../../assets/partners/robohero.png'
-import thorstarter from '../../assets/partners/thorstarter.png'
-import tubbly from '../../assets/partners/tubbly.png'
-import atlo from '../../assets/partners/atlo.png'
-import { Text } from '../Text/Text'
+import axelar from '../assets/partners/axelar.png'
+import golem from '../assets/partners/golem.png'
+import robohero from '../assets/partners/robohero.png'
+import thorstarter from '../assets/partners/thorstarter.png'
+import tubbly from '../assets/partners/tubbly.png'
+import atlo from '../assets/partners/atlo.png'
+import { Text } from './Text'
 
 const OurPartnersSection = styled.div`
     display: flex;

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { useState } from 'react'
-import linearGradient from '../../utils/gradient'
-import Modal from '../Modal/Modal'
+import linearGradient from '../utils/gradient'
+import Modal from './Modal'
 
 type ButtonSize = 'normal' | 'big'
 const StyledButton = styled.button<ButtonProps>`

@@ -1,15 +1,15 @@
 import styled from 'styled-components'
-import Footer from './components/Footer/Footer'
-import GlassyBanner from './components/GlassyBanner/GlassyBanner'
-import Hero from './components/Hero/Hero'
-import OurMission from './components/OurMission/OurMission'
-import OurPartners from './components/OurPartners/OurPartners'
-import ValuesSection from './components/SmallGlassyCard/SmallGlassyCard'
-import Navbar from './components/Toolbar/Toolbar'
-import FeaturesSection from './components/FeaturesSection/FeaturesSection'
-import IntroSection from './components/IntroSection/IntroSection'
+import Footer from './components/Footer'
+import GlassyBanner from './components/GlassyBanner'
+import Hero from './components/Hero'
+import OurMission from './components/OurMission'
+import OurPartners from './components/OurPartners'
+import ValuesSection from './components/SmallGlassyCard'
+import Navbar from './components/Toolbar'
+import FeaturesSection from './components/FeaturesSection'
+import IntroSection from './components/IntroSection'
 // import VideoPlayer from './components/Video/Video'
-import Faq from './components/Faq/Faq'
+import Faq from './components/Faq'
 
 const HomeStyled = styled.div`
     display: flex;
@@ -20,7 +20,7 @@ const HomeStyled = styled.div`
 const Home = () => {
     return (
         <>
-            <Navbar />
+            <Navbar type="upper" />
             <HomeStyled>
                 {/* <VideoPlayer /> */}
                 <Hero />
@@ -31,7 +31,7 @@ const Home = () => {
                 <OurPartners />
                 <Faq />
                 <GlassyBanner />
-                <Navbar />
+                <Navbar type="lower" />
                 <Footer />
             </HomeStyled>
         </>
