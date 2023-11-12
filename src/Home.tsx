@@ -22,6 +22,10 @@ const Home = () => {
         <>
             <Navbar type="upper" />
             <HomeStyled>
+                {/* <Hero /> */}
+
+                <IntroSection />
+
                 {/* <VideoPlayer /> */}
                 {/* <Hero />
                 <IntroSection />

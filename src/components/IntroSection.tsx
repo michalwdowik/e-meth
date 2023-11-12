@@ -1,25 +1,30 @@
 import styled from 'styled-components'
 import Badge from './Badge'
 import { Text } from './Text'
+import useScreenSize from '../hooks/useScreenSize'
 
-// Styled components
 const IntroSectionHeadingStyled = styled.div`
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin: 64px 64px 134px 64px;
 `
 
 const IntroSectionStyled = styled.div`
     display: flex;
     align-items: center;
+    /* border: 2px purple solid; */
+
+    @media (max-width: 991px) {
+        flex-direction: column;
+    }
 `
 
 const IntroSectionDescriptionStyled = styled.div`
     display: flex;
     flex-direction: column;
     gap: 64px;
-    margin-bottom: 128px;
+    /* border: 2px green solid; */
+    flex: 1;
 `
 
 const GradientText = styled.span`
@@ -42,18 +47,38 @@ const GradientText = styled.span`
     display: inline;
 `
 
+const IntroSectionImg = styled.img`
+    /* border: 2px red solid; */
+    width: 60%;
+    flex: 0;
+    flex-shrink: 0;
+    margin-left: -5%;
+
+    @media (max-width: 991px) {
+        margin-right: -40%;
+        margin-left: 0;
+        width: 130%; /* Increase the width to make it bigger than 100% */
+    }
+`
+
 const IntroSection = () => {
+    const isSmallScreen = useScreenSize()
     return (
         <>
             <IntroSectionHeadingStyled>
                 <Badge>INTRODUCING EMETH</Badge>
-                <Text fontSize={56} fontWeight="bold" align="left">
-                    Next-Gen DeFi <br /> Portfolio Management
-                </Text>
+                {isSmallScreen ? (
+                    <Text fontSize={28} fontWeight="bold" align="left">
+                        Next-Gen DeFi <br /> Portfolio Management
+                    </Text>
+                ) : (
+                    <Text fontSize={56} fontWeight="bold" align="left">
+                        Next-Gen DeFi <br /> Portfolio Management
+                    </Text>
+                )}
             </IntroSectionHeadingStyled>
             <IntroSectionStyled>
-                <img
-                    style={{ width: '60%' }}
+                <IntroSectionImg
                     src="../src/assets/IntroducingEmethPicture.png"
                     alt="Emeth"
                 />
