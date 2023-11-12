@@ -10,6 +10,7 @@ import FeaturesSection from './components/FeaturesSection'
 import IntroSection from './components/IntroSection'
 // import VideoPlayer from './components/Video/Video'
 import Faq from './components/Faq'
+import useScreenSize from './hooks/useScreenSize'
 
 const HomeStyled = styled.div`
     display: flex;
@@ -18,13 +19,24 @@ const HomeStyled = styled.div`
 `
 
 const Home = () => {
+    const { isScreenSmallerThan767 } = useScreenSize()
     return (
         <>
             <Navbar type="upper" />
             <HomeStyled>
                 {/* <Hero /> */}
 
-                <IntroSection />
+                {/* <IntroSection /> */}
+                {/* <Faq /> */}
+                {/* <FeaturesSection /> */}
+                {/* <OurMission /> */}
+                {/* <GlassyBanner /> */}
+                {/* <FeaturesSection /> */}
+                {/* {!isScreenSmallerThan767 && <Navbar type="lower" />} */}
+                {/* <Footer /> */}
+                {/* <OurPartners /> */}
+
+                <ValuesSection />
 
                 {/* <VideoPlayer /> */}
                 {/* <Hero />
@@ -32,8 +44,6 @@ const Home = () => {
                 <OurMission />
                 <FeaturesSection />
                 <ValuesSection />
-                <OurPartners />
-                <Faq />
                 <GlassyBanner />
                 <Navbar type="lower" />
                 <Footer /> */}

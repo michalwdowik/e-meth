@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import Badge from './Badge'
 import { Text } from './Text'
 import Feature from './Feature'
+import useScreenSize from '../hooks/useScreenSize'
 
 const features = [
     {
@@ -10,6 +11,7 @@ const features = [
         description:
             'Engage in auto-arbitrage, initiate volume generation, formulate yield farming strategies, and auto-rebalance your portfolio, ensuring optimal performance and risk mitigation.',
         imageUrl: 'Feature1.png',
+        lightImageUrl: 'Feature1Light.png',
         iconUrl: 'StrategicAutomationIcon.png',
         gradientUrl: 'Feature1Gradient.png',
     },
@@ -19,6 +21,7 @@ const features = [
         description:
             'With a sophisticated yet intuitive interface, manage your digital assets by setting advanced parameters, defining portfolio structures, and monitoring real-time performance, ensuring strategic alignment with your financial goals.',
         imageUrl: 'Feature2.png',
+        lightImageUrl: 'Feature2Light.png',
         iconUrl: 'StreamlinePortfolioIcon.png',
         gradientUrl: 'Feature2Gradient.png',
     },
@@ -28,6 +31,7 @@ const features = [
         description:
             'Uncover opportunities and gauge market pulse with live data, sentiment analysis, and a consolidated overview of your asset holdings, driving informed and timely decision-making.',
         imageUrl: 'Feature3.png',
+        lightImageUrl: 'Feature3Light.png',
         iconUrl: 'MarketInsightsIcon.png',
         gradientUrl: 'Feature3Gradient.png',
     },
@@ -37,7 +41,7 @@ const FeaturesSectionStyled = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 10px;
+    gap: 56px;
     background-color: transparent;
     position: relative; // This makes it the positioning context for absolutely positioned children
     overflow: hidden; // This ensures that the gradient doesn't flow outside the component
@@ -47,7 +51,12 @@ const FeaturesSectionHero = styled.div`
     display: flex;
     justify-content: space-between;
     gap: 10px;
-    margin: 64px 64px 134px 64px;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        justify-content: center;
+        gap: 40px;
+    }
 `
 
 const FeaturesSectionHeroTitle = styled.div`
@@ -55,6 +64,9 @@ const FeaturesSectionHeroTitle = styled.div`
     flex-direction: column;
     gap: 10px;
     max-width: 50%;
+    @media (max-width: 768px) {
+        max-width: 100%;
+    }
 `
 
 const FeaturesSectionHeroDescription = styled.div`
@@ -63,32 +75,39 @@ const FeaturesSectionHeroDescription = styled.div`
     gap: 10px;
     margin-top: 128px;
     max-width: 30%;
+
+    @media (max-width: 768px) {
+        max-width: 100%;
+        margin-top: 0;
+    }
 `
 
 const GradientOverlay = styled.img`
     position: absolute;
     top: -168px;
-    left: 0; // Start at the left of the FeaturesSectionStyled
-    background-image: url('../src/assets/FeaturesSectionGradient.png');
-    background-size: contain; // Cover the entire size of the GradientOverlay
-    background-repeat: no-repeat;
-    z-index: -1; // Ensure it's behind all other content
+    left: 0;
+    z-index: -1;
 `
 const FeaturesSection = () => {
+    const { isScreenExtraSmall } = useScreenSize()
     return (
         <FeaturesSectionStyled>
             <GradientOverlay src="../src/assets/FeaturesSectionGradient.png" />
             <FeaturesSectionHero>
                 <FeaturesSectionHeroTitle>
                     <Badge>Features</Badge>
-                    <Text fontSize={56} fontWeight="bold" align="left">
+                    <Text
+                        fontSize={isScreenExtraSmall ? 28 : 56}
+                        fontWeight="bold"
+                        align="left"
+                    >
                         Unleash the Power of <br /> Automated Portfolio <br />
                         Management
                     </Text>
                 </FeaturesSectionHeroTitle>
                 <FeaturesSectionHeroDescription>
                     <Text
-                        fontSize={16}
+                        fontSize={isScreenExtraSmall ? 14 : 16}
                         fontWeight="light"
                         align="left"
                         color="grey"
@@ -111,6 +130,7 @@ const FeaturesSection = () => {
                     title={feature.title}
                     description={feature.description}
                     imageUrl={feature.imageUrl}
+                    lightImageUrl={feature.lightImageUrl}
                     iconUrl={feature.iconUrl}
                     gradientUrl={feature.gradientUrl}
                 />

@@ -61,10 +61,29 @@ const IntroSectionImg = styled.img`
     }
 `
 
+const IntroSectionContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+`
+
+const GradientOverlay = styled.img`
+    position: absolute;
+    width: 100%;
+    right: 0;
+    top: -168px;
+    /* left: 0; // Start at the left of the FeaturesSectionStyled */
+    z-index: -1; // Ensure it's behind all other content
+`
+
 const IntroSection = () => {
     const isSmallScreen = useScreenSize()
     return (
-        <>
+        <IntroSectionContainer>
+            {isSmallScreen && (
+                <GradientOverlay src="../src/assets/IntroducingEmethGradientMobile.png" />
+            )}
+
             <IntroSectionHeadingStyled>
                 <Badge>INTRODUCING EMETH</Badge>
                 {isSmallScreen ? (
@@ -105,7 +124,7 @@ const IntroSection = () => {
                     </Text>
                 </IntroSectionDescriptionStyled>
             </IntroSectionStyled>
-        </>
+        </IntroSectionContainer>
     )
 }
 

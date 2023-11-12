@@ -6,6 +6,7 @@ import thorstarter from '../assets/partners/thorstarter.png'
 import tubbly from '../assets/partners/tubbly.png'
 import atlo from '../assets/partners/atlo.png'
 import { Text } from './Text'
+import useScreenSize from '../hooks/useScreenSize'
 
 const OurPartnersSection = styled.div`
     display: flex;
@@ -13,33 +14,37 @@ const OurPartnersSection = styled.div`
     justify-content: center;
     align-items: center;
     gap: 2rem;
-    margin: 5rem 10rem;
 `
 
 const OurPartnersDiv = styled.div`
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 20px;
     width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+
+    @media (max-width: 768px) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 40px;
+        place-items: center;
+    }
 `
 
-const PartnerImage = styled.img`
-    max-width: 100px;
-    margin: 10px;
-`
+const PartnerImage = styled.img``
 
 const Divider = styled.div`
-    width: 100%;
+    width: 80%;
     border: 1px rgba(255, 255, 255, 0.2) solid;
 `
 
 const OurPartners = () => {
     const partnerImages = [axelar, thorstarter, golem, robohero, atlo, tubbly]
-
+    const { isScreenSmallerThan767 } = useScreenSize()
     return (
         <OurPartnersSection>
-            <Text fontSize={56}>Our Partners</Text>
+            <Text fontSize={isScreenSmallerThan767 ? 28 : 56}>
+                Our Partners
+            </Text>
             <Divider />
             <OurPartnersDiv>
                 {partnerImages.map((image) => (

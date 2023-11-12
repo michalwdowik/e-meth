@@ -32,7 +32,7 @@ const NavItems = styled.ul`
     margin: 0;
     padding: 0;
 
-    @media (max-width: 768px) {
+    @media (max-width: 766px) {
         display: none;
     }
 
@@ -44,7 +44,7 @@ const NavItems = styled.ul`
 
 const MobileMenuIcon = styled.div`
     display: none;
-    @media (max-width: 768px) {
+    @media (max-width: 766px) {
         display: block;
         font-size: 24px;
         cursor: pointer;
@@ -118,7 +118,7 @@ const Wrapper = styled.div`
     align-items: center;
     gap: 32px;
 
-    @media (min-width: 769px) {
+    @media (min-width: 767px) {
         display: none;
     }
 `
@@ -126,7 +126,7 @@ const Wrapper = styled.div`
 const Navbar = ({ type }: NavbarProps) => {
     const [isOpen, setIsOpen] = useState(false)
 
-    const isSmallScreen = useScreenSize()
+    const { isScreenSmallerThan767 } = useScreenSize()
 
     const navItems = sections.map((section) => (
         <li style={{ fontSize: '14px' }} key={section}>
@@ -145,7 +145,7 @@ const Navbar = ({ type }: NavbarProps) => {
                 <Logo />
                 <ItemsWrapper>
                     <NavItems>{navItems}</NavItems>
-                    {!isSmallScreen &&
+                    {!isScreenSmallerThan767 &&
                         (type === 'upper' ? (
                             <Button>Try Emeth Now!</Button>
                         ) : (
@@ -153,7 +153,7 @@ const Navbar = ({ type }: NavbarProps) => {
                         ))}
                 </ItemsWrapper>
                 <Wrapper>
-                    {isSmallScreen && <Button>Try Now</Button>}
+                    {isScreenSmallerThan767 && <Button>Try Now</Button>}
                     <MobileMenuIcon onClick={() => setIsOpen(!isOpen)}>
                         ☰
                     </MobileMenuIcon>

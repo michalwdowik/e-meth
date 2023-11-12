@@ -1,9 +1,19 @@
 import styled from 'styled-components'
 import Button from './Button'
 import { Text } from './Text'
+import useScreenSize from '../hooks/useScreenSize'
 
-const NewsletterSection = styled.div`
-    background: url('/src/assets/NewsletterGradient.png');
+interface NewsletterSectionProps {
+    isScreenExtraSmall: boolean
+}
+
+const getBackgroundUrl = (isScreenExtraSmall: boolean) =>
+    isScreenExtraSmall
+        ? '/src/assets/NewsletterGradientMobile.png'
+        : '/src/assets/NewsletterGradient.png'
+
+const NewsletterSection = styled.div<NewsletterSectionProps>`
+    background: url(${(props) => getBackgroundUrl(props.isScreenExtraSmall)});
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -13,14 +23,19 @@ const NewsletterSection = styled.div`
     align-items: center;
 `
 
-const GlassyBannerContainer = styled.div`
+interface GlassyBannerContainerProps {
+    isScreenExtraSmall: boolean
+}
+const GlassyBannerContainer = styled.div<GlassyBannerContainerProps>`
+    height: ${({ isScreenExtraSmall }) =>
+        isScreenExtraSmall ? '353px' : '800px'};
+    padding: ${({ isScreenExtraSmall }) =>
+        isScreenExtraSmall ? '48px' : '218px 76px 154px 76px'};
     z-index: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    backdrop-filter: blur(12px);
-    padding: 218px 76px 154px 76px;
     text-align: center;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     margin: 2rem auto;
@@ -38,11 +53,6 @@ const GlassyBannerContainer = styled.div`
     gap: 40px;
     border-color: transparent;
     overflow: hidden;
-
-    /* &:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 45px rgba(0, 0, 0, 0.15);
-    } */
 
     &::before {
         content: '';
@@ -86,14 +96,17 @@ const StyledButton = styled(Button)`
 `
 
 const GlassyBanner = () => {
+    const { isScreenExtraSmall } = useScreenSize()
     return (
-        <NewsletterSection>
-            <GlassyBannerContainer>
-                <Text fontSize={40}>
+        <NewsletterSection isScreenExtraSmall={isScreenExtraSmall}>
+            <GlassyBannerContainer isScreenExtraSmall={isScreenExtraSmall}>
+                <Text fontSize={isScreenExtraSmall ? 24 : 40}>
                     Join us on a journey to redefine what&apos;s <br /> possible
                     in the DeFi space.
                 </Text>
-                <StyledButton size="big">JOIN NOW</StyledButton>
+                <StyledButton size={isScreenExtraSmall ? 'normal' : 'big'}>
+                    JOIN NOW
+                </StyledButton>
             </GlassyBannerContainer>
         </NewsletterSection>
     )

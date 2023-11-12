@@ -4,9 +4,9 @@ import { Text } from './Text'
 import { cardDataRow1, cardDataRow2 } from '../utils/cardData'
 
 const ValuesSectionContainer = styled.div`
-    background-position: calc(100% + 15rem) calc(0rem - 8rem);
-    background-size: contain;
-    width: 100vw;
+    /* background-position: calc(100% + 15rem) calc(0rem - 8rem); */
+    /* background-size: contain; */
+    /* width: 100vw; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -93,7 +93,6 @@ const Row = styled.div<RowProps>`
 `
 
 const SectionHeading = styled.div`
-    max-width: 600px;
     text-align: start;
     color: #fff;
     margin-bottom: 5rem;

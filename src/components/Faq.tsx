@@ -6,6 +6,7 @@ import { Text } from './Text'
 import Badge from './Badge'
 import linearGradient from '../utils/gradient'
 import faqs from '../utils/faqs'
+import useScreenSize from '../hooks/useScreenSize'
 
 interface AccordionItemProps {
     isActive: boolean
@@ -78,7 +79,7 @@ const AccordionBody = styled.div`
 
 const AccordionContent = styled.p`
     margin: 0;
-    padding: 0 1rem 1rem;
+    padding: 0 16px 16px;
     height: auto;
 `
 interface AccordionItemsProps {
@@ -133,18 +134,20 @@ const AccordionItems = ({
 const FaqHeading = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: ${(props) =>
+        props.isScreenExtraSmall ? 'flex-start' : 'center'};
     gap: 24px;
     margin-bottom: 80px;
 `
+interface FaqStyledProps {
+    isScreenExtraSmall: boolean
+}
 
-const FaqStyled = styled.div`
+const FaqStyled = styled.div<FaqStyledProps>`
     display: flex;
     flex-direction: column;
-    align-items: center;
-    /* gap: 24px; */
-    margin: 0 168px;
 `
+
 const Faq = () => {
     const [currentAccordion, setCurrentAccordion] = useState(-1)
     const [bodyHeight, setBodyHeight] = useState(0)
@@ -157,11 +160,18 @@ const Faq = () => {
     const item5 = useRef(null)
 
     const refs = [item0, item1, item2, item3, item4, item5]
+
+    const { isScreenExtraSmall } = useScreenSize()
+
     return (
-        <FaqStyled>
-            <FaqHeading>
+        <FaqStyled isScreenExtraSmall={isScreenExtraSmall}>
+            <FaqHeading isScreenExtraSmall={isScreenExtraSmall}>
                 <Badge>FAQ</Badge>
-                <Text fontSize={56} fontWeight="bold">
+                <Text
+                    fontSize={isScreenExtraSmall ? 28 : 56}
+                    align={isScreenExtraSmall ? 'left' : 'center'}
+                    fontWeight="bold"
+                >
                     Frequently Asked <br /> Questions
                 </Text>
             </FaqHeading>
