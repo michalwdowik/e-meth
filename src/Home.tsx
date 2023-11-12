@@ -23,7 +23,7 @@ const Home = () => {
             <Navbar type="upper" />
             <HomeStyled>
                 {/* <VideoPlayer /> */}
-                <Hero />
+                {/* <Hero />
                 <IntroSection />
                 <OurMission />
                 <FeaturesSection />
@@ -32,7 +32,7 @@ const Home = () => {
                 <Faq />
                 <GlassyBanner />
                 <Navbar type="lower" />
-                <Footer />
+                <Footer /> */}
             </HomeStyled>
         </>
     )

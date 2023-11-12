@@ -81,6 +81,17 @@ const AccordionContent = styled.p`
     padding: 0 1rem 1rem;
     height: auto;
 `
+interface AccordionItemsProps {
+    accordionContent: {
+        title: string
+        content: string
+    }[]
+    refs: any[]
+    currentAccordion: number
+    setCurrentAccordion: React.Dispatch<React.SetStateAction<number>>
+    setBodyHeight: React.Dispatch<React.SetStateAction<number>>
+    bodyHeight: number
+}
 
 const AccordionItems = ({
     accordionContent,
@@ -89,7 +100,7 @@ const AccordionItems = ({
     setCurrentAccordion,
     setBodyHeight,
     bodyHeight,
-}) =>
+}: AccordionItemsProps) =>
     accordionContent.map(({ title, content }, i) => (
         <AccordionItem
             key={`accordion-item-${title}`}

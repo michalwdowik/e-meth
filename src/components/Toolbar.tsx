@@ -1,8 +1,10 @@
+/* eslint-disable no-nested-ternary */
 import { useState } from 'react'
 import styled from 'styled-components'
 import Logo from './Logo'
 import Button from './Button'
 import SocialMedia from './SocialMedia'
+import useScreenSize from '../hooks/useScreenSize'
 
 const sections = ['DCA', 'About', 'Features', 'Partners', 'FAQ']
 
@@ -11,12 +13,16 @@ const NavbarContainer = styled.nav`
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 80px;
+    padding: 40px 80px;
     background: transparent;
     color: #fff;
 
     @media (max-width: 768px) {
-        justify-content: flex-end;
+        padding: 40px 16px;
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 991px) {
+        padding: 40px 20px;
     }
 `
 
@@ -74,8 +80,8 @@ const DrawerItem = styled.div`
 
 const CloseButton = styled.div`
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 40px;
+    right: 16px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -88,26 +94,45 @@ const CopyrightInfo = styled.div`
     color: #aaa;
     font-size: 14px;
     text-align: center;
-    padding: 20px 0;
 `
 
 const ItemsWrapper = styled.div`
     display: flex;
     align-items: center;
     gap: 32px;
-
-    @media (max-width: 768px) {
-        display: none;
-    }
 `
 interface NavbarProps {
     type: 'upper' | 'lower'
 }
 
+const DrawerItems = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+`
+
+const Wrapper = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 32px;
+
+    @media (min-width: 769px) {
+        display: none;
+    }
+`
+
 const Navbar = ({ type }: NavbarProps) => {
     const [isOpen, setIsOpen] = useState(false)
 
-    const navItems = sections.map((section) => <li key={section}>{section}</li>)
+    const isSmallScreen = useScreenSize()
+
+    const navItems = sections.map((section) => (
+        <li style={{ fontSize: '14px' }} key={section}>
+            {section}
+        </li>
+    ))
     const drawerItems = sections.map((section) => (
         <DrawerItem key={section} onClick={() => setIsOpen(false)}>
             {section}
@@ -120,16 +145,19 @@ const Navbar = ({ type }: NavbarProps) => {
                 <Logo />
                 <ItemsWrapper>
                     <NavItems>{navItems}</NavItems>
-                    {type === 'upper' ? (
-                        <Button>Try Emeth Now!</Button>
-                    ) : (
-                        <Button>Join Now!</Button>
-                    )}
+                    {!isSmallScreen &&
+                        (type === 'upper' ? (
+                            <Button>Try Emeth Now!</Button>
+                        ) : (
+                            <Button>Join Now!</Button>
+                        ))}
                 </ItemsWrapper>
-
-                <MobileMenuIcon onClick={() => setIsOpen(!isOpen)}>
-                    ☰
-                </MobileMenuIcon>
+                <Wrapper>
+                    {isSmallScreen && <Button>Try Now</Button>}
+                    <MobileMenuIcon onClick={() => setIsOpen(!isOpen)}>
+                        ☰
+                    </MobileMenuIcon>
+                </Wrapper>
             </NavbarContainer>
             <DrawerMenu isOpen={isOpen}>
                 <CloseButton onClick={() => setIsOpen(false)}>
@@ -147,7 +175,7 @@ const Navbar = ({ type }: NavbarProps) => {
                         />
                     </svg>
                 </CloseButton>
-                {drawerItems}
+                <DrawerItems>{drawerItems}</DrawerItems>
                 <Button>Try Emeth Now!</Button>
                 <SocialMedia />
                 <CopyrightInfo>
