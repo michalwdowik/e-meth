@@ -16,6 +16,7 @@ const StyledButton = styled.button<ButtonProps>`
     align-items: center;
     justify-content: center;
     font-size: 14px;
+    z-index: 3;
     color: #fff;
     background: transparent;
     cursor: pointer;

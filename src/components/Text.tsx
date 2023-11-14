@@ -40,4 +40,5 @@ const ContentContainer = styled.div<TextProps>`
     font-family: Sora, sans-serif;
     color: ${(props) => props.color};
     text-align: ${(props) => props.align};
+    z-index: 2;
 `

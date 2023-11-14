@@ -2,9 +2,8 @@ import { Link } from 'react-router-dom'
 
 const Logo = () => {
     return (
-        <Link to="/">
+        <Link className="logo" to="/">
             <svg
-                className="logo"
                 xmlns="http://www.w3.org/2000/svg"
                 width="111"
                 height="24"

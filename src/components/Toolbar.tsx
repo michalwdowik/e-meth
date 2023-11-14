@@ -14,8 +14,9 @@ const NavbarContainer = styled.nav`
     justify-content: space-between;
     align-items: center;
     padding: ${({ type }) => (type === 'upper' ? '40px 80px' : '0')};
-    background: transparent;
+    background: black;
     color: #fff;
+    /* z-index: 3; */
 
     @media (max-width: 768px) {
         padding: ${({ type }) => (type === 'upper' ? '40px 16px' : '0')};
@@ -31,6 +32,7 @@ const NavItems = styled.ul`
     display: flex;
     margin: 0;
     padding: 0;
+    z-index: 2;
 
     @media (max-width: 766px) {
         display: none;
@@ -44,6 +46,7 @@ const NavItems = styled.ul`
 
 const MobileMenuIcon = styled.div`
     display: none;
+    z-index: 2;
     @media (max-width: 766px) {
         display: block;
         font-size: 24px;

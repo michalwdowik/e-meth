@@ -20,6 +20,7 @@ const HomeStyled = styled.div`
     gap: 48px;
     overflow: hidden;
     margin-bottom: 48px;
+    background-color: black;
     @media (max-width: 1024px) {
         padding: 0 64px;
     }
@@ -31,6 +32,7 @@ const HomeStyled = styled.div`
 
 const Home = () => {
     const { isScreenSmallerThan767 } = useScreenSize()
+    const video = true
     return (
         <>
             <Navbar type="upper" />
@@ -40,11 +42,15 @@ const Home = () => {
                 {/* <OurMission />
                 <GlassyBanner />
                 <FeaturesSection />
+
                 {/* <ValuesSection /> */}
 
+                {/* <div style={{ marginTop: '-300px' }}> */}
+                <Hero video={video} />
                 <IntroSection />
                 <OurMission />
                 <FeaturesSection />
+                <ValuesSection />
                 <OurPartners />
                 <Faq />
                 <GlassyBanner />
@@ -53,12 +59,6 @@ const Home = () => {
 
                 {/* <VideoPlayer /> */}
                 {/* <Hero />
-                <IntroSection />
-                <OurMission />
-                <FeaturesSection />
-                <ValuesSection />
-                <GlassyBanner />
-                <Navbar type="lower" />
                 <Footer /> */}
             </HomeStyled>
         </>
