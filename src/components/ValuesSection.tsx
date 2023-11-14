@@ -15,24 +15,45 @@ interface RowProps {
 }
 
 const ValuesSectionContainer = styled.div`
-    background-position: calc(100% + 15rem) calc(0rem - 8rem);
+    background: url('/src/assets/GlassyBannerGradient.png');
+    background-repeat: no-repeat;
+    background-position: right;
+    position: relative;
+    background-position: calc(100%) calc(100% - 60px);
     background-size: contain;
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
+    border: 2px red solid;
+    /* margin-left: -112px; */
+    /* width: calc(100% + 224px); */
+
+    /* @media (max-width: 767px) {
+        background-size: cover;
+        background-size: auto;
+        background-repeat: repeat-y; // To repeat the background once vertically
+        background-position:
+            right top,
+            100px 100%; // Centered at the top, and 100px to the left at the bottom
+    } */
 `
 
 const CardContainer = styled.div`
     display: flex;
     flex-direction: column;
+    width: 100%;
+    max-width: 1220px;
+    margin: 0 auto;
     gap: 32px;
 `
 
 const StyledCard = styled.div`
     position: relative;
     display: flex;
-    width: 384px;
+    max-width: 384px;
     height: 384px;
+    width: 100%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -63,6 +84,15 @@ const StyledCard = styled.div`
             linear-gradient(#fff 0 0);
         -webkit-mask-composite: xor;
         mask-composite: exclude;
+    }
+
+    @media (max-width: 767px) {
+        max-width: 719px;
+        height: 300px;
+    }
+
+    @media (max-width: 567px) {
+        height: 384px;
     }
 `
 
@@ -95,7 +125,10 @@ const Row = styled.div<RowProps>`
     display: flex;
     gap: 2rem;
     justify-content: ${(props) => props.justify};
-    width: 100%;
+
+    @media (max-width: 1445px) {
+        justify-content: center;
+    }
 
     @media (max-width: 768px) {
         flex-direction: column;
@@ -111,10 +144,9 @@ const SectionHeading = styled.div`
     display: flex;
     flex-direction: column;
     gap: 24px;
-    width: 50%;
 
-    @media (max-width: 768px) {
-        width: 100%;
+    @media (max-width: 1445px) {
+        margin-left: 0;
     }
 `
 
@@ -128,6 +160,13 @@ const Card = ({ title, description, icon }: CardProps) => (
     </StyledCard>
 )
 
+const SectionHeadingDescription = styled.div`
+    width: 50%;
+
+    @media (max-width: 991px) {
+        width: 100%;
+    }
+`
 const ValuesSection = () => {
     const { isScreenExtraSmall } = useScreenSize()
     return (
@@ -139,19 +178,19 @@ const ValuesSection = () => {
                     fontSize={isScreenExtraSmall ? 28 : 56}
                     fontWeight="bold"
                 >
-                    Anchored in Values
-                    <br />
-                    Driven by Innovation
+                    Anchored in Values, <br /> Driven by Innovation
                 </Text>
-                <Text
-                    align="left"
-                    fontSize={isScreenExtraSmall ? 14 : 20}
-                    fontWeight="light"
-                >
-                    At the heart of Emeth lies a steadfast commitment to a set
-                    of guiding principles that shape every facet of our platform
-                    and influence every decision we undertake.
-                </Text>
+                <SectionHeadingDescription>
+                    <Text
+                        align="left"
+                        fontSize={isScreenExtraSmall ? 14 : 20}
+                        fontWeight="light"
+                    >
+                        At the heart of Emeth lies a steadfast commitment to a
+                        set of guiding principles that shape every facet of our
+                        platform and influence every decision we undertake.
+                    </Text>
+                </SectionHeadingDescription>
             </SectionHeading>
 
             <CardContainer>

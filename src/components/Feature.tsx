@@ -8,23 +8,21 @@ const FeatureContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* margin: 64px 112px 134px 112px; */
     background: transparent;
     gap: 40px;
-    /* border: 2px red solid; */
 
-    @media (max-width: 768px) {
+    @media (max-width: 766px) {
         flex-direction: column;
         align-items: stretch;
     }
 `
 
 const TextSection = styled.div`
-    max-width: 30%;
+    max-width: 35%;
     display: flex;
     flex-direction: column;
     gap: 40px;
-    @media (max-width: 768px) {
+    @media (max-width: 766px) {
         max-width: 100%;
         gap: 16px;
     }
@@ -43,7 +41,7 @@ const FeatureImage = styled.img`
     max-width: 60%;
     height: auto;
     z-index: 1;
-    @media (max-width: 768px) {
+    @media (max-width: 766px) {
         max-width: 100%;
     }
 `
@@ -61,7 +59,7 @@ interface FeatureProps {
 
 const FeatureTitle = styled.div`
     width: 100%;
-    @media (max-width: 768px) {
+    @media (max-width: 766px) {
         width: 50%;
     }
 `
@@ -81,36 +79,55 @@ const Feature = ({
     const { isScreenSmallerThan767 } = useScreenSize()
     return (
         <FeatureContainer>
-            {/* <GradientOverlay src={`../src/assets/${gradientUrl}`} /> */}
-            <FeatureImage
-                src={`../src/assets/${
-                    isScreenSmallerThan767 ? lightImageUrl : imageUrl
-                }`}
-                alt={title}
-            />
-            <TextSection>
-                <FeatureIcon src={`../src/assets/${iconUrl}`} alt={title} />
-                <FeatureTitle>
-                    <Text
-                        fontSize={isScreenSmallerThan767 ? 20 : 32}
-                        fontWeight="bold"
-                        align="left"
-                    >
-                        {title}
-                    </Text>
-                </FeatureTitle>
-                <FeatureDescription>
-                    <Text
-                        fontSize={isScreenSmallerThan767 ? 14 : 16}
-                        align="left"
-                        fontWeight="light"
-                        color="grey"
-                    >
-                        {description}
-                    </Text>
-                </FeatureDescription>
-                <LearnMoreButton />
-            </TextSection>
+            {isScreenSmallerThan767 ? (
+                <>
+                    <FeatureImage
+                        src={`../src/assets/${lightImageUrl}`}
+                        alt={title}
+                    />
+                    <TextSection>
+                        <FeatureIcon
+                            src={`../src/assets/${iconUrl}`}
+                            alt={title}
+                        />
+                        <FeatureTitle>
+                            <Text fontSize={20} fontWeight="bold" align="left">
+                                {title}
+                            </Text>
+                        </FeatureTitle>
+                        <FeatureDescription>
+                            <Text fontSize={14} align="left" fontWeight="light">
+                                {description}
+                            </Text>
+                        </FeatureDescription>
+                        <LearnMoreButton />
+                    </TextSection>
+                </>
+            ) : (
+                <>
+                    <TextSection>
+                        <FeatureIcon
+                            src={`../src/assets/${iconUrl}`}
+                            alt={title}
+                        />
+                        <FeatureTitle>
+                            <Text fontSize={32} fontWeight="bold" align="left">
+                                {title}
+                            </Text>
+                        </FeatureTitle>
+                        <FeatureDescription>
+                            <Text fontSize={16} align="left" fontWeight="light">
+                                {description}
+                            </Text>
+                        </FeatureDescription>
+                        <LearnMoreButton />
+                    </TextSection>
+                    <FeatureImage
+                        src={`../src/assets/${imageUrl}`}
+                        alt={title}
+                    />
+                </>
+            )}
         </FeatureContainer>
     )
 }

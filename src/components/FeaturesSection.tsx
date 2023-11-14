@@ -3,48 +3,31 @@ import Badge from './Badge'
 import { Text } from './Text'
 import Feature from './Feature'
 import useScreenSize from '../hooks/useScreenSize'
-
-const features = [
-    {
-        id: 1,
-        title: 'Strategic Automation',
-        description:
-            'Engage in auto-arbitrage, initiate volume generation, formulate yield farming strategies, and auto-rebalance your portfolio, ensuring optimal performance and risk mitigation.',
-        imageUrl: 'Feature1.png',
-        lightImageUrl: 'Feature1Light.png',
-        iconUrl: 'StrategicAutomationIcon.png',
-        gradientUrl: 'Feature1Gradient.png',
-    },
-    {
-        id: 2,
-        title: 'Streamlined Portfolio Management',
-        description:
-            'With a sophisticated yet intuitive interface, manage your digital assets by setting advanced parameters, defining portfolio structures, and monitoring real-time performance, ensuring strategic alignment with your financial goals.',
-        imageUrl: 'Feature2.png',
-        lightImageUrl: 'Feature2Light.png',
-        iconUrl: 'StreamlinePortfolioIcon.png',
-        gradientUrl: 'Feature2Gradient.png',
-    },
-    {
-        id: 3,
-        title: 'In-Depth Dashboards & Market Insights',
-        description:
-            'Uncover opportunities and gauge market pulse with live data, sentiment analysis, and a consolidated overview of your asset holdings, driving informed and timely decision-making.',
-        imageUrl: 'Feature3.png',
-        lightImageUrl: 'Feature3Light.png',
-        iconUrl: 'MarketInsightsIcon.png',
-        gradientUrl: 'Feature3Gradient.png',
-    },
-]
+import features from '../utils/features'
 
 const FeaturesSectionStyled = styled.div`
+    margin-left: -112px;
+    width: calc(100% + 224px);
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 56px;
     background-color: transparent;
-    position: relative; // This makes it the positioning context for absolutely positioned children
-    overflow: hidden; // This ensures that the gradient doesn't flow outside the component
+    position: relative;
+    overflow: hidden;
+    padding: 0 112px;
+
+    @media (max-width: 1024px) {
+        margin-left: -64px;
+        width: calc(100% + 128px);
+        padding: 0 64px;
+    }
+
+    @media (max-width: 767px) {
+        padding: 128px 24px 24px 24px;
+        margin-left: -24px;
+        width: calc(100% + 48px);
+    }
 `
 
 const FeaturesSectionHero = styled.div`
@@ -52,7 +35,7 @@ const FeaturesSectionHero = styled.div`
     justify-content: space-between;
     gap: 10px;
 
-    @media (max-width: 768px) {
+    @media (max-width: 920px) {
         flex-direction: column;
         justify-content: center;
         gap: 40px;
@@ -63,8 +46,9 @@ const FeaturesSectionHeroTitle = styled.div`
     display: flex;
     flex-direction: column;
     gap: 10px;
-    max-width: 50%;
-    @media (max-width: 768px) {
+    max-width: 60%;
+    max-width: 700px;
+    @media (max-width: 920px) {
         max-width: 100%;
     }
 `
@@ -76,7 +60,7 @@ const FeaturesSectionHeroDescription = styled.div`
     margin-top: 128px;
     max-width: 30%;
 
-    @media (max-width: 768px) {
+    @media (max-width: 920px) {
         max-width: 100%;
         margin-top: 0;
     }
@@ -84,15 +68,28 @@ const FeaturesSectionHeroDescription = styled.div`
 
 const GradientOverlay = styled.img`
     position: absolute;
-    top: -168px;
+    top: -232px;
     left: 0;
     z-index: -1;
+
+    @media (max-width: 576px) {
+        top: -350px;
+        object-fit: cover;
+        width: 100%;
+        left: 0;
+    }
 `
 const FeaturesSection = () => {
     const { isScreenExtraSmall } = useScreenSize()
     return (
         <FeaturesSectionStyled>
-            <GradientOverlay src="../src/assets/FeaturesSectionGradient.png" />
+            <GradientOverlay
+                src={
+                    isScreenExtraSmall
+                        ? '../src/assets/FeaturesGradientMobile.png'
+                        : '../src/assets/FeaturesSectionGradient.png'
+                }
+            />
             <FeaturesSectionHero>
                 <FeaturesSectionHeroTitle>
                     <Badge>Features</Badge>
@@ -101,7 +98,7 @@ const FeaturesSection = () => {
                         fontWeight="bold"
                         align="left"
                     >
-                        Unleash the Power of <br /> Automated Portfolio <br />
+                        Unleash the Power of Automated Portfolio <br />
                         Management
                     </Text>
                 </FeaturesSectionHeroTitle>
@@ -110,7 +107,6 @@ const FeaturesSection = () => {
                         fontSize={isScreenExtraSmall ? 14 : 16}
                         fontWeight="light"
                         align="left"
-                        color="grey"
                     >
                         Emeth bring to you a meticulously crafted suite of
                         features designed to elevate your DeFi operations and

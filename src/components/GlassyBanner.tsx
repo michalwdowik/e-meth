@@ -18,41 +18,46 @@ const NewsletterSection = styled.div<NewsletterSectionProps>`
     background-repeat: no-repeat;
     background-position: center;
     background-color: #070709;
-    height: 800px;
+    height: 900px;
     display: flex;
     align-items: center;
+
+    @media (max-width: 576px) {
+        margin-left: -24px;
+        width: calc(100% + 48px);
+    }
 `
 
 interface GlassyBannerContainerProps {
     isScreenExtraSmall: boolean
 }
 const GlassyBannerContainer = styled.div<GlassyBannerContainerProps>`
-    height: ${({ isScreenExtraSmall }) =>
-        isScreenExtraSmall ? '353px' : '800px'};
-    padding: ${({ isScreenExtraSmall }) =>
-        isScreenExtraSmall ? '48px' : '218px 76px 154px 76px'};
     z-index: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     text-align: center;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    margin: 2rem auto;
-    width: max-content;
+    /* margin: 2rem auto; */
+    margin: 0 auto;
+    /* width: max-content; */
     transition:
         transform 0.3s ease,
         box-shadow 0.3s ease;
-    position: relative;
+    /* position: relative; */
     border-width: 1px;
     border-style: solid;
     border-radius: 32px;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(50px);
-    height: max-content;
+    /* height: max-content; */
     gap: 40px;
     border-color: transparent;
-    overflow: hidden;
+    /* overflow: hidden; */
+    /* width: 100%; */
+    /* max-width: 856px; */
+    padding: 218px 76px 154px 76px;
 
     &::before {
         content: '';
@@ -73,6 +78,33 @@ const GlassyBannerContainer = styled.div<GlassyBannerContainerProps>`
             linear-gradient(#fff 0 0);
         -webkit-mask-composite: xor;
         mask-composite: exclude;
+    }
+
+    @media (max-width: 1167px) {
+        padding: 156px 76px 130px 76px;
+    }
+
+    @media (max-width: 991px) {
+        padding: 132px 76px 48px 76px;
+    }
+
+    @media (max-width: 767px) {
+        padding: 108px 76px 48px 76px;
+        gap: 32px;
+    }
+
+    @media (max-width: 767px) {
+        padding: 80px 76px 36px 76px;
+        gap: 32px;
+    }
+
+    @media (max-width: 767px) {
+        padding: 48px;
+        gap: 32px;
+    }
+
+    @media screen and (max-width: 576px) {
+        margin: 24px;
     }
 `
 
@@ -104,7 +136,7 @@ const GlassyBanner = () => {
                     in the DeFi space.
                 </Text>
                 <StyledButton size={isScreenExtraSmall ? 'normal' : 'big'}>
-                    JOIN NOW
+                    Join Now!
                 </StyledButton>
             </GlassyBannerContainer>
         </NewsletterSection>

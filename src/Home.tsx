@@ -39,9 +39,9 @@ const Home = () => {
                 {/* <OurMission />
                 <GlassyBanner />
                 <FeaturesSection />
-                <OurPartners />
-                <ValuesSection />
-                <Faq /> */}
+                {/* <ValuesSection /> */}
+
+                <FeaturesSection />
                 <OurPartners />
                 <Faq />
                 <GlassyBanner />
