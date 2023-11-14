@@ -57,6 +57,7 @@ const StyledModal = styled.div<StyledModalProps>`
     align-items: flex-start;
     &::before {
         border: 2px solid transparent;
+        border-radius: 16px;
         ${BeforePseudoElement};
     }
 `

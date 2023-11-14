@@ -5,33 +5,48 @@ import { Text } from './Text'
 import useScreenSize from '../hooks/useScreenSize'
 
 const OurMissionStyled = styled.div`
-    height: 559px;
+    /* height: 559px; */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; /* Aligns children vertically in the center */
     align-items: center;
     gap: 32px;
     background: ${(props) =>
         `url(${
-            props.isSmallScreen
+            props.isScreenSmallerThan767
                 ? 'src/assets/OurMissionMobile.png'
                 : 'src/assets/OurMission.png'
         }) no-repeat right`};
     background-color: black;
     background-size: cover;
+    padding: 80px 112px;
+    margin-left: -112px;
+    width: calc(100% + 224px);
+
+    @media (max-width: 1024px) {
+        margin-left: -64px;
+        width: calc(100% + 128px);
+        padding: 80px 64px;
+    }
+
+    @media (max-width: 767px) {
+        padding: 80px 24px 80px 24px;
+        margin-left: -24px;
+        width: calc(100% + 48px);
+    }
 `
 
 const OurMission = () => {
-    const isSmallScreen = useScreenSize()
+    const { isScreenSmall, isScreenSmallerThan767 } = useScreenSize()
     return (
-        <OurMissionStyled isSmallScreen={isSmallScreen}>
+        <OurMissionStyled isScreenSmallerThan767={isScreenSmallerThan767}>
             <Badge>OUR MISSION</Badge>
-            <Text fontWeight="bold" fontSize={isSmallScreen ? 24 : 40}>
+            <Text fontWeight="bold" fontSize={isScreenSmallerThan767 ? 24 : 40}>
                 To streamline and automate DeFi operations, delivering <br />
                 unprecedented efficiency, cost-effectiveness, and <br />
                 transparency in managing digital assets.
             </Text>
-            <Button size={isSmallScreen ? 'normal' : 'big'}>JOIN NOW</Button>
+            <Button size={isScreenSmall ? 'normal' : 'big'}>JOIN NOW</Button>
         </OurMissionStyled>
     )
 }

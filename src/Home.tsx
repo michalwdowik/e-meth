@@ -18,6 +18,7 @@ const HomeStyled = styled.div`
     padding: 0 112px;
     justify-content: center;
     gap: 48px;
+    overflow: hidden;
     margin-bottom: 48px;
     @media (max-width: 1024px) {
         padding: 0 64px;
@@ -41,6 +42,8 @@ const Home = () => {
                 <FeaturesSection />
                 {/* <ValuesSection /> */}
 
+                <IntroSection />
+                <OurMission />
                 <FeaturesSection />
                 <OurPartners />
                 <Faq />

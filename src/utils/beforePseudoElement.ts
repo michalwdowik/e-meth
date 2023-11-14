@@ -8,7 +8,6 @@ const BeforePseudoElement = css`
     left: 0;
     right: 0;
     bottom: 0;
-    border-radius: 16px;
     background: ${linearGradient} border-box;
     -webkit-mask:
         linear-gradient(#fff 0 0) padding-box,

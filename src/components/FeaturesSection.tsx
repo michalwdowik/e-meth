@@ -6,8 +6,6 @@ import useScreenSize from '../hooks/useScreenSize'
 import features from '../utils/features'
 
 const FeaturesSectionStyled = styled.div`
-    margin-left: -112px;
-    width: calc(100% + 224px);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -16,6 +14,8 @@ const FeaturesSectionStyled = styled.div`
     position: relative;
     overflow: hidden;
     padding: 0 112px;
+    margin-left: -112px;
+    width: calc(100% + 224px);
 
     @media (max-width: 1024px) {
         margin-left: -64px;

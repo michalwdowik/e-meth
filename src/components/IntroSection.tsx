@@ -23,6 +23,11 @@ const IntroSectionDescriptionStyled = styled.div`
     flex-direction: column;
     gap: 64px;
     flex: 1;
+    margin-left: -50px;
+
+    @media (max-width: 991px) {
+        margin-left: 0;
+    }
 `
 
 const GradientText = styled.span`
@@ -32,10 +37,7 @@ const GradientText = styled.span`
         #f48946 18.229%,
         #ee3560 35.417%,
         #fa4784 51.563%,
-        #ff48c0 66.667%,
-        #8e38b5 81.771%,
-        #5542bb 89.063%,
-        #0051c4 100%
+        #ff48c0 100%
     );
     font-weight: bold;
     -webkit-background-clip: text;
@@ -46,15 +48,16 @@ const GradientText = styled.span`
 `
 
 const IntroSectionImg = styled.img`
-    width: 60%;
+    width: 70%;
     flex: 0;
     flex-shrink: 0;
-    margin-left: -5%;
+    margin-left: -180px;
+    /* margin-left: -18%; */
 
     @media (max-width: 991px) {
-        margin-right: -40%;
         margin-left: 0;
         width: 130%;
+        margin-right: -300px;
     }
 `
 
@@ -72,24 +75,22 @@ const GradientOverlay = styled.img`
 `
 
 const IntroSection = () => {
-    const isSmallScreen = useScreenSize()
+    const { isScreenSmallerThan767 } = useScreenSize()
     return (
         <IntroSectionContainer>
-            {isSmallScreen && (
+            {/* {isScreenSmall && (
                 <GradientOverlay src="../src/assets/IntroducingEmethGradientMobile.png" />
-            )}
+            )} */}
 
             <IntroSectionHeadingStyled>
                 <Badge>INTRODUCING EMETH</Badge>
-                {isSmallScreen ? (
-                    <Text fontSize={28} fontWeight="bold" align="left">
-                        Next-Gen DeFi <br /> Portfolio Management
-                    </Text>
-                ) : (
-                    <Text fontSize={56} fontWeight="bold" align="left">
-                        Next-Gen DeFi <br /> Portfolio Management
-                    </Text>
-                )}
+                <Text
+                    fontSize={isScreenSmallerThan767 ? 28 : 56}
+                    fontWeight="bold"
+                    align="left"
+                >
+                    Next-Gen DeFi <br /> Portfolio Management
+                </Text>
             </IntroSectionHeadingStyled>
             <IntroSectionStyled>
                 <IntroSectionImg
@@ -97,7 +98,11 @@ const IntroSection = () => {
                     alt="Emeth"
                 />
                 <IntroSectionDescriptionStyled>
-                    <Text fontSize={24} fontWeight="bold" align="left">
+                    <Text
+                        fontSize={isScreenSmallerThan767 ? 20 : 24}
+                        fontWeight="bold"
+                        align="left"
+                    >
                         Your Strategic Ally <br /> in Digital Asset Management
                     </Text>
                     <Text

@@ -12,10 +12,10 @@ const StyledBadge = styled.div`
     background: transparent;
     font-size: 12px;
     padding: 8px 16px;
-    border-radius: 8px;
     width: max-content;
 
     &::before {
+        border-radius: 8px;
         border: 1px solid transparent;
         ${BeforePseudoElement};
     }
@@ -23,6 +23,7 @@ const StyledBadge = styled.div`
     @media (max-width: 768px) {
         font-size: 10px;
         padding: 6px 12px;
+        border-radius: 6px;
     }
 `
 

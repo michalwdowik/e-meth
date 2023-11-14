@@ -28,13 +28,14 @@ const StyledButton = styled.button<ButtonProps>`
     `
             : `padding: 0px 40px; 
             height: 60px;
+            border-radius: 64px;
 `}
 
     &::before {
         ${({ size }) =>
             size === 'normal'
-                ? 'border: 2px solid transparent;'
-                : 'border:  3px solid transparent;'}
+                ? 'border: 2px solid transparent; border-radius: 40px;'
+                : 'border:  3px solid transparent; border-radius: 64px;'}
         ${BeforePseudoElement};
     }
 `
