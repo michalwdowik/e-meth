@@ -4,9 +4,9 @@ import PlusIcon from './Icons/PlusIcon'
 import MinusIcon from './Icons/MinusIcon'
 import { Text } from './Text'
 import Badge from './Badge'
-import linearGradient from '../utils/gradient'
 import faqs from '../utils/faqs'
 import useScreenSize from '../hooks/useScreenSize'
+import linearGradient from '../utils/gradient'
 
 interface AccordionItemProps {
     isActive: boolean
@@ -15,7 +15,7 @@ const AccordionItem = styled.div<AccordionItemProps>`
     position: relative;
     background: transparent;
     border-top: 1px solid #333;
-    border-bottom: 1px solid #333; // Fix the color code
+    border-bottom: 1px solid #333;
     border-left: none;
     border-right: none;
 
@@ -45,10 +45,10 @@ const AccordionItem = styled.div<AccordionItemProps>`
         `}
 `
 
-const AccordionTitle = styled.h3`
+const AccordionTitle = styled.p`
     margin: 0;
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 500;
     padding: 32px 0px 32px 0px;
     cursor: pointer;
     display: flex;
@@ -56,10 +56,15 @@ const AccordionTitle = styled.h3`
     justify-content: space-between;
     gap: 8px;
     position: relative;
-    z-index: 2; // Ensure this is above the ::before element
+    z-index: 1;
 `
 
-const AccordionBody = styled.div`
+interface AccordionBodyProps {
+    active: boolean
+    bodyHeight: number
+}
+
+const AccordionBody = styled.div<AccordionBodyProps>`
     display: block;
     position: relative;
     padding: 0;
@@ -67,7 +72,7 @@ const AccordionBody = styled.div`
     height: 0;
     overflow: hidden;
     font-size: 16px;
-    font-weight: normal;
+    font-weight: 300;
     transition: height 0.3s;
 
     ${({ active, bodyHeight }) =>
@@ -78,8 +83,8 @@ const AccordionBody = styled.div`
 `
 
 const AccordionContent = styled.p`
-    margin: 0;
-    padding: 0 16px 16px;
+    margin-bottom: 32px;
+    padding: 0 0 32px 0;
     height: auto;
 `
 interface AccordionItemsProps {
@@ -111,11 +116,11 @@ const AccordionItems = ({
             <AccordionTitle
                 onClick={() => {
                     if (currentAccordion === i) {
-                        setCurrentAccordion(-1) // Close the currently open item
-                        setBodyHeight(0) // Reset the height to 0
+                        setCurrentAccordion(-1)
+                        setBodyHeight(0)
                     } else {
-                        setCurrentAccordion(i) // Open the new item
-                        setBodyHeight(refs[i].current.clientHeight) // Set the correct height for the new item
+                        setCurrentAccordion(i)
+                        setBodyHeight(refs[i].current.clientHeight)
                     }
                 }}
             >
@@ -131,21 +136,29 @@ const AccordionItems = ({
         </AccordionItem>
     ))
 
-const FaqHeading = styled.div`
+interface FaqHeadingProps {
+    isScreenSmallerThan767: boolean
+}
+
+const FaqHeading = styled.div<FaqHeadingProps>`
     display: flex;
     flex-direction: column;
     align-items: ${(props) =>
-        props.isScreenExtraSmall ? 'flex-start' : 'center'};
+        props.isScreenSmallerThan767 ? 'flex-start' : 'center'};
     gap: 24px;
-    margin-bottom: 80px;
-`
-interface FaqStyledProps {
-    isScreenExtraSmall: boolean
-}
 
-const FaqStyled = styled.div<FaqStyledProps>`
+    margin-bottom: ${(props) =>
+        props.isScreenSmallerThan767 ? '40px' : '80px'};
+`
+
+const FaqStyled = styled.div`
     display: flex;
     flex-direction: column;
+    padding: 0 104px;
+
+    @media (max-width: 1199px) {
+        padding: 0;
+    }
 `
 
 const Faq = () => {
@@ -161,15 +174,15 @@ const Faq = () => {
 
     const refs = [item0, item1, item2, item3, item4, item5]
 
-    const { isScreenExtraSmall } = useScreenSize()
+    const { isScreenSmallerThan767 } = useScreenSize()
 
     return (
-        <FaqStyled isScreenExtraSmall={isScreenExtraSmall}>
-            <FaqHeading isScreenExtraSmall={isScreenExtraSmall}>
+        <FaqStyled>
+            <FaqHeading isScreenSmallerThan767={isScreenSmallerThan767}>
                 <Badge>FAQ</Badge>
                 <Text
-                    fontSize={isScreenExtraSmall ? 28 : 56}
-                    align={isScreenExtraSmall ? 'left' : 'center'}
+                    fontSize={isScreenSmallerThan767 ? 28 : 56}
+                    align={isScreenSmallerThan767 ? 'left' : 'center'}
                     fontWeight="bold"
                 >
                     Frequently Asked <br /> Questions

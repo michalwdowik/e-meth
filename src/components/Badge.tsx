@@ -1,5 +1,9 @@
-import styled, { css } from 'styled-components'
-import linearGradient from '../utils/gradient'
+import styled from 'styled-components'
+import BeforePseudoElement from '../utils/beforePseudoElement'
+
+interface BadgeProps {
+    children: React.ReactNode
+}
 
 const StyledBadge = styled.div`
     position: relative;
@@ -12,20 +16,8 @@ const StyledBadge = styled.div`
     width: max-content;
 
     &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        border-radius: inherit;
         border: 1px solid transparent;
-        background: ${linearGradient} border-box;
-        -webkit-mask:
-            linear-gradient(#fff 0 0) padding-box,
-            linear-gradient(#fff 0 0);
-        -webkit-mask-composite: destination-out;
-        mask-composite: exclude;
+        ${BeforePseudoElement};
     }
 
     @media (max-width: 768px) {
@@ -33,10 +25,6 @@ const StyledBadge = styled.div`
         padding: 6px 12px;
     }
 `
-
-interface BadgeProps {
-    children: React.ReactNode
-}
 
 const Badge = ({ children }: BadgeProps) => {
     return <StyledBadge>{children}</StyledBadge>

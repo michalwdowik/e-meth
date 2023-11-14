@@ -12,7 +12,6 @@ const IntroSectionHeadingStyled = styled.div`
 const IntroSectionStyled = styled.div`
     display: flex;
     align-items: center;
-    /* border: 2px purple solid; */
 
     @media (max-width: 991px) {
         flex-direction: column;
@@ -23,7 +22,6 @@ const IntroSectionDescriptionStyled = styled.div`
     display: flex;
     flex-direction: column;
     gap: 64px;
-    /* border: 2px green solid; */
     flex: 1;
 `
 
@@ -48,7 +46,6 @@ const GradientText = styled.span`
 `
 
 const IntroSectionImg = styled.img`
-    /* border: 2px red solid; */
     width: 60%;
     flex: 0;
     flex-shrink: 0;
@@ -57,7 +54,7 @@ const IntroSectionImg = styled.img`
     @media (max-width: 991px) {
         margin-right: -40%;
         margin-left: 0;
-        width: 130%; /* Increase the width to make it bigger than 100% */
+        width: 130%;
     }
 `
 
@@ -70,10 +67,8 @@ const IntroSectionContainer = styled.div`
 const GradientOverlay = styled.img`
     position: absolute;
     width: 100%;
-    right: 0;
     top: -168px;
-    /* left: 0; // Start at the left of the FeaturesSectionStyled */
-    z-index: -1; // Ensure it's behind all other content
+    z-index: -1;
 `
 
 const IntroSection = () => {

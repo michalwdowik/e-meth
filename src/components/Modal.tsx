@@ -2,12 +2,12 @@ import { useState } from 'react'
 import styled, { css } from 'styled-components'
 import { createPortal } from 'react-dom'
 import { Text } from './Text'
-import linearGradient from '../utils/gradient'
 import SocialMediaButtons from './SocialMediaButtons'
 import CloseIcon from './Icons/CloseIcon'
 import validateEmail from '../utils/validateEmail'
 import SignUpButton from './SignUpButton'
 import { fadeIn, fadeOut } from '../utils/animations'
+import BeforePseudoElement from '../utils/beforePseudoElement'
 
 interface OverlayProps {
     isVisible: boolean
@@ -56,20 +56,8 @@ const StyledModal = styled.div<StyledModalProps>`
     gap: 24px;
     align-items: flex-start;
     &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        border-radius: 16px;
         border: 2px solid transparent;
-        background: ${linearGradient} border-box;
-        -webkit-mask:
-            linear-gradient(#fff 0 0) padding-box,
-            linear-gradient(#fff 0 0);
-        -webkit-mask-composite: destination-out;
-        mask-composite: exclude;
+        ${BeforePseudoElement};
     }
 `
 
@@ -137,7 +125,7 @@ const HeaderContainer = styled.div`
 
 interface ModalProps {
     isVisible: boolean
-    onClose: () => void
+    onClose: (event: React.MouseEvent) => void
 }
 const Modal = ({ isVisible, onClose }: ModalProps) => {
     const [isSignedUp, setIsSignedUp] = useState(false)

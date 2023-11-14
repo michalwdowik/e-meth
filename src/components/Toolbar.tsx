@@ -13,16 +13,16 @@ const NavbarContainer = styled.nav`
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    padding: 40px 80px;
+    padding: ${({ type }) => (type === 'upper' ? '40px 80px' : '0')};
     background: transparent;
     color: #fff;
 
     @media (max-width: 768px) {
-        padding: 40px 16px;
+        padding: ${({ type }) => (type === 'upper' ? '40px 16px' : '0')};
     }
 
     @media screen and (min-width: 768px) and (max-width: 991px) {
-        padding: 40px 20px;
+        padding: ${({ type }) => (type === 'upper' ? '40px 20px' : '0')};
     }
 `
 
@@ -121,6 +121,10 @@ const Wrapper = styled.div`
     @media (min-width: 767px) {
         display: none;
     }
+
+    @media (max-width: 320px) {
+        gap: 16px;
+    }
 `
 
 const Navbar = ({ type }: NavbarProps) => {
@@ -141,7 +145,7 @@ const Navbar = ({ type }: NavbarProps) => {
 
     return (
         <>
-            <NavbarContainer>
+            <NavbarContainer type={type}>
                 <Logo />
                 <ItemsWrapper>
                     <NavItems>{navItems}</NavItems>

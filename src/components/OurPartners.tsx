@@ -19,21 +19,34 @@ const OurPartnersSection = styled.div`
 const OurPartnersDiv = styled.div`
     display: flex;
     width: 100%;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
+    gap: 32px;
 
-    @media (max-width: 768px) {
+    @media (max-width: 870px) {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 40px;
         place-items: center;
     }
+
+    @media (max-width: 350px) {
+        grid-gap: 20px;
+        align-items: center;
+    }
 `
 
-const PartnerImage = styled.img``
+const PartnerImage = styled.img`
+    width: 100px;
+    height: auto;
+
+    @media (max-width: 350px) {
+        width: 65px;
+    }
+`
 
 const Divider = styled.div`
-    width: 80%;
+    width: 100%;
     border: 1px rgba(255, 255, 255, 0.2) solid;
 `
 

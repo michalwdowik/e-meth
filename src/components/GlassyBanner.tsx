@@ -46,7 +46,7 @@ const GlassyBannerContainer = styled.div<GlassyBannerContainerProps>`
     position: relative;
     border-width: 1px;
     border-style: solid;
-    border-radius: 16px;
+    border-radius: 32px;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(50px);
     height: max-content;
@@ -61,7 +61,7 @@ const GlassyBannerContainer = styled.div<GlassyBannerContainerProps>`
         right: 0;
         bottom: 0;
         left: 0;
-        border-radius: 16px;
+        border-radius: 32px;
         padding: 1px;
         background: linear-gradient(
             to bottom,
@@ -83,7 +83,6 @@ const StyledButton = styled(Button)`
     padding: 10px 20px;
     color: white;
     cursor: pointer;
-    font-size: 1rem;
     font-weight: bold;
     text-transform: uppercase;
     transition: background-color 0.3s ease;

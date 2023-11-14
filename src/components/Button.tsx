@@ -1,9 +1,15 @@
 import styled from 'styled-components'
 import { useState } from 'react'
-import linearGradient from '../utils/gradient'
 import Modal from './Modal'
+import BeforePseudoElement from '../utils/beforePseudoElement'
 
 type ButtonSize = 'normal' | 'big'
+
+interface ButtonProps {
+    children: React.ReactNode
+    size?: ButtonSize
+}
+
 const StyledButton = styled.button<ButtonProps>`
     position: relative;
     display: flex;
@@ -25,32 +31,18 @@ const StyledButton = styled.button<ButtonProps>`
 `}
 
     &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        border-radius: 40px;
-        border: 2px solid transparent;
-        background: ${linearGradient} border-box;
-        -webkit-mask:
-            linear-gradient(#fff 0 0) padding-box,
-            linear-gradient(#fff 0 0);
-        -webkit-mask-composite: destination-out;
-        mask-composite: exclude;
+        ${({ size }) =>
+            size === 'normal'
+                ? 'border: 2px solid transparent;'
+                : 'border:  3px solid transparent;'}
+        ${BeforePseudoElement};
     }
 `
-
-interface ButtonProps {
-    children: React.ReactNode
-    size?: ButtonSize
-}
 
 const Button = ({ children, size = 'normal' }: ButtonProps) => {
     const [isModalVisible, setIsModalVisible] = useState(false)
 
-    const toggleModal = (event) => {
+    const toggleModal = (event: React.MouseEvent) => {
         event.stopPropagation()
         setIsModalVisible(!isModalVisible)
     }

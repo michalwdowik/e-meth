@@ -7,19 +7,14 @@ import Logo from './Logo'
 const navList = ['Terms & Conditions', 'Privacy Policy']
 
 const FooterStyled = styled.div`
-    position: fixed;
-    bottom: 0;
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 10px;
     justify-content: center;
     align-items: flex-start;
-    padding: 40px 20px;
     @media (max-width: 768px) {
         align-items: center;
-        left: 50%;
-        transform: translateX(-50%);
     }
 `
 
