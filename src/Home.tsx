@@ -17,10 +17,13 @@ const HomeStyled = styled.div`
     display: flex;
     flex-direction: column;
     padding: 0 112px;
+    /* align-items: center; */
     justify-content: center;
     gap: 48px;
     overflow: hidden;
     margin-bottom: 48px;
+    /* margin: 0 auto; */
+    /* max-width: 1440px; */
     background-color: black;
     @media (max-width: 1024px) {
         padding: 0 64px;

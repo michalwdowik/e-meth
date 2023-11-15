@@ -3,32 +3,59 @@ import Badge from './Badge'
 import { Text } from './Text'
 import useScreenSize from '../hooks/useScreenSize'
 
+const IntroSectionContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+    position: relative;
+
+    /* padding: 80px 112px;
+    margin-left: -112px;
+    width: calc(100% + 224px); */
+`
+
 const IntroSectionHeadingStyled = styled.div`
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-top: 96px;
+    margin-top: 124px;
+    margin-left: 80px;
+
+    @media (min-width: 1445px) {
+        margin-left: 0;
+    }
+
+    @media (max-width: 991px) {
+        margin-left: 0;
+    }
+
+    @media (max-width: 767px) {
+        margin-top: 0;
+    }
 `
 
 const IntroSectionStyled = styled.div`
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     background-color: black;
 
     @media (max-width: 991px) {
         flex-direction: column;
+        align-items: center;
     }
 `
 
 const IntroSectionDescriptionStyled = styled.div`
     display: flex;
     flex-direction: column;
+    margin-top: 100px;
     gap: 64px;
     flex: 1;
-    margin-left: -50px;
+    margin-left: -90px;
 
     @media (max-width: 991px) {
         margin-left: 0;
+        margin-top: 0;
     }
 `
 
@@ -50,40 +77,34 @@ const GradientText = styled.span`
 `
 
 const IntroSectionImg = styled.img`
-    width: 70%;
+    width: 95%;
     flex: 0;
     flex-shrink: 0;
-    margin-left: -180px;
+    margin-left: -20%;
     z-index: 3;
 
     @media (max-width: 991px) {
-        margin-left: 0;
-        width: 130%;
-        margin-right: -300px;
+        width: 150%;
+        margin-left: 45%;
     }
-`
-
-const IntroSectionContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 64px;
 `
 
 const GradientOverlay = styled.img`
     position: absolute;
+    top: -400px;
     width: 100%;
-    top: -168px;
-    z-index: -1;
+    right: 0;
+    /* top: -168px; */
+    z-index: 0;
 `
 
 const IntroSection = () => {
-    const { isScreenSmallerThan767 } = useScreenSize()
+    const { isScreenSmallerThan767, isScreenSmallerThan991 } = useScreenSize()
     return (
         <IntroSectionContainer>
-            {/* {isScreenSmall && (
+            {/* {isScreenSmallerThan991 && (
                 <GradientOverlay src="../src/assets/IntroducingEmethGradientMobile.png" />
             )} */}
-
             <IntroSectionHeadingStyled>
                 <Badge>INTRODUCING EMETH</Badge>
                 <Text

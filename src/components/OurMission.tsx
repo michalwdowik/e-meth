@@ -5,11 +5,12 @@ import { Text } from './Text'
 import useScreenSize from '../hooks/useScreenSize'
 
 const OurMissionStyled = styled.div`
-    /* height: 559px; */
+    /* z-index: 4; */
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Aligns children vertically in the center */
+    justify-content: center;
     align-items: center;
+    /* margin-top: -250px; */
     gap: 32px;
     background: ${(props) =>
         `url(${

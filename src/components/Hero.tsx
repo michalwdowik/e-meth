@@ -14,7 +14,6 @@ const StyledHero = styled.div<StyledHeroProps>`
     justify-content: center;
     align-items: center;
     gap: 32px;
-    /* border: 2px red solid; */
     padding: 0 16px;
     padding-top: ${(props) => (props.video ? '200px' : '140px')};
     margin-left: -112px;
