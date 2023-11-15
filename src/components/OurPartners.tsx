@@ -14,6 +14,7 @@ const OurPartnersSection = styled.div`
     justify-content: center;
     align-items: center;
     gap: 2rem;
+    z-index: 1;
 `
 
 const OurPartnersDiv = styled.div`

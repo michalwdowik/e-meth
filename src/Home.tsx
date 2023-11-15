@@ -11,6 +11,7 @@ import IntroSection from './components/IntroSection'
 // import VideoPlayer from './components/Video/Video'
 import Faq from './components/Faq'
 import useScreenSize from './hooks/useScreenSize'
+import isMobileDevice from './utils/isMobileDevice'
 
 const HomeStyled = styled.div`
     display: flex;
@@ -32,20 +33,11 @@ const HomeStyled = styled.div`
 
 const Home = () => {
     const { isScreenSmallerThan767 } = useScreenSize()
-    const video = true
+    const video = isMobileDevice()
     return (
         <>
             <Navbar type="upper" />
             <HomeStyled>
-                {/* <Hero /> */}
-                {/* <IntroSection /> */}
-                {/* <OurMission />
-                <GlassyBanner />
-                <FeaturesSection />
-
-                {/* <ValuesSection /> */}
-
-                {/* <div style={{ marginTop: '-300px' }}> */}
                 <Hero video={video} />
                 <IntroSection />
                 <OurMission />
@@ -56,10 +48,6 @@ const Home = () => {
                 <GlassyBanner />
                 {!isScreenSmallerThan767 && <Navbar type="lower" />}
                 <Footer />
-
-                {/* <VideoPlayer /> */}
-                {/* <Hero />
-                <Footer /> */}
             </HomeStyled>
         </>
     )

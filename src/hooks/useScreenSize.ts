@@ -22,6 +22,7 @@ const useScreenSize = () => {
     const showDrawer = screenWidth.dynamicWidth <= 1050
     const isScreenSmallerThan767 = screenWidth.dynamicWidth < 767
     const isScreenSmallerThan650 = screenWidth.dynamicWidth < 650
+    const isScreenSmallerThan430 = screenWidth.dynamicWidth < 431
 
     useEffect(() => {
         window.addEventListener('resize', setDimension)
@@ -39,6 +40,7 @@ const useScreenSize = () => {
         isScreenLarge,
         isScreenExtraLarge,
         isScreenSmallerThan650,
+        isScreenSmallerThan430,
     }
 }
 

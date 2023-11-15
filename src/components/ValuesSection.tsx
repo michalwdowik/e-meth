@@ -25,18 +25,13 @@ const ValuesSectionContainer = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* border: 2px red solid; */
     margin-left: -112px;
     width: calc(100% + 224px);
+    padding: 0 112px;
 
-    /* @media (max-width: 767px) {
-        background-size: cover;
-        background-size: auto;
-        background-repeat: repeat-y; // To repeat the background once vertically
-        background-position:
-            right top,
-            100px 100%; // Centered at the top, and 100px to the left at the bottom
-    } */
+    @media (max-width: 768px) {
+        background: none;
+    }
 `
 
 const CardContainer = styled.div`
@@ -86,8 +81,8 @@ const StyledCard = styled.div`
         mask-composite: exclude;
     }
 
-    @media (max-width: 767px) {
-        max-width: 719px;
+    @media (max-width: 768px) {
+        max-width: 768px;
         height: 300px;
     }
 
@@ -162,15 +157,72 @@ const Card = ({ title, description, icon }: CardProps) => (
 
 const SectionHeadingDescription = styled.div`
     width: 50%;
+    z-index: 1;
 
     @media (max-width: 991px) {
         width: 100%;
     }
 `
+
+const FeaturesGradientMobileUpper = styled.img`
+    position: absolute;
+    width: 100%;
+    z-index: 0;
+    position: top;
+
+    @media (max-width: 768px) {
+        top: 100px;
+        width: 85%;
+    }
+
+    @media (max-width: 650px) {
+        width: 80%;
+        top: 300px;
+    }
+
+    @media (max-width: 560px) {
+        top: 350px;
+    }
+`
+
+const FeaturesGradientMobileLower = styled.img`
+    position: absolute;
+    z-index: 0;
+    position: bottom;
+    bottom: 100px;
+    width: 70%;
+    left: 0;
+
+    @media (max-width: 768px) {
+        bottom: -300px;
+        width: 60%;
+    }
+
+    @media (max-width: 650px) {
+        bottom: -150px;
+        width: 60%;
+    }
+
+    @media (max-width: 560px) {
+        bottom: 100px;
+        width: 70%;
+    }
+
+    @media (max-width: 440px) {
+        bottom: 100px;
+    }
+`
+
 const ValuesSection = () => {
-    const { isScreenExtraSmall } = useScreenSize()
+    const { isScreenExtraSmall, isScreenSmallerThan767 } = useScreenSize()
     return (
         <ValuesSectionContainer>
+            {isScreenSmallerThan767 && (
+                <FeaturesGradientMobileUpper src="/src/assets/FeaturesGradientMobileUpper.png" />
+            )}
+            {isScreenSmallerThan767 && (
+                <FeaturesGradientMobileLower src="/src/assets/FeaturesGradientMobileLower.png" />
+            )}
             <SectionHeading>
                 <Badge>VALUES</Badge>
                 <Text

@@ -2,14 +2,18 @@ import { useState, useRef } from 'react'
 import styled from 'styled-components'
 import { Text } from './Text'
 import linearGradient from '../utils/gradient'
+import useScreenSize from '../hooks/useScreenSize'
 
 const VideoPlayerContainer = styled.div`
     position: relative;
-    width: 640px;
+    max-width: 640px;
     height: 360px;
     margin: 64px auto;
     border-radius: 8px;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `
 
 const PlaceholderImage = styled.img`
@@ -30,11 +34,11 @@ const PlayButton = styled.button`
     gap: 24px;
     padding: 8px 24px 8px 8px;
     position: absolute;
-    z-index: 6;
-
+    z-index: 3;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    white-space: nowrap;
 `
 const Video = styled.video`
     width: 100%;
@@ -52,7 +56,8 @@ const PlayIconStyled = styled.button`
     color: #fff;
     background: transparent;
     cursor: pointer;
-    padding: 1rem;
+    padding: ${({ isScreenSmallerThan767 }) =>
+        isScreenSmallerThan767 ? '10px' : '16px'};
     border: none;
 
     &::before {
@@ -76,7 +81,7 @@ const PlayIconStyled = styled.button`
 const VideoPlayer = () => {
     const [playing, setPlaying] = useState(false)
     const videoRef = useRef(null)
-
+    const { isScreenSmallerThan767 } = useScreenSize()
     const handlePlay = () => {
         setPlaying(true)
         videoRef.current.play()
@@ -98,10 +103,12 @@ const VideoPlayer = () => {
                 Your browser does not support the video tag.
             </Video>
             <PlayButton onClick={handlePlay} playing={playing}>
-                <PlayIconStyled>
+                <PlayIconStyled isScreenSmallerThan767={isScreenSmallerThan767}>
                     <img src="../src/assets/play-icon.svg" alt="Play Icon" />
                 </PlayIconStyled>
-                <Text fontSize={16}>Watch Video Now!</Text>
+                <Text fontSize={isScreenSmallerThan767 ? 14 : 16}>
+                    Watch Video Now!
+                </Text>
             </PlayButton>
         </VideoPlayerContainer>
     )

@@ -14,7 +14,7 @@ const StyledHero = styled.div<StyledHeroProps>`
     justify-content: center;
     align-items: center;
     gap: 32px;
-    border: 2px red solid;
+    /* border: 2px red solid; */
     padding: 0 16px;
     padding-top: ${(props) => (props.video ? '200px' : '140px')};
     margin-left: -112px;
@@ -24,10 +24,11 @@ const StyledHero = styled.div<StyledHeroProps>`
         margin-left: -64px;
         width: calc(100% + 128px);
         padding: 0 64px;
+        padding-top: ${(props) => (props.video ? '200px' : '140px')};
     }
 
     @media (max-width: 767px) {
-        padding: 128px 24px 24px 24px;
+        padding: 80px 24px 24px 24px;
         margin-left: -24px;
         width: calc(100% + 48px);
     }
@@ -53,7 +54,7 @@ const Hero = ({ video }: HeroProps) => {
         <StyledHero video={video}>
             <GradientBackground
                 src={
-                    video
+                    isScreenSmallerThan767
                         ? 'src/assets/HeroGradient.png'
                         : 'src/assets/HeroGradient-NoVideo.png'
                 }
@@ -71,7 +72,11 @@ const Hero = ({ video }: HeroProps) => {
                 dreams into sleepless nights.
             </Text>
 
-            {video ? <VideoPlayer /> : <Button size="big">Join Now</Button>}
+            {isScreenSmallerThan767 ? (
+                <VideoPlayer />
+            ) : (
+                <Button size="big">Join Now</Button>
+            )}
         </StyledHero>
     )
 }

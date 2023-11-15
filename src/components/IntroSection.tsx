@@ -7,7 +7,6 @@ const IntroSectionHeadingStyled = styled.div`
     display: flex;
     flex-direction: column;
     gap: 10px;
-    border: 2px red solid;
     margin-top: 96px;
 `
 
@@ -55,6 +54,7 @@ const IntroSectionImg = styled.img`
     flex: 0;
     flex-shrink: 0;
     margin-left: -180px;
+    z-index: 3;
 
     @media (max-width: 991px) {
         margin-left: 0;

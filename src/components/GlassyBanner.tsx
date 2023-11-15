@@ -17,10 +17,11 @@ const NewsletterSection = styled.div<NewsletterSectionProps>`
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    background-color: #070709;
+    background-color: black;
     height: 900px;
     display: flex;
     align-items: center;
+    /* border: 2px red solid; */
 
     @media (max-width: 576px) {
         margin-left: -24px;
