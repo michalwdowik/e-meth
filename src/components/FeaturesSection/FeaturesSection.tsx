@@ -1,18 +1,17 @@
 import styled from 'styled-components'
-import Badge from './Badge'
-import { Text } from './Text'
+import Badge from '../Badge'
+import { Text } from '../Text'
 import Feature from './Feature'
-import useScreenSize from '../hooks/useScreenSize'
-import features from '../utils/features'
+import useScreenSize from '../../hooks/useScreenSize'
+import features from '../../utils/features'
 
 const FeaturesSectionStyled = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     gap: 56px;
     background-color: transparent;
-    position: relative;
-    overflow: hidden;
+    /* position: relative; */
     padding: 0 112px;
     margin-left: -112px;
     width: calc(100% + 224px);
@@ -24,7 +23,7 @@ const FeaturesSectionStyled = styled.div`
     }
 
     @media (max-width: 767px) {
-        padding: 128px 24px 24px 24px;
+        padding: 24px;
         margin-left: -24px;
         width: calc(100% + 48px);
     }
@@ -48,6 +47,7 @@ const FeaturesSectionHeroTitle = styled.div`
     gap: 10px;
     max-width: 60%;
     max-width: 700px;
+
     @media (max-width: 920px) {
         max-width: 100%;
     }
@@ -79,8 +79,10 @@ const GradientOverlay = styled.img`
         left: 0;
     }
 `
+
 const FeaturesSection = () => {
     const { isScreenExtraSmall } = useScreenSize()
+
     return (
         <FeaturesSectionStyled>
             <GradientOverlay
@@ -108,7 +110,7 @@ const FeaturesSection = () => {
                         fontWeight="light"
                         align="left"
                     >
-                        Emeth bring to you a meticulously crafted suite of
+                        Emeth brings to you a meticulously crafted suite of
                         features designed to elevate your DeFi operations and
                         digital asset management experience. From intuitive
                         portfolio setups to intelligent automation. <br />
@@ -128,7 +130,6 @@ const FeaturesSection = () => {
                     imageUrl={feature.imageUrl}
                     lightImageUrl={feature.lightImageUrl}
                     iconUrl={feature.iconUrl}
-                    gradientUrl={feature.gradientUrl}
                 />
             ))}
         </FeaturesSectionStyled>

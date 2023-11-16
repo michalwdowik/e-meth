@@ -1,7 +1,15 @@
 import styled from 'styled-components'
-import { Text } from './Text'
-import ArrowRight from './Icons/ArrowRight'
-import useScreenSize from '../hooks/useScreenSize'
+import { Text } from '../Text'
+import ArrowRight from '../Icons/ArrowRight'
+import useScreenSize from '../../hooks/useScreenSize'
+
+interface FeatureProps {
+    title: string
+    description: string
+    imageUrl: string
+    iconUrl: string
+    lightImageUrl: string
+}
 
 const FeatureContainer = styled.div`
     position: relative;
@@ -22,18 +30,11 @@ const TextSection = styled.div`
     display: flex;
     flex-direction: column;
     gap: 40px;
+
     @media (max-width: 766px) {
         max-width: 100%;
         gap: 16px;
     }
-`
-
-const GradientOverlay = styled.img`
-    position: absolute;
-    top: 50%;
-    right: -7%;
-    transform: translateY(-50%);
-    z-index: 0;
 `
 
 const FeatureImage = styled.img`
@@ -41,24 +42,20 @@ const FeatureImage = styled.img`
     max-width: 60%;
     height: auto;
     z-index: 1;
+
     @media (max-width: 766px) {
         max-width: 100%;
     }
 `
+
 const FeatureIcon = styled.img`
     width: 64px;
     height: 64px;
 `
-interface FeatureProps {
-    title: string
-    description: string
-    imageUrl: string
-    iconUrl: string
-    gradientUrl: string
-}
 
 const FeatureTitle = styled.div`
     width: 100%;
+
     @media (max-width: 766px) {
         width: 50%;
     }
@@ -68,15 +65,31 @@ const FeatureDescription = styled.div`
     width: 100%;
 `
 
+const LearnMoreButtonStyled = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+`
+
+const LearnMoreButton = () => {
+    return (
+        <LearnMoreButtonStyled>
+            Learn More
+            <ArrowRight />
+        </LearnMoreButtonStyled>
+    )
+}
+
 const Feature = ({
     title,
     description,
     imageUrl,
     lightImageUrl,
     iconUrl,
-    gradientUrl,
 }: FeatureProps) => {
     const { isScreenSmallerThan767 } = useScreenSize()
+
     return (
         <FeatureContainer>
             {isScreenSmallerThan767 ? (
@@ -133,18 +146,3 @@ const Feature = ({
 }
 
 export default Feature
-
-const LearnMoreButtonStyled = styled.div`
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer;
-`
-const LearnMoreButton = () => {
-    return (
-        <LearnMoreButtonStyled>
-            Learn More
-            <ArrowRight />
-        </LearnMoreButtonStyled>
-    )
-}

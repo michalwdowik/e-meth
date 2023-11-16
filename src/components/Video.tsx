@@ -1,10 +1,31 @@
 import { useState, useRef } from 'react'
 import styled from 'styled-components'
 import { Text } from './Text'
-import linearGradient from '../utils/gradient'
 import useScreenSize from '../hooks/useScreenSize'
+import BeforePseudoElement from '../utils/beforePseudoElement'
+
+const ModalOverlay = styled.div<{ showModal: boolean }>`
+    display: ${({ showModal }) => (showModal ? 'block' : 'none')};
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 3;
+    cursor: pointer;
+`
+
+const Modal = styled.div`
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+`
 
 const VideoPlayerContainer = styled.div`
+    z-index: 3;
     position: relative;
     max-width: 640px;
     height: 360px;
@@ -16,12 +37,12 @@ const VideoPlayerContainer = styled.div`
     align-items: center;
 `
 
-const PlaceholderImage = styled.img`
+const PlaceholderImage = styled.img<{ playing: boolean }>`
     width: 100%;
     display: ${({ playing }) => (playing ? 'none' : 'block')};
 `
 
-const PlayButton = styled.button`
+const PlayButton = styled.button<{ playing: boolean }>`
     display: ${({ playing }) => (playing ? 'none' : 'flex')};
     border-radius: 84px;
     background: rgba(0, 0, 0, 0.3);
@@ -34,20 +55,21 @@ const PlayButton = styled.button`
     gap: 24px;
     padding: 8px 24px 8px 8px;
     position: absolute;
-    z-index: 3;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     white-space: nowrap;
 `
-const Video = styled.video`
+
+const Video = styled.video<{ playing: boolean }>`
+    z-index: 4;
     width: 100%;
     height: 100%;
     display: ${({ playing }) => (playing ? 'block' : 'none')};
     object-fit: cover;
 `
 
-const PlayIconStyled = styled.button`
+const PlayIconStyled = styled.button<{ isScreenSmallerThan767: boolean }>`
     position: relative;
     display: flex;
     align-items: center;
@@ -61,56 +83,67 @@ const PlayIconStyled = styled.button`
     border: none;
 
     &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
         border-radius: 50%;
         border: 2px solid transparent;
-        background: ${linearGradient} border-box;
-        -webkit-mask:
-            linear-gradient(#fff 0 0) padding-box,
-            linear-gradient(#fff 0 0);
-        -webkit-mask-composite: destination-out;
-        mask-composite: exclude;
+        ${BeforePseudoElement}
     }
 `
 
-const VideoPlayer = () => {
-    const [playing, setPlaying] = useState(false)
-    const videoRef = useRef(null)
+interface VideoPlayerProps {}
+
+const VideoPlayer: React.FC<VideoPlayerProps> = () => {
+    const [playing, setPlaying] = useState<boolean>(false)
+    const [showModal, setShowModal] = useState<boolean>(false)
+    const videoRef = useRef<HTMLVideoElement>(null)
     const { isScreenSmallerThan767 } = useScreenSize()
+
     const handlePlay = () => {
         setPlaying(true)
-        videoRef.current.play()
+        setShowModal(true)
+        if (videoRef.current) {
+            videoRef.current.play()
+        }
+    }
+
+    const closeModal = () => {
+        setShowModal(false)
+        if (videoRef.current) {
+            videoRef.current.pause()
+        }
     }
 
     return (
-        <VideoPlayerContainer>
-            <PlaceholderImage
-                src="../src/assets/VideoPlaceholder.png"
-                alt="Video Placeholder"
-                playing={playing}
-            />
-            <Video
-                ref={videoRef}
-                controls
-                style={{ display: playing ? 'block' : 'none' }}
-            >
-                <source src="path-to-your-video.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-            </Video>
-            <PlayButton onClick={handlePlay} playing={playing}>
-                <PlayIconStyled isScreenSmallerThan767={isScreenSmallerThan767}>
-                    <img src="../src/assets/play-icon.svg" alt="Play Icon" />
-                </PlayIconStyled>
-                <Text fontSize={isScreenSmallerThan767 ? 14 : 16}>
-                    Watch Video Now!
-                </Text>
-            </PlayButton>
-        </VideoPlayerContainer>
+        <>
+            <VideoPlayerContainer>
+                <PlaceholderImage
+                    src="../src/assets/VideoPlaceholder.png"
+                    alt="Video Placeholder"
+                    playing={playing}
+                />
+                <PlayButton onClick={handlePlay} playing={playing}>
+                    <PlayIconStyled
+                        isScreenSmallerThan767={isScreenSmallerThan767}
+                    >
+                        <img
+                            src="../src/assets/play-icon.svg"
+                            alt="Play Icon"
+                        />
+                    </PlayIconStyled>
+                    <Text fontSize={isScreenSmallerThan767 ? 14 : 16}>
+                        Watch Video Now!
+                    </Text>
+                </PlayButton>
+            </VideoPlayerContainer>
+
+            <ModalOverlay showModal={showModal} onClick={closeModal}>
+                <Modal onClick={(e) => e.stopPropagation()}>
+                    <Video ref={videoRef} controls playing={playing}>
+                        <source src="path-to-your-video.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </Video>
+                </Modal>
+            </ModalOverlay>
+        </>
     )
 }
 

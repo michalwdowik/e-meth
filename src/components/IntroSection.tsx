@@ -3,15 +3,11 @@ import Badge from './Badge'
 import { Text } from './Text'
 import useScreenSize from '../hooks/useScreenSize'
 
-const IntroSectionContainer = styled.div`
+const IntroSectionStyled = styled.div`
     display: flex;
     flex-direction: column;
     gap: 64px;
     position: relative;
-
-    /* padding: 80px 112px;
-    margin-left: -112px;
-    width: calc(100% + 224px); */
 `
 
 const IntroSectionHeadingStyled = styled.div`
@@ -21,11 +17,7 @@ const IntroSectionHeadingStyled = styled.div`
     margin-top: 124px;
     margin-left: 80px;
 
-    @media (min-width: 1445px) {
-        margin-left: 0;
-    }
-
-    @media (max-width: 991px) {
+    @media (min-width: 1445px), (max-width: 991px) {
         margin-left: 0;
     }
 
@@ -34,7 +26,7 @@ const IntroSectionHeadingStyled = styled.div`
     }
 `
 
-const IntroSectionStyled = styled.div`
+const IntroSectionContent = styled.div`
     display: flex;
     align-items: flex-start;
     background-color: black;
@@ -89,22 +81,11 @@ const IntroSectionImg = styled.img`
     }
 `
 
-const GradientOverlay = styled.img`
-    position: absolute;
-    top: -400px;
-    width: 100%;
-    right: 0;
-    /* top: -168px; */
-    z-index: 0;
-`
-
 const IntroSection = () => {
-    const { isScreenSmallerThan767, isScreenSmallerThan991 } = useScreenSize()
+    const { isScreenSmallerThan767 } = useScreenSize()
+
     return (
-        <IntroSectionContainer>
-            {/* {isScreenSmallerThan991 && (
-                <GradientOverlay src="../src/assets/IntroducingEmethGradientMobile.png" />
-            )} */}
+        <IntroSectionStyled>
             <IntroSectionHeadingStyled>
                 <Badge>INTRODUCING EMETH</Badge>
                 <Text
@@ -115,7 +96,7 @@ const IntroSection = () => {
                     Next-Gen DeFi <br /> Portfolio Management
                 </Text>
             </IntroSectionHeadingStyled>
-            <IntroSectionStyled>
+            <IntroSectionContent>
                 <IntroSectionImg
                     src="../src/assets/IntroducingEmethPicture.png"
                     alt="Emeth"
@@ -136,9 +117,9 @@ const IntroSection = () => {
                     >
                         In a realm where decentralization meets finance, Emeth
                         stands out as the beacon of intelligent
-                        <GradientText>DeFi portfolio management</GradientText>
-                        , dedicated to empowering businesses, startups, and
-                        crypto investors in navigating the vibrant, yet complex,
+                        <GradientText>DeFi portfolio management</GradientText>,
+                        dedicated to empowering businesses, startups, and crypto
+                        investors in navigating the vibrant, yet complex,
                         digital asset universe. <br /> <br /> At Emeth, we align
                         the finesse of financial automations strategies with the
                         disruptive power of decentralization, creating a
@@ -146,8 +127,8 @@ const IntroSection = () => {
                         asset management.
                     </Text>
                 </IntroSectionDescriptionStyled>
-            </IntroSectionStyled>
-        </IntroSectionContainer>
+            </IntroSectionContent>
+        </IntroSectionStyled>
     )
 }
 

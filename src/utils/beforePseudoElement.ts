@@ -1,5 +1,5 @@
 import { css } from 'styled-components'
-import linearGradient from './gradient'
+import { colorGradient } from './gradient'
 
 const BeforePseudoElement = css`
     content: '';
@@ -8,8 +8,11 @@ const BeforePseudoElement = css`
     left: 0;
     right: 0;
     bottom: 0;
-    background: ${linearGradient} border-box;
+    background: ${colorGradient} border-box;
     -webkit-mask:
+        linear-gradient(#fff 0 0) padding-box,
+        linear-gradient(#fff 0 0);
+    mask:
         linear-gradient(#fff 0 0) padding-box,
         linear-gradient(#fff 0 0);
     -webkit-mask-composite: destination-out;

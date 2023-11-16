@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react'
 
-// CUSTOM HOOK TO DYNAMICALLY CHECK WHAT WIDTH SIZE IS TO DO RWD OPERATIONS
-
 const useScreenSize = () => {
     const [screenWidth, setScreenWidth] = useState({
         dynamicWidth: window.innerWidth,

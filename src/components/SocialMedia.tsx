@@ -3,7 +3,7 @@ import TwitterIcon from './Icons/TwitterIcon'
 import DiscordIcon from './Icons/DiscordIcon'
 import TelegramIcon from './Icons/TelegramIcon'
 
-const SocialMediaStyled = styled.div`
+const SocialMediaWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,7 +13,7 @@ const SocialMediaStyled = styled.div`
 
 const SocialMedia = () => {
     return (
-        <SocialMediaStyled>
+        <SocialMediaWrapper>
             <a href="https://twitter.com">
                 <TwitterIcon />
             </a>
@@ -23,7 +23,7 @@ const SocialMedia = () => {
             <a href="https://telegram.org">
                 <TelegramIcon />
             </a>
-        </SocialMediaStyled>
+        </SocialMediaWrapper>
     )
 }
 

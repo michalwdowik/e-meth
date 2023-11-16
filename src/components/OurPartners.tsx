@@ -1,12 +1,12 @@
 import styled from 'styled-components'
+import { Text } from './Text'
+import useScreenSize from '../hooks/useScreenSize'
 import axelar from '../assets/partners/axelar.png'
 import golem from '../assets/partners/golem.png'
 import robohero from '../assets/partners/robohero.png'
 import thorstarter from '../assets/partners/thorstarter.png'
 import tubbly from '../assets/partners/tubbly.png'
 import atlo from '../assets/partners/atlo.png'
-import { Text } from './Text'
-import useScreenSize from '../hooks/useScreenSize'
 
 const OurPartnersSection = styled.div`
     display: flex;
@@ -15,6 +15,7 @@ const OurPartnersSection = styled.div`
     align-items: center;
     gap: 2rem;
     z-index: 1;
+    margin: 64px 0;
 `
 
 const OurPartnersDiv = styled.div`
@@ -27,7 +28,7 @@ const OurPartnersDiv = styled.div`
     @media (max-width: 870px) {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        grid-gap: 40px;
+        grid-gap: 64px;
         place-items: center;
     }
 
@@ -48,12 +49,15 @@ const PartnerImage = styled.img`
 
 const Divider = styled.div`
     width: 100%;
+    margin: 32px 0;
     border: 1px rgba(255, 255, 255, 0.2) solid;
 `
 
+const partnerImages = [axelar, thorstarter, golem, robohero, atlo, tubbly]
+
 const OurPartners = () => {
-    const partnerImages = [axelar, thorstarter, golem, robohero, atlo, tubbly]
     const { isScreenSmallerThan767 } = useScreenSize()
+
     return (
         <OurPartnersSection>
             <Text fontSize={isScreenSmallerThan767 ? 28 : 56}>

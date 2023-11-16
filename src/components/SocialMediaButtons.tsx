@@ -24,6 +24,7 @@ const SocialMediaButton = styled.button`
     z-index: 4;
     cursor: pointer;
     transition: background-color 0.2s ease-in-out;
+
     &:hover {
         background-color: rgba(255, 255, 255, 0.2);
     }
@@ -32,22 +33,16 @@ const SocialMediaButton = styled.button`
 const SocialMediaButtons = () => {
     return (
         <SocialMediaStyled>
-            <SocialMediaButton>
-                <a href="https://twitter.com">
-                    <TwitterIcon2 />
-                </a>
+            <SocialMediaButton as="a" href="https://twitter.com">
+                <TwitterIcon2 />
                 Share on Twitter
             </SocialMediaButton>
-            <SocialMediaButton>
-                <a href="https://facebook.com">
-                    <FacebookIcon />
-                </a>
+            <SocialMediaButton as="a" href="https://facebook.com">
+                <FacebookIcon />
                 Share on Facebook
             </SocialMediaButton>
-            <SocialMediaButton>
-                <a href="https://linkedIn.com">
-                    <LinkedInIcon />
-                </a>
+            <SocialMediaButton as="a" href="https://linkedIn.com">
+                <LinkedInIcon />
                 Share on LinkedIn
             </SocialMediaButton>
         </SocialMediaStyled>

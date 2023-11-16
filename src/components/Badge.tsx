@@ -7,9 +7,6 @@ interface BadgeProps {
 
 const StyledBadge = styled.div`
     position: relative;
-    font-weight: normal;
-    color: #fff;
-    background: transparent;
     font-size: 12px;
     padding: 8px 16px;
     width: max-content;

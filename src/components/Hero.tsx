@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Parallax } from 'react-scroll-parallax'
 import { Text } from './Text'
 import Button from './Button'
 import useScreenSize from '../hooks/useScreenSize'
@@ -33,17 +34,48 @@ const StyledHero = styled.div<StyledHeroProps>`
     }
 `
 
-const GradientBackground = styled.img`
+const GradientBackgroundContainer = styled.div`
     position: absolute;
-    top: 0;
     left: 0;
     width: 100%;
     height: auto;
-    z-index: 0;
+    z-index: 1;
+`
+
+const GradientBackground = styled.img`
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 1;
 `
 
 interface HeroProps {
     video?: boolean
+}
+
+interface HeroContentProps {
+    isSmallScreen: boolean
+}
+
+const HeroContent = ({ isSmallScreen }: HeroContentProps) => {
+    return (
+        <>
+            <Text fontSize={isSmallScreen ? 40 : 64}>
+                Struggling with Volatile
+                <br />
+                Crypto Markets?
+            </Text>
+            <Text fontSize={isSmallScreen ? 14 : 16} fontWeight="light">
+                The crypto market’s inherent volatility can turn strategic
+                dreams into sleepless nights.
+            </Text>
+            {isSmallScreen ? (
+                <VideoPlayer />
+            ) : (
+                <Button size="big">Join Now</Button>
+            )}
+        </>
+    )
 }
 
 const Hero = ({ video }: HeroProps) => {
@@ -51,31 +83,18 @@ const Hero = ({ video }: HeroProps) => {
 
     return (
         <StyledHero video={video}>
-            <GradientBackground
-                src={
-                    isScreenSmallerThan767
-                        ? 'src/assets/HeroGradient.png'
-                        : 'src/assets/HeroGradient-NoVideo.png'
-                }
-            />
-            <Text fontSize={isScreenSmallerThan767 ? 40 : 64}>
-                Struggling with Volatile
-                <br />
-                Crypto Markets?
-            </Text>
-            <Text
-                fontSize={isScreenSmallerThan767 ? 14 : 16}
-                fontWeight="light"
-            >
-                The crypto market’s inherent volatility can turn strategic
-                dreams into sleepless nights.
-            </Text>
-
-            {isScreenSmallerThan767 ? (
-                <VideoPlayer />
-            ) : (
-                <Button size="big">Join Now</Button>
-            )}
+            <GradientBackgroundContainer>
+                <Parallax style={{ zIndex: 1, width: '100%' }} speed={-15}>
+                    <GradientBackground
+                        src={
+                            isScreenSmallerThan767
+                                ? 'src/assets/HeroGradient.png'
+                                : 'src/assets/HeroGradient-NoVideo.png'
+                        }
+                    />
+                </Parallax>
+            </GradientBackgroundContainer>
+            <HeroContent isSmallScreen={isScreenSmallerThan767} />
         </StyledHero>
     )
 }

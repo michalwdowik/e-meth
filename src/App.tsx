@@ -3,11 +3,9 @@ import Home from './Home'
 
 const App = () => {
     return (
-        <div>
-            <Routes>
-                <Route path="/" element={<Home />} />
-            </Routes>
-        </div>
+        <Routes>
+            <Route path="/" element={<Home />} />
+        </Routes>
     )
 }
 

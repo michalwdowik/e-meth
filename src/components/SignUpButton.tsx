@@ -1,5 +1,8 @@
 import styled from 'styled-components'
-import linearGradient from '../utils/gradient'
+
+import { FC } from 'react'
+
+import BeforePseudoElement from '../utils/beforePseudoElement'
 
 const StyledSignUpButton = styled.button`
     position: relative;
@@ -15,20 +18,9 @@ const StyledSignUpButton = styled.button`
     height: 40px;
 
     &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
         border-radius: 40px;
         border: 2px solid transparent;
-        background: ${linearGradient} border-box;
-        -webkit-mask:
-            linear-gradient(#fff 0 0) padding-box,
-            linear-gradient(#fff 0 0);
-        -webkit-mask-composite: destination-out;
-        mask-composite: exclude;
+        ${BeforePseudoElement}
     }
 `
 
@@ -36,8 +28,8 @@ interface SignUpButtonProps {
     children: React.ReactNode
 }
 
-const SignUpButton = ({ children }: SignUpButtonProps) => {
-    return <StyledSignUpButton>{children}</StyledSignUpButton>
-}
+const SignUpButton: FC<SignUpButtonProps> = ({ children }) => (
+    <StyledSignUpButton>{children}</StyledSignUpButton>
+)
 
 export default SignUpButton

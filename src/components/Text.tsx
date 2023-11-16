@@ -1,5 +1,5 @@
-/* eslint-disable react/jsx-props-no-spreading */
-import { styled } from 'styled-components'
+import React from 'react'
+import styled from 'styled-components'
 
 export interface TextProps {
     fontSize?: number
@@ -17,18 +17,16 @@ const weight = {
 
 export const Text = ({
     fontSize = 14,
-    fontWeight,
+    fontWeight = 'normal',
     color = 'white',
     align = 'center',
     children,
-    ...props
 }: TextProps) => (
     <ContentContainer
         fontSize={fontSize}
         fontWeight={fontWeight}
         color={color}
         align={align}
-        {...props}
     >
         {children}
     </ContentContainer>

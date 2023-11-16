@@ -1,36 +1,36 @@
 import styled from 'styled-components'
 import Footer from './components/Footer'
-import GlassyBanner from './components/GlassyBanner'
 import Hero from './components/Hero'
 import OurMission from './components/OurMission'
 import OurPartners from './components/OurPartners'
-import ValuesSection from './components/ValuesSection'
-import Navbar from './components/Toolbar'
-import FeaturesSection from './components/FeaturesSection'
+import FeaturesSection from './components/FeaturesSection/FeaturesSection'
 import IntroSection from './components/IntroSection'
-// import VideoPlayer from './components/Video/Video'
-import Faq from './components/Faq'
+import Faq from './components/FaqSection/Faq'
 import useScreenSize from './hooks/useScreenSize'
 import isMobileDevice from './utils/isMobileDevice'
+import NewsletterSection from './components/NewsletterSection'
+import Navbar from './components/Navigation/Navbar'
+import ValuesSection from './components/ValuesSection/ValuesSection'
 
 const HomeStyled = styled.div`
     display: flex;
     flex-direction: column;
     padding: 0 112px;
-    /* align-items: center; */
+    padding-bottom: 48px;
     justify-content: center;
     gap: 48px;
     overflow: hidden;
-    margin-bottom: 48px;
-    /* margin: 0 auto; */
+    margin: 0 auto;
     /* max-width: 1440px; */
     background-color: black;
     @media (max-width: 1024px) {
         padding: 0 64px;
+        padding-bottom: 48px;
     }
 
     @media (max-width: 767px) {
         padding: 0 24px;
+        padding-bottom: 48px;
     }
 `
 
@@ -48,7 +48,7 @@ const Home = () => {
                 <ValuesSection />
                 <OurPartners />
                 <Faq />
-                <GlassyBanner />
+                <NewsletterSection />
                 {!isScreenSmallerThan767 && <Navbar type="lower" />}
                 <Footer />
             </HomeStyled>

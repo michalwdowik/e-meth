@@ -13,6 +13,7 @@ const FooterStyled = styled.div`
     gap: 10px;
     justify-content: center;
     align-items: flex-start;
+
     @media (max-width: 768px) {
         align-items: center;
     }
@@ -41,6 +42,7 @@ const FooterInfoStyled = styled.div`
     justify-content: space-between;
     width: 100%;
     gap: 32px;
+
     @media (max-width: 768px) {
         flex-direction: column;
         align-items: center;
@@ -51,6 +53,7 @@ const FooterNavStyled = styled.div`
     display: flex;
     align-items: center;
     gap: 32px;
+
     @media (max-width: 768px) {
         gap: 16px;
     }
@@ -80,14 +83,12 @@ const Footer = () => {
                     © 2023 eMeth. All rights reserved.
                 </CopyrightInfo>
                 <FooterNavStyled>
-                    {navList.map((item) => {
-                        return (
-                            <FooterButtonStyled key={item}>
-                                {item}
-                                <ArrowRight />
-                            </FooterButtonStyled>
-                        )
-                    })}
+                    {navList.map((item) => (
+                        <FooterButtonStyled key={item}>
+                            {item}
+                            <ArrowRight />
+                        </FooterButtonStyled>
+                    ))}
                 </FooterNavStyled>
             </FooterInfoStyled>
         </FooterStyled>
