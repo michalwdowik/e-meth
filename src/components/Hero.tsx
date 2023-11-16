@@ -39,6 +39,7 @@ const StyledHero = styled.div<StyledHeroProps>`
 
 const GradientBackgroundContainer = styled.div`
     position: absolute;
+    background-color: black;
     left: 0;
     width: 100%;
     height: auto;
