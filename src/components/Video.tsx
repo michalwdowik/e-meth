@@ -1,5 +1,6 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import styled from 'styled-components'
+import ReactPlayer from 'react-player'
 import { Text } from './Text'
 import useScreenSize from '../hooks/useScreenSize'
 import BeforePseudoElement from '../utils/beforePseudoElement'
@@ -12,7 +13,7 @@ const ModalOverlay = styled.div<{ showModal: boolean }>`
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.8);
-    z-index: 3;
+    z-index: 5;
     cursor: pointer;
 `
 
@@ -21,15 +22,13 @@ const Modal = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 3;
+    z-index: 6;
 `
 
 const VideoPlayerContainer = styled.div`
     z-index: 3;
     position: relative;
     max-width: 640px;
-    /* height: 360px; */
-    /* margin: 64px auto; */
     border-radius: 8px;
     overflow: hidden;
     display: flex;
@@ -61,13 +60,13 @@ const PlayButton = styled.button<{ playing: boolean }>`
     white-space: nowrap;
 `
 
-const Video = styled.video<{ playing: boolean }>`
-    z-index: 4;
-    width: 100%;
-    height: 100%;
-    display: ${({ playing }) => (playing ? 'block' : 'none')};
-    object-fit: cover;
-`
+// const Video = styled.video<{ playing: boolean }>`
+//     z-index: 4;
+//     width: 100%;
+//     height: 100%;
+//     display: ${({ playing }) => (playing ? 'block' : 'none')};
+//     object-fit: cover;
+// `
 
 const PlayIconStyled = styled.button<{ isScreenSmallerThan767: boolean }>`
     position: relative;
@@ -92,24 +91,19 @@ const PlayIconStyled = styled.button<{ isScreenSmallerThan767: boolean }>`
 interface VideoPlayerProps {}
 
 const VideoPlayer: React.FC<VideoPlayerProps> = () => {
-    const [playing, setPlaying] = useState<boolean>(false)
     const [showModal, setShowModal] = useState<boolean>(false)
-    const videoRef = useRef<HTMLVideoElement>(null)
+    const [isVideoPlaying, setIsVideoPlaying] = useState<boolean>(false)
+    const videoRef = useRef<ReactPlayer | null>(null)
     const { isScreenSmallerThan767 } = useScreenSize()
 
     const handlePlay = () => {
-        setPlaying(true)
+        setIsVideoPlaying(true)
         setShowModal(true)
-        if (videoRef.current) {
-            videoRef.current.play()
-        }
     }
 
     const closeModal = () => {
+        setIsVideoPlaying(false)
         setShowModal(false)
-        if (videoRef.current) {
-            videoRef.current.pause()
-        }
     }
 
     return (
@@ -118,9 +112,9 @@ const VideoPlayer: React.FC<VideoPlayerProps> = () => {
                 <PlaceholderImage
                     src="VideoPlaceholder.png"
                     alt="Video Placeholder"
-                    playing={playing}
+                    playing={isVideoPlaying}
                 />
-                <PlayButton onClick={handlePlay} playing={playing}>
+                <PlayButton onClick={handlePlay} playing={isVideoPlaying}>
                     <PlayIconStyled
                         isScreenSmallerThan767={isScreenSmallerThan767}
                     >
@@ -134,10 +128,14 @@ const VideoPlayer: React.FC<VideoPlayerProps> = () => {
 
             <ModalOverlay showModal={showModal} onClick={closeModal}>
                 <Modal onClick={(e) => e.stopPropagation()}>
-                    <Video ref={videoRef} controls playing={playing}>
-                        <source src="path-to-your-video.mp4" type="video/mp4" />
-                        Your browser does not support the video tag.
-                    </Video>
+                    <ReactPlayer
+                        ref={videoRef}
+                        url="https://www.youtube.com/watch?v=LXb3EKWsInQ"
+                        playing={isVideoPlaying}
+                        controls
+                        width="100vw"
+                        height="400px"
+                    />
                 </Modal>
             </ModalOverlay>
         </>
