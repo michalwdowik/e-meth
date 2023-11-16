@@ -8,7 +8,6 @@ interface FeatureProps {
     description: string
     imageUrl: string
     iconUrl: string
-    lightImageUrl: string
 }
 
 const FeatureContainer = styled.div`
@@ -81,20 +80,14 @@ const LearnMoreButton = () => {
     )
 }
 
-const Feature = ({
-    title,
-    description,
-    imageUrl,
-    lightImageUrl,
-    iconUrl,
-}: FeatureProps) => {
+const Feature = ({ title, description, imageUrl, iconUrl }: FeatureProps) => {
     const { isScreenSmallerThan767 } = useScreenSize()
 
     return (
         <FeatureContainer>
             {isScreenSmallerThan767 ? (
                 <>
-                    <FeatureImage src={`${lightImageUrl}`} alt={title} />
+                    <FeatureImage src={`${imageUrl}`} alt={title} />
                     <TextSection>
                         <FeatureIcon src={`${iconUrl}`} alt={title} />
                         <FeatureTitle>

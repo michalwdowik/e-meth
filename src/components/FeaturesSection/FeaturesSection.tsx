@@ -128,7 +128,6 @@ const FeaturesSection = () => {
                     title={feature.title}
                     description={feature.description}
                     imageUrl={feature.imageUrl}
-                    lightImageUrl={feature.lightImageUrl}
                     iconUrl={feature.iconUrl}
                 />
             ))}
