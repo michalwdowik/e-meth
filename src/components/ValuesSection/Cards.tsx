@@ -24,13 +24,13 @@ const CardContainer = styled.div`
 `
 
 const StyledCard = styled.div`
-    position: relative;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
     max-width: 384px;
     height: 384px;
     width: 100%;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
     border: 1px solid transparent;
     border-radius: 16px;

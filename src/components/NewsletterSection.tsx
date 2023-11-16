@@ -26,26 +26,25 @@ const NewsletterSectionStyled = styled.div`
 `
 
 const NewsletterGlassyBanner = styled.div`
-    border: 1px solid transparent;
-    z-index: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    border: 1px solid transparent;
+    /* z-index: 0; */
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     margin: 0 auto;
     transition:
         transform 0.3s ease,
         box-shadow 0.3s ease;
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 32px;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(50px);
-    -webkit-backdrop-filter: blur(50px);
     gap: 40px;
     border-color: transparent;
     padding: 218px 76px 154px 76px;
+    border-radius: 32px;
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
+    background: rgba(255, 255, 255, 0.05);
+    overflow: hidden;
 
     &::before {
         border-radius: 32px;
