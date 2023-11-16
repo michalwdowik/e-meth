@@ -29,7 +29,7 @@ const VideoPlayerContainer = styled.div`
     position: relative;
     max-width: 640px;
     height: 360px;
-    margin: 64px auto;
+    /* margin: 64px auto; */
     border-radius: 8px;
     overflow: hidden;
     display: flex;

@@ -13,7 +13,7 @@ const NavbarContainer = styled.nav<{ type: 'upper' | 'lower' }>`
     justify-content: space-between;
     align-items: center;
     padding: ${({ type }) => (type === 'upper' ? '40px 80px' : '0')};
-    background: transparent;
+    background: black;
     color: #fff;
 
     @media (max-width: 768px) {

@@ -10,6 +10,7 @@ const StyledBadge = styled.div`
     font-size: 12px;
     padding: 8px 16px;
     width: max-content;
+    z-index: 3;
 
     &::before {
         border-radius: 8px;

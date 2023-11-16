@@ -11,6 +11,8 @@ interface StyledHeroProps {
 
 const StyledHero = styled.div<StyledHeroProps>`
     display: flex;
+    background-color: black;
+
     flex-direction: column;
     justify-content: center;
     align-items: center;

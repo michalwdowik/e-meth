@@ -42,6 +42,7 @@ const NewsletterGlassyBanner = styled.div`
     border-radius: 32px;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
     gap: 40px;
     border-color: transparent;
     padding: 218px 76px 154px 76px;
