@@ -8,6 +8,7 @@ import validateEmail from '../../utils/validateEmail'
 import SignUpButton from '../SignUpButton'
 import { fadeIn, fadeOut } from '../../utils/animations'
 import BeforePseudoElement from '../../utils/beforePseudoElement'
+import useScreenSize from '../../hooks/useScreenSize'
 
 interface OverlayProps {
     isVisible: boolean
@@ -42,9 +43,8 @@ const StyledModal = styled.div<StyledModalProps>`
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #060608;
-    width: 100%;
+    width: 90%;
     max-width: 768px;
-    margin: 0 16px;
     padding: 48px;
     z-index: 5;
     animation: ${({ isVisible }) =>
@@ -225,6 +225,7 @@ const SignUpModal = ({
     isValidEmail,
     handleSignUp,
 }: SignUpModalProps) => {
+    const { isScreenExtraSmall } = useScreenSize()
     return (
         <>
             <Text fontSize={32}>Join the Emeth Revolution Early!</Text>
@@ -250,7 +251,11 @@ const SignUpModal = ({
                     isValid={isValidEmail}
                 />
                 <PositionedButton onClick={handleSignUp}>
-                    <SignUpButton>Sign Up for Early Access</SignUpButton>
+                    {isScreenExtraSmall ? (
+                        <SignUpButton>Sign Up</SignUpButton>
+                    ) : (
+                        <SignUpButton>Sign Up for Early Access</SignUpButton>
+                    )}
                 </PositionedButton>
             </InputButtonContainer>
         </>
