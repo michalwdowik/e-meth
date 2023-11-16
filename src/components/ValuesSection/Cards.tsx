@@ -35,6 +35,7 @@ const StyledCard = styled.div`
     border: 1px solid transparent;
     border-radius: 16px;
     backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
     background: rgba(255, 255, 255, 0.05);
     overflow: hidden;
 

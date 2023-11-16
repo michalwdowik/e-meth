@@ -11,8 +11,8 @@ interface StyledHeroProps {
 
 const StyledHero = styled.div<StyledHeroProps>`
     display: flex;
+    margin-top: -50px;
     background-color: black;
-
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -33,6 +33,7 @@ const StyledHero = styled.div<StyledHeroProps>`
         padding: 80px 24px 24px 24px;
         margin-left: -24px;
         width: calc(100% + 48px);
+        margin-top: -70px;
     }
 `
 
@@ -42,6 +43,10 @@ const GradientBackgroundContainer = styled.div`
     width: 100%;
     height: auto;
     z-index: 1;
+
+    @media (max-width: 767px) {
+        top: 200px;
+    }
 `
 
 const GradientBackground = styled.img`
@@ -63,9 +68,7 @@ const HeroContent = ({ isSmallScreen }: HeroContentProps) => {
     return (
         <>
             <Text fontSize={isSmallScreen ? 40 : 64}>
-                Struggling with Volatile
-                <br />
-                Crypto Markets?
+                Struggling with Volatile Crypto Markets?
             </Text>
             <Text fontSize={isSmallScreen ? 14 : 16} fontWeight="light">
                 The crypto market’s inherent volatility can turn strategic
@@ -90,7 +93,7 @@ const Hero = ({ video }: HeroProps) => {
                     <GradientBackground
                         src={
                             isScreenSmallerThan767
-                                ? 'HeroGradient.png'
+                                ? 'MobileHeroGradient.png'
                                 : 'HeroGradient-NoVideo.png'
                         }
                     />
