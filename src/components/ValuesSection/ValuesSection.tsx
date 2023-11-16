@@ -5,7 +5,7 @@ import { Text } from '../Text'
 import Cards from './Cards'
 
 const Container = styled.div`
-    background: url('/src/assets/GlassyBannerGradient.png') no-repeat right
+    background: url('GlassyBannerGradient.png') no-repeat right
         calc(100% - 60px);
     position: relative;
     display: flex;
@@ -100,10 +100,10 @@ const ValuesSection = () => {
     return (
         <Container>
             {isScreenSmallerThan767 && (
-                <GradientMobileUpper src="/src/assets/FeaturesGradientMobileUpper.png" />
+                <GradientMobileUpper src="FeaturesGradientMobileUpper.png" />
             )}
             {isScreenSmallerThan767 && (
-                <GradientMobileLower src="/src/assets/FeaturesGradientMobileLower.png" />
+                <GradientMobileLower src="FeaturesGradientMobileLower.png" />
             )}
             <Heading>
                 <Badge>VALUES</Badge>

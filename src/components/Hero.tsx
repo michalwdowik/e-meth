@@ -88,8 +88,8 @@ const Hero = ({ video }: HeroProps) => {
                     <GradientBackground
                         src={
                             isScreenSmallerThan767
-                                ? 'src/assets/HeroGradient.png'
-                                : 'src/assets/HeroGradient-NoVideo.png'
+                                ? 'HeroGradient.png'
+                                : 'HeroGradient-NoVideo.png'
                         }
                     />
                 </Parallax>

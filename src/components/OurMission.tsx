@@ -17,8 +17,8 @@ const OurMissionStyled = styled.div<OurMissionStyledProps>`
     background: ${(props) =>
         `url(${
             props.isScreenSmallerThan767
-                ? 'src/assets/OurMissionMobile.png'
-                : 'src/assets/OurMission.png'
+                ? 'OurMissionMobile.png'
+                : 'OurMission.png'
         }) no-repeat right`};
     background-color: black;
     background-size: cover;

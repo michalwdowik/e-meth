@@ -116,7 +116,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = () => {
         <>
             <VideoPlayerContainer>
                 <PlaceholderImage
-                    src="../src/assets/VideoPlaceholder.png"
+                    src="VideoPlaceholder.png"
                     alt="Video Placeholder"
                     playing={playing}
                 />
@@ -124,10 +124,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = () => {
                     <PlayIconStyled
                         isScreenSmallerThan767={isScreenSmallerThan767}
                     >
-                        <img
-                            src="../src/assets/play-icon.svg"
-                            alt="Play Icon"
-                        />
+                        <img src="play-icon.svg" alt="Play Icon" />
                     </PlayIconStyled>
                     <Text fontSize={isScreenSmallerThan767 ? 14 : 16}>
                         Watch Video Now!

@@ -88,8 +88,8 @@ const FeaturesSection = () => {
             <GradientOverlay
                 src={
                     isScreenExtraSmall
-                        ? '../src/assets/FeaturesGradientMobile.png'
-                        : '../src/assets/FeaturesSectionGradient.png'
+                        ? 'FeaturesGradientMobile.png'
+                        : 'FeaturesSectionGradient.png'
                 }
             />
             <FeaturesSectionHero>

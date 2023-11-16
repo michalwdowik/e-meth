@@ -1,12 +1,6 @@
 import styled from 'styled-components'
 import { Text } from './Text'
 import useScreenSize from '../hooks/useScreenSize'
-import axelar from '../assets/partners/axelar.png'
-import golem from '../assets/partners/golem.png'
-import robohero from '../assets/partners/robohero.png'
-import thorstarter from '../assets/partners/thorstarter.png'
-import tubbly from '../assets/partners/tubbly.png'
-import atlo from '../assets/partners/atlo.png'
 
 const OurPartnersSection = styled.div`
     display: flex;
@@ -53,7 +47,14 @@ const Divider = styled.div`
     border: 1px rgba(255, 255, 255, 0.2) solid;
 `
 
-const partnerImages = [axelar, thorstarter, golem, robohero, atlo, tubbly]
+const partnerImages = [
+    'partners/axelar.png',
+    'partners/thorstarter.png',
+    'partners/golem.png',
+    'partners/robohero.png',
+    'partners/atlo.png',
+    'partners/tubbly.png',
+]
 
 const OurPartners = () => {
     const { isScreenSmallerThan767 } = useScreenSize()

@@ -98,7 +98,7 @@ const IntroSection = () => {
             </IntroSectionHeadingStyled>
             <IntroSectionContent>
                 <IntroSectionImg
-                    src="../src/assets/IntroducingEmethPicture.png"
+                    src="IntroducingEmethPicture.png"
                     alt="Emeth"
                 />
                 <IntroSectionDescriptionStyled>

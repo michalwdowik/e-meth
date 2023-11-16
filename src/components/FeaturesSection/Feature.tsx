@@ -94,15 +94,9 @@ const Feature = ({
         <FeatureContainer>
             {isScreenSmallerThan767 ? (
                 <>
-                    <FeatureImage
-                        src={`../src/assets/${lightImageUrl}`}
-                        alt={title}
-                    />
+                    <FeatureImage src={`${lightImageUrl}`} alt={title} />
                     <TextSection>
-                        <FeatureIcon
-                            src={`../src/assets/${iconUrl}`}
-                            alt={title}
-                        />
+                        <FeatureIcon src={`${iconUrl}`} alt={title} />
                         <FeatureTitle>
                             <Text fontSize={20} fontWeight="bold" align="left">
                                 {title}
@@ -119,10 +113,7 @@ const Feature = ({
             ) : (
                 <>
                     <TextSection>
-                        <FeatureIcon
-                            src={`../src/assets/${iconUrl}`}
-                            alt={title}
-                        />
+                        <FeatureIcon src={`${iconUrl}`} alt={title} />
                         <FeatureTitle>
                             <Text fontSize={32} fontWeight="bold" align="left">
                                 {title}
@@ -135,10 +126,7 @@ const Feature = ({
                         </FeatureDescription>
                         <LearnMoreButton />
                     </TextSection>
-                    <FeatureImage
-                        src={`../src/assets/${imageUrl}`}
-                        alt={title}
-                    />
+                    <FeatureImage src={`${imageUrl}`} alt={title} />
                 </>
             )}
         </FeatureContainer>

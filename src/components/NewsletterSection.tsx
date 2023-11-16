@@ -7,7 +7,7 @@ import webkitMask from '../utils/webkitMask'
 import BeforePseudoElement from '../utils/beforePseudoElement'
 
 const NewsletterSectionStyled = styled.div`
-    background: url('/src/assets/NewsletterGradient.png');
+    background: url('NewsletterGradient.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -18,7 +18,7 @@ const NewsletterSectionStyled = styled.div`
     @media (max-width: 576px) {
         margin-left: -24px;
         width: calc(100% + 48px);
-        background: url('/src/assets/NewsletterGradientMobile.png');
+        background: url('NewsletterGradientMobile.png');
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;

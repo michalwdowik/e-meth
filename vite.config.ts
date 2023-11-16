@@ -27,8 +27,8 @@ export default defineConfig({
             manifest: {
                 id: '/',
                 start_url: './',
-                name: 'Boilerplate',
-                short_name: 'Boilerplate',
+                name: 'E-meth',
+                short_name: 'E-Meth',
                 theme_color: '#000000',
                 icons: [
                     {
