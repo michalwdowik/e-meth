@@ -26,7 +26,7 @@ const NewsletterSectionStyled = styled.div`
 `
 
 const NewsletterGlassyBanner = styled.div`
-    border: 2px red solid;
+    border: 1px solid transparent;
     z-index: 0;
     display: flex;
     flex-direction: column;

@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef } from 'react'
 import styled from 'styled-components'
 import ReactPlayer from 'react-player'
 import { Text } from './Text'
@@ -59,14 +59,6 @@ const PlayButton = styled.button<{ playing: boolean }>`
     transform: translate(-50%, -50%);
     white-space: nowrap;
 `
-
-// const Video = styled.video<{ playing: boolean }>`
-//     z-index: 4;
-//     width: 100%;
-//     height: 100%;
-//     display: ${({ playing }) => (playing ? 'block' : 'none')};
-//     object-fit: cover;
-// `
 
 const PlayIconStyled = styled.button<{ isScreenSmallerThan767: boolean }>`
     position: relative;
