@@ -33,12 +33,20 @@ const Modal = styled.div`
 const VideoPlayerContainer = styled.div`
     z-index: 3;
     position: relative;
-    max-width: 640px;
+    /* max-width: 640px; */
     border-radius: 8px;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
+    /* max-width: 470px; */
+    @media (max-width: 1024px) {
+        width: calc(100% + 144px);
+    }
+
+    @media (max-width: 767px) {
+        width: calc(100% + 48px);
+    }
 `
 
 const PlaceholderImage = styled.img`

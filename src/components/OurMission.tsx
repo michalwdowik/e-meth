@@ -26,11 +26,27 @@ const OurMissionStyled = styled.div<OurMissionStyledProps>`
     padding: 80px 112px;
     margin-left: -112px;
     width: calc(100% + 224px);
+    margin-top: -260px;
 
+    @media (max-width: 1230px) {
+        margin-top: -160px;
+    }
+
+    @media (max-width: 1150px) {
+        margin-top: -100px;
+    }
+
+    @media (max-width: 1150px) {
+        margin-top: -50px;
+    }
     @media (max-width: 1024px) {
         margin-left: -64px;
         width: calc(100% + 128px);
         padding: 80px 64px;
+    }
+
+    @media (max-width: 991px) {
+        margin-top: 0px;
     }
 
     @media (max-width: 767px) {

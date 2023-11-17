@@ -11,41 +11,38 @@ interface StyledHeroProps {
 
 const StyledHero = styled.div<StyledHeroProps>`
     display: flex;
-    margin-top: -50px;
     background-color: black;
     flex-direction: column;
-    justify-content: center;
+    /* border: 2px green solid; */
     align-items: center;
     gap: 32px;
-    padding: 0 16px;
-    padding-top: ${(props) => (props.video ? '200px' : '140px')};
+    margin-top: ${(props) => (props.video ? '20px' : '64px')};
     margin-left: -112px;
     width: calc(100% + 224px);
 
     @media (max-width: 1024px) {
         margin-left: -64px;
         width: calc(100% + 128px);
-        padding: 0 64px;
-        padding-top: ${(props) => (props.video ? '200px' : '140px')};
+        margin-top: 20px;
     }
 
     @media (max-width: 767px) {
-        padding: 80px 24px 24px 24px;
+        /* padding: 80px 24px 24px 24px; */
         margin-left: -24px;
         width: calc(100% + 48px);
-        margin-top: -70px;
+        /* margin-top: -70px; */
     }
 `
 
 const GradientBackgroundContainer = styled.div`
     position: absolute;
     background-color: black;
-    left: 0;
+    top: 0;
     width: 100%;
     height: auto;
     z-index: 1;
 
-    @media (max-width: 767px) {
+    @media (max-width: 766px) {
         top: 200px;
     }
 `
@@ -65,22 +62,65 @@ interface HeroContentProps {
     isSmallScreen: boolean
 }
 
+const HeroContentStyled = styled.div`
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+    max-width: 786px;
+    width: 80%;
+`
+
+const HeroTextStyled = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    /* border: 2px red solid; */
+    text-align: justify;
+    /* margin-left: -48px; */
+    width: 100%;
+    max-width: 786px;
+
+    @media (max-width: 1024px) {
+        width: calc(100% + 128px);
+    }
+
+    @media (max-width: 767px) {
+        width: calc(100% + 30px);
+    }
+`
+
+const HeroSubtitleStyled = styled.div`
+    width: 75%;
+
+    @media (max-width: 430px) {
+        width: 100%;
+    }
+`
+
 const HeroContent = ({ isSmallScreen }: HeroContentProps) => {
     return (
-        <>
-            <Text fontSize={isSmallScreen ? 40 : 64}>
-                Struggling with Volatile Crypto Markets?
-            </Text>
-            <Text fontSize={isSmallScreen ? 14 : 16} fontWeight="light">
-                The crypto market’s inherent volatility can turn strategic
-                dreams into sleepless nights.
-            </Text>
+        <HeroContentStyled>
+            <HeroTextStyled>
+                <Text fontSize={isSmallScreen ? 40 : 64}>
+                    Struggling with Volatile Crypto Markets?
+                </Text>
+                <HeroSubtitleStyled>
+                    <Text fontSize={isSmallScreen ? 14 : 16} fontWeight="light">
+                        The crypto market’s inherent volatility can turn
+                        strategic dreams into sleepless nights.
+                    </Text>
+                </HeroSubtitleStyled>
+            </HeroTextStyled>
             {isSmallScreen ? (
                 <VideoPlayer />
             ) : (
                 <Button size="big">Join Now</Button>
             )}
-        </>
+        </HeroContentStyled>
     )
 }
 

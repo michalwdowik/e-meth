@@ -15,13 +15,16 @@ const NewsletterSectionStyled = styled.div`
     display: flex;
     align-items: center;
 
+    @media (max-width: 767px) {
+        height: 600px;
+    }
     @media (max-width: 576px) {
         margin-left: -24px;
         width: calc(100% + 48px);
         background: url('NewsletterGradientMobile.png');
         background-size: contain;
         background-repeat: no-repeat;
-        background-position: center;
+        background-position: center right;
     }
 `
 

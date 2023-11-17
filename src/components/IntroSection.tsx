@@ -30,7 +30,6 @@ const IntroSectionHeadingStyled = styled.div`
 const IntroSectionContent = styled.div`
     display: flex;
     align-items: flex-start;
-    background-color: black;
 
     @media (max-width: 991px) {
         flex-direction: column;

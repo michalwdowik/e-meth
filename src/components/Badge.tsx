@@ -10,6 +10,7 @@ const StyledBadge = styled.div`
     font-size: 12px;
     padding: 8px 16px;
     width: max-content;
+    backdrop-filter: blur(25px);
     z-index: 3;
 
     &::before {

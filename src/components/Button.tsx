@@ -20,6 +20,7 @@ const StyledButton = styled.button<ButtonProps>`
     z-index: 3;
     color: #fff;
     background: transparent;
+    backdrop-filter: blur(25px);
     cursor: pointer;
     border: none;
     padding: ${({ size }) => (size === 'normal' ? '0px 24px' : '0px 40px')};
