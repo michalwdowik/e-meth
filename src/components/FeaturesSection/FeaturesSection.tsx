@@ -15,6 +15,7 @@ const FeaturesSectionStyled = styled.div`
     padding: 0 112px;
     margin-left: -112px;
     width: calc(100% + 224px);
+    position: relative;
 
     @media (max-width: 1024px) {
         margin-left: -64px;
@@ -33,7 +34,7 @@ const FeaturesSectionHero = styled.div`
     display: flex;
     justify-content: space-between;
     gap: 10px;
-
+    margin-bottom: 128px;
     @media (max-width: 920px) {
         flex-direction: column;
         justify-content: center;
@@ -70,24 +71,27 @@ const GradientOverlay = styled.img`
     position: absolute;
     top: -232px;
     left: 0;
-    z-index: -1;
+    z-index: 0;
 
-    @media (max-width: 576px) {
-        top: -350px;
-        object-fit: cover;
+    @media (max-width: 767px) {
+        top: -500px;
         width: 100%;
-        left: 0;
+    }
+
+    @media (max-width: 360px) {
+        top: -400px;
+        width: 100%;
     }
 `
 
 const FeaturesSection = () => {
-    const { isScreenExtraSmall } = useScreenSize()
+    const { isScreenExtraSmall, isScreenSmallerThan767 } = useScreenSize()
 
     return (
         <FeaturesSectionStyled>
             <GradientOverlay
                 src={
-                    isScreenExtraSmall
+                    isScreenSmallerThan767
                         ? 'FeaturesGradientMobile.png'
                         : 'FeaturesSectionGradient.png'
                 }

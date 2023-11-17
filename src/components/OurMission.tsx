@@ -14,6 +14,7 @@ const OurMissionStyled = styled.div<OurMissionStyledProps>`
     justify-content: center;
     align-items: center;
     gap: 32px;
+    z-index: 1;
     background: ${(props) =>
         `url(${
             props.isScreenSmallerThan767
