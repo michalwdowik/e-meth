@@ -125,7 +125,7 @@ const Hero = ({ video }: HeroProps) => {
     return (
         <StyledHero video={video}>
             <GradientBackgroundContainer>
-                <Parallax style={{ zIndex: 1, width: '100%' }} speed={-15}>
+                <Parallax style={{ zIndex: 1, width: '100%' }} speed={-10}>
                     <GradientBackground
                         src={
                             isScreenSmallerThan767
