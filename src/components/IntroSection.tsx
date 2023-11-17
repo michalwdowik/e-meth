@@ -4,6 +4,7 @@ import { Text } from './Text'
 import useScreenSize from '../hooks/useScreenSize'
 
 const IntroSectionStyled = styled.div`
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     gap: 64px;
@@ -81,11 +82,32 @@ const IntroSectionImg = styled.img`
     }
 `
 
+const GradientOverlay = styled.img`
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: calc(100% + 48px);
+    margin-left: -24px;
+    z-index: 1;
+
+    @media (max-width: 991px) {
+        width: calc(100% + 128px);
+        margin-left: -64px;
+    }
+
+    @media (max-width: 767px) {
+        width: calc(100% + 48px);
+        margin-left: -24px;
+    }
+`
 const IntroSection = () => {
-    const { isScreenSmallerThan767 } = useScreenSize()
+    const { isScreenSmallerThan767, isScreenSmallerThan991 } = useScreenSize()
 
     return (
         <IntroSectionStyled>
+            {isScreenSmallerThan991 && (
+                <GradientOverlay src="IntroducingEmethGradientMobile.png" />
+            )}
             <IntroSectionHeadingStyled>
                 <Badge>INTRODUCING EMETH</Badge>
                 <Text

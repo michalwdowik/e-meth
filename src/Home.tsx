@@ -21,7 +21,6 @@ const HomeStyled = styled.div`
     gap: 48px;
     overflow: hidden;
     margin: 0 auto;
-    /* max-width: 1440px; */
     background-color: black;
     @media (max-width: 1024px) {
         padding: 0 64px;

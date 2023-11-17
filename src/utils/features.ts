@@ -9,7 +9,7 @@ const features = [
         description:
             'Engage in auto-arbitrage, initiate volume generation, formulate yield farming strategies, and auto-rebalance your portfolio, ensuring optimal performance and risk mitigation.',
         imageUrl: 'Feature1.png',
-        gradientUrl: 'Feature1Gradient.png',
+        gradientUrl: '/Feature1Gradient.png',
         icon: StrategicAutomationIcon,
     },
     {

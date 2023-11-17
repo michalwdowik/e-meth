@@ -8,10 +8,8 @@ import features from '../../utils/features'
 const FeaturesSectionStyled = styled.div`
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     gap: 56px;
     background-color: transparent;
-    /* position: relative; */
     padding: 0 112px;
     margin-left: -112px;
     width: calc(100% + 224px);
@@ -24,7 +22,7 @@ const FeaturesSectionStyled = styled.div`
     }
 
     @media (max-width: 767px) {
-        padding: 24px;
+        padding: 86px 24px 0 24px;
         margin-left: -24px;
         width: calc(100% + 48px);
     }
@@ -34,7 +32,6 @@ const FeaturesSectionHero = styled.div`
     display: flex;
     justify-content: space-between;
     gap: 10px;
-    margin-bottom: 128px;
     @media (max-width: 920px) {
         flex-direction: column;
         justify-content: center;
@@ -69,17 +66,15 @@ const FeaturesSectionHeroDescription = styled.div`
 
 const GradientOverlay = styled.img`
     position: absolute;
-    top: -232px;
+    top: 70px;
     left: 0;
     z-index: 0;
-
+    width: 50%;
     @media (max-width: 767px) {
-        top: -500px;
         width: 100%;
     }
 
     @media (max-width: 360px) {
-        top: -400px;
         width: 100%;
     }
 `
