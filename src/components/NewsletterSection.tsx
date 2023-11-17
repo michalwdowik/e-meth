@@ -25,6 +25,7 @@ const NewsletterSectionStyled = styled.div`
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center right;
+        height: 550px;
     }
 `
 

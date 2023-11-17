@@ -45,7 +45,11 @@ const FeatureTitle = styled.div`
     width: 100%;
 
     @media (max-width: 766px) {
-        width: 50%;
+        width: 70%;
+    }
+
+    @media (max-width: 560px) {
+        width: 100%;
     }
 `
 

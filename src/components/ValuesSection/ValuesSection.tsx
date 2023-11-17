@@ -4,7 +4,7 @@ import Badge from '../Badge'
 import { Text } from '../Text'
 import Cards from './Cards'
 
-const Container = styled.div`
+const ValuesSectionStyled = styled.div`
     background: url('GlassyBannerGradient.png') no-repeat right
         calc(100% - 60px);
     position: relative;
@@ -89,8 +89,9 @@ const GradientMobileLower = styled.img`
         width: 70%;
     }
 
-    @media (max-width: 440px) {
-        bottom: 100px;
+    @media (max-width: 450px) {
+        bottom: 0px;
+        width: 90%;
     }
 `
 
@@ -98,7 +99,7 @@ const ValuesSection = () => {
     const { isScreenExtraSmall, isScreenSmallerThan767 } = useScreenSize()
 
     return (
-        <Container>
+        <ValuesSectionStyled>
             {isScreenSmallerThan767 && (
                 <GradientMobileUpper src="FeaturesGradientMobileUpper.png" />
             )}
@@ -128,7 +129,7 @@ const ValuesSection = () => {
             </Heading>
 
             <Cards />
-        </Container>
+        </ValuesSectionStyled>
     )
 }
 

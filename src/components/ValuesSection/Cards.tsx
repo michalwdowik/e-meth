@@ -21,6 +21,10 @@ const CardContainer = styled.div`
     max-width: 1220px;
     margin: 0 auto;
     gap: 32px;
+
+    @media (max-width: 560px) {
+        margin-top: -32px;
+    }
 `
 
 const StyledCard = styled.div`

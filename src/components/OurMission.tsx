@@ -27,6 +27,7 @@ const OurMissionStyled = styled.div<OurMissionStyledProps>`
     margin-left: -112px;
     width: calc(100% + 224px);
     margin-top: -260px;
+    margin-bottom: 80px;
 
     @media (max-width: 1230px) {
         margin-top: -160px;
@@ -53,6 +54,7 @@ const OurMissionStyled = styled.div<OurMissionStyledProps>`
         padding: 80px 24px;
         margin-left: -24px;
         width: calc(100% + 48px);
+        margin-bottom: 0;
     }
 `
 

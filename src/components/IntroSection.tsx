@@ -161,7 +161,7 @@ const IntroSection = () => {
                     >
                         In a realm where decentralization meets finance, Emeth
                         stands out as the beacon of intelligent
-                        <GradientText>DeFi portfolio management</GradientText>,
+                        <GradientText> DeFi portfolio management</GradientText>,
                         dedicated to empowering businesses, startups, and crypto
                         investors in navigating the vibrant, yet complex,
                         digital asset universe. <br /> <br /> At Emeth, we align

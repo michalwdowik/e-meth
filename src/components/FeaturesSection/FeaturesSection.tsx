@@ -14,6 +14,7 @@ const FeaturesSectionStyled = styled.div`
     margin-left: -112px;
     width: calc(100% + 224px);
     position: relative;
+    margin-top: -32px;
 
     @media (max-width: 1024px) {
         margin-left: -64px;
@@ -22,7 +23,7 @@ const FeaturesSectionStyled = styled.div`
     }
 
     @media (max-width: 767px) {
-        padding: 86px 24px 0 24px;
+        padding: 160px 24px 0 24px;
         margin-left: -24px;
         width: calc(100% + 48px);
     }

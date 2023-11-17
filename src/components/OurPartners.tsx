@@ -1,6 +1,13 @@
+/* eslint-disable react/jsx-key */
 import styled from 'styled-components'
 import { Text } from './Text'
 import useScreenSize from '../hooks/useScreenSize'
+import AxelarLogo from './Icons/AxelarLogo'
+import ThorstarterLogo from './Icons/ThorstarterLogo'
+import GolemLogo from './Icons/GolemLogo'
+import RoboheroLogo from './Icons/RoboheroLogo'
+import AtloLogo from './Icons/AtloLogo'
+import TubblyLogo from './Icons/TubblyLogo'
 
 const OurPartnersSection = styled.div`
     display: flex;
@@ -18,6 +25,7 @@ const OurPartnersDiv = styled.div`
     justify-content: space-between;
     align-items: center;
     gap: 32px;
+    padding: 0 16px;
 
     @media (max-width: 870px) {
         display: grid;
@@ -27,17 +35,9 @@ const OurPartnersDiv = styled.div`
     }
 
     @media (max-width: 350px) {
-        grid-gap: 20px;
+        grid-gap: 40px;
         align-items: center;
-    }
-`
-
-const PartnerImage = styled.img`
-    width: 100px;
-    height: auto;
-
-    @media (max-width: 350px) {
-        width: 65px;
+        grid-template-columns: repeat(1, 1fr);
     }
 `
 
@@ -46,15 +46,6 @@ const Divider = styled.div`
     margin: 32px 0;
     border: 1px rgba(255, 255, 255, 0.2) solid;
 `
-
-const partnerImages = [
-    'partners/axelar.png',
-    'partners/thorstarter.png',
-    'partners/golem.png',
-    'partners/robohero.png',
-    'partners/atlo.png',
-    'partners/tubbly.png',
-]
 
 const OurPartners = () => {
     const { isScreenSmallerThan767 } = useScreenSize()
@@ -66,13 +57,12 @@ const OurPartners = () => {
             </Text>
             <Divider />
             <OurPartnersDiv>
-                {partnerImages.map((image) => (
-                    <PartnerImage
-                        key={image}
-                        src={image}
-                        alt={`${image} logo`}
-                    />
-                ))}
+                <AxelarLogo />
+                <ThorstarterLogo />
+                <GolemLogo />
+                <RoboheroLogo />
+                <AtloLogo />
+                <TubblyLogo />
             </OurPartnersDiv>
         </OurPartnersSection>
     )
