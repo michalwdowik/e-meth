@@ -7,7 +7,7 @@ interface FeatureProps {
     title: string
     description: string
     imageUrl: string
-    iconUrl: string
+    icon: () => JSX.Element
 }
 
 const FeatureContainer = styled.div`
@@ -47,11 +47,6 @@ const FeatureImage = styled.img`
     }
 `
 
-const FeatureIcon = styled.img`
-    width: 64px;
-    height: 64px;
-`
-
 const FeatureTitle = styled.div`
     width: 100%;
 
@@ -80,7 +75,7 @@ const LearnMoreButton = () => {
     )
 }
 
-const Feature = ({ title, description, imageUrl, iconUrl }: FeatureProps) => {
+const Feature = ({ title, description, imageUrl, icon }: FeatureProps) => {
     const { isScreenSmallerThan767 } = useScreenSize()
 
     return (
@@ -89,7 +84,7 @@ const Feature = ({ title, description, imageUrl, iconUrl }: FeatureProps) => {
                 <>
                     <FeatureImage src={`${imageUrl}`} alt={title} />
                     <TextSection>
-                        <FeatureIcon src={`${iconUrl}`} alt={title} />
+                        {icon()}
                         <FeatureTitle>
                             <Text fontSize={20} fontWeight="bold" align="left">
                                 {title}
@@ -106,7 +101,7 @@ const Feature = ({ title, description, imageUrl, iconUrl }: FeatureProps) => {
             ) : (
                 <>
                     <TextSection>
-                        <FeatureIcon src={`${iconUrl}`} alt={title} />
+                        {icon()}
                         <FeatureTitle>
                             <Text fontSize={32} fontWeight="bold" align="left">
                                 {title}

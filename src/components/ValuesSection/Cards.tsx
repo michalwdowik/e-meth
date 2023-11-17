@@ -7,7 +7,7 @@ import webkitMask from '../../utils/webkitMask'
 interface CardProps {
     title: string
     description: string
-    icon: string
+    icon: () => JSX.Element
 }
 
 interface RowProps {
@@ -27,12 +27,12 @@ const StyledCard = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     position: relative;
+    border: 1px solid transparent;
     max-width: 384px;
     height: 384px;
     width: 100%;
-    align-items: center;
-    border: 1px solid transparent;
     border-radius: 16px;
     backdrop-filter: blur(50px);
     -webkit-backdrop-filter: blur(50px);
@@ -98,9 +98,7 @@ const Row = styled.div<RowProps>`
 
 const Card = ({ title, description, icon }: CardProps) => (
     <StyledCard>
-        <CardIcon>
-            <img src={icon} alt={title} />
-        </CardIcon>
+        <CardIcon>{icon()}</CardIcon>
         <CardTitle>{title}</CardTitle>
         <CardDescription>{description}</CardDescription>
     </StyledCard>

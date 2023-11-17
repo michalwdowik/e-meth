@@ -4,6 +4,7 @@ import ReactPlayer from 'react-player'
 import { Text } from './Text'
 import useScreenSize from '../hooks/useScreenSize'
 import BeforePseudoElement from '../utils/beforePseudoElement'
+import PlayIcon from './Icons/PlayIcon'
 
 const ModalOverlay = styled.div<{ showModal: boolean }>`
     display: ${({ showModal }) => (showModal ? 'block' : 'none')};
@@ -110,7 +111,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = () => {
                     <PlayIconStyled
                         isScreenSmallerThan767={isScreenSmallerThan767}
                     >
-                        <img src="play-icon.svg" alt="Play Icon" />
+                        <PlayIcon />
                     </PlayIconStyled>
                     <Text fontSize={isScreenSmallerThan767 ? 14 : 16}>
                         Watch Video Now!

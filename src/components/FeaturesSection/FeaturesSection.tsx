@@ -128,7 +128,7 @@ const FeaturesSection = () => {
                     title={feature.title}
                     description={feature.description}
                     imageUrl={feature.imageUrl}
-                    iconUrl={feature.iconUrl}
+                    icon={feature.icon}
                 />
             ))}
         </FeaturesSectionStyled>

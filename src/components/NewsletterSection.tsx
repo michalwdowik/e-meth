@@ -31,7 +31,6 @@ const NewsletterGlassyBanner = styled.div`
     align-items: center;
     text-align: center;
     border: 1px solid transparent;
-    /* z-index: 0; */
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     margin: 0 auto;
     transition:
