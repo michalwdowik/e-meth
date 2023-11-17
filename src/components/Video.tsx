@@ -1,10 +1,12 @@
-import { useState, useRef } from 'react'
+import React, { useState, useRef } from 'react'
 import styled from 'styled-components'
 import ReactPlayer from 'react-player'
+import { createPortal } from 'react-dom' // Import createPortal
 import { Text } from './Text'
 import useScreenSize from '../hooks/useScreenSize'
 import BeforePseudoElement from '../utils/beforePseudoElement'
 import PlayIcon from './Icons/PlayIcon'
+import useBodyOverflow from '../hooks/useBodyOverflow'
 
 const ModalOverlay = styled.div<{ showModal: boolean }>`
     visibility: ${({ showModal }) => (showModal ? 'visible' : 'hidden')};
@@ -83,13 +85,12 @@ const PlayIconStyled = styled.button<{ isScreenSmallerThan767: boolean }>`
     }
 `
 
-interface VideoPlayerProps {}
-
-const VideoPlayer: React.FC<VideoPlayerProps> = () => {
+const VideoPlayer = () => {
     const [showModal, setShowModal] = useState<boolean>(false)
     const [isVideoPlaying, setIsVideoPlaying] = useState<boolean>(false)
     const videoRef = useRef<ReactPlayer | null>(null)
     const { isScreenSmallerThan767 } = useScreenSize()
+    useBodyOverflow(showModal)
 
     const handlePlay = () => {
         setIsVideoPlaying(true)
@@ -100,6 +101,21 @@ const VideoPlayer: React.FC<VideoPlayerProps> = () => {
         setIsVideoPlaying(false)
         setShowModal(false)
     }
+
+    const modalContent = showModal ? (
+        <ModalOverlay showModal={showModal} onClick={closeModal}>
+            <Modal onClick={(e) => e.stopPropagation()}>
+                <ReactPlayer
+                    ref={videoRef}
+                    url="https://www.youtube.com/watch?v=Dji7czwpwGI"
+                    playing={isVideoPlaying}
+                    controls
+                    play
+                    width="100vw"
+                />
+            </Modal>
+        </ModalOverlay>
+    ) : null
 
     return (
         <>
@@ -121,17 +137,10 @@ const VideoPlayer: React.FC<VideoPlayerProps> = () => {
                 </PlayButton>
             </VideoPlayerContainer>
 
-            <ModalOverlay showModal={showModal} onClick={closeModal}>
-                <Modal onClick={(e) => e.stopPropagation()}>
-                    <ReactPlayer
-                        ref={videoRef}
-                        url="https://www.youtube.com/watch?v=Dji7czwpwGI"
-                        playing={isVideoPlaying}
-                        controls
-                        width="100vw"
-                    />
-                </Modal>
-            </ModalOverlay>
+            {createPortal(
+                modalContent,
+                document.getElementById('modal-root') as HTMLElement
+            )}
         </>
     )
 }

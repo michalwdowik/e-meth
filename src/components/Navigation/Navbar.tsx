@@ -4,6 +4,7 @@ import Drawer from './Drawer'
 import useScreenSize from '../../hooks/useScreenSize'
 import Button from '../Button'
 import Logo from '../Logo'
+import useBodyOverflow from '../../hooks/useBodyOverflow'
 
 const sections = ['DCA', 'About', 'Features', 'Partners', 'FAQ']
 
@@ -92,6 +93,8 @@ const Navbar = ({ type }: NavbarProps) => {
     const navItems = sections.map((section) => (
         <NavItem key={section}>{section}</NavItem>
     ))
+
+    useBodyOverflow(isOpen)
 
     const toggleDrawer = () => {
         setIsOpen(!isOpen)

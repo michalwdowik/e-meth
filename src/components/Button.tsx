@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { useState } from 'react'
 import Modal from './Modal/Modal'
 import BeforePseudoElement from '../utils/beforePseudoElement'
+import useBodyOverflow from '../hooks/useBodyOverflow'
 
 type ButtonSize = 'normal' | 'big'
 
@@ -36,7 +37,7 @@ const StyledButton = styled.button<ButtonProps>`
 
 const Button = ({ children, size = 'normal' }: ButtonProps) => {
     const [isModalVisible, setIsModalVisible] = useState(false)
-
+    useBodyOverflow(isModalVisible)
     const toggleModal = (event: React.MouseEvent) => {
         event.stopPropagation()
         setIsModalVisible((prev) => !prev)
