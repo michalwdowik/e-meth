@@ -7,13 +7,15 @@ import BeforePseudoElement from '../utils/beforePseudoElement'
 import PlayIcon from './Icons/PlayIcon'
 
 const ModalOverlay = styled.div<{ showModal: boolean }>`
-    display: ${({ showModal }) => (showModal ? 'block' : 'none')};
+    visibility: ${({ showModal }) => (showModal ? 'visible' : 'hidden')};
+    opacity: ${({ showModal }) => (showModal ? '1' : '0')};
+    transition: opacity 0.15s ease-in-out;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.9);
     z-index: 5;
     cursor: pointer;
 `
@@ -123,11 +125,10 @@ const VideoPlayer: React.FC<VideoPlayerProps> = () => {
                 <Modal onClick={(e) => e.stopPropagation()}>
                     <ReactPlayer
                         ref={videoRef}
-                        url="https://www.youtube.com/watch?v=LXb3EKWsInQ"
+                        url="https://www.youtube.com/watch?v=Dji7czwpwGI"
                         playing={isVideoPlaying}
                         controls
                         width="100vw"
-                        height="400px"
                     />
                 </Modal>
             </ModalOverlay>

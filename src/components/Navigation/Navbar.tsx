@@ -74,6 +74,12 @@ const Wrapper = styled.div`
     }
 `
 
+const NavItem = styled.li`
+    transition: color 0.15s ease-in-out;
+    &:hover {
+        color: #969696;
+    }
+`
 interface NavbarProps {
     type: 'upper' | 'lower'
 }
@@ -83,7 +89,9 @@ const Navbar = ({ type }: NavbarProps) => {
 
     const { isScreenSmallerThan767 } = useScreenSize()
 
-    const navItems = sections.map((section) => <li key={section}>{section}</li>)
+    const navItems = sections.map((section) => (
+        <NavItem key={section}>{section}</NavItem>
+    ))
 
     const toggleDrawer = () => {
         setIsOpen(!isOpen)
