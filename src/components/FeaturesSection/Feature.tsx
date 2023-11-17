@@ -7,6 +7,7 @@ interface FeatureProps {
     title: string
     description: string
     imageUrl: string
+    gradientUrl: string
     icon: () => JSX.Element
 }
 
@@ -37,14 +38,7 @@ const TextSection = styled.div`
 `
 
 const FeatureImage = styled.img`
-    position: relative;
-    max-width: 60%;
-    height: auto;
-    z-index: 1;
-
-    @media (max-width: 766px) {
-        max-width: 100%;
-    }
+    width: 100%;
 `
 
 const FeatureTitle = styled.div`
@@ -75,7 +69,33 @@ const LearnMoreButton = () => {
     )
 }
 
-const Feature = ({ title, description, imageUrl, icon }: FeatureProps) => {
+const ImagesWrapper = styled.div`
+    position: relative;
+    max-width: 60%;
+    height: auto;
+    z-index: 1;
+
+    @media (max-width: 766px) {
+        max-width: 100%;
+    }
+`
+
+const FeatureImageGradient = styled.img`
+    position: absolute;
+    top: 20%;
+    right: -15%;
+    width: 40%;
+    height: auto;
+    z-index: -1;
+`
+
+const Feature = ({
+    title,
+    description,
+    imageUrl,
+    gradientUrl,
+    icon,
+}: FeatureProps) => {
     const { isScreenSmallerThan767 } = useScreenSize()
 
     return (
@@ -114,7 +134,13 @@ const Feature = ({ title, description, imageUrl, icon }: FeatureProps) => {
                         </FeatureDescription>
                         <LearnMoreButton />
                     </TextSection>
-                    <FeatureImage src={`${imageUrl}`} alt={title} />
+                    <ImagesWrapper>
+                        <FeatureImage src={`${imageUrl}`} alt={title} />
+                        <FeatureImageGradient
+                            src={`${gradientUrl}`}
+                            alt="gradient"
+                        />
+                    </ImagesWrapper>
                 </>
             )}
         </FeatureContainer>

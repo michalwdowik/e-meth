@@ -9,9 +9,8 @@ const features = [
         description:
             'Engage in auto-arbitrage, initiate volume generation, formulate yield farming strategies, and auto-rebalance your portfolio, ensuring optimal performance and risk mitigation.',
         imageUrl: 'Feature1.png',
-        lightImageUrl: 'Feature1Light.png',
-        icon: StrategicAutomationIcon,
         gradientUrl: 'Feature1Gradient.png',
+        icon: StrategicAutomationIcon,
     },
     {
         id: 2,
@@ -19,9 +18,8 @@ const features = [
         description:
             'With a sophisticated yet intuitive interface, manage your digital assets by setting advanced parameters, defining portfolio structures, and monitoring real-time performance, ensuring strategic alignment with your financial goals.',
         imageUrl: 'Feature2.png',
-        lightImageUrl: 'Feature2Light.png',
-        icon: StreamlinePortfolioIcon,
         gradientUrl: 'Feature2Gradient.png',
+        icon: StreamlinePortfolioIcon,
     },
     {
         id: 3,
@@ -29,9 +27,8 @@ const features = [
         description:
             'Uncover opportunities and gauge market pulse with live data, sentiment analysis, and a consolidated overview of your asset holdings, driving informed and timely decision-making.',
         imageUrl: 'Feature3.png',
-        lightImageUrl: 'Feature3Light.png',
-        icon: MarketInsightsIcon,
         gradientUrl: 'Feature3Gradient.png',
+        icon: MarketInsightsIcon,
     },
 ]
 
