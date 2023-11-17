@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react'
 import styled from 'styled-components'
 import ReactPlayer from 'react-player'
-import { createPortal } from 'react-dom' // Import createPortal
+import { createPortal } from 'react-dom'
 import { Text } from './Text'
 import useScreenSize from '../hooks/useScreenSize'
 import BeforePseudoElement from '../utils/beforePseudoElement'
@@ -41,9 +41,8 @@ const VideoPlayerContainer = styled.div`
     align-items: center;
 `
 
-const PlaceholderImage = styled.img<{ playing: boolean }>`
+const PlaceholderImage = styled.img`
     width: 100%;
-    display: ${({ playing }) => (playing ? 'none' : 'block')};
 `
 
 const PlayButton = styled.button<{ playing: boolean }>`
@@ -112,6 +111,7 @@ const VideoPlayer = () => {
                     controls
                     play
                     width="100vw"
+                    volume={0}
                 />
             </Modal>
         </ModalOverlay>
@@ -123,7 +123,6 @@ const VideoPlayer = () => {
                 <PlaceholderImage
                     src="VideoPlaceholder.png"
                     alt="Video Placeholder"
-                    playing={isVideoPlaying}
                 />
                 <PlayButton onClick={handlePlay} playing={isVideoPlaying}>
                     <PlayIconStyled

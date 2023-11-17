@@ -17,6 +17,39 @@ body {
     font-family: 'Sora', sans-serif;
 }
 
+html {
+    scrollbar-width: none;
+    /* remove if you don't want to have bottom scrollbar */
+}
+
+/* remove if you don't want to have bottom scrollbar */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* remove if you don't want to have bottom scrollbar */
+.bottom-scroll-bar {
+    z-index: 1;
+    position: fixed;
+    left: 0;
+    right: 0;
+    height: 0.3125rem;
+    background: linear-gradient(
+        160deg,
+        #da301f 0%,
+        #f48946 18.229%,
+        #ee3560 35.417%,
+        #fa4784 51.563%,
+        #ff48c0 66.667%,
+        #8e38b5 81.771%,
+        #5542bb 89.063%,
+        #0051c4 100%
+    );
+    opacity: 0.6;
+    bottom: 0px;
+    border-radius: 6.25rem;
+}
+
 .logo {
     width: 111px;
     height: 24px;
