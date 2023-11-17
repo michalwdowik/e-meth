@@ -16,11 +16,16 @@ const StyledSignUpButton = styled.button`
     border: none;
     padding: 0px 24px;
     height: 40px;
+    transition: all 0.2s ease-in-out;
 
     &::before {
         border-radius: 40px;
         border: 2px solid transparent;
         ${BeforePseudoElement}
+    }
+    &:hover {
+        scale: 1.03;
+        filter: brightness(170%);
     }
 `
 

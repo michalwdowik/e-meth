@@ -24,7 +24,7 @@ const SocialMediaButton = styled.button`
     z-index: 4;
     cursor: pointer;
     transition: background-color 0.2s ease-in-out;
-
+    text-decoration: none;
     &:hover {
         background-color: rgba(255, 255, 255, 0.2);
     }

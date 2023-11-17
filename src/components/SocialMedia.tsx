@@ -11,18 +11,31 @@ const SocialMediaWrapper = styled.div`
     margin-top: 76px;
 `
 
+const SocialMediaSmallButton = styled.div`
+    transition: all 0.2s ease-in-out;
+    &:hover {
+        scale: 1.03;
+        filter: brightness(170%);
+    }
+`
 const SocialMedia = () => {
     return (
         <SocialMediaWrapper>
-            <a href="https://twitter.com">
-                <TwitterIcon />
-            </a>
-            <a href="https://discord.com">
-                <DiscordIcon />
-            </a>
-            <a href="https://telegram.org">
-                <TelegramIcon />
-            </a>
+            <SocialMediaSmallButton>
+                <a href="https://twitter.com">
+                    <TwitterIcon />
+                </a>
+            </SocialMediaSmallButton>
+            <SocialMediaSmallButton>
+                <a href="https://discord.com">
+                    <DiscordIcon />
+                </a>
+            </SocialMediaSmallButton>
+            <SocialMediaSmallButton>
+                <a href="https://telegram.org">
+                    <TelegramIcon />
+                </a>
+            </SocialMediaSmallButton>
         </SocialMediaWrapper>
     )
 }

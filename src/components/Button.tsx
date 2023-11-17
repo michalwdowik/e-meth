@@ -26,6 +26,7 @@ const StyledButton = styled.button<ButtonProps>`
     padding: ${({ size }) => (size === 'normal' ? '0px 24px' : '0px 40px')};
     height: ${({ size }) => (size === 'normal' ? '40px' : '60px')};
     border-radius: ${({ size }) => (size === 'normal' ? '40px' : '64px')};
+    transition: all 0.2s ease-in-out;
     &::before {
         border: ${({ size }) =>
             size === 'normal'
@@ -33,6 +34,10 @@ const StyledButton = styled.button<ButtonProps>`
                 : '3px solid transparent'};
         border-radius: ${({ size }) => (size === 'normal' ? '40px' : '64px')};
         ${BeforePseudoElement};
+    }
+    &:hover {
+        scale: 1.03;
+        filter: brightness(170%);
     }
 `
 
