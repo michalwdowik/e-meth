@@ -13,7 +13,6 @@ const StyledHero = styled.div<StyledHeroProps>`
     display: flex;
     background-color: black;
     flex-direction: column;
-    /* border: 2px green solid; */
     align-items: center;
     gap: 32px;
     margin-top: ${(props) => (props.video ? '20px' : '64px')};
@@ -27,10 +26,8 @@ const StyledHero = styled.div<StyledHeroProps>`
     }
 
     @media (max-width: 767px) {
-        /* padding: 80px 24px 24px 24px; */
         margin-left: -24px;
         width: calc(100% + 48px);
-        /* margin-top: -70px; */
     }
 `
 
@@ -78,9 +75,7 @@ const HeroTextStyled = styled.div`
     justify-content: center;
     align-items: center;
     gap: 32px;
-    /* border: 2px red solid; */
     text-align: justify;
-    /* margin-left: -48px; */
     width: 100%;
     max-width: 786px;
 

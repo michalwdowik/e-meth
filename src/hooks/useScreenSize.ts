@@ -21,7 +21,7 @@ const useScreenSize = () => {
     const isScreenSmallerThan767 = screenWidth.dynamicWidth < 767
     const isScreenSmallerThan650 = screenWidth.dynamicWidth < 650
     const isScreenSmallerThan430 = screenWidth.dynamicWidth < 431
-    const isScreenSmallerThan991 = screenWidth.dynamicWidth < 991
+    const isScreenSmallerThan991 = screenWidth.dynamicWidth <= 991
 
     useEffect(() => {
         window.addEventListener('resize', setDimension)

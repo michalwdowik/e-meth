@@ -4,11 +4,34 @@ import { Text } from './Text'
 import useScreenSize from '../hooks/useScreenSize'
 
 const IntroSectionStyled = styled.div`
-    margin-top: 50px;
     display: flex;
     flex-direction: column;
     gap: 64px;
     position: relative;
+
+    @media (max-width: 991px) {
+        margin-top: 50px;
+    }
+
+    @media (max-width: 830px) {
+        margin-top: -50px;
+    }
+
+    @media (max-width: 767px) {
+        margin-top: 350px;
+    }
+
+    @media (max-width: 700px) {
+        margin-top: 250px;
+    }
+
+    @media (max-width: 600px) {
+        margin-top: 150px;
+    }
+
+    @media (max-width: 500px) {
+        margin-top: 20px;
+    }
 `
 
 const IntroSectionHeadingStyled = styled.div`
