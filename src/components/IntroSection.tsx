@@ -41,6 +41,7 @@ const IntroSectionHeadingStyled = styled.div`
     gap: 10px;
     margin-top: 124px;
     margin-left: 80px;
+    overflow: hidden;
 
     @media (min-width: 1445px), (max-width: 991px) {
         margin-left: 0;

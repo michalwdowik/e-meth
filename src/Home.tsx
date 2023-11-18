@@ -3,7 +3,6 @@ import Footer from './components/Footer'
 import Hero from './components/Hero'
 import OurMission from './components/OurMission'
 import OurPartners from './components/OurPartners'
-import FeaturesSection from './components/FeaturesSection/FeaturesSection'
 import IntroSection from './components/IntroSection'
 import Faq from './components/FaqSection/Faq'
 import useScreenSize from './hooks/useScreenSize'
@@ -11,8 +10,7 @@ import isMobileDevice from './utils/isMobileDevice'
 import NewsletterSection from './components/NewsletterSection'
 import Navbar from './components/Navigation/Navbar'
 import ValuesSection from './components/ValuesSection/ValuesSection'
-import Test from './components/Test/Test'
-import ScrollableComponent from './components/ScrollableComponent/ScrollableComponent'
+import FeaturesSection from './components/FeaturesSection/FeaturesSection'
 
 const HomeStyled = styled.div`
     display: flex;
@@ -43,7 +41,7 @@ const Home = () => {
         <>
             <Navbar type="upper" />
             <HomeStyled>
-                {/* <Hero video={video} />
+                <Hero video={video} />
                 <IntroSection />
                 <OurMission />
                 <FeaturesSection />
@@ -52,14 +50,7 @@ const Home = () => {
                 <Faq />
                 <NewsletterSection />
                 {!isScreenSmallerThan767 && <Navbar type="lower" />}
-                <Footer /> */}
-                {/* <NewsletterSection /> */}
-                <NewsletterSection />
-                {/* <Test /> */}
-                <ScrollableComponent />
-                <NewsletterSection />
-                {/* <FeaturesSection /> */}
-                {/* <OurPartners /> */}
+                <Footer />
             </HomeStyled>
         </>
     )

@@ -16,6 +16,7 @@ const ValuesSectionStyled = styled.div`
     width: calc(100% + 224px);
     padding: 0 112px;
     margin-top: 64px;
+    overflow: hidden;
 
     @media (max-width: 768px) {
         background: none;
