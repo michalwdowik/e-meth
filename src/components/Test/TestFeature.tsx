@@ -4,7 +4,10 @@ import ArrowRight from '../Icons/ArrowRight'
 import { Text } from '../Text'
 
 const Card = styled.div`
-    width: 25%;
+    width: 100%;
+    border: 2px red solid;
+    padding: 0 112px;
+    z-index: 5;
 `
 
 interface TestFeatureProps {
@@ -27,22 +30,24 @@ const TestFeature = ({
     offset,
 }: TestFeatureProps) => {
     return (
-        <ParallaxLayer offset={offset} speed={0.5}>
+        <ParallaxLayer offset={offset} speed={1}>
             <Card ref={refValue}>
-                <TextSection>
-                    {icon()}
-                    <FeatureTitle>
-                        <Text fontSize={32} fontWeight="bold" align="left">
-                            {title}
-                        </Text>
-                    </FeatureTitle>
-                    <FeatureDescription>
-                        <Text fontSize={16} align="left" fontWeight="light">
-                            {description}
-                        </Text>
-                    </FeatureDescription>
-                    <LearnMoreButton />
-                </TextSection>
+                <FeatureContainer>
+                    <TextSection>
+                        {icon()}
+                        <FeatureTitle>
+                            <Text fontSize={32} fontWeight="bold" align="left">
+                                {title}
+                            </Text>
+                        </FeatureTitle>
+                        <FeatureDescription>
+                            <Text fontSize={16} align="left" fontWeight="light">
+                                {description}
+                            </Text>
+                        </FeatureDescription>
+                        <LearnMoreButton />
+                    </TextSection>
+                </FeatureContainer>
             </Card>
         </ParallaxLayer>
     )
@@ -74,10 +79,6 @@ const TextSection = styled.div`
         max-width: 100%;
         gap: 16px;
     }
-`
-
-const FeatureImage = styled.img`
-    width: 100%;
 `
 
 const FeatureTitle = styled.div`
@@ -143,22 +144,22 @@ const LearnMoreButton = () => {
     )
 }
 
-const ImagesWrapper = styled.div`
-    position: relative;
-    max-width: 60%;
-    height: auto;
-    z-index: 1;
+// const ImagesWrapper = styled.div`
+//     position: relative;
+//     max-width: 60%;
+//     height: auto;
+//     z-index: 1;
 
-    @media (max-width: 766px) {
-        max-width: 100%;
-    }
-`
+//     @media (max-width: 766px) {
+//         max-width: 100%;
+//     }
+// `
 
-const FeatureImageGradient = styled.img`
-    position: absolute;
-    top: 20%;
-    right: -15%;
-    width: 40%;
-    height: auto;
-    z-index: -1;
-`
+// const FeatureImageGradient = styled.img`
+//     position: absolute;
+//     top: 20%;
+//     right: -15%;
+//     width: 40%;
+//     height: auto;
+//     z-index: -1;
+// `

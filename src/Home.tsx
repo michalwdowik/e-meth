@@ -12,6 +12,7 @@ import NewsletterSection from './components/NewsletterSection'
 import Navbar from './components/Navigation/Navbar'
 import ValuesSection from './components/ValuesSection/ValuesSection'
 import Test from './components/Test/Test'
+import ScrollableComponent from './components/ScrollableComponent/ScrollableComponent'
 
 const HomeStyled = styled.div`
     display: flex;
@@ -20,7 +21,7 @@ const HomeStyled = styled.div`
     padding-bottom: 48px;
     justify-content: center;
     gap: 48px;
-    overflow: hidden;
+    /* overflow: hidden; */
     margin: 0 auto;
     background-color: black;
     /* position: relative; */
@@ -52,7 +53,11 @@ const Home = () => {
                 <NewsletterSection />
                 {!isScreenSmallerThan767 && <Navbar type="lower" />}
                 <Footer /> */}
-                <Test />
+                {/* <NewsletterSection /> */}
+                <NewsletterSection />
+                {/* <Test /> */}
+                <ScrollableComponent />
+                <NewsletterSection />
                 {/* <FeaturesSection /> */}
                 {/* <OurPartners /> */}
             </HomeStyled>

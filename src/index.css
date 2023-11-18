@@ -146,3 +146,8 @@ html.has-scroll-dragging {
     right: auto;
     bottom: 0;
 }
+
+.parallax-container {
+    /* border: 2px rgb(80, 170, 80) dotted; */
+    /* height: 100vh; */
+}
