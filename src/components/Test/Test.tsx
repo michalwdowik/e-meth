@@ -65,32 +65,22 @@ const Test = () => {
                         gradientUrl={feature.gradientUrl}
                         icon={feature.icon}
                         offset={feature.offset}
-                        ref={ref}
+                        refValue={(() => {
+                            switch (feature.offset) {
+                                case 1:
+                                    return ref
+                                case 2:
+                                    return ref2
+                                case 3:
+                                    return ref3
+                                default:
+                                    return null
+                            }
+                        })()}
                     />
                 ))}
 
-                {/* <ParallaxLayer offset={1.5} speed={0.5}>
-                    <Card ref={ref}>
-                        <p>FIRST!!!!!!!!!!!!!!</p>
-                    </Card>
-                </ParallaxLayer>
-
-                <ParallaxLayer offset={2.5} speed={0.5}>
-                    <Card ref={ref2}>
-                        <p>SECOND!!!!!!!!!!!!!!</p>
-                    </Card>
-                </ParallaxLayer>
-
-                <ParallaxLayer offset={3.5} speed={0.5}>
-                    <Card ref={ref3}>
-                        <p>THIRD!!!!!!!!!!!!!!</p>
-                    </Card>
-                </ParallaxLayer> */}
-
                 <ParallaxLayer sticky={{ start: 1, end: 3.5 }}>
-                    {/* <Card>
-                        <img src={imgSrc} alt="t" />
-                    </Card> */}
                     <FeatureImage src={imgSrc} alt="s" />
                 </ParallaxLayer>
             </Parallax>
@@ -101,5 +91,6 @@ const Test = () => {
 export default Test
 
 const FeatureImage = styled.img`
-    width: 100%;
+    width: 25%;
+    margin: 0 auto;
 `
