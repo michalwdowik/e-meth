@@ -11,6 +11,7 @@ import isMobileDevice from './utils/isMobileDevice'
 import NewsletterSection from './components/NewsletterSection'
 import Navbar from './components/Navigation/Navbar'
 import ValuesSection from './components/ValuesSection/ValuesSection'
+import Test from './components/Test/Test'
 
 const HomeStyled = styled.div`
     display: flex;
@@ -22,6 +23,7 @@ const HomeStyled = styled.div`
     overflow: hidden;
     margin: 0 auto;
     background-color: black;
+    /* position: relative; */
     @media (max-width: 1024px) {
         padding: 0 64px;
         padding-bottom: 48px;
@@ -40,7 +42,7 @@ const Home = () => {
         <>
             <Navbar type="upper" />
             <HomeStyled>
-                <Hero video={video} />
+                {/* <Hero video={video} />
                 <IntroSection />
                 <OurMission />
                 <FeaturesSection />
@@ -49,7 +51,10 @@ const Home = () => {
                 <Faq />
                 <NewsletterSection />
                 {!isScreenSmallerThan767 && <Navbar type="lower" />}
-                <Footer />
+                <Footer /> */}
+                <Test />
+                {/* <FeaturesSection /> */}
+                {/* <OurPartners /> */}
             </HomeStyled>
         </>
     )

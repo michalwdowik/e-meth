@@ -11,6 +11,7 @@ const features = [
         imageUrl: 'Feature1.png',
         gradientUrl: '/Feature1Gradient.png',
         icon: StrategicAutomationIcon,
+        offset: 1,
     },
     {
         id: 2,
@@ -20,6 +21,7 @@ const features = [
         imageUrl: 'Feature2.png',
         gradientUrl: 'Feature2Gradient.png',
         icon: StreamlinePortfolioIcon,
+        offset: 2,
     },
     {
         id: 3,
@@ -29,6 +31,7 @@ const features = [
         imageUrl: 'Feature3.png',
         gradientUrl: 'Feature3Gradient.png',
         icon: MarketInsightsIcon,
+        offset: 3,
     },
 ]
 
