@@ -16,6 +16,7 @@ const StyledButton = styled.button<ButtonProps>`
     font-size: 14px;
     z-index: 3;
     color: #fff;
+    position: relative;
     background: transparent;
     backdrop-filter: blur(25px);
     cursor: pointer;

@@ -12,6 +12,7 @@ const StyledBadge = styled.div`
     width: max-content;
     backdrop-filter: blur(25px);
     z-index: 3;
+    position: relative;
 
     &::before {
         border-radius: 8px;
