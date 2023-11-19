@@ -14,12 +14,10 @@ const OurMissionStyled = styled.div<OurMissionStyledProps>`
     justify-content: center;
     align-items: center;
     gap: 32px;
-    z-index: 1;
     background: ${(props) =>
         `url(${
             props.isScreenSmall ? 'OurMissionMobile.png' : 'OurMission.png'
         }) no-repeat right`};
-    background-color: black;
     background-size: cover;
     padding: 80px 112px;
     margin-left: -112px;
@@ -57,7 +55,7 @@ const OurMissionStyled = styled.div<OurMissionStyledProps>`
     }
 `
 
-const OurMission = () => {
+const OurMissionBanner = () => {
     const { isScreenSmall } = useScreenSize()
     const fontSize = isScreenSmall ? 24 : 40
 
@@ -74,4 +72,4 @@ const OurMission = () => {
     )
 }
 
-export default OurMission
+export default OurMissionBanner

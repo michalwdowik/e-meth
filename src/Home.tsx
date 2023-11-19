@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 import Footer from './components/Footer'
 import Hero from './components/HeroSection/Hero'
-import OurMission from './components/OurMission'
+import OurMissionBanner from './components/OurMissionBanner'
 import OurPartners from './components/OurPartners'
 import IntroSection from './components/IntroSection/IntroSection'
 import Faq from './components/FaqSection/Faq'
 import useScreenSize from './hooks/useScreenSize'
 import isMobileDevice from './utils/isMobileDevice'
-import NewsletterSection from './components/NewsletterSection'
+import NewsletterBanner from './components/NewsletterBanner'
 import Navbar from './components/Navigation/Navbar'
 import ValuesSection from './components/ValuesSection/ValuesSection'
 import FeaturesSection from './components/FeaturesSection/FeaturesSection'
@@ -42,12 +42,12 @@ const Home = () => {
             <HomeStyled>
                 <Hero video={video} />
                 <IntroSection />
-                <OurMission />
+                <OurMissionBanner />
                 <FeaturesSection />
                 <ValuesSection />
                 <OurPartners />
                 <Faq />
-                <NewsletterSection />
+                <NewsletterBanner />
                 {!isScreenSmall && <Navbar type="lower" />}
                 <Footer />
             </HomeStyled>

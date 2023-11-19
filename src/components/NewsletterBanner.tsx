@@ -18,6 +18,7 @@ const NewsletterSectionStyled = styled.div`
     @media (max-width: 767px) {
         height: 600px;
     }
+
     @media (max-width: 576px) {
         margin-left: -24px;
         width: calc(100% + 48px);
@@ -86,25 +87,7 @@ const NewsletterGlassyBanner = styled.div`
     }
 `
 
-const JoinNowButton = styled(Button)`
-    background-color: #ff4081;
-    border: none;
-    border-radius: 20px;
-    padding: 10px 20px;
-    color: white;
-    cursor: pointer;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: background-color 0.3s ease;
-    outline: none;
-    margin-top: 1rem;
-
-    &:hover {
-        background-color: #e03565;
-    }
-`
-
-const NewsletterSection = () => {
+const NewsletterBanner = () => {
     const { isScreenExtraSmall } = useScreenSize()
     return (
         <NewsletterSectionStyled>
@@ -113,12 +96,12 @@ const NewsletterSection = () => {
                     Join us on a journey to redefine what&apos;s <br /> possible
                     in the DeFi space.
                 </Text>
-                <JoinNowButton size={isScreenExtraSmall ? 'normal' : 'big'}>
+                <Button size={isScreenExtraSmall ? 'normal' : 'big'}>
                     Join Now!
-                </JoinNowButton>
+                </Button>
             </NewsletterGlassyBanner>
         </NewsletterSectionStyled>
     )
 }
 
-export default NewsletterSection
+export default NewsletterBanner

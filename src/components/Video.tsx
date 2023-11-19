@@ -3,9 +3,9 @@ import styled from 'styled-components'
 import ReactPlayer from 'react-player'
 import { createPortal } from 'react-dom'
 import useScreenSize from '../hooks/useScreenSize'
+import useBodyOverflow from '../hooks/useBodyOverflow'
 import BeforePseudoElement from '../utils/beforePseudoElement'
 import PlayIcon from './Icons/PlayIcon'
-import useBodyOverflow from '../hooks/useBodyOverflow'
 import Text from './Text'
 
 const ModalOverlay = styled.div<{ showModal: boolean }>`
@@ -33,13 +33,11 @@ const Modal = styled.div`
 const VideoPlayerContainer = styled.div`
     z-index: 3;
     position: relative;
-    /* max-width: 640px; */
     border-radius: 8px;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* max-width: 470px; */
     @media (max-width: 1024px) {
         width: calc(100% + 144px);
     }
@@ -92,8 +90,8 @@ const PlayIconStyled = styled.button<{ isScreenSmall: boolean }>`
 `
 
 const VideoPlayer = () => {
-    const [showModal, setShowModal] = useState<boolean>(false)
-    const [isVideoPlaying, setIsVideoPlaying] = useState<boolean>(false)
+    const [showModal, setShowModal] = useState(false)
+    const [isVideoPlaying, setIsVideoPlaying] = useState(false)
     const videoRef = useRef<ReactPlayer | null>(null)
     const { isScreenSmall } = useScreenSize()
     useBodyOverflow(showModal)
@@ -108,7 +106,7 @@ const VideoPlayer = () => {
         setShowModal(false)
     }
 
-    const modalContent = showModal ? (
+    const modalContent = showModal && (
         <ModalOverlay showModal={showModal} onClick={closeModal}>
             <Modal onClick={(e) => e.stopPropagation()}>
                 <ReactPlayer
@@ -122,7 +120,7 @@ const VideoPlayer = () => {
                 />
             </Modal>
         </ModalOverlay>
-    ) : null
+    )
 
     return (
         <>

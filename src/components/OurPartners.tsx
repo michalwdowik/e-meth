@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-key */
 import styled from 'styled-components'
 import Text from './Text'
 import useScreenSize from '../hooks/useScreenSize'

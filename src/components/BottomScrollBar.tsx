@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { colorGradient } from '../utils/gradient'
 
 const StyledBottomScrollBar = styled(motion.div)`
-    z-index: 1;
+    z-index: 7;
     position: fixed;
     left: 0;
     right: 0;

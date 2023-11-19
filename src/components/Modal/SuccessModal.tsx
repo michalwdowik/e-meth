@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import SocialMediaButtons from '../SocialMediaButtons'
+import SocialMediaButtonsModal from '../SocialMediaButtonsModal'
 import Text from '../Text'
 import useScreenSize from '../../hooks/useScreenSize'
 import CloseIcon from '../Icons/CloseIcon'
@@ -45,7 +45,7 @@ const SuccessModal = ({ onClose }: SuccessModalProps) => {
                 Excited about Emeth? Share the news with your network and let
                 them know you&apos;ve secured your spot on the waitlist!
             </Text>
-            <SocialMediaButtons />
+            <SocialMediaButtonsModal />
         </>
     )
 }

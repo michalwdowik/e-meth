@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import SocialMedia from './SocialMedia'
+import SocialMediaButtons from './SocialMediaButtons'
 import ArrowRight from './Icons/ArrowRight'
 import useScreenSize from '../hooks/useScreenSize'
 import Logo from './Logo'
@@ -81,7 +81,7 @@ const Footer = () => {
                     <Logo />
                 </FooterLogoStyled>
             )}
-            <SocialMedia />
+            <SocialMediaButtons />
             <FooterInfoStyled>
                 <CopyrightInfo>
                     © 2023 eMeth. All rights reserved.

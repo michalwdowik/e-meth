@@ -1,54 +1,56 @@
 import styled from 'styled-components'
-import FacebookIcon from './Icons/FacebookIcon'
-import LinkedInIcon from './Icons/LinkedInIcon'
-import TwitterIcon2 from './Icons/TwitterIcon2'
-import useScreenSize from '../hooks/useScreenSize'
+import TwitterIcon from './Icons/TwitterIcon'
+import DiscordIcon from './Icons/DiscordIcon'
+import TelegramIcon from './Icons/TelegramIcon'
 
-const SocialMediaStyled = styled.div`
+const SocialMediaWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
+    margin-top: 76px;
 `
 
-const SocialMediaButton = styled.button`
-    display: flex;
-    height: 40px;
-    padding: 0px 24px;
-    color: white;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    border-radius: 40px;
-    background: rgba(255, 255, 255, 0.1);
-    border: none;
-    z-index: 4;
-    cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
-    text-decoration: none;
+const SocialMediaSmallButton = styled.div`
+    transition: all 0.2s ease-in-out;
+
     &:hover {
-        background-color: rgba(255, 255, 255, 0.2);
+        transform: scale(1.03);
+        filter: brightness(170%);
     }
 `
 
 const SocialMediaButtons = () => {
-    const { isScreenMedium } = useScreenSize()
-
     return (
-        <SocialMediaStyled>
-            <SocialMediaButton as="a" href="https://twitter.com">
-                <TwitterIcon2 />
-                {!isScreenMedium && 'Share on Twitter'}
-            </SocialMediaButton>
-            <SocialMediaButton as="a" href="https://facebook.com">
-                <FacebookIcon />
-                {!isScreenMedium && 'Share on Facebook'}
-            </SocialMediaButton>
-            <SocialMediaButton as="a" href="https://linkedIn.com">
-                <LinkedInIcon />
-                {!isScreenMedium && 'Share on LinkedIn'}
-            </SocialMediaButton>
-        </SocialMediaStyled>
+        <SocialMediaWrapper>
+            <SocialMediaSmallButton>
+                <a
+                    href="https://twitter.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <TwitterIcon />
+                </a>
+            </SocialMediaSmallButton>
+            <SocialMediaSmallButton>
+                <a
+                    href="https://discord.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <DiscordIcon />
+                </a>
+            </SocialMediaSmallButton>
+            <SocialMediaSmallButton>
+                <a
+                    href="https://telegram.org"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <TelegramIcon />
+                </a>
+            </SocialMediaSmallButton>
+        </SocialMediaWrapper>
     )
 }
 
