@@ -10,7 +10,7 @@ const IntroSectionStyled = styled.div`
     gap: 64px;
     position: relative;
     /* border: 2px red solid; */
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     @media (max-width: 991px) {
         margin-top: 50px;
     }
