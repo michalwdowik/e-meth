@@ -11,8 +11,7 @@ const IntroSectionStyled = styled.div`
     position: relative;
     overflow-x: hidden;
     height: max-content;
-    /* border: 2px red solid; */
-    z-index: 8;
+    z-index: 3;
     margin-left: -112px;
     width: calc(100% + 224px);
     padding: 0 112px 0 0;

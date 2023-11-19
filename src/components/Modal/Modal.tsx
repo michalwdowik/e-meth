@@ -17,7 +17,7 @@ const Overlay = styled.div<OverlayProps>`
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 4;
+    z-index: 6;
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.9);
     animation: ${({ isVisible }) =>
@@ -43,7 +43,7 @@ const StyledModal = styled.div<StyledModalProps>`
     width: 90%;
     max-width: 768px;
     padding: 48px;
-    z-index: 5;
+    z-index: 7;
     animation: ${({ isVisible }) =>
         isVisible
             ? css`

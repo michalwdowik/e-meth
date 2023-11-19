@@ -64,7 +64,7 @@ interface StyledInputProps {
 }
 
 const StyledInput = styled.input<StyledInputProps>`
-    padding: 12px 12px 12px 24px;
+    padding: 0 12px 0 24px;
     width: 100%;
     background-color: #000;
     height: 56px;
