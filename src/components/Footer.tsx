@@ -89,11 +89,11 @@ const FooterLogoStyled = styled.div`
 `
 
 const Footer = () => {
-    const { isScreenSmallerThan767 } = useScreenSize()
+    const { isScreenSmall } = useScreenSize()
 
     return (
         <FooterStyled>
-            {isScreenSmallerThan767 && (
+            {isScreenSmall && (
                 <FooterLogoStyled>
                     <Logo />
                 </FooterLogoStyled>

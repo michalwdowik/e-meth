@@ -111,14 +111,14 @@ const GradientMobileLower = styled.img`
 `
 
 const ValuesSection = () => {
-    const { isScreenExtraSmall, isScreenSmallerThan767 } = useScreenSize()
+    const { isScreenExtraSmall, isScreenSmall } = useScreenSize()
 
     return (
         <ValuesSectionStyled>
-            {isScreenSmallerThan767 && (
+            {isScreenSmall && (
                 <GradientMobileUpper src="FeaturesGradientMobileUpper.png" />
             )}
-            {isScreenSmallerThan767 && (
+            {isScreenSmall && (
                 <GradientMobileLower src="FeaturesGradientMobileLower.png" />
             )}
             <Heading>

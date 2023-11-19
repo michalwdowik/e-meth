@@ -184,11 +184,11 @@ interface SuccessModalProps {
 }
 
 const SuccessModal = ({ onClose }: SuccessModalProps) => {
-    const { isScreenSmallerThan767 } = useScreenSize()
+    const { isScreenSmall } = useScreenSize()
     return (
         <>
             <HeaderContainer>
-                <Text fontSize={isScreenSmallerThan767 ? 20 : 32}>
+                <Text fontSize={isScreenSmall ? 20 : 32}>
                     Success! You&apos;re on the List!
                 </Text>
                 <StyledCloseIcon onClick={onClose}>
@@ -197,7 +197,7 @@ const SuccessModal = ({ onClose }: SuccessModalProps) => {
             </HeaderContainer>
             <Text
                 align="left"
-                fontSize={isScreenSmallerThan767 ? 12 : 16}
+                fontSize={isScreenSmall ? 12 : 16}
                 fontWeight="light"
             >
                 Thank you for signing up for early access to Emeth! Your
@@ -213,7 +213,7 @@ const SuccessModal = ({ onClose }: SuccessModalProps) => {
             </Text>
             <Divider />
             <Text
-                fontSize={isScreenSmallerThan767 ? 12 : 16}
+                fontSize={isScreenSmall ? 12 : 16}
                 fontWeight="light"
                 align="left"
             >

@@ -81,9 +81,9 @@ const GradientOverlay = styled.img`
 `
 
 const FeaturesSectionHeading = () => {
-    const { isScreenExtraSmall, isScreenSmallerThan767 } = useScreenSize()
+    const { isScreenExtraSmall, isScreenSmall } = useScreenSize()
 
-    const gradientOverlaySrc = isScreenSmallerThan767
+    const gradientOverlaySrc = isScreenSmall
         ? 'FeaturesGradientMobile.png'
         : 'FeaturesSectionGradient.png'
 

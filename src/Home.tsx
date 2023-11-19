@@ -33,7 +33,7 @@ const HomeStyled = styled.div`
 `
 
 const Home = () => {
-    const { isScreenSmallerThan767 } = useScreenSize()
+    const { isScreenSmall } = useScreenSize()
     const video = isMobileDevice()
     return (
         <>
@@ -47,7 +47,7 @@ const Home = () => {
                 <OurPartners />
                 <Faq />
                 <NewsletterSection />
-                {!isScreenSmallerThan767 && <Navbar type="lower" />}
+                {!isScreenSmall && <Navbar type="lower" />}
                 <Footer />
             </HomeStyled>
         </>

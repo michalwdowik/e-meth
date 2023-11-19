@@ -32,21 +32,21 @@ const SocialMediaButton = styled.button`
 `
 
 const SocialMediaButtons = () => {
-    const { isScreenSmallerThan991 } = useScreenSize()
+    const { isScreenMedium } = useScreenSize()
 
     return (
         <SocialMediaStyled>
             <SocialMediaButton as="a" href="https://twitter.com">
                 <TwitterIcon2 />
-                {!isScreenSmallerThan991 && 'Share on Twitter'}
+                {!isScreenMedium && 'Share on Twitter'}
             </SocialMediaButton>
             <SocialMediaButton as="a" href="https://facebook.com">
                 <FacebookIcon />
-                {!isScreenSmallerThan991 && 'Share on Facebook'}
+                {!isScreenMedium && 'Share on Facebook'}
             </SocialMediaButton>
             <SocialMediaButton as="a" href="https://linkedIn.com">
                 <LinkedInIcon />
-                {!isScreenSmallerThan991 && 'Share on LinkedIn'}
+                {!isScreenMedium && 'Share on LinkedIn'}
             </SocialMediaButton>
         </SocialMediaStyled>
     )

@@ -72,7 +72,7 @@ const PlayButton = styled.button<{ playing: boolean }>`
     white-space: nowrap;
 `
 
-const PlayIconStyled = styled.button<{ isScreenSmallerThan767: boolean }>`
+const PlayIconStyled = styled.button<{ isScreenSmall: boolean }>`
     position: relative;
     display: flex;
     align-items: center;
@@ -81,8 +81,7 @@ const PlayIconStyled = styled.button<{ isScreenSmallerThan767: boolean }>`
     color: #fff;
     background: transparent;
     cursor: pointer;
-    padding: ${({ isScreenSmallerThan767 }) =>
-        isScreenSmallerThan767 ? '10px' : '16px'};
+    padding: ${({ isScreenSmall }) => (isScreenSmall ? '10px' : '16px')};
     border: none;
 
     &::before {
@@ -96,7 +95,7 @@ const VideoPlayer = () => {
     const [showModal, setShowModal] = useState<boolean>(false)
     const [isVideoPlaying, setIsVideoPlaying] = useState<boolean>(false)
     const videoRef = useRef<ReactPlayer | null>(null)
-    const { isScreenSmallerThan767 } = useScreenSize()
+    const { isScreenSmall } = useScreenSize()
     useBodyOverflow(showModal)
 
     const handlePlay = () => {
@@ -133,12 +132,10 @@ const VideoPlayer = () => {
                     alt="Video Placeholder"
                 />
                 <PlayButton onClick={handlePlay} playing={isVideoPlaying}>
-                    <PlayIconStyled
-                        isScreenSmallerThan767={isScreenSmallerThan767}
-                    >
+                    <PlayIconStyled isScreenSmall={isScreenSmall}>
                         <PlayIcon />
                     </PlayIconStyled>
-                    <Text fontSize={isScreenSmallerThan767 ? 14 : 16}>
+                    <Text fontSize={isScreenSmall ? 14 : 16}>
                         Watch Video Now!
                     </Text>
                 </PlayButton>

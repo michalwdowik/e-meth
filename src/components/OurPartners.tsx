@@ -48,13 +48,11 @@ const Divider = styled.div`
 `
 
 const OurPartners = () => {
-    const { isScreenSmallerThan767 } = useScreenSize()
+    const { isScreenSmall } = useScreenSize()
 
     return (
         <OurPartnersSection>
-            <Text fontSize={isScreenSmallerThan767 ? 28 : 56}>
-                Our Partners
-            </Text>
+            <Text fontSize={isScreenSmall ? 28 : 56}>Our Partners</Text>
             <Divider />
             <OurPartnersDiv>
                 <AxelarLogo />

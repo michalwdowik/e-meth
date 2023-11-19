@@ -38,15 +38,15 @@ const Faq = () => {
     for (let i = 0; i < 6; i++) {
         itemRefs.current[i] = createRef()
     }
-    const { isScreenSmallerThan767 } = useScreenSize()
+    const { isScreenSmall } = useScreenSize()
 
     return (
         <FaqStyled>
             <FaqHeading>
                 <Badge>FAQ</Badge>
                 <Text
-                    fontSize={isScreenSmallerThan767 ? 28 : 56}
-                    align={isScreenSmallerThan767 ? 'left' : 'center'}
+                    fontSize={isScreenSmall ? 28 : 56}
+                    align={isScreenSmall ? 'left' : 'center'}
                     fontWeight="bold"
                 >
                     Frequently Asked <br /> Questions

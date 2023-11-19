@@ -60,7 +60,7 @@ const ImageGradient = styled.img`
 `
 
 const FeaturesSection = () => {
-    const { isScreenSmallerThan767 } = useScreenSize()
+    const { isScreenSmall } = useScreenSize()
     const imageRef = useRef(null)
 
     const containers = [
@@ -89,7 +89,7 @@ const FeaturesSection = () => {
         <>
             <FeaturesSectionHeading />
             <Wrapper>
-                {!isScreenSmallerThan767 && (
+                {!isScreenSmall && (
                     <ImageWrapper>
                         <Image
                             src={getImage()}

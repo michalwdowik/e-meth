@@ -114,17 +114,17 @@ const GradientOverlay = styled.img`
     }
 `
 const IntroSection = () => {
-    const { isScreenSmallerThan767, isScreenSmallerThan991 } = useScreenSize()
+    const { isScreenSmall, isScreenMedium } = useScreenSize()
 
     return (
         <IntroSectionStyled>
-            {isScreenSmallerThan991 && (
+            {isScreenMedium && (
                 <GradientOverlay src="IntroducingEmethGradientMobile.png" />
             )}
             <IntroSectionHeadingStyled>
                 <Badge>INTRODUCING EMETH</Badge>
                 <Text
-                    fontSize={isScreenSmallerThan767 ? 28 : 56}
+                    fontSize={isScreenSmall ? 28 : 56}
                     fontWeight="bold"
                     align="left"
                 >
@@ -138,7 +138,7 @@ const IntroSection = () => {
                 />
                 <IntroSectionDescriptionStyled>
                     <Text
-                        fontSize={isScreenSmallerThan767 ? 20 : 24}
+                        fontSize={isScreenSmall ? 20 : 24}
                         fontWeight="bold"
                         align="left"
                     >

@@ -10,17 +10,8 @@ const useScreenSize = () => {
     }
 
     const isScreenExtraSmall = screenWidth.dynamicWidth <= 575
-
-    const isScreenMedium =
-        screenWidth.dynamicWidth >= 768 && screenWidth.dynamicWidth <= 991
-    const isScreenLarge =
-        screenWidth.dynamicWidth >= 992 && screenWidth.dynamicWidth <= 1199
-    const isScreenExtraLarge = screenWidth.dynamicWidth >= 120
-    const showDrawer = screenWidth.dynamicWidth <= 1050
-    const isScreenSmallerThan767 = screenWidth.dynamicWidth < 767
-    const isScreenSmallerThan650 = screenWidth.dynamicWidth < 650
-    const isScreenSmallerThan430 = screenWidth.dynamicWidth < 431
-    const isScreenSmallerThan991 = screenWidth.dynamicWidth <= 991
+    const isScreenSmall = screenWidth.dynamicWidth < 767
+    const isScreenMedium = screenWidth.dynamicWidth <= 991
 
     useEffect(() => {
         window.addEventListener('resize', setDimension)
@@ -30,15 +21,9 @@ const useScreenSize = () => {
     }, [screenWidth])
 
     return {
-        isScreenSmallerThan767,
-        showDrawer,
+        isScreenSmall,
         isScreenExtraSmall,
         isScreenMedium,
-        isScreenLarge,
-        isScreenExtraLarge,
-        isScreenSmallerThan650,
-        isScreenSmallerThan430,
-        isScreenSmallerThan991,
     }
 }
 

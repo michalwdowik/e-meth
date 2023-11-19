@@ -19,18 +19,16 @@ const Feature = ({
     refValue,
     imageUrl,
 }: FeatureProps) => {
-    const { isScreenSmallerThan767 } = useScreenSize()
+    const { isScreenSmall } = useScreenSize()
 
     return (
         <>
-            {isScreenSmallerThan767 && (
-                <FeatureImage src={imageUrl} alt={title} />
-            )}
+            {isScreenSmall && <FeatureImage src={imageUrl} alt={title} />}
             <TextSection ref={refValue}>
                 {icon()}
                 <FeatureTitle>
                     <Text
-                        fontSize={isScreenSmallerThan767 ? 20 : 32}
+                        fontSize={isScreenSmall ? 20 : 32}
                         fontWeight="bold"
                         align="left"
                     >
@@ -39,7 +37,7 @@ const Feature = ({
                 </FeatureTitle>
                 <FeatureDescription>
                     <Text
-                        fontSize={isScreenSmallerThan767 ? 14 : 16}
+                        fontSize={isScreenSmall ? 14 : 16}
                         align="left"
                         fontWeight="light"
                     >

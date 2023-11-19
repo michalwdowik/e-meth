@@ -120,7 +120,7 @@ const HeroContent = ({ isSmallScreen }: HeroContentProps) => {
 }
 
 const Hero = ({ video }: HeroProps) => {
-    const { isScreenSmallerThan767 } = useScreenSize()
+    const { isScreenSmall } = useScreenSize()
 
     return (
         <StyledHero video={video}>
@@ -128,14 +128,14 @@ const Hero = ({ video }: HeroProps) => {
                 <Parallax style={{ zIndex: 1, width: '100%' }} speed={-10}>
                     <GradientBackground
                         src={
-                            isScreenSmallerThan767
+                            isScreenSmall
                                 ? 'MobileHeroGradient.png'
                                 : 'HeroGradient-NoVideo.png'
                         }
                     />
                 </Parallax>
             </GradientBackgroundContainer>
-            <HeroContent isSmallScreen={isScreenSmallerThan767} />
+            <HeroContent isSmallScreen={isScreenSmall} />
         </StyledHero>
     )
 }

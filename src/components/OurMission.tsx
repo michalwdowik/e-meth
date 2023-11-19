@@ -5,7 +5,7 @@ import { Text } from './Text'
 import useScreenSize from '../hooks/useScreenSize'
 
 interface OurMissionStyledProps {
-    isScreenSmallerThan767: boolean
+    isScreenSmall: boolean
 }
 
 const OurMissionStyled = styled.div<OurMissionStyledProps>`
@@ -17,9 +17,7 @@ const OurMissionStyled = styled.div<OurMissionStyledProps>`
     z-index: 1;
     background: ${(props) =>
         `url(${
-            props.isScreenSmallerThan767
-                ? 'OurMissionMobile.png'
-                : 'OurMission.png'
+            props.isScreenSmall ? 'OurMissionMobile.png' : 'OurMission.png'
         }) no-repeat right`};
     background-color: black;
     background-size: cover;
@@ -60,20 +58,18 @@ const OurMissionStyled = styled.div<OurMissionStyledProps>`
 `
 
 const OurMission = () => {
-    const { isScreenSmallerThan767 } = useScreenSize()
-    const fontSize = isScreenSmallerThan767 ? 24 : 40
+    const { isScreenSmall } = useScreenSize()
+    const fontSize = isScreenSmall ? 24 : 40
 
     return (
-        <OurMissionStyled isScreenSmallerThan767={isScreenSmallerThan767}>
+        <OurMissionStyled isScreenSmall={isScreenSmall}>
             <Badge>OUR MISSION</Badge>
             <Text fontWeight="bold" fontSize={fontSize}>
                 To streamline and automate DeFi operations, delivering <br />
                 unprecedented efficiency, cost-effectiveness, and <br />
                 transparency in managing digital assets.
             </Text>
-            <Button size={isScreenSmallerThan767 ? 'normal' : 'big'}>
-                JOIN NOW
-            </Button>
+            <Button size={isScreenSmall ? 'normal' : 'big'}>JOIN NOW</Button>
         </OurMissionStyled>
     )
 }

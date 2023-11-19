@@ -106,7 +106,7 @@ interface NavbarProps {
 const Navbar = ({ type }: NavbarProps) => {
     const [isOpen, setIsOpen] = useState(false)
 
-    const { isScreenSmallerThan767 } = useScreenSize()
+    const { isScreenSmall } = useScreenSize()
 
     const navItems = sections.map((section) => (
         <NavItem key={section}>{section}</NavItem>
@@ -123,7 +123,7 @@ const Navbar = ({ type }: NavbarProps) => {
     }
 
     let buttonElement
-    if (!isScreenSmallerThan767) {
+    if (!isScreenSmall) {
         buttonElement =
             type === 'upper' ? (
                 <Button>Try Emeth Now!</Button>
@@ -141,7 +141,7 @@ const Navbar = ({ type }: NavbarProps) => {
                     {buttonElement}
                 </ItemsWrapper>
                 <Wrapper>
-                    {isScreenSmallerThan767 ? <Button>Try Now</Button> : null}
+                    {isScreenSmall ? <Button>Try Now</Button> : null}
                     <MobileMenuIcon onClick={toggleDrawer}>☰</MobileMenuIcon>
                 </Wrapper>
             </NavbarContainer>
