@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 import Footer from './components/Footer'
-import Hero from './components/Hero'
+import Hero from './components/HeroSection/Hero'
 import OurMission from './components/OurMission'
 import OurPartners from './components/OurPartners'
-import IntroSection from './components/IntroSection'
+import IntroSection from './components/IntroSection/IntroSection'
 import Faq from './components/FaqSection/Faq'
 import useScreenSize from './hooks/useScreenSize'
 import isMobileDevice from './utils/isMobileDevice'
@@ -41,7 +41,7 @@ const Home = () => {
             <Navbar type="upper" />
             <HomeStyled>
                 <Hero video={video} />
-                {/* <IntroSection /> */}
+                <IntroSection />
                 <OurMission />
                 <FeaturesSection />
                 <ValuesSection />

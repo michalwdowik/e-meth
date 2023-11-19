@@ -19,6 +19,7 @@ const LearnMoreButtonStyled = styled.div`
     gap: 8px;
     cursor: pointer;
     position: relative;
+    width: max-content;
     &:hover {
         ${hoverStyles}
     }

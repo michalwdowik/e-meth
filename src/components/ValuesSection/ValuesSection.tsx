@@ -68,11 +68,9 @@ const GradientMobileUpper = styled.img`
 
     @media (max-width: 768px) {
         top: 100px;
-        /* width: 85%; */
     }
 
     @media (max-width: 650px) {
-        /* width: 80%; */
         top: 300px;
     }
 

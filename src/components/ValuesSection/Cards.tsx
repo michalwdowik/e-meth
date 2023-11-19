@@ -32,7 +32,6 @@ const StyledCard = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: relative;
     border: 1px solid transparent;
     max-width: 384px;
     height: 384px;
@@ -41,7 +40,6 @@ const StyledCard = styled.div`
     backdrop-filter: blur(50px);
     -webkit-backdrop-filter: blur(50px);
     background: rgba(255, 255, 255, 0.05);
-    overflow: hidden;
 
     &::before {
         border-radius: 16px;
@@ -75,19 +73,14 @@ const CardTitle = styled.div`
 
 const CardDescription = styled.div`
     width: 80%;
-    font-size: 16px;
     text-align: center;
-    color: #fff;
-    font-family: Sora;
-    font-size: 16px;
-    font-style: normal;
     font-weight: 300;
     line-height: 160%;
 `
 
 const Row = styled.div<RowProps>`
     display: flex;
-    gap: 2rem;
+    gap: 32px;
     justify-content: ${(props) => props.justify};
 
     @media (max-width: 1445px) {
