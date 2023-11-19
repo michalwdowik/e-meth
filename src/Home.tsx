@@ -19,10 +19,8 @@ const HomeStyled = styled.div`
     padding-bottom: 48px;
     justify-content: center;
     gap: 48px;
-    /* overflow: hidden; */
     margin: 0 auto;
     background-color: black;
-    /* position: relative; */
     @media (max-width: 1024px) {
         padding: 0 64px;
         padding-bottom: 48px;

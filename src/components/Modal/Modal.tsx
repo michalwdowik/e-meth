@@ -184,15 +184,22 @@ interface SuccessModalProps {
 }
 
 const SuccessModal = ({ onClose }: SuccessModalProps) => {
+    const { isScreenSmallerThan767 } = useScreenSize()
     return (
         <>
             <HeaderContainer>
-                <Text fontSize={32}>Success! You&apos;re on the List!</Text>
+                <Text fontSize={isScreenSmallerThan767 ? 20 : 32}>
+                    Success! You&apos;re on the List!
+                </Text>
                 <StyledCloseIcon onClick={onClose}>
                     <CloseIcon />
                 </StyledCloseIcon>
             </HeaderContainer>
-            <Text align="left" fontSize={16} fontWeight="light">
+            <Text
+                align="left"
+                fontSize={isScreenSmallerThan767 ? 12 : 16}
+                fontWeight="light"
+            >
                 Thank you for signing up for early access to Emeth! Your
                 enthusiasm fuels our passion to deliver the best on-chain
                 digital asset management experience.
@@ -205,7 +212,11 @@ const SuccessModal = ({ onClose }: SuccessModalProps) => {
                 redefine DeFi operations with Emeth!
             </Text>
             <Divider />
-            <Text fontSize={16} fontWeight="light" align="left">
+            <Text
+                fontSize={isScreenSmallerThan767 ? 12 : 16}
+                fontWeight="light"
+                align="left"
+            >
                 Excited about Emeth? Share the news with your network and let
                 them know you&apos;ve secured your spot on the waitlist!
             </Text>

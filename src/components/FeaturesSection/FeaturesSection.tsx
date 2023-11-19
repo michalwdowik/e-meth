@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { useInView } from 'react-intersection-observer'
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 import features from '../../utils/features'
 import Feature from './Feature'
 import useScreenSize from '../../hooks/useScreenSize'
@@ -15,12 +16,13 @@ const Wrapper = styled.div`
     justify-content: center;
     max-width: 1100px;
     margin: 0 auto;
+    padding-bottom: 40px;
 `
 
 const FeaturesStyled = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 70px;
 `
 
 const ImageWrapper = styled.div`
@@ -99,14 +101,25 @@ const FeaturesSection = () => {
                 )}
                 <FeaturesStyled>
                     {features.map((feature) => (
-                        <Feature
+                        <motion.div
                             key={feature.id}
-                            title={feature.title}
-                            description={feature.description}
-                            icon={feature.icon}
-                            refValue={getContainer(feature.id)}
-                            imageUrl={feature.imageUrl}
-                        />
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={
+                                containers[feature.id - 1].inView
+                                    ? { opacity: 1, scale: 1 }
+                                    : { opacity: 0 }
+                            }
+                            transition={{ duration: 0.3 }}
+                        >
+                            <Feature
+                                key={feature.id}
+                                title={feature.title}
+                                description={feature.description}
+                                icon={feature.icon}
+                                refValue={getContainer(feature.id)}
+                                imageUrl={feature.imageUrl}
+                            />
+                        </motion.div>
                     ))}
                 </FeaturesStyled>
             </Wrapper>

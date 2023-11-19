@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Parallax } from 'react-scroll-parallax'
 import Badge from './Badge'
 import { Text } from './Text'
 import useScreenSize from '../hooks/useScreenSize'

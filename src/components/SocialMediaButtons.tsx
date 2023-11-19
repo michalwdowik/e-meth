@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import FacebookIcon from './Icons/FacebookIcon'
 import LinkedInIcon from './Icons/LinkedInIcon'
 import TwitterIcon2 from './Icons/TwitterIcon2'
+import useScreenSize from '../hooks/useScreenSize'
 
 const SocialMediaStyled = styled.div`
     display: flex;
@@ -31,19 +32,21 @@ const SocialMediaButton = styled.button`
 `
 
 const SocialMediaButtons = () => {
+    const { isScreenSmallerThan991 } = useScreenSize()
+
     return (
         <SocialMediaStyled>
             <SocialMediaButton as="a" href="https://twitter.com">
                 <TwitterIcon2 />
-                Share on Twitter
+                {!isScreenSmallerThan991 && 'Share on Twitter'}
             </SocialMediaButton>
             <SocialMediaButton as="a" href="https://facebook.com">
                 <FacebookIcon />
-                Share on Facebook
+                {!isScreenSmallerThan991 && 'Share on Facebook'}
             </SocialMediaButton>
             <SocialMediaButton as="a" href="https://linkedIn.com">
                 <LinkedInIcon />
-                Share on LinkedIn
+                {!isScreenSmallerThan991 && 'Share on LinkedIn'}
             </SocialMediaButton>
         </SocialMediaStyled>
     )
