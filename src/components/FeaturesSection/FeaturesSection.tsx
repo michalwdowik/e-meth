@@ -109,7 +109,7 @@ const FeaturesSection = () => {
                                     ? { opacity: 1, scale: 1 }
                                     : { opacity: 0 }
                             }
-                            transition={{ duration: 0.3 }}
+                            transition={{ duration: 0.2 }}
                         >
                             <Feature
                                 key={feature.id}
