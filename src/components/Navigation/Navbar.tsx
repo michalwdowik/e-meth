@@ -5,6 +5,7 @@ import useScreenSize from '../../hooks/useScreenSize'
 import Button from '../Button'
 import Logo from '../Logo'
 import useBodyOverflow from '../../hooks/useBodyOverflow'
+import hoverStyles from '../../utils/hoverStyles'
 
 const sections = ['DCA', 'About', 'Features', 'Partners', 'FAQ']
 
@@ -48,6 +49,11 @@ const MobileMenuIcon = styled.div`
     display: none;
     z-index: 2;
 
+    transition: opacity 0.15s ease-in-out;
+    &:hover {
+        opacity: 0.6;
+    }
+
     @media (max-width: 766px) {
         display: block;
         font-size: 24px;
@@ -78,25 +84,7 @@ const Wrapper = styled.div`
 const NavItem = styled.li`
     transition: color 0.15s ease-in-out;
     &:hover {
-        background: linear-gradient(
-            160deg,
-            #da301f 0%,
-            #f48946 18.229%,
-            #ee3560 35.417%,
-            #fa4784 51.563%,
-            #ff48c0 66.667%,
-            #8e38b5 81.771%,
-            #5542bb 89.063%,
-            #ffffff 100%
-        );
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: white;
-        -webkit-text-fill-color: transparent;
-        transition: all 0.3s ease-in-out;
-        background-position: -100%;
-        background-size: 200% 100%;
-        animation: slideIn 0.3s linear forwards;
+        ${hoverStyles}
     }
 `
 interface NavbarProps {

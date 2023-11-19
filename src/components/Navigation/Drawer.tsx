@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Button from '../Button'
 import SocialMedia from '../SocialMedia'
+import hoverStyles from '../../utils/hoverStyles'
 
 interface DrawerProps {
     sections: string[]
@@ -90,7 +91,7 @@ const DrawerItem = styled.div`
 
     transition: color 0.15s ease-in-out;
     &:hover {
-        color: #969696;
+        ${hoverStyles}
     }
 `
 
@@ -104,6 +105,10 @@ const CloseButton = styled.div`
     font-size: 14px;
     color: #fff;
     gap: 8px;
+    transition: opacity 0.15s ease-in-out;
+    &:hover {
+        opacity: 0.6;
+    }
 `
 
 const CloseIcon = styled.svg`
