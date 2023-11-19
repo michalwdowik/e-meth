@@ -10,34 +10,45 @@ const IntroSectionStyled = styled.div`
     gap: 64px;
     position: relative;
     overflow-x: hidden;
+    height: max-content;
+    /* border: 2px red solid; */
+    z-index: 8;
     margin-left: -112px;
     width: calc(100% + 224px);
     padding: 0 112px 0 0;
     @media (max-width: 991px) {
-        margin-top: 50px;
+        margin-top: 100px;
         margin-left: -64px;
         width: calc(100% + 128px);
         padding: 80px 64px;
     }
 
     @media (max-width: 830px) {
-        margin-top: -50px;
+        margin-top: -10px;
+        padding: 80px 64px;
     }
 
     @media (max-width: 767px) {
         margin-top: 350px;
+        padding: 80px 24px;
+        width: calc(100% + 48px);
+        margin-left: -24px;
     }
 
     @media (max-width: 700px) {
-        margin-top: 250px;
+        margin-top: 350px;
     }
 
     @media (max-width: 600px) {
-        margin-top: 150px;
+        margin-top: 250px;
     }
 
     @media (max-width: 500px) {
-        margin-top: 20px;
+        margin-top: 120px;
+    }
+
+    @media (max-width: 400px) {
+        margin-top: 60px;
     }
 `
 
@@ -49,32 +60,23 @@ const IntroSectionHeadingStyled = styled.div`
     margin-left: 80px;
     overflow: hidden;
 
-    @media (min-width: 1445px), (max-width: 991px) {
+    @media (max-width: 991px) {
         margin-left: 0;
     }
 
     @media (max-width: 767px) {
-        margin-top: 0;
+        margin-top: -50px;
+        margin-bottom: -50px;
     }
 `
 
 const GradientOverlay = styled.img`
     position: absolute;
-    top: 150px;
+    top: 0px;
     left: 0;
-    width: calc(100% + 48px);
-    margin-left: -24px;
     z-index: 0;
-
-    @media (max-width: 991px) {
-        width: calc(100% + 128px);
-        margin-left: -64px;
-    }
-
-    @media (max-width: 767px) {
-        width: calc(100% + 48px);
-        margin-left: -24px;
-    }
+    width: 100%;
+    height: auto;
 `
 
 const IntroSection = () => {

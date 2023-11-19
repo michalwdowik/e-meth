@@ -17,12 +17,7 @@ const IntroSectionContent = () => {
                 >
                     Your Strategic Ally <br /> in Digital Asset Management
                 </Text>
-                <Text
-                    fontSize={16}
-                    fontWeight="light"
-                    color="grey"
-                    align="left"
-                >
+                <Text fontSize={16} fontWeight="light" align="left">
                     In a realm where decentralization meets finance, Emeth
                     stands out as the beacon of intelligent
                     <GradientText> DeFi portfolio management</GradientText>,
@@ -50,7 +45,11 @@ const IntroSectionDescriptionStyled = styled.div`
 
     @media (max-width: 991px) {
         margin-left: 0;
-        margin-top: 0;
+        margin-top: -100px;
+    }
+
+    @media (max-width: 767px) {
+        margin-top: -30px;
     }
 `
 

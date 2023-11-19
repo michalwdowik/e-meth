@@ -6,7 +6,7 @@ import OurPartners from './components/OurPartners'
 import IntroSection from './components/IntroSection/IntroSection'
 import Faq from './components/FaqSection/Faq'
 import useScreenSize from './hooks/useScreenSize'
-import isMobileDevice from './utils/isMobileDevice'
+// import isMobileDevice from './utils/isMobileDevice'
 import NewsletterBanner from './components/NewsletterBanner'
 import Navbar from './components/Navigation/Navbar'
 import ValuesSection from './components/ValuesSection/ValuesSection'
@@ -35,12 +35,12 @@ const HomeStyled = styled.div`
 
 const Home = () => {
     const { isScreenSmall } = useScreenSize()
-    const video = isMobileDevice()
+    // const video = isMobileDevice() - use for checking if mobile device instead of isScreenSmall
     return (
         <>
             <Navbar type="upper" />
             <HomeStyled>
-                <Hero video={video} />
+                <Hero video={isScreenSmall} />
                 <IntroSection />
                 <OurMissionBanner />
                 <FeaturesSection />
