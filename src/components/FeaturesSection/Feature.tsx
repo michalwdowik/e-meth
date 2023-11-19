@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { RefObject } from 'react'
 import Text from '../Text'
 import useScreenSize from '../../hooks/useScreenSize'
 import LearnMoreButton from './LearnMoreButton'
@@ -8,7 +7,8 @@ interface FeatureProps {
     title: string
     description: string
     icon: () => JSX.Element
-    refValue: RefObject<HTMLDivElement>
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    refValue: any
     imageUrl: string
 }
 

@@ -36,10 +36,10 @@ const Drawer: React.FC<DrawerProps> = ({ sections, isOpen, hideDrawer }) => {
             </CloseButton>
             <DrawerItems>{drawerItems}</DrawerItems>
             <Button>Try Emeth Now!</Button>
-            <Wrapper>
+            <DrawerFooter>
                 <SocialMedia />
                 <Copyright>© 2023 Emeth. All rights reserved.</Copyright>
-            </Wrapper>
+            </DrawerFooter>
         </DrawerMenu>
     )
 }
@@ -88,8 +88,8 @@ const DrawerItems = styled.div`
 const DrawerItem = styled.div`
     font-size: 20px;
     cursor: pointer;
-
     transition: color 0.15s ease-in-out;
+
     &:hover {
         ${hoverStyles}
     }
@@ -103,19 +103,17 @@ const CloseButton = styled.div`
     display: flex;
     align-items: center;
     font-size: 14px;
-    color: #fff;
     gap: 8px;
     transition: opacity 0.15s ease-in-out;
+
     &:hover {
         opacity: 0.6;
     }
 `
 
-const CloseIcon = styled.svg`
-    fill: white;
-`
+const CloseIcon = styled.svg``
 
-const Wrapper = styled.div`
+const DrawerFooter = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;

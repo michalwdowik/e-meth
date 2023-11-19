@@ -1,5 +1,7 @@
 import React, { ReactNode } from 'react'
 import styled from 'styled-components'
+import BeforePseudoElement from '../utils/beforePseudoElement'
+import useOnEnterSubmit from '../hooks/useOnEnterSubmit'
 
 const StyledSignUpButton = styled.button`
     font-size: 14px;
@@ -13,12 +15,7 @@ const StyledSignUpButton = styled.button`
     &::before {
         border-radius: 40px;
         border: 2px solid transparent;
-        content: '';
-        position: absolute;
-        top: -2px;
-        left: -2px;
-        right: -2px;
-        bottom: -2px;
+        ${BeforePseudoElement}
     }
 
     &:hover {
@@ -31,8 +28,10 @@ interface SignUpButtonProps {
     children: ReactNode
 }
 
-const SignUpButton: React.FC<SignUpButtonProps> = ({ children }) => (
-    <StyledSignUpButton>{children}</StyledSignUpButton>
-)
+const SignUpButton: React.FC<SignUpButtonProps> = ({ children }) => {
+    useOnEnterSubmit('signUpButton')
+
+    return <StyledSignUpButton id="signUpButton">{children}</StyledSignUpButton>
+}
 
 export default SignUpButton

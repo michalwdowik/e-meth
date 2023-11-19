@@ -15,7 +15,6 @@ const NavbarContainer = styled.nav<{ type: 'upper' | 'lower' }>`
     justify-content: space-between;
     align-items: center;
     padding: ${({ type }) => (type === 'upper' ? '40px 80px' : '0')};
-    background: black;
     color: #fff;
 
     @media (max-width: 768px) {
@@ -28,10 +27,7 @@ const NavbarContainer = styled.nav<{ type: 'upper' | 'lower' }>`
 `
 
 const NavItems = styled.ul`
-    list-style: none;
     display: flex;
-    margin: 0;
-    padding: 0;
     z-index: 2;
 
     @media (max-width: 766px) {
@@ -87,15 +83,14 @@ const NavItem = styled.li`
         ${hoverStyles}
     }
 `
+
 interface NavbarProps {
     type: 'upper' | 'lower'
 }
 
 const Navbar = ({ type }: NavbarProps) => {
     const [isOpen, setIsOpen] = useState(false)
-
     const { isScreenSmall } = useScreenSize()
-
     const navItems = sections.map((section) => (
         <NavItem key={section}>{section}</NavItem>
     ))
@@ -110,15 +105,11 @@ const Navbar = ({ type }: NavbarProps) => {
         setIsOpen(false)
     }
 
-    let buttonElement
-    if (!isScreenSmall) {
-        buttonElement =
-            type === 'upper' ? (
-                <Button>Try Emeth Now!</Button>
-            ) : (
-                <Button>Join Now!</Button>
-            )
-    }
+    const buttonElement = !isScreenSmall && (
+        <Button>{type === 'upper' ? 'Try Emeth Now!' : 'Join Now!'}</Button>
+    )
+
+    const mobileButtonElement = isScreenSmall && <Button>Try Now</Button>
 
     return (
         <>
@@ -129,7 +120,7 @@ const Navbar = ({ type }: NavbarProps) => {
                     {buttonElement}
                 </ItemsWrapper>
                 <Wrapper>
-                    {isScreenSmall ? <Button>Try Now</Button> : null}
+                    {mobileButtonElement}
                     <MobileMenuIcon onClick={toggleDrawer}>☰</MobileMenuIcon>
                 </Wrapper>
             </NavbarContainer>
