@@ -28,6 +28,7 @@ const CardContainer = styled.div`
 `
 
 const StyledCard = styled.div`
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
