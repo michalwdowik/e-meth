@@ -28,6 +28,7 @@ const OurMissionStyled = styled.div<OurMissionStyledProps>`
     width: calc(100% + 224px);
     margin-top: -260px;
     margin-bottom: 80px;
+    overflow-x: hidden;
 
     @media (max-width: 1230px) {
         margin-top: -160px;

@@ -131,4 +131,5 @@ const LearnMoreButtonStyled = styled.div`
 
 const FeatureImage = styled.img`
     width: 100%;
+    margin-bottom: 40px;
 `

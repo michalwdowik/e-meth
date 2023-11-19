@@ -16,10 +16,19 @@ const ValuesSectionStyled = styled.div`
     width: calc(100% + 224px);
     padding: 0 112px;
     margin-top: 64px;
-    overflow: hidden;
+    overflow-x: hidden;
+    /* border: 2px red solid; */
 
+    @media (max-width: 991px) {
+        margin-left: -64px;
+        width: calc(100% + 128px);
+        padding: 0 64px;
+    }
     @media (max-width: 768px) {
         background: none;
+        margin-left: 0;
+        width: calc(100% + 48px);
+        margin-left: -24px;
     }
 `
 
@@ -54,11 +63,11 @@ const GradientMobileUpper = styled.img`
 
     @media (max-width: 768px) {
         top: 100px;
-        width: 85%;
+        /* width: 85%; */
     }
 
     @media (max-width: 650px) {
-        width: 80%;
+        /* width: 80%; */
         top: 300px;
     }
 
