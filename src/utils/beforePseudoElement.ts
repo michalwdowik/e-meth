@@ -12,6 +12,9 @@ const BeforePseudoElement = css`
     -webkit-mask:
         linear-gradient(#fff 0 0) padding-box,
         linear-gradient(#fff 0 0);
+    /* mask:
+        linear-gradient(#fff 0 0) padding-box,
+        linear-gradient(#fff 0 0); */
     -webkit-mask-composite: destination-out;
     mask-composite: exclude;
 `
