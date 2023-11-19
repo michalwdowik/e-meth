@@ -55,7 +55,7 @@ const ImageGradient = styled.img`
     width: 230px;
     z-index: 0;
     margin-top: 50px;
-    margin-left: -150px;
+    margin-left: -170px;
     animation: ${floatAnimation} 7s ease-in-out infinite;
 `
 

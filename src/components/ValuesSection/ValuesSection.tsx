@@ -18,9 +18,14 @@ const ValuesSectionStyled = styled.div`
     margin-top: 64px;
     overflow-x: hidden;
 
+    @media (max-width: 1027px) {
+        margin-left: -64px;
+        width: calc(100% + 128px);
+        padding: 0 112px;
+    }
     @media (max-width: 991px) {
         margin-left: -64px;
-        width: calc(100% + 144px);
+        width: calc(100% + 128px);
         padding: 0 64px;
     }
     @media (max-width: 768px) {

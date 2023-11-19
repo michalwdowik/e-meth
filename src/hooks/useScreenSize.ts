@@ -10,8 +10,7 @@ const useScreenSize = () => {
     }
 
     const isScreenExtraSmall = screenWidth.dynamicWidth <= 575
-    const isScreenSmall =
-        screenWidth.dynamicWidth >= 576 && screenWidth.dynamicWidth <= 767
+
     const isScreenMedium =
         screenWidth.dynamicWidth >= 768 && screenWidth.dynamicWidth <= 991
     const isScreenLarge =
@@ -34,7 +33,6 @@ const useScreenSize = () => {
         isScreenSmallerThan767,
         showDrawer,
         isScreenExtraSmall,
-        isScreenSmall,
         isScreenMedium,
         isScreenLarge,
         isScreenExtraLarge,

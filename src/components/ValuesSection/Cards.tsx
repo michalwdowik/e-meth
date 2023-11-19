@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { motion } from 'framer-motion'
 import { cardDataRow1, cardDataRow2 } from '../../utils/cardData'
 import BeforePseudoElement from '../../utils/beforePseudoElement'
 import { greyGradient } from '../../utils/gradient'
@@ -113,19 +112,12 @@ const Cards = () => (
     <CardContainer>
         <Row justify="start">
             {cardDataRow1.map((cardData) => (
-                <motion.div
+                <Card
                     key={cardData.id}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.3 }}
-                >
-                    <Card
-                        key={cardData.id}
-                        title={cardData.title}
-                        description={cardData.description}
-                        icon={cardData.icon}
-                    />
-                </motion.div>
+                    title={cardData.title}
+                    description={cardData.description}
+                    icon={cardData.icon}
+                />
             ))}
         </Row>
         <Row justify="end">

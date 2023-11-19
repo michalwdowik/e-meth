@@ -9,10 +9,15 @@ const IntroSectionStyled = styled.div`
     flex-direction: column;
     gap: 64px;
     position: relative;
-    /* border: 2px red solid; */
-    /* overflow-x: hidden; */
+    overflow-x: hidden;
+    margin-left: -112px;
+    width: calc(100% + 224px);
+    padding: 0 112px 0 0;
     @media (max-width: 991px) {
         margin-top: 50px;
+        margin-left: -64px;
+        width: calc(100% + 128px);
+        padding: 80px 64px;
     }
 
     @media (max-width: 830px) {
@@ -92,11 +97,11 @@ const IntroSectionImg = styled.img`
 
 const GradientOverlay = styled.img`
     position: absolute;
-    top: 80px;
+    top: 150px;
     left: 0;
     width: calc(100% + 48px);
     margin-left: -24px;
-    z-index: 1;
+    z-index: 0;
 
     @media (max-width: 991px) {
         width: calc(100% + 128px);
