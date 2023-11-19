@@ -64,7 +64,7 @@ const StyledModal = styled.div<StyledModalProps>`
 
 interface ModalProps {
     isVisible: boolean
-    onClose: () => void
+    onClose: (even: React.MouseEvent) => void
 }
 
 const Modal = ({ isVisible, onClose }: ModalProps) => {
