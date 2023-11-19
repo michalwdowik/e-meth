@@ -17,7 +17,6 @@ const ValuesSectionStyled = styled.div`
     padding: 0 112px;
     margin-top: 64px;
     overflow-x: hidden;
-    /* border: 2px red solid; */
 
     @media (max-width: 991px) {
         margin-left: -64px;
@@ -29,6 +28,7 @@ const ValuesSectionStyled = styled.div`
         margin-left: 0;
         width: calc(100% + 48px);
         margin-left: -24px;
+        padding: 0 24px;
     }
 `
 
