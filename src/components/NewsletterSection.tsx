@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import Button from './Button'
-import { Text } from './Text'
+import Text from './Text'
 import useScreenSize from '../hooks/useScreenSize'
 import { greyGradient } from '../utils/gradient'
 import webkitMask from '../utils/webkitMask'

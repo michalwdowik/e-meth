@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 import { Parallax } from 'react-scroll-parallax'
-import { Text } from './Text'
 import Button from './Button'
 import useScreenSize from '../hooks/useScreenSize'
 import VideoPlayer from './Video'
+import Text from './Text'
 
 interface StyledHeroProps {
     video?: boolean

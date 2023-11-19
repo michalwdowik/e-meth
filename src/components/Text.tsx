@@ -1,12 +1,12 @@
-import React from 'react'
+import { ReactNode } from 'react'
 import styled from 'styled-components'
 
-export interface TextProps {
+interface TextProps {
     fontSize?: number
     fontWeight?: 'bold' | 'normal' | 'light'
     align?: 'left' | 'center' | 'right'
     color?: 'white' | 'black' | 'grey'
-    children: React.ReactNode
+    children: ReactNode
 }
 
 const weight = {
@@ -15,24 +15,7 @@ const weight = {
     light: 300,
 }
 
-export const Text = ({
-    fontSize = 14,
-    fontWeight = 'normal',
-    color = 'white',
-    align = 'center',
-    children,
-}: TextProps) => (
-    <ContentContainer
-        fontSize={fontSize}
-        fontWeight={fontWeight}
-        color={color}
-        align={align}
-    >
-        {children}
-    </ContentContainer>
-)
-
-const ContentContainer = styled.div<TextProps>`
+const TextContainer = styled.div<TextProps>`
     font-size: ${(props) => props.fontSize}px;
     font-weight: ${(props) => weight[props.fontWeight || 'normal']};
     font-family: Sora, sans-serif;
@@ -40,3 +23,22 @@ const ContentContainer = styled.div<TextProps>`
     text-align: ${(props) => props.align};
     z-index: 2;
 `
+
+const Text = ({
+    fontSize = 14,
+    fontWeight = 'normal',
+    color = 'white',
+    align = 'center',
+    children,
+}: TextProps) => (
+    <TextContainer
+        fontSize={fontSize}
+        fontWeight={fontWeight}
+        color={color}
+        align={align}
+    >
+        {children}
+    </TextContainer>
+)
+
+export default Text

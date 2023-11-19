@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import styled, { css } from 'styled-components'
 import { createPortal } from 'react-dom'
-import { Text } from '../Text'
 import SocialMediaButtons from '../SocialMediaButtons'
 import CloseIcon from '../Icons/CloseIcon'
 import validateEmail from '../../utils/validateEmail'
@@ -9,6 +8,7 @@ import SignUpButton from '../SignUpButton'
 import { fadeIn, fadeOut } from '../../utils/animations'
 import BeforePseudoElement from '../../utils/beforePseudoElement'
 import useScreenSize from '../../hooks/useScreenSize'
+import Text from '../Text'
 
 interface OverlayProps {
     isVisible: boolean

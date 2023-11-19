@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 import Badge from './Badge'
 import Button from './Button'
-import { Text } from './Text'
 import useScreenSize from '../hooks/useScreenSize'
+import Text from './Text'
 
 interface OurMissionStyledProps {
     isScreenSmall: boolean

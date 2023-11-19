@@ -1,15 +1,14 @@
 import styled from 'styled-components'
-import ArrowRight from '../Icons/ArrowRight'
-import { Text } from '../Text'
+import { RefObject } from 'react'
+import Text from '../Text'
 import useScreenSize from '../../hooks/useScreenSize'
-import hoverStyles from '../../utils/hoverStyles'
+import LearnMoreButton from './LearnMoreButton'
 
 interface FeatureProps {
     title: string
     description: string
     icon: () => JSX.Element
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    refValue: any
+    refValue: RefObject<HTMLDivElement>
     imageUrl: string
 }
 
@@ -78,26 +77,6 @@ const FeatureTitle = styled.div`
 
     @media (max-width: 560px) {
         width: 100%;
-    }
-`
-
-const LearnMoreButton = () => {
-    return (
-        <LearnMoreButtonStyled>
-            Learn More
-            <ArrowRight />
-        </LearnMoreButtonStyled>
-    )
-}
-
-const LearnMoreButtonStyled = styled.div`
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer;
-    position: relative;
-    &:hover {
-        ${hoverStyles}
     }
 `
 

@@ -23,6 +23,7 @@ module.exports = {
     plugins: ['react', '@typescript-eslint', 'prefer-arrow', 'prettier'],
     rules: {
         'react/react-in-jsx-scope': 0,
+        'no-plusplus': 0,
         'react/function-component-definition': [
             2,
             {

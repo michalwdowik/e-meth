@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import useScreenSize from '../../hooks/useScreenSize'
 import Badge from '../Badge'
-import { Text } from '../Text'
+import Text from '../Text'
 import Cards from './Cards'
 
 const ValuesSectionStyled = styled.div`

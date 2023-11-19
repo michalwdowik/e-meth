@@ -1,8 +1,19 @@
 import { Link } from 'react-router-dom'
+import styled from 'styled-components'
+
+const StyledLogo = styled(Link)`
+    width: 111px;
+    height: 24px;
+    z-index: 3;
+
+    @media (max-width: 300px) {
+        width: 90px;
+    }
+`
 
 const Logo = () => {
     return (
-        <Link className="logo" to="/">
+        <StyledLogo to="/">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="111"
@@ -71,7 +82,7 @@ const Logo = () => {
                     </linearGradient>
                 </defs>
             </svg>
-        </Link>
+        </StyledLogo>
     )
 }
 

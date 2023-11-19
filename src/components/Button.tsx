@@ -1,5 +1,6 @@
+import React, { useState } from 'react'
 import styled from 'styled-components'
-import { useState } from 'react'
+
 import Modal from './Modal/Modal'
 import BeforePseudoElement from '../utils/beforePseudoElement'
 import useBodyOverflow from '../hooks/useBodyOverflow'
@@ -12,21 +13,17 @@ interface ButtonProps {
 }
 
 const StyledButton = styled.button<ButtonProps>`
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     font-size: 14px;
     z-index: 3;
     color: #fff;
     background: transparent;
     backdrop-filter: blur(25px);
     cursor: pointer;
-    border: none;
     padding: ${({ size }) => (size === 'normal' ? '0px 24px' : '0px 40px')};
     height: ${({ size }) => (size === 'normal' ? '40px' : '60px')};
     border-radius: ${({ size }) => (size === 'normal' ? '40px' : '64px')};
     transition: all 0.2s ease-in-out;
+
     &::before {
         border: ${({ size }) =>
             size === 'normal'
@@ -35,15 +32,18 @@ const StyledButton = styled.button<ButtonProps>`
         border-radius: ${({ size }) => (size === 'normal' ? '40px' : '64px')};
         ${BeforePseudoElement};
     }
+
     &:hover {
-        scale: 1.03;
+        transform: scale(1.03);
         filter: brightness(170%);
     }
 `
 
-const Button = ({ children, size = 'normal' }: ButtonProps) => {
+const Button: React.FC<ButtonProps> = ({ children, size = 'normal' }) => {
     const [isModalVisible, setIsModalVisible] = useState(false)
+
     useBodyOverflow(isModalVisible)
+
     const toggleModal = (event: React.MouseEvent) => {
         event.stopPropagation()
         setIsModalVisible((prev) => !prev)

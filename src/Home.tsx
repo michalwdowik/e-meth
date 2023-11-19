@@ -21,6 +21,7 @@ const HomeStyled = styled.div`
     gap: 48px;
     margin: 0 auto;
     background-color: black;
+
     @media (max-width: 1024px) {
         padding: 0 64px;
         padding-bottom: 48px;
@@ -40,7 +41,7 @@ const Home = () => {
             <Navbar type="upper" />
             <HomeStyled>
                 <Hero video={video} />
-                <IntroSection />
+                {/* <IntroSection /> */}
                 <OurMission />
                 <FeaturesSection />
                 <ValuesSection />

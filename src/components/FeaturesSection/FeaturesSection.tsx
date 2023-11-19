@@ -8,12 +8,8 @@ import useScreenSize from '../../hooks/useScreenSize'
 import FeaturesSectionHeading from './FeaturesSectionHeading'
 import { floatAnimation } from '../../utils/animations'
 
-const Wrapper = styled.div`
-    box-sizing: border-box;
+const FeaturesSectionContent = styled.div`
     position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     max-width: 1100px;
     margin: 0 auto;
     padding-bottom: 40px;
@@ -70,16 +66,20 @@ const FeaturesSection = () => {
     ]
 
     const getImage = () => {
-        if (containers[0].inView) return 'Feature1.png'
-        if (containers[1].inView) return 'Feature2.png'
-        if (containers[2].inView) return 'Feature3.png'
+        for (let i = 0; i < containers.length; i++) {
+            if (containers[i].inView) {
+                return `Feature${i + 1}.png`
+            }
+        }
         return 'Feature1.png'
     }
 
     const getGradient = () => {
-        if (containers[0].inView) return 'Feature1Gradient.png'
-        if (containers[1].inView) return 'Feature2Gradient.png'
-        if (containers[2].inView) return 'Feature3Gradient.png'
+        for (let i = 0; i < containers.length; i++) {
+            if (containers[i].inView) {
+                return `Feature${i + 1}Gradient.png`
+            }
+        }
         return 'Feature1Gradient.png'
     }
 
@@ -88,7 +88,7 @@ const FeaturesSection = () => {
     return (
         <>
             <FeaturesSectionHeading />
-            <Wrapper>
+            <FeaturesSectionContent>
                 {!isScreenSmall && (
                     <ImageWrapper>
                         <Image
@@ -122,7 +122,7 @@ const FeaturesSection = () => {
                         </motion.div>
                     ))}
                 </FeaturesStyled>
-            </Wrapper>
+            </FeaturesSectionContent>
         </>
     )
 }

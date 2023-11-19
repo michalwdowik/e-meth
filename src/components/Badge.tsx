@@ -1,12 +1,12 @@
 import styled from 'styled-components'
+import { ReactNode } from 'react'
 import BeforePseudoElement from '../utils/beforePseudoElement'
 
 interface BadgeProps {
-    children: React.ReactNode
+    children: ReactNode
 }
 
 const StyledBadge = styled.div`
-    position: relative;
     font-size: 12px;
     padding: 8px 16px;
     width: max-content;
@@ -26,8 +26,8 @@ const StyledBadge = styled.div`
     }
 `
 
-const Badge = ({ children }: BadgeProps) => {
-    return <StyledBadge>{children}</StyledBadge>
-}
+const Badge = ({ children }: BadgeProps) => (
+    <StyledBadge>{children}</StyledBadge>
+)
 
 export default Badge

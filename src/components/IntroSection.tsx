@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import Badge from './Badge'
-import { Text } from './Text'
+import Text from './Text'
 import useScreenSize from '../hooks/useScreenSize'
 import GradientText from './GradientText'
 
@@ -9,7 +9,7 @@ const IntroSectionStyled = styled.div`
     flex-direction: column;
     gap: 64px;
     position: relative;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     margin-left: -112px;
     width: calc(100% + 224px);
     padding: 0 112px 0 0;

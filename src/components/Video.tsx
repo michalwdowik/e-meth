@@ -2,11 +2,11 @@ import React, { useState, useRef } from 'react'
 import styled from 'styled-components'
 import ReactPlayer from 'react-player'
 import { createPortal } from 'react-dom'
-import { Text } from './Text'
 import useScreenSize from '../hooks/useScreenSize'
 import BeforePseudoElement from '../utils/beforePseudoElement'
 import PlayIcon from './Icons/PlayIcon'
 import useBodyOverflow from '../hooks/useBodyOverflow'
+import Text from './Text'
 
 const ModalOverlay = styled.div<{ showModal: boolean }>`
     visibility: ${({ showModal }) => (showModal ? 'visible' : 'hidden')};
