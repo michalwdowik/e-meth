@@ -37,8 +37,12 @@ const GradientBackgroundContainer = styled.div`
     height: auto;
     z-index: 1;
 
+    @media (max-width: 991px) {
+        top: -120px;
+    }
+
     @media (max-width: 766px) {
-        top: 200px;
+        top: 65px;
     }
 `
 
