@@ -11,13 +11,19 @@ const IntroSectionContent = () => {
             <IntroSectionImg src="IntroducingEmethPicture.png" alt="Emeth" />
             <IntroSectionDescriptionStyled>
                 <Text
+                    lineHeight={130}
                     fontSize={isScreenSmall ? 20 : 24}
                     fontWeight="bold"
                     align="left"
                 >
                     Your Strategic Ally <br /> in Digital Asset Management
                 </Text>
-                <Text fontSize={16} fontWeight="light" align="left">
+                <Text
+                    lineHeight={160}
+                    fontSize={16}
+                    fontWeight="light"
+                    align="left"
+                >
                     In a realm where decentralization meets finance, Emeth
                     stands out as the beacon of intelligent
                     <GradientText> DeFi portfolio management</GradientText>,

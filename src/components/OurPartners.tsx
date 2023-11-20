@@ -51,7 +51,9 @@ const OurPartners = () => {
 
     return (
         <OurPartnersSection>
-            <Text fontSize={isScreenSmall ? 28 : 56}>Our Partners</Text>
+            <Text lineHeight={130} fontSize={isScreenSmall ? 28 : 56}>
+                Our Partners
+            </Text>
             <Divider />
             <OurPartnersDiv>
                 <AxelarLogo />

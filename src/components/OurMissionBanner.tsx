@@ -62,7 +62,7 @@ const OurMissionBanner = () => {
     return (
         <OurMissionStyled isScreenSmall={isScreenSmall}>
             <Badge>OUR MISSION</Badge>
-            <Text fontWeight="bold" fontSize={fontSize}>
+            <Text lineHeight={130} fontWeight="bold" fontSize={fontSize}>
                 To streamline and automate DeFi operations, delivering <br />
                 unprecedented efficiency, cost-effectiveness, and <br />
                 transparency in managing digital assets.

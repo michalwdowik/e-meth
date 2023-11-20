@@ -13,7 +13,7 @@ const SuccessModal = ({ onClose }: SuccessModalProps) => {
     return (
         <>
             <HeaderContainer>
-                <Text fontSize={isScreenSmall ? 20 : 32}>
+                <Text lineHeight={130} fontSize={isScreenSmall ? 20 : 32}>
                     Success! You&apos;re on the List!
                 </Text>
                 <StyledCloseIcon onClick={onClose}>
@@ -21,6 +21,7 @@ const SuccessModal = ({ onClose }: SuccessModalProps) => {
                 </StyledCloseIcon>
             </HeaderContainer>
             <Text
+                lineHeight={150}
                 align="left"
                 fontSize={isScreenSmall ? 12 : 16}
                 fontWeight="light"
@@ -38,6 +39,7 @@ const SuccessModal = ({ onClose }: SuccessModalProps) => {
             </Text>
             <Divider />
             <Text
+                lineHeight={150}
                 fontSize={isScreenSmall ? 12 : 16}
                 fontWeight="light"
                 align="left"

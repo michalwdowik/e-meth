@@ -28,6 +28,7 @@ const Feature = ({
                 {icon()}
                 <FeatureTitle>
                     <Text
+                        lineHeight={130}
                         fontSize={isScreenSmall ? 20 : 32}
                         fontWeight="bold"
                         align="left"
@@ -37,6 +38,7 @@ const Feature = ({
                 </FeatureTitle>
                 <FeatureDescription>
                     <Text
+                        lineHeight={160}
                         fontSize={isScreenSmall ? 14 : 16}
                         align="left"
                         fontWeight="light"

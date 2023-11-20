@@ -133,7 +133,7 @@ const VideoPlayer = () => {
                     <PlayIconStyled isScreenSmall={isScreenSmall}>
                         <PlayIcon />
                     </PlayIconStyled>
-                    <Text fontSize={isScreenSmall ? 14 : 16}>
+                    <Text lineHeight={130} fontSize={isScreenSmall ? 14 : 16}>
                         Watch Video Now!
                     </Text>
                 </PlayButton>

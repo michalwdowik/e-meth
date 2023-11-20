@@ -130,6 +130,7 @@ const ValuesSection = () => {
                 </Text>
                 <HeadingDescription>
                     <Text
+                        lineHeight={160}
                         align="left"
                         fontSize={isScreenExtraSmall ? 14 : 20}
                         fontWeight="light"

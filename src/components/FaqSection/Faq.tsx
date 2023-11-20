@@ -45,6 +45,7 @@ const Faq = () => {
             <FaqHeading>
                 <Badge>FAQ</Badge>
                 <Text
+                    lineHeight={130}
                     fontSize={isScreenSmall ? 28 : 56}
                     align={isScreenSmall ? 'left' : 'center'}
                     fontWeight="bold"

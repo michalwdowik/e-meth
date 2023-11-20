@@ -18,7 +18,12 @@ const SignUpModal = ({
     return (
         <>
             <Text fontSize={32}>Join the Emeth Revolution Early!</Text>
-            <Text align="left" fontSize={16} fontWeight="light">
+            <Text
+                lineHeight={150}
+                align="left"
+                fontSize={16}
+                fontWeight="light"
+            >
                 Emeth is under construction, and we&apos;re excited to share our
                 journey with you. Be among the first to experience the future of
                 on-chain digital asset management.
