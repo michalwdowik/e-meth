@@ -86,7 +86,7 @@ const FeaturesSection = () => {
     const getContainer = (id: number) => containers[id - 1].ref
 
     return (
-        <>
+        <div id="Features">
             <FeaturesSectionHeading />
             <FeaturesSectionContent>
                 {!isScreenSmall && (
@@ -123,7 +123,7 @@ const FeaturesSection = () => {
                     ))}
                 </FeaturesStyled>
             </FeaturesSectionContent>
-        </>
+        </div>
     )
 }
 

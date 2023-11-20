@@ -41,7 +41,7 @@ const Faq = () => {
     const { isScreenSmall } = useScreenSize()
 
     return (
-        <FaqContainer>
+        <FaqContainer id="FAQ">
             <FaqHeading>
                 <Badge>FAQ</Badge>
                 <Text

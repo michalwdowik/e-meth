@@ -112,7 +112,7 @@ const ValuesSection = () => {
     const { isScreenExtraSmall, isScreenSmall } = useScreenSize()
 
     return (
-        <ValuesSectionStyled>
+        <ValuesSectionStyled id="DCA">
             {isScreenSmall && (
                 <GradientMobileUpper src="FeaturesGradientMobileUpper.png" />
             )}

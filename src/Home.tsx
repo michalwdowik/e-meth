@@ -19,7 +19,8 @@ const HomeStyled = styled.div`
     padding-bottom: 48px;
     justify-content: center;
     gap: 48px;
-    margin: 0 auto;
+    margin: 0 auto; /* Center the content horizontally */
+    max-width: 1600px; /* Set a maximum width */
     background-color: black;
 
     @media (max-width: 1024px) {
