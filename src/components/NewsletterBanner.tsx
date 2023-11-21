@@ -7,6 +7,7 @@ import webkitMask from '../utils/webkitMask'
 import BeforePseudoElement from '../utils/beforePseudoElement'
 
 const NewsletterSectionStyled = styled.div`
+    width: 1007px;
     background: url('NewsletterGradient.png');
     background-size: contain;
     background-repeat: no-repeat;
@@ -14,7 +15,12 @@ const NewsletterSectionStyled = styled.div`
     height: 900px;
     display: flex;
     align-items: center;
+    /* border: 2px red solid; */
+    margin: 0 auto;
 
+    @media (max-width: 1224px) {
+        width: 100%;
+    }
     @media (max-width: 767px) {
         height: 600px;
     }
@@ -50,6 +56,7 @@ const NewsletterGlassyBanner = styled.div`
     -webkit-backdrop-filter: blur(50px);
     background: rgba(255, 255, 255, 0.05);
     overflow: hidden;
+    width: 100%;
 
     &::before {
         border-radius: 32px;

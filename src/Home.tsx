@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
 import Footer from './components/Footer'
 import Hero from './components/HeroSection/Hero'
 import OurMissionBanner from './components/OurMissionBanner'
@@ -6,11 +6,12 @@ import OurPartners from './components/OurPartners'
 import IntroSection from './components/IntroSection/IntroSection'
 import Faq from './components/FaqSection/Faq'
 import useScreenSize from './hooks/useScreenSize'
+// import isMobileDevice from './utils/isMobileDevice'
 import NewsletterBanner from './components/NewsletterBanner'
 import Navbar from './components/Navigation/Navbar'
 import ValuesSection from './components/ValuesSection/ValuesSection'
 import FeaturesSection from './components/FeaturesSection/FeaturesSection'
-// import isMobileDevice from './utils/isMobileDevice'
+import theme from './utils/theme'
 
 const HomeStyled = styled.div`
     display: flex;
@@ -20,38 +21,33 @@ const HomeStyled = styled.div`
     justify-content: center;
     gap: 48px;
     margin: 0 auto;
-    max-width: 2156px;
     background-color: black;
-    @media (max-width: 1024px) {
-        padding: 0 64px;
-        padding-bottom: 48px;
-    }
+    border: 2px red solid;
 
     @media (max-width: 767px) {
-        padding: 0 24px;
-        padding-bottom: 48px;
+        padding: 0 16px;
     }
 `
 
 const Home = () => {
     const { isScreenSmall } = useScreenSize()
-    // const video = isMobileDevice()
+    // const video = isMobileDevice() - use for checking if mobile device instead of isScreenSmall
     return (
-        <>
+        <ThemeProvider theme={theme}>
             <Navbar type="upper" />
             <HomeStyled>
-                <Hero video />
+                {/* <Hero video />
                 <IntroSection />
                 <OurMissionBanner />
                 <FeaturesSection />
                 <ValuesSection />
-                <OurPartners />
+                <OurPartners /> */}
                 <Faq />
-                <NewsletterBanner />
-                {!isScreenSmall && <Navbar type="lower" />}
+                {/* <NewsletterBanner />
+                {!isScreenSmall && <Navbar type="lower" />} */}
                 <Footer />
             </HomeStyled>
-        </>
+        </ThemeProvider>
     )
 }
 

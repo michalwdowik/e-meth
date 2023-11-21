@@ -10,12 +10,19 @@ import TubblyLogo from './Icons/TubblyLogo'
 
 const OurPartnersSection = styled.div`
     display: flex;
+    border: 2px red solid;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 2rem;
     z-index: 1;
     margin: 64px 0;
+    width: 1216px;
+    margin: 0 auto;
+
+    @media (max-width: 1440px) {
+        width: 100%;
+    }
 `
 
 const OurPartnersDiv = styled.div`

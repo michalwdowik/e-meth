@@ -9,7 +9,12 @@ import AccordionItems from './AccordionItems'
 const FaqContainer = styled.div`
     display: flex;
     flex-direction: column;
-    padding: 0 104px;
+    border: 2px red solid;
+    margin: 0 auto;
+    margin-left: ${(props) => props.theme.margins.medium};
+    margin-right: ${(props) => props.theme.margins.medium};
+    max-width: 1008px;
+    margin: 0 auto;
 
     @media (max-width: 1199px) {
         padding: 0;
