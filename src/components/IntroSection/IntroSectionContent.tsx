@@ -69,14 +69,20 @@ const IntroSectionImg = styled.img`
 const IntroSectionContentWrapper = styled.div`
     display: flex;
     align-items: flex-start;
-
     padding: 0 112px;
     width: calc(100% + 112px);
 
     @media (max-width: 1024px) {
     }
+
     @media (max-width: 991px) {
+        margin-left: -64px;
         flex-direction: column;
         align-items: center;
+    }
+
+    @media (max-width: 767px) {
+        padding: 0 24px;
+        padding-bottom: 48px;
     }
 `
