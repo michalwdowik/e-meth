@@ -10,10 +10,11 @@ type ButtonSize = 'normal' | 'big'
 interface ButtonProps {
     children: React.ReactNode
     size?: ButtonSize
+    fontSize?: number
 }
 
 const StyledButton = styled.button<ButtonProps>`
-    font-size: 14px;
+    font-size: ${({ fontSize }) => (fontSize ? `${fontSize}px` : '14px')};
     z-index: 3;
     color: #fff;
     position: relative;
@@ -40,7 +41,7 @@ const StyledButton = styled.button<ButtonProps>`
     }
 `
 
-const Button: React.FC<ButtonProps> = ({ children, size = 'normal' }) => {
+const Button: React.FC<ButtonProps> = ({ children, size, fontSize = 14 }) => {
     const [isModalVisible, setIsModalVisible] = useState(false)
 
     useBodyOverflow(isModalVisible)
@@ -52,7 +53,7 @@ const Button: React.FC<ButtonProps> = ({ children, size = 'normal' }) => {
 
     return (
         <>
-            <StyledButton onClick={toggleModal} size={size}>
+            <StyledButton fontSize={fontSize} onClick={toggleModal} size={size}>
                 {children}
             </StyledButton>
             {isModalVisible && <Modal isVisible onClose={toggleModal} />}

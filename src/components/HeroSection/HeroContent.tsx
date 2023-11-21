@@ -5,6 +5,7 @@ import Button from '../Button'
 
 interface HeroContentProps {
     isSmallScreen: boolean
+    video: boolean
 }
 
 const HeroContentStyled = styled.div`
@@ -44,7 +45,7 @@ const HeroSubtitleStyled = styled.div`
     }
 `
 
-const HeroContent = ({ isSmallScreen }: HeroContentProps) => {
+const HeroContent = ({ isSmallScreen, video }: HeroContentProps) => {
     return (
         <HeroContentStyled>
             <HeroTextStyled>
@@ -62,10 +63,12 @@ const HeroContent = ({ isSmallScreen }: HeroContentProps) => {
                     </Text>
                 </HeroSubtitleStyled>
             </HeroTextStyled>
-            {isSmallScreen ? (
+            {video ? (
                 <VideoPlayer />
             ) : (
-                <Button size="big">Join Now</Button>
+                <Button fontSize={18} size="big">
+                    Join Now
+                </Button>
             )}
         </HeroContentStyled>
     )

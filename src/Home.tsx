@@ -6,11 +6,11 @@ import OurPartners from './components/OurPartners'
 import IntroSection from './components/IntroSection/IntroSection'
 import Faq from './components/FaqSection/Faq'
 import useScreenSize from './hooks/useScreenSize'
-// import isMobileDevice from './utils/isMobileDevice'
 import NewsletterBanner from './components/NewsletterBanner'
 import Navbar from './components/Navigation/Navbar'
 import ValuesSection from './components/ValuesSection/ValuesSection'
 import FeaturesSection from './components/FeaturesSection/FeaturesSection'
+// import isMobileDevice from './utils/isMobileDevice'
 
 const HomeStyled = styled.div`
     display: flex;
@@ -19,10 +19,9 @@ const HomeStyled = styled.div`
     padding-bottom: 48px;
     justify-content: center;
     gap: 48px;
-    margin: 0 auto; /* Center the content horizontally */
-    max-width: 1600px; /* Set a maximum width */
+    margin: 0 auto;
+    max-width: 2156px;
     background-color: black;
-
     @media (max-width: 1024px) {
         padding: 0 64px;
         padding-bottom: 48px;
@@ -36,12 +35,12 @@ const HomeStyled = styled.div`
 
 const Home = () => {
     const { isScreenSmall } = useScreenSize()
-    // const video = isMobileDevice() - use for checking if mobile device instead of isScreenSmall
+    // const video = isMobileDevice()
     return (
         <>
             <Navbar type="upper" />
             <HomeStyled>
-                <Hero video={isScreenSmall} />
+                <Hero video />
                 <IntroSection />
                 <OurMissionBanner />
                 <FeaturesSection />

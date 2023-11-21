@@ -1,10 +1,11 @@
+/* eslint-disable no-nested-ternary */
 import styled from 'styled-components'
 import { Parallax } from 'react-scroll-parallax'
 import useScreenSize from '../../hooks/useScreenSize'
 import HeroContent from './HeroContent'
 
 interface StyledHeroProps {
-    video?: boolean
+    video: boolean
 }
 
 const StyledHero = styled.div<StyledHeroProps>`
@@ -17,10 +18,10 @@ const StyledHero = styled.div<StyledHeroProps>`
     margin-left: -112px;
     width: calc(100% + 224px);
     position: relative;
+
     @media (max-width: 1024px) {
         margin-left: -64px;
         width: calc(100% + 128px);
-        margin-top: 20px;
     }
 
     @media (max-width: 767px) {
@@ -29,20 +30,34 @@ const StyledHero = styled.div<StyledHeroProps>`
     }
 `
 
-const GradientBackgroundContainer = styled.div`
+const GradientBackgroundContainer = styled.div<StyledHeroProps>`
     position: absolute;
     background-color: black;
-    top: -200px;
+    /* top: -230px; */
+    top: ${({ video }) => (video ? '-150px' : '-200px')};
+    left: ${({ video }) => (video ? '0px' : '30px')};
     width: 100%;
     height: auto;
     z-index: 1;
+    flex-shrink: 2;
 
     @media (max-width: 991px) {
+        left: 0;
         top: -120px;
     }
 
     @media (max-width: 766px) {
-        top: 65px;
+        top: ${({ video }) => (video ? '-55px' : '-100px')};
+        left: 0;
+    }
+
+    @media (max-width: 500px) {
+        width: ${({ video }) => (video ? '100%' : '120%')};
+        left: ${({ video }) => (video ? '0' : '-70px')};
+    }
+
+    @media (max-width: 400px) {
+        left: ${({ video }) => (video ? '0' : '-40px')};
     }
 `
 
@@ -51,10 +66,13 @@ const GradientBackground = styled.img`
     width: 100%;
     height: auto;
     z-index: 1;
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
 `
 
 interface HeroProps {
-    video?: boolean
+    video: boolean
 }
 
 const Hero = ({ video }: HeroProps) => {
@@ -62,18 +80,20 @@ const Hero = ({ video }: HeroProps) => {
 
     return (
         <StyledHero video={video}>
-            <GradientBackgroundContainer>
+            <GradientBackgroundContainer video={video}>
                 <Parallax style={{ zIndex: 1, width: '100%' }} speed={-10}>
                     <GradientBackground
                         src={
-                            isScreenSmall
-                                ? 'MobileHeroGradient.png'
+                            video
+                                ? isScreenSmall
+                                    ? 'MobileHeroGradient.png'
+                                    : 'HeroGradient.png'
                                 : 'HeroGradient-NoVideo.png'
                         }
                     />
                 </Parallax>
             </GradientBackgroundContainer>
-            <HeroContent isSmallScreen={isScreenSmall} />
+            <HeroContent video={video} isSmallScreen={isScreenSmall} />
         </StyledHero>
     )
 }
