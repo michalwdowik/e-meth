@@ -78,7 +78,6 @@ const IntroSectionImg = styled.img`
 const IntroSectionContentWrapper = styled.div`
     display: flex;
     align-items: flex-start;
-    border: 2px red solid;
     padding: 0 112px;
     width: calc(100% + 112px);
 
