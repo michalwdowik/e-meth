@@ -7,32 +7,32 @@ import webkitMask from '../utils/webkitMask'
 import BeforePseudoElement from '../utils/beforePseudoElement'
 
 const NewsletterSectionStyled = styled.div`
-    width: 1007px;
     background: url('NewsletterGradient.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    height: 900px;
+    height: 870px;
     display: flex;
     align-items: center;
-    /* border: 2px red solid; */
+    border: 2px red solid;
+    width: 100%;
+    margin-left: ${(props) => props.theme.margins.medium};
+    margin-right: ${(props) => props.theme.margins.medium};
+    max-width: 1008px;
     margin: 0 auto;
 
-    @media (max-width: 1224px) {
-        width: 100%;
-    }
     @media (max-width: 767px) {
         height: 600px;
     }
 
     @media (max-width: 576px) {
-        margin-left: -24px;
-        width: calc(100% + 48px);
         background: url('NewsletterGradientMobile.png');
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center right;
         height: 550px;
+        margin-left: -16px;
+        width: calc(100% + 32px);
     }
 `
 
@@ -57,7 +57,11 @@ const NewsletterGlassyBanner = styled.div`
     background: rgba(255, 255, 255, 0.05);
     overflow: hidden;
     width: 100%;
+    max-height: 557px; /* Set a minimum height */
 
+    @media (max-width: 1224px) {
+        height: auto;
+    }
     &::before {
         border-radius: 32px;
         padding: 1px;
@@ -71,12 +75,12 @@ const NewsletterGlassyBanner = styled.div`
     }
 
     @media (max-width: 991px) {
-        padding: 132px 76px 48px 76px;
+        padding: 96px 76px 48px 76px;
     }
 
-    @media (max-width: 767px) {
-        padding: 108px 76px 48px 76px;
-        gap: 32px;
+    @media (max-width: 870px) {
+        padding-top: 40px;
+        padding-bottom: 40px;
     }
 
     @media (max-width: 767px) {

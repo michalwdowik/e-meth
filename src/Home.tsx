@@ -43,6 +43,7 @@ const Home = () => {
                 <ValuesSection />
                 <OurPartners /> */}
                 <Faq />
+                <NewsletterBanner />
                 {/* <NewsletterBanner />
                 {!isScreenSmall && <Navbar type="lower" />} */}
                 <Footer />
