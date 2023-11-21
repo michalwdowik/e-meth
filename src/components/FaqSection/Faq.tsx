@@ -7,7 +7,7 @@ import useScreenSize from '../../hooks/useScreenSize'
 import AccordionItems from './AccordionItems'
 
 const FaqContainerWrapper = styled.div`
-    max-width: 1414px;
+    max-width: 1216px;
     margin: 0 auto;
     margin-top: 79px;
     border: 2px red solid;

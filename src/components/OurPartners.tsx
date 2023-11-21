@@ -19,7 +19,7 @@ const OurPartnersSection = styled.div`
     margin: 0 auto;
     margin-top: 120px;
     width: 100%;
-    max-width: 1414px;
+    max-width: 1216px;
 `
 
 const OurPartnersDiv = styled.div`

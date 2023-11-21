@@ -26,8 +26,11 @@ const NavbarContainer = styled.nav<{ type: 'upper' | 'lower' }>`
         padding: ${({ type }) => (type === 'upper' ? '40px 20px' : '0')};
     }
 `
+interface NavItemsProps {
+    type: 'upper' | 'lower'
+}
 
-const NavItems = styled.ul`
+const NavItems = styled.ul<NavItemsProps>`
     display: flex;
     z-index: 2;
 
@@ -39,6 +42,10 @@ const NavItems = styled.ul`
         padding: 0 15px;
         cursor: pointer;
         font-size: 14px;
+
+        @media (max-width: 901px) {
+            padding: ${({ type }) => (type === 'upper' ? '0 15px' : '0 8px')};
+        }
     }
 `
 
@@ -58,10 +65,17 @@ const MobileMenuIcon = styled.div`
     }
 `
 
-const ItemsWrapper = styled.div`
+interface ItemsWrapperProps {
+    type: 'upper' | 'lower'
+}
+const ItemsWrapper = styled.div<ItemsWrapperProps>`
     display: flex;
     align-items: center;
     gap: 32px;
+
+    @media (max-width: 901px) {
+        gap: ${({ type }) => (type === 'upper' ? '32px' : '0')};
+    }
 `
 
 const Wrapper = styled.div`
@@ -126,8 +140,8 @@ const Navbar = ({ type }: NavbarProps) => {
         <>
             <NavbarContainer type={type}>
                 <Logo />
-                <ItemsWrapper>
-                    <NavItems>{navItems}</NavItems>
+                <ItemsWrapper type={type}>
+                    <NavItems type={type}>{navItems}</NavItems>
                     {buttonElement}
                 </ItemsWrapper>
                 <Wrapper>

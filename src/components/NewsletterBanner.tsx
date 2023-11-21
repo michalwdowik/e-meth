@@ -7,9 +7,8 @@ import webkitMask from '../utils/webkitMask'
 import BeforePseudoElement from '../utils/beforePseudoElement'
 
 const NewsletterSectionWrapper = styled.div`
-    max-width: 1414px;
+    max-width: 1216px;
     margin: 0 auto;
-    margin-top: 79px;
     border: 2px red solid;
     width: 100%;
     padding-left: ${(props) => props.theme.margins.medium};
