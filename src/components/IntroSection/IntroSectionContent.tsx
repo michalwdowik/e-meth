@@ -70,6 +70,11 @@ const IntroSectionContentWrapper = styled.div`
     display: flex;
     align-items: flex-start;
 
+    padding: 0 112px;
+    width: calc(100% + 112px);
+
+    @media (max-width: 1024px) {
+    }
     @media (max-width: 991px) {
         flex-direction: column;
         align-items: center;
