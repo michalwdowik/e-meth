@@ -14,6 +14,7 @@ const FaqContainer = styled.div`
     margin-right: ${(props) => props.theme.margins.medium};
     max-width: 1008px;
     margin: 0 auto;
+    margin-top: 79px;
 `
 
 const FaqHeading = styled.div`

@@ -17,6 +17,7 @@ const ValuesSectionStyled = styled.div`
     padding: 0 112px;
     margin-top: 64px;
     overflow-x: hidden;
+    border: 2px green solid;
 
     @media (max-width: 1027px) {
         margin-left: -64px;

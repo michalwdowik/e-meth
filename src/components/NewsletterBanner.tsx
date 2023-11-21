@@ -57,7 +57,6 @@ const NewsletterGlassyBanner = styled.div`
     background: rgba(255, 255, 255, 0.05);
     overflow: hidden;
     width: 100%;
-    max-height: 557px; /* Set a minimum height */
 
     @media (max-width: 1224px) {
         height: auto;
@@ -107,7 +106,10 @@ const NewsletterBanner = () => {
                     Join us on a journey to redefine what&apos;s <br /> possible
                     in the DeFi space.
                 </Text>
-                <Button size={isScreenExtraSmall ? 'normal' : 'big'}>
+                <Button
+                    fontSize={isScreenExtraSmall ? 14 : 18}
+                    size={isScreenExtraSmall ? 'normal' : 'big'}
+                >
                     Join Now!
                 </Button>
             </NewsletterGlassyBanner>

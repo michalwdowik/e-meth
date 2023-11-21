@@ -115,7 +115,9 @@ const Navbar = ({ type }: NavbarProps) => {
     }
 
     const buttonElement = !isScreenSmall && (
-        <Button>{type === 'upper' ? 'Try Emeth Now!' : 'Join Now!'}</Button>
+        <Button size="normal">
+            {type === 'upper' ? 'Try Emeth Now!' : 'Join Now!'}
+        </Button>
     )
 
     const mobileButtonElement = isScreenSmall && <Button>Try Now</Button>
