@@ -12,10 +12,11 @@ const IntroSectionStyled = styled.div`
     overflow-x: hidden;
     height: max-content;
     z-index: 3;
+    border: 2px blue solid;
     margin-left: -112px;
     width: calc(100% + 224px);
-    padding: 0 112px 0 0;
-    @media (max-width: 991px) {
+    padding: 0 112px;
+    /* @media (max-width: 991px) {
         margin-top: 100px;
         margin-left: -64px;
         width: calc(100% + 128px);
@@ -48,16 +49,20 @@ const IntroSectionStyled = styled.div`
 
     @media (max-width: 400px) {
         margin-top: 60px;
-    }
+    } */
 `
 
 const IntroSectionHeadingStyled = styled.div`
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-top: 124px;
-    margin-left: 80px;
     overflow: hidden;
+    margin: 0 auto;
+    width: 100%;
+    border: 2px green solid;
+    max-width: 1216px;
+    width: 100%;
+    padding-left: ${(props) => props.theme.margins.medium};
 
     @media (max-width: 991px) {
         margin-left: 0;

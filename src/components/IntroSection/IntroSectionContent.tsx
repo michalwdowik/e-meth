@@ -54,7 +54,7 @@ const IntroSectionDescriptionStyled = styled.div`
 `
 
 const IntroSectionImg = styled.img`
-    width: 95%;
+    width: 90%;
     flex: 0;
     flex-shrink: 0;
     margin-left: -20%;
