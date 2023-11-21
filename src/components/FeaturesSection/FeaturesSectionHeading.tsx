@@ -4,12 +4,16 @@ import Text from '../Text'
 import useScreenSize from '../../hooks/useScreenSize'
 
 const FeaturesSectionStyled = styled.div`
-    padding: 0 112px;
-    margin-left: -112px;
-    width: calc(100% + 224px);
-    position: relative;
+    /* padding: 0 112px; */
+    /* margin-left: -112px; */
+    /* width: calc(100% + 224px); */
+    /* position: relative; */
+    border: 2px white solid;
+    max-width: 1216px;
+    margin: 0 auto;
+    margin-bottom: 160px;
 
-    @media (max-width: 1024px) {
+    /* @media (max-width: 1024px) {
         margin-left: -64px;
         width: calc(100% + 128px);
         padding: 0 64px;
@@ -19,6 +23,12 @@ const FeaturesSectionStyled = styled.div`
         padding: 160px 24px 0 24px;
         margin-left: -24px;
         width: calc(100% + 48px);
+    } */
+
+    @media (max-width: 767px) {
+        margin-bottom: 0;
+        width: 100%;
+        padding-top: 80px;
     }
 `
 
@@ -26,7 +36,6 @@ const FeaturesSectionHero = styled.div`
     display: flex;
     justify-content: space-between;
     gap: 60px;
-    max-width: 1100px;
     margin: 0 auto;
     margin-bottom: 64px;
 
@@ -57,30 +66,14 @@ const FeaturesSectionHeroDescription = styled.div`
     }
 `
 
-const GradientOverlay = styled.img`
-    position: absolute;
-    top: 70px;
-    left: 0;
-    width: 50%;
-
-    @media (max-width: 767px) {
-        width: 100%;
-    }
-`
-
 const FeaturesSectionHeading = () => {
-    const { isScreenExtraSmall, isScreenSmall } = useScreenSize()
-
-    const gradientOverlaySrc = isScreenSmall
-        ? 'FeaturesGradientMobile.png'
-        : 'FeaturesSectionGradient.png'
+    const { isScreenExtraSmall } = useScreenSize()
 
     const heroTitleFontSize = isScreenExtraSmall ? 28 : 56
     const heroDescriptionFontSize = isScreenExtraSmall ? 14 : 16
 
     return (
         <FeaturesSectionStyled>
-            <GradientOverlay src={gradientOverlaySrc} />
             <FeaturesSectionHero>
                 <FeaturesSectionHeroTitle>
                     <Badge>Features</Badge>

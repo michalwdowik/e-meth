@@ -5,6 +5,7 @@ import Text from '../Text'
 import Cards from './Cards'
 
 const ValuesSectionStyled = styled.div`
+    margin-top: 206px;
     background: url('GlassyBannerGradient.png') no-repeat right
         calc(100% - 60px);
     position: relative;
@@ -34,6 +35,7 @@ const ValuesSectionStyled = styled.div`
         width: calc(100% + 48px);
         margin-left: -24px;
         padding: 0 24px;
+        margin-top: 129px;
     }
 `
 
