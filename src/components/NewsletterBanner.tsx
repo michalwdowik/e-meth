@@ -6,6 +6,19 @@ import { greyGradient } from '../utils/gradient'
 import webkitMask from '../utils/webkitMask'
 import BeforePseudoElement from '../utils/beforePseudoElement'
 
+const NewsletterSectionWrapper = styled.div`
+    max-width: 1414px;
+    margin: 0 auto;
+    margin-top: 79px;
+    border: 2px red solid;
+    width: 100%;
+    padding-left: ${(props) => props.theme.margins.medium};
+    padding-right: ${(props) => props.theme.margins.medium};
+    @media (max-width: 767px) {
+        padding: 0;
+    }
+`
+
 const NewsletterSectionStyled = styled.div`
     background: url('NewsletterGradient.png');
     background-size: contain;
@@ -14,11 +27,8 @@ const NewsletterSectionStyled = styled.div`
     height: 870px;
     display: flex;
     align-items: center;
-    border: 2px red solid;
-    width: 100%;
-    margin-left: ${(props) => props.theme.margins.medium};
-    margin-right: ${(props) => props.theme.margins.medium};
-    max-width: 1008px;
+    border: 2px green solid;
+    /* width: 1008px; */
     margin: 0 auto;
 
     @media (max-width: 767px) {
@@ -100,20 +110,25 @@ const NewsletterGlassyBanner = styled.div`
 const NewsletterBanner = () => {
     const { isScreenExtraSmall } = useScreenSize()
     return (
-        <NewsletterSectionStyled>
-            <NewsletterGlassyBanner>
-                <Text lineHeight={130} fontSize={isScreenExtraSmall ? 24 : 40}>
-                    Join us on a journey to redefine what&apos;s <br /> possible
-                    in the DeFi space.
-                </Text>
-                <Button
-                    fontSize={isScreenExtraSmall ? 14 : 18}
-                    size={isScreenExtraSmall ? 'normal' : 'big'}
-                >
-                    Join Now!
-                </Button>
-            </NewsletterGlassyBanner>
-        </NewsletterSectionStyled>
+        <NewsletterSectionWrapper>
+            <NewsletterSectionStyled>
+                <NewsletterGlassyBanner>
+                    <Text
+                        lineHeight={130}
+                        fontSize={isScreenExtraSmall ? 24 : 40}
+                    >
+                        Join us on a journey to redefine what&apos;s <br />{' '}
+                        possible in the DeFi space.
+                    </Text>
+                    <Button
+                        fontSize={isScreenExtraSmall ? 14 : 18}
+                        size={isScreenExtraSmall ? 'normal' : 'big'}
+                    >
+                        Join Now!
+                    </Button>
+                </NewsletterGlassyBanner>
+            </NewsletterSectionStyled>
+        </NewsletterSectionWrapper>
     )
 }
 

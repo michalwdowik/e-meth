@@ -16,10 +16,10 @@ const OurPartnersSection = styled.div`
     align-items: center;
     gap: 40px;
     z-index: 1;
-    margin: 64px 0;
     margin: 0 auto;
+    margin-top: 120px;
     width: 100%;
-    max-width: 1216px;
+    max-width: 1414px;
 `
 
 const OurPartnersDiv = styled.div`

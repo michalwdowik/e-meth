@@ -6,15 +6,27 @@ import faqs from '../../utils/faqs'
 import useScreenSize from '../../hooks/useScreenSize'
 import AccordionItems from './AccordionItems'
 
+const FaqContainerWrapper = styled.div`
+    max-width: 1414px;
+    margin: 0 auto;
+    margin-top: 79px;
+    border: 2px red solid;
+    width: 100%;
+    padding-left: ${(props) => props.theme.margins.medium};
+    padding-right: ${(props) => props.theme.margins.medium};
+    @media (max-width: 767px) {
+        padding: 0;
+    }
+`
 const FaqContainer = styled.div`
     display: flex;
     flex-direction: column;
-    border: 2px red solid;
-    margin-left: ${(props) => props.theme.margins.medium};
-    margin-right: ${(props) => props.theme.margins.medium};
-    max-width: 1008px;
-    margin: 0 auto;
-    margin-top: 79px;
+    border: 2px green solid;
+    /* max-width: 1008px; */
+
+    @media (max-width: 767px) {
+        width: 100%;
+    }
 `
 
 const FaqHeading = styled.div`
@@ -42,27 +54,29 @@ const Faq = () => {
     const { isScreenSmall } = useScreenSize()
 
     return (
-        <FaqContainer id="FAQ">
-            <FaqHeading>
-                <Badge>FAQ</Badge>
-                <Text
-                    lineHeight={130}
-                    fontSize={isScreenSmall ? 28 : 56}
-                    align={isScreenSmall ? 'left' : 'center'}
-                    fontWeight="bold"
-                >
-                    Frequently Asked <br /> Questions
-                </Text>
-            </FaqHeading>
-            <AccordionItems
-                accordionContent={faqs}
-                refs={itemRefs.current}
-                currentAccordion={currentAccordion}
-                setCurrentAccordion={setCurrentAccordion}
-                setBodyHeight={setBodyHeight}
-                bodyHeight={bodyHeight}
-            />
-        </FaqContainer>
+        <FaqContainerWrapper>
+            <FaqContainer id="FAQ">
+                <FaqHeading>
+                    <Badge>FAQ</Badge>
+                    <Text
+                        lineHeight={130}
+                        fontSize={isScreenSmall ? 28 : 56}
+                        align={isScreenSmall ? 'left' : 'center'}
+                        fontWeight="bold"
+                    >
+                        Frequently Asked <br /> Questions
+                    </Text>
+                </FaqHeading>
+                <AccordionItems
+                    accordionContent={faqs}
+                    refs={itemRefs.current}
+                    currentAccordion={currentAccordion}
+                    setCurrentAccordion={setCurrentAccordion}
+                    setBodyHeight={setBodyHeight}
+                    bodyHeight={bodyHeight}
+                />
+            </FaqContainer>
+        </FaqContainerWrapper>
     )
 }
 

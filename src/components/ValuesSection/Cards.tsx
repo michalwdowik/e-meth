@@ -18,9 +18,10 @@ const CardContainer = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 1220px;
+    max-width: 1216px;
     margin: 0 auto;
     gap: 32px;
+    border: 2px red solid;
 
     @media (max-width: 560px) {
         margin-top: -32px;

@@ -42,7 +42,7 @@ const Home = () => {
                 <FeaturesSection />
                 <ValuesSection />
                 <OurPartners /> */}
-                <ValuesSection />
+                {/* <ValuesSection /> */}
                 <OurPartners />
                 <Faq />
                 <NewsletterBanner />

@@ -15,7 +15,6 @@ const ValuesSectionStyled = styled.div`
     margin-left: -112px;
     width: calc(100% + 224px);
     padding: 0 112px;
-    margin-top: 64px;
     overflow-x: hidden;
     border: 2px green solid;
 
@@ -41,15 +40,10 @@ const ValuesSectionStyled = styled.div`
 const Heading = styled.div`
     text-align: start;
     color: #fff;
-    margin-bottom: 80px;
-    margin-left: 106px;
+    margin-bottom: 120px;
     display: flex;
     flex-direction: column;
     gap: 24px;
-
-    @media (max-width: 1445px) {
-        margin-left: 0;
-    }
 `
 
 const HeadingDescription = styled.div`
