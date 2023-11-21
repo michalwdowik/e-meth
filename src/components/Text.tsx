@@ -7,6 +7,7 @@ interface TextProps {
     align?: 'left' | 'center' | 'right'
     color?: 'white' | 'black' | 'grey'
     children: ReactNode
+    lineHeight?: number
 }
 
 const weight = {
@@ -22,6 +23,7 @@ const TextContainer = styled.div<TextProps>`
     color: ${(props) => props.color};
     text-align: ${(props) => props.align};
     z-index: 2;
+    line-height: ${(props) => props.lineHeight}%;
 `
 
 const Text = ({
@@ -29,6 +31,7 @@ const Text = ({
     fontWeight = 'normal',
     color = 'white',
     align = 'center',
+    lineHeight = 130,
     children,
 }: TextProps) => (
     <TextContainer
@@ -36,9 +39,11 @@ const Text = ({
         fontWeight={fontWeight}
         color={color}
         align={align}
+        lineHeight={lineHeight}
     >
         {children}
     </TextContainer>
 )
 
 export default Text
+// 160, 120, 130, 150,

@@ -89,6 +89,7 @@ const IntroSection = () => {
             <IntroSectionHeadingStyled>
                 <Badge>INTRODUCING EMETH</Badge>
                 <Text
+                    lineHeight={130}
                     fontSize={isScreenSmall ? 28 : 56}
                     fontWeight="bold"
                     align="left"

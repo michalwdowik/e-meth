@@ -48,11 +48,15 @@ const HeroContent = ({ isSmallScreen }: HeroContentProps) => {
     return (
         <HeroContentStyled>
             <HeroTextStyled>
-                <Text fontSize={isSmallScreen ? 40 : 64}>
+                <Text lineHeight={120} fontSize={isSmallScreen ? 40 : 64}>
                     Struggling with Volatile Crypto Markets?
                 </Text>
                 <HeroSubtitleStyled>
-                    <Text fontSize={isSmallScreen ? 14 : 16} fontWeight="light">
+                    <Text
+                        lineHeight={160}
+                        fontSize={isSmallScreen ? 14 : 16}
+                        fontWeight="light"
+                    >
                         The crypto market’s inherent volatility can turn
                         strategic dreams into sleepless nights.
                     </Text>

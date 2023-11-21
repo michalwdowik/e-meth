@@ -50,8 +50,10 @@ const OurPartners = () => {
     const { isScreenSmall } = useScreenSize()
 
     return (
-        <OurPartnersSection>
-            <Text fontSize={isScreenSmall ? 28 : 56}>Our Partners</Text>
+        <OurPartnersSection id="Partners">
+            <Text lineHeight={130} fontSize={isScreenSmall ? 28 : 56}>
+                Our Partners
+            </Text>
             <Divider />
             <OurPartnersDiv>
                 <AxelarLogo />

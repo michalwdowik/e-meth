@@ -41,10 +41,11 @@ const Faq = () => {
     const { isScreenSmall } = useScreenSize()
 
     return (
-        <FaqContainer>
+        <FaqContainer id="FAQ">
             <FaqHeading>
                 <Badge>FAQ</Badge>
                 <Text
+                    lineHeight={130}
                     fontSize={isScreenSmall ? 28 : 56}
                     align={isScreenSmall ? 'left' : 'center'}
                     fontWeight="bold"

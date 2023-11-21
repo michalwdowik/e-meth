@@ -16,7 +16,7 @@ const StyledHero = styled.div<StyledHeroProps>`
     margin-top: ${(props) => (props.video ? '20px' : '64px')};
     margin-left: -112px;
     width: calc(100% + 224px);
-
+    position: relative;
     @media (max-width: 1024px) {
         margin-left: -64px;
         width: calc(100% + 128px);
@@ -32,13 +32,17 @@ const StyledHero = styled.div<StyledHeroProps>`
 const GradientBackgroundContainer = styled.div`
     position: absolute;
     background-color: black;
-    top: 0;
+    top: -200px;
     width: 100%;
     height: auto;
     z-index: 1;
 
+    @media (max-width: 991px) {
+        top: -120px;
+    }
+
     @media (max-width: 766px) {
-        top: 200px;
+        top: 65px;
     }
 `
 

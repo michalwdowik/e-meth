@@ -6,6 +6,7 @@ import Button from '../Button'
 import Logo from '../Logo'
 import useBodyOverflow from '../../hooks/useBodyOverflow'
 import hoverStyles from '../../utils/hoverStyles'
+import scrollToSection from '../../utils/scrollToSection'
 
 const sections = ['DCA', 'About', 'Features', 'Partners', 'FAQ']
 
@@ -91,8 +92,16 @@ interface NavbarProps {
 const Navbar = ({ type }: NavbarProps) => {
     const [isOpen, setIsOpen] = useState(false)
     const { isScreenSmall } = useScreenSize()
+
+    const handleNavItemClick = (sectionId: string) => {
+        scrollToSection(sectionId)
+        hideDrawer()
+    }
+
     const navItems = sections.map((section) => (
-        <NavItem key={section}>{section}</NavItem>
+        <NavItem key={section} onClick={() => handleNavItemClick(section)}>
+            {section}
+        </NavItem>
     ))
 
     useBodyOverflow(isOpen)

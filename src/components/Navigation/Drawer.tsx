@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Button from '../Button'
 import SocialMedia from '../SocialMediaButtons'
 import hoverStyles from '../../utils/hoverStyles'
+import scrollToSection from '../../utils/scrollToSection'
 
 interface DrawerProps {
     sections: string[]
@@ -11,8 +12,16 @@ interface DrawerProps {
 }
 
 const Drawer: React.FC<DrawerProps> = ({ sections, isOpen, hideDrawer }) => {
+    const handleDrawerItemClick = (sectionId: string) => {
+        scrollToSection(sectionId)
+        hideDrawer()
+    }
+
     const drawerItems = sections.map((section) => (
-        <DrawerItem key={section} onClick={hideDrawer}>
+        <DrawerItem
+            key={section}
+            onClick={() => handleDrawerItemClick(section)}
+        >
             {section}
         </DrawerItem>
     ))

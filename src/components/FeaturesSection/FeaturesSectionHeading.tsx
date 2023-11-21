@@ -85,6 +85,7 @@ const FeaturesSectionHeading = () => {
                 <FeaturesSectionHeroTitle>
                     <Badge>Features</Badge>
                     <Text
+                        lineHeight={130}
                         fontSize={heroTitleFontSize}
                         fontWeight="bold"
                         align="left"
@@ -95,6 +96,7 @@ const FeaturesSectionHeading = () => {
                 </FeaturesSectionHeroTitle>
                 <FeaturesSectionHeroDescription>
                     <Text
+                        lineHeight={160}
                         fontSize={heroDescriptionFontSize}
                         fontWeight="light"
                         align="left"

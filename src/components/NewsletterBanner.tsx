@@ -92,7 +92,7 @@ const NewsletterBanner = () => {
     return (
         <NewsletterSectionStyled>
             <NewsletterGlassyBanner>
-                <Text fontSize={isScreenExtraSmall ? 24 : 40}>
+                <Text lineHeight={130} fontSize={isScreenExtraSmall ? 24 : 40}>
                     Join us on a journey to redefine what&apos;s <br /> possible
                     in the DeFi space.
                 </Text>
