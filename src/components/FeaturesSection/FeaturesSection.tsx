@@ -52,22 +52,24 @@ const ImageGradient = styled.img`
     width: 60%;
     z-index: 0;
     margin-top: 90px;
-    margin-left: -160px;
+    margin-left: -180px;
     animation: ${floatAnimation} 7s ease-in-out infinite;
 
     @media (max-width: 1100px) {
         top: 159px;
         margin-top: 70px;
         width: 50%;
-        margin-left: -140px;
+        margin-left: -170px;
     }
 
     @media (max-width: 980px) {
         top: 120px;
+        margin-left: -150px;
     }
 
     @media (max-width: 860px) {
         top: 110px;
+        margin-left: -140px;
     }
 `
 
@@ -77,7 +79,7 @@ const GradientOverlay = styled.img`
     left: 0;
     z-index: 0;
     width: 50%;
-    max-width: 550px;
+    /* max-width: 550px; */
 
     @media (max-width: 767px) {
         width: 100%;
