@@ -13,6 +13,7 @@ const FeaturesSectionContent = styled.div`
     max-width: 1216px;
     margin: 0 auto;
     padding-bottom: 40px;
+
     /* border: 2px red solid; */
 `
 
@@ -56,11 +57,14 @@ const ImageGradient = styled.img`
     animation: ${floatAnimation} 7s ease-in-out infinite;
 `
 
+// dorob small
 const GradientOverlay = styled.img`
     position: absolute;
-    top: 180px;
+    top: 70px;
     left: 0;
+    z-index: 0;
     width: 50%;
+    max-width: 800px;
 
     @media (max-width: 767px) {
         width: 100%;
@@ -149,7 +153,7 @@ export default FeaturesSection
 
 const FeaturesWrapper = styled.div`
     position: relative;
-    /* border: 2px green solid; */
+    overflow: hidden;
     padding: 0 112px;
     margin-left: -112px;
     width: calc(100% + 224px);

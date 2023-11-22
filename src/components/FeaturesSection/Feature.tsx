@@ -56,6 +56,7 @@ export default Feature
 
 const FeatureDescription = styled.div`
     width: 100%;
+    z-index: 6;
 `
 
 const TextSection = styled.div`
