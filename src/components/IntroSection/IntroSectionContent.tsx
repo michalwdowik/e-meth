@@ -13,14 +13,7 @@ const IntroSectionContent = () => {
                     src="IntroducingEmethPicture.png"
                     alt="Emeth"
                 />
-            ) : (
-                <IntroSectionImgSmallWrapper>
-                    <IntroSectionImgSmall
-                        src="IntroducingEmethPictureMobile.png"
-                        alt="Emeth"
-                    />
-                </IntroSectionImgSmallWrapper>
-            )}
+            ) : null}
             <IntroSectionContentWrapper>
                 <IntroSectionDescriptionStyled>
                     <Text
@@ -60,17 +53,19 @@ const IntroSectionDescriptionStyled = styled.div`
 
     @media (max-width: 991px) {
         width: 100%;
+        margin-top: 0;
+        gap: 32px;
     }
 `
 
 const IntroSectionImg = styled.img`
     flex: 0;
     flex-shrink: 0;
-    left: -0px;
+    left: -20px;
     /* margin-left: -90px; */
-    z-index: 3;
+    z-index: 6;
     /* border: 2px green solid; */
-    top: 180px;
+    top: 212px;
     width: 75%;
     max-width: 1200px;
     position: absolute;
@@ -103,32 +98,11 @@ const IntroSectionContentWrapper = styled.div`
     }
 
     @media (max-width: 767px) {
-        padding: 0 24px;
+        /* padding: 0 24px; */
         padding-bottom: 48px;
     }
 `
 
 const C = styled.div`
     width: 100%;
-`
-
-const IntroSectionImgSmall = styled.img`
-    width: 100%;
-    /* position: absolute; */
-    /* top: 0; */
-    /* right: -100px; */
-    margin-left: 50px;
-`
-
-const IntroSectionImgSmallWrapper = styled.div`
-    width: 100%;
-    /* border: 2px red solid; */
-    width: calc(100% + 224px);
-    margin-left: -112px;
-    position: relative;
-
-    @media (max-width: 767px) {
-        width: calc(100% + 128px);
-        margin-left: -64px;
-    }
 `

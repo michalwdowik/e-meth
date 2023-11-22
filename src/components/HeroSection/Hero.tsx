@@ -74,14 +74,17 @@ const GradientBackground = styled.img<GradientBackgroundProps>`
     /* width: 108%; */
     height: auto;
     z-index: 1;
-    max-width: 1300px;
+    max-width: 1250px;
     margin: 0 auto;
     display: flex;
     width: 100%;
     /* border: 2px red solid; */
     position: absolute;
-    top: ${({ video }) => (video ? '-80px' : '-150px')};
+    margin: 0 auto;
     left: 0;
+    right: 0;
+    top: ${({ video }) => (video ? '-20px' : '-100px')};
+    /* left: 0; */
     /* max-width: ${({ video }) => (video ? '1350px' : '1300px')}; */
     /* left: ${({ video }) => (video ? '0' : '-20px')}; */
 
@@ -100,14 +103,17 @@ const GradientBackground = styled.img<GradientBackgroundProps>`
 
     @media (max-width: 767px) {
         top: -40px;
+        left: ${({ video }) => (video ? '0' : '-70px')};
     }
 
     @media (max-width: 560px) {
         top: 50px;
+        left: ${({ video }) => (video ? '0' : '-40px')};
     }
 
     @media (max-width: 450px) {
         top: 150px;
+        left: ${({ video }) => (video ? '0' : '-20px')};
     }
 `
 
@@ -115,6 +121,8 @@ const Wrapper = styled.div`
     width: 100%;
     /* border: 2px yellow solid; */
     padding: 0 208px;
+    width: 100%;
+    /* width: calc(100 + 218px); */
     position: relative;
 
     @media (max-width: 1200px) {

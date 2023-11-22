@@ -37,7 +37,9 @@ const Home = () => {
             <Navbar type="upper" />
             <HomeStyled>
                 <Hero video />
-                <IntroSection />
+                <IntroSection video />
+                {/* <Hero video={false} />
+                <IntroSection video={false} /> */}
                 <OurMissionBanner />
                 <FeaturesSection />
                 <ValuesSection />

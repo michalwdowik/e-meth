@@ -4,7 +4,11 @@ import Text from '../Text'
 import useScreenSize from '../../hooks/useScreenSize'
 import IntroSectionContent from './IntroSectionContent'
 
-const IntroSectionStyled = styled.div`
+interface IntroSectionStyledProps {
+    video: boolean
+}
+
+const IntroSectionStyled = styled.div<IntroSectionStyledProps>`
     margin-top: 256px;
     display: flex;
     flex-direction: column;
@@ -18,11 +22,12 @@ const IntroSectionStyled = styled.div`
     /* height: 1000px; */
     height: 1000px;
     margin-bottom: -120px;
-
+    /* border: 2px d solid; */
+    margin-top: ${(props) => (props.video ? '250px' : '100px')};
     @media (max-width: 991px) {
         height: auto;
         margin-bottom: 64px;
-        overflow: hidden;
+        /* overflow: hidden; */
     }
 
     @media (max-width: 830px) {
@@ -30,9 +35,10 @@ const IntroSectionStyled = styled.div`
     }
 
     @media (max-width: 767px) {
-        padding: 80px 24px;
-        width: calc(100% + 48px);
-        margin-left: -24px;
+        padding: 80px 16px;
+        width: calc(100% + 32px);
+        margin-left: -16px;
+        margin-top: 50px;
     }
 `
 
@@ -46,6 +52,7 @@ const IntroSectionHeadingStyled = styled.div`
     /* border: 2px green solid; */
     max-width: 1216px;
     width: 100%;
+    padding-bottom: 32px;
     padding-left: ${(props) => props.theme.margins.medium};
 
     @media (max-width: 991px) {
@@ -62,23 +69,38 @@ const IntroSectionHeadingStyled = styled.div`
 const GradientOverlay = styled.img`
     position: absolute;
     top: 0px;
-    left: 0;
-    z-index: 0;
+    /* left: 0; */
+    z-index: -1;
     width: 100%;
     height: auto;
+    /* width: calc(100% + 112px); */
+    margin-left: -112px;
+
+    @media (max-width: 830px) {
+        margin-left: -64px;
+    }
+
     @media (max-width: 767px) {
-        top: 40px;
+        top: 80px;
+        /* border: 2px red solid;
+        width: calc(100% + 32px);
+        margin-left: -16px; */
+        margin-left: -16px;
     }
 `
+interface IntroSectionProps {
+    video: boolean
+}
 
-const IntroSection = () => {
+const IntroSection = ({ video }: IntroSectionProps) => {
     const { isScreenSmall, isScreenMedium } = useScreenSize()
 
     return (
-        <IntroSectionStyled>
+        <IntroSectionStyled video={video}>
             {isScreenMedium && (
                 <GradientOverlay src="IntroducingEmethGradientMobile.png" />
             )}
+
             <IntroSectionHeadingStyled>
                 <Badge>INTRODUCING EMETH</Badge>
                 <Text
@@ -90,9 +112,36 @@ const IntroSection = () => {
                     Next-Gen DeFi <br /> Portfolio Management
                 </Text>
             </IntroSectionHeadingStyled>
+            <IntroSectionImgSmall
+                src="IntroducingEmethPictureMobile.png"
+                alt="Emeth"
+            />
             <IntroSectionContent />
         </IntroSectionStyled>
     )
 }
 
 export default IntroSection
+
+const IntroSectionImgSmall = styled.img`
+    overflow: hidden;
+    width: calc(100% + 112px);
+    display: none;
+    /* margin-left: 112px; */
+    /* width: 100%; */
+    /* border: 2px red solid; */
+
+    @media (max-width: 991px) {
+        display: flex;
+        /* margin-left: 112px; */
+    }
+
+    @media (max-width: 830px) {
+        width: calc(100% + 64px);
+    }
+
+    @media (max-width: 767px) {
+        width: calc(100% + 16px);
+        /* margin-left: 16px; */
+    }
+`
