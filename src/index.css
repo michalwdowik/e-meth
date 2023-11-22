@@ -85,3 +85,26 @@ li {
         /* margin-left: 45%; */
     }
 }
+
+.parallax-tablet-small {
+    overflow: hidden;
+    width: calc(100% + 112px);
+    display: none;
+    /* margin-left: 112px; */
+    /* width: 100%; */
+    /* border: 2px red solid; */
+
+    @media (max-width: 991px) {
+        display: flex;
+        /* margin-left: 112px; */
+    }
+
+    @media (max-width: 830px) {
+        width: calc(100% + 64px);
+    }
+
+    @media (max-width: 767px) {
+        width: calc(100% + 16px);
+        /* margin-left: 16px; */
+    }
+}

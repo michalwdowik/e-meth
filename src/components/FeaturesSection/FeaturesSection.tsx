@@ -79,11 +79,12 @@ const GradientOverlay = styled.img`
     left: 0;
     z-index: 0;
     width: 50%;
-    /* max-width: 550px; */
+    max-width: 550px;
 
     @media (max-width: 767px) {
         width: 100%;
         top: 0px;
+        max-width: 100%;
     }
 `
 

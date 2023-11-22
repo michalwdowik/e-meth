@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Parallax } from 'react-scroll-parallax'
 import Badge from '../Badge'
 import Text from '../Text'
 import useScreenSize from '../../hooks/useScreenSize'
@@ -117,10 +118,16 @@ const IntroSection = ({ video }: IntroSectionProps) => {
                     Next-Gen DeFi <br /> Portfolio Management
                 </Text>
             </IntroSectionHeadingStyled>
-            <IntroSectionImgSmall
-                src="IntroducingEmethPictureMobile.png"
-                alt="Emeth"
-            />
+            <Parallax
+                className="parallax-tablet-small"
+                speed={5}
+                translateX={['150px', '0px']}
+            >
+                <IntroSectionImgSmall
+                    src="IntroducingEmethPictureMobile.png"
+                    alt="Emeth"
+                />
+            </Parallax>
             <IntroSectionContent />
         </IntroSectionStyled>
     )
