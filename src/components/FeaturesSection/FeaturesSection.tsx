@@ -40,7 +40,7 @@ const ImageWrapper = styled.div`
 
 const Image = styled.img`
     position: sticky;
-    top: 90px;
+    top: 20%;
     width: 100%;
     z-index: 1;
 `
@@ -92,35 +92,27 @@ const FeaturesSection = () => {
     const { isScreenSmall } = useScreenSize()
     const imageRef = useRef(null)
 
-    const containers = [
-        useInView({ threshold: 0 }),
-        useInView({ threshold: 0 }),
-        useInView({ threshold: 0 }),
+    // Use useInView for the image containers
+    const imageContainers = [
+        useInView({ threshold: 0.5 }),
+        useInView({ threshold: 0.5 }),
+        useInView({ threshold: 0.1 }),
     ]
 
-    const getImage = () => {
-        for (let i = 0; i < containers.length; i++) {
-            if (containers[i].inView) {
-                return `Feature${i + 1}.png`
+    // Function to get the index of the currently in-view image container
+    const getInViewImageIndex = () => {
+        for (let i = 0; i < imageContainers.length; i++) {
+            if (imageContainers[i].inView) {
+                return i
             }
         }
-        return 'Feature1.png'
+        return 0 // Default to the first image if none are in view
     }
-
-    const getGradient = () => {
-        for (let i = 0; i < containers.length; i++) {
-            if (containers[i].inView) {
-                return `Feature${i + 1}Gradient.png`
-            }
-        }
-        return 'Feature1Gradient.png'
-    }
-
-    const getContainer = (id: number) => containers[id - 1].ref
 
     const gradientOverlaySrc = isScreenSmall
         ? 'FeaturesGradientMobile.png'
         : 'FeaturesSectionGradient.png'
+
     return (
         <FeaturesWrapper id="Features">
             <GradientOverlay src={gradientOverlaySrc} />
@@ -128,37 +120,52 @@ const FeaturesSection = () => {
             <FeaturesSectionHeading />
             <FeaturesSectionContent>
                 {!isScreenSmall && (
-                    <ImageWrapper>
-                        <Image
-                            src={getImage()}
-                            alt="change it"
-                            ref={imageRef}
-                        />
-                        <ImageGradient src={getGradient()} alt="gradient" />
-                    </ImageWrapper>
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{
+                            duration: 0.3,
+                            ease: 'easeOut',
+                        }}
+                    >
+                        <ImageWrapper>
+                            <Image
+                                src={`Feature${getInViewImageIndex() + 1}.png`}
+                                alt="change it"
+                                ref={imageRef}
+                            />
+                            <ImageGradient
+                                src={`Feature${
+                                    getInViewImageIndex() + 1
+                                }Gradient.png`}
+                                alt="gradient"
+                            />
+                        </ImageWrapper>
+                    </motion.div>
                 )}
                 <FeaturesStyled>
-                    {features.map((feature) => (
+                    {features.map((feature, index) => (
                         <motion.div
                             key={feature.id}
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={
-                                containers[feature.id - 1].inView
+                                index === getInViewImageIndex()
                                     ? { opacity: 1, scale: 1 }
                                     : { opacity: 0 }
                             }
                             transition={{
-                                duration: 0.4,
+                                duration: 0.3,
                                 ease: 'easeOut',
-                                delay: 0.2,
+                                // delay: 0.2,
                             }}
+                            ref={imageContainers[index].ref}
                         >
                             <Feature
                                 key={feature.id}
                                 title={feature.title}
                                 description={feature.description}
                                 icon={feature.icon}
-                                refValue={getContainer(feature.id)}
+                                refValue={imageContainers[index].ref} // Use the corresponding image container ref
                                 imageUrl={feature.imageUrl}
                             />
                         </motion.div>
