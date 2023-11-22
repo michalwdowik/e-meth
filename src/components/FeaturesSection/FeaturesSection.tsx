@@ -6,7 +6,6 @@ import features from '../../utils/features'
 import Feature from './Feature'
 import useScreenSize from '../../hooks/useScreenSize'
 import FeaturesSectionHeading from './FeaturesSectionHeading'
-import { floatAnimation } from '../../utils/animations'
 
 const FeaturesSectionContent = styled.div`
     position: relative;
@@ -31,6 +30,7 @@ const ImageWrapper = styled.div`
     justify-content: flex-start;
     align-items: flex-start;
 
+    border: 2px yellow solid;
     @media (max-width: 766px) {
         position: static;
         width: 100%;
@@ -41,35 +41,11 @@ const ImageWrapper = styled.div`
 const Image = styled.img`
     position: sticky;
     top: 20%;
-    width: 100%;
+    width: 110%;
     z-index: 1;
-`
 
-const ImageGradient = styled.img`
-    position: sticky;
-    top: 200px;
-    max-width: 250px;
-    width: 60%;
-    z-index: 0;
-    margin-top: 90px;
-    margin-left: -180px;
-    animation: ${floatAnimation} 7s ease-in-out infinite;
-
-    @media (max-width: 1100px) {
-        top: 159px;
-        margin-top: 70px;
-        width: 50%;
-        margin-left: -170px;
-    }
-
-    @media (max-width: 980px) {
-        top: 120px;
-        margin-left: -170px;
-    }
-
-    @media (max-width: 860px) {
-        top: 110px;
-        margin-left: -140px;
+    @media (min-width: 1500px) {
+        margin-left: 30px;
     }
 `
 
@@ -131,14 +107,8 @@ const FeaturesSection = () => {
                         <ImageWrapper>
                             <Image
                                 src={`Feature${getInViewImageIndex() + 1}.png`}
-                                alt="change it"
+                                alt="feature"
                                 ref={imageRef}
-                            />
-                            <ImageGradient
-                                src={`Feature${
-                                    getInViewImageIndex() + 1
-                                }Gradient.png`}
-                                alt="gradient"
                             />
                         </ImageWrapper>
                     </motion.div>
@@ -166,7 +136,7 @@ const FeaturesSection = () => {
                                 description={feature.description}
                                 icon={feature.icon}
                                 refValue={imageContainers[index].ref} // Use the corresponding image container ref
-                                imageUrl={feature.imageUrl}
+                                imageUrlMobile={feature.imageUrlMobile}
                             />
                         </motion.div>
                     ))}

@@ -9,7 +9,7 @@ interface FeatureProps {
     icon: () => JSX.Element
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     refValue: any
-    imageUrl: string
+    imageUrlMobile: string
 }
 
 const Feature = ({
@@ -17,13 +17,13 @@ const Feature = ({
     description,
     icon,
     refValue,
-    imageUrl,
+    imageUrlMobile,
 }: FeatureProps) => {
     const { isScreenSmall } = useScreenSize()
 
     return (
         <>
-            {isScreenSmall && <FeatureImage src={imageUrl} alt={title} />}
+            {isScreenSmall && <FeatureImage src={imageUrlMobile} alt={title} />}
             <TextSection ref={refValue}>
                 {icon()}
                 <FeatureTitle>
