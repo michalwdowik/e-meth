@@ -30,7 +30,7 @@ const ImageWrapper = styled.div`
     justify-content: flex-start;
     align-items: flex-start;
 
-    border: 2px yellow solid;
+    /* border: 2px yellow solid; */
     @media (max-width: 766px) {
         position: static;
         width: 100%;
