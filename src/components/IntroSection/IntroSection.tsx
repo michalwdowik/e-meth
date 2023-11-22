@@ -122,7 +122,7 @@ const IntroSection = ({ video }: IntroSectionProps) => {
             <Parallax
                 className="parallax-tablet-small"
                 speed={5}
-                translateX={['350px', '0px']}
+                translateX={['65px', '0px']}
             >
                 <IntroSectionImgSmall
                     src="IntroducingEmethPictureMobile.png"
