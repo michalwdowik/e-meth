@@ -32,9 +32,9 @@ const ValuesSectionStyled = styled.div`
     @media (max-width: 767px) {
         background: none;
         margin-left: 0;
-        width: calc(100% + 48px);
-        margin-left: -24px;
-        padding: 0 24px;
+        width: calc(100% + 32px);
+        margin-left: -16px;
+        padding: 0 16px;
         margin-top: 129px;
     }
 `

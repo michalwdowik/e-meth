@@ -40,7 +40,7 @@ const Home = () => {
                 <IntroSection />
                 <OurMissionBanner />
                 <FeaturesSection />
-                {/* <ValuesSection /> */}
+                <ValuesSection />
                 <OurPartners />
                 <Faq />
                 <NewsletterBanner />
