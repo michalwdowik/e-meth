@@ -10,7 +10,7 @@ import TubblyLogo from './Icons/TubblyLogo'
 
 const OurPartnersSection = styled.div`
     display: flex;
-    border: 2px red solid;
+    /* border: 2px red solid; */
     flex-direction: column;
     justify-content: center;
     align-items: center;

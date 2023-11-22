@@ -17,7 +17,7 @@ const ValuesSectionStyled = styled.div`
     width: calc(100% + 224px);
     padding: 0 112px;
     /* overflow-x: hidden; */
-    border: 2px green solid;
+    /* border: 2px green solid; */
 
     @media (max-width: 1027px) {
         /* margin-left: -64px;
@@ -41,7 +41,7 @@ const ValuesSectionStyled = styled.div`
 
 const Heading = styled.div`
     text-align: start;
-    border: 2px red solid;
+    /* border: 2px red solid; */
     max-width: 1216px;
     width: 100%;
     /* width: max-content; */

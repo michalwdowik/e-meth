@@ -14,7 +14,7 @@ const StyledSignUpButton = styled.button`
 
     &::before {
         border-radius: 40px;
-        border: 2px solid transparent;
+        /* border: 2px solid transparent; */
         ${BeforePseudoElement}
     }
 

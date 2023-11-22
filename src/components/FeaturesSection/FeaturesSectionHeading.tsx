@@ -8,7 +8,7 @@ const FeaturesSectionStyled = styled.div`
     /* margin-left: -112px; */
     /* width: calc(100% + 224px); */
     /* position: relative; */
-    border: 2px white solid;
+    /* border: 2px white solid; */
     max-width: 1216px;
     margin: 0 auto;
     margin-bottom: 160px;

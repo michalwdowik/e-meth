@@ -13,7 +13,7 @@ const FeaturesSectionContent = styled.div`
     max-width: 1216px;
     margin: 0 auto;
     padding-bottom: 40px;
-    border: 2px red solid;
+    /* border: 2px red solid; */
 `
 
 const FeaturesStyled = styled.div`
@@ -149,7 +149,7 @@ export default FeaturesSection
 
 const FeaturesWrapper = styled.div`
     position: relative;
-    border: 2px green solid;
+    /* border: 2px green solid; */
     padding: 0 112px;
     margin-left: -112px;
     width: calc(100% + 224px);

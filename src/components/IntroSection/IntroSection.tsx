@@ -5,51 +5,35 @@ import useScreenSize from '../../hooks/useScreenSize'
 import IntroSectionContent from './IntroSectionContent'
 
 const IntroSectionStyled = styled.div`
+    margin-top: 256px;
     display: flex;
     flex-direction: column;
     gap: 64px;
-    position: relative;
-    overflow-x: hidden;
-    height: max-content;
+    /* border: 2px blue solid; */
     z-index: 3;
-    border: 2px blue solid;
     margin-left: -112px;
     width: calc(100% + 224px);
     padding: 0 112px;
-    /* @media (max-width: 991px) {
-        margin-top: 100px;
-        margin-left: -64px;
-        width: calc(100% + 128px);
-        padding: 80px 64px;
+    overflow: hidden;
+    position: relative;
+    /* height: 1000px; */
+    height: 1000px;
+    margin-bottom: -120px;
+
+    @media (max-width: 991px) {
+        height: auto;
+        margin-bottom: 64px;
     }
 
     @media (max-width: 830px) {
-        margin-top: -10px;
         padding: 80px 64px;
     }
 
     @media (max-width: 767px) {
-        margin-top: 350px;
         padding: 80px 24px;
         width: calc(100% + 48px);
         margin-left: -24px;
     }
-
-    @media (max-width: 700px) {
-        margin-top: 350px;
-    }
-
-    @media (max-width: 600px) {
-        margin-top: 250px;
-    }
-
-    @media (max-width: 500px) {
-        margin-top: 120px;
-    }
-
-    @media (max-width: 400px) {
-        margin-top: 60px;
-    } */
 `
 
 const IntroSectionHeadingStyled = styled.div`
@@ -59,7 +43,7 @@ const IntroSectionHeadingStyled = styled.div`
     overflow: hidden;
     margin: 0 auto;
     width: 100%;
-    border: 2px green solid;
+    /* border: 2px green solid; */
     max-width: 1216px;
     width: 100%;
     padding-left: ${(props) => props.theme.margins.medium};
@@ -71,6 +55,7 @@ const IntroSectionHeadingStyled = styled.div`
     @media (max-width: 767px) {
         margin-top: -50px;
         margin-bottom: -50px;
+        padding-left: 0;
     }
 `
 

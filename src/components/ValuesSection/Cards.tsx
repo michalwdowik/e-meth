@@ -21,7 +21,7 @@ const CardContainer = styled.div`
     max-width: 1216px;
     margin: 0 auto;
     gap: 32px;
-    border: 2px red solid;
+    /* border: 2px red solid; */
 
     @media (max-width: 560px) {
         margin-top: -32px;

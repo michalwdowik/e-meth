@@ -10,7 +10,7 @@ const FaqContainerWrapper = styled.div`
     max-width: 1216px;
     margin: 0 auto;
     margin-top: 79px;
-    border: 2px red solid;
+    /* border: 2px red solid; */
     width: 100%;
     padding-left: ${(props) => props.theme.margins.medium};
     padding-right: ${(props) => props.theme.margins.medium};
@@ -21,7 +21,7 @@ const FaqContainerWrapper = styled.div`
 const FaqContainer = styled.div`
     display: flex;
     flex-direction: column;
-    border: 2px green solid;
+    /* border: 2px green solid; */
     /* max-width: 1008px; */
 
     @media (max-width: 767px) {

@@ -9,7 +9,7 @@ interface OurMissionStyledProps {
 }
 
 const OurMissionStyled = styled.div<OurMissionStyledProps>`
-    border: 2px red solid;
+    /* border: 2px red solid; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -26,7 +26,7 @@ const OurMissionStyled = styled.div<OurMissionStyledProps>`
     /* margin-top: -260px; */
     margin-bottom: 80px;
     overflow-x: hidden;
-    height: 559px;
+    /* height: 559px; */
 
     /* @media (max-width: 1230px) {
         margin-top: -160px;

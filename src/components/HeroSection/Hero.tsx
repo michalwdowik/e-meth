@@ -18,6 +18,9 @@ const StyledHero = styled.div<StyledHeroProps>`
     margin-left: -112px;
     width: calc(100% + 224px);
     position: relative;
+    max-width: 1008px;
+    margin: 0 auto;
+    border: 2px red solid;
 
     @media (max-width: 1024px) {
         margin-left: -64px;
