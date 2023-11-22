@@ -149,18 +149,22 @@ const Hero = ({ video }: HeroProps) => {
 
     return (
         <Wrapper>
-            <Parallax className="parallax-hero" speed={-10}>
-                <GradientBackground
-                    video={video}
-                    src={
-                        video
-                            ? isScreenSmall
-                                ? 'MobileHeroGradient.png'
-                                : 'HeroGradient.png'
-                            : 'HeroGradient-NoVideo.png'
-                    }
-                />
-            </Parallax>
+            {/* <Parallax
+                className="parallax-hero"
+                speed={-10}
+                translateY={['-400px', '0px']}
+            > */}
+            <GradientBackground
+                video={video}
+                src={
+                    video
+                        ? isScreenSmall
+                            ? 'MobileHeroGradient.png'
+                            : 'HeroGradient.png'
+                        : 'HeroGradient-NoVideo.png'
+                }
+            />
+            {/* </Parallax> */}
             <StyledHero video={video}>
                 <HeroContent video={video} isSmallScreen={isScreenSmall} />
             </StyledHero>

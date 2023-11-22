@@ -52,7 +52,7 @@ li {
     }
 
     @media (max-width: 767px) {
-        top: -40px;
+        top: -100px;
     }
 
     @media (max-width: 560px) {

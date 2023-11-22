@@ -40,7 +40,7 @@ const IntroSectionStyled = styled.div<IntroSectionStyledProps>`
         padding: 80px 16px 0 16px;
         width: calc(100% + 32px);
         margin-left: -16px;
-        margin-top: 50px;
+        margin-top: 100px;
         margin-bottom: 50px;
     }
 
