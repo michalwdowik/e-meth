@@ -62,3 +62,26 @@ li {
         top: 150px;
     }
 }
+
+.parallax-tablet {
+    flex: 0;
+    flex-shrink: 0;
+    left: -20px;
+    /* margin-left: -90px; */
+    z-index: 6;
+    /* border: 2px green solid; */
+    top: 212px;
+    width: 75%;
+    max-width: 1200px;
+    position: absolute;
+
+    @media (max-width: 991px) {
+        position: static;
+        margin-left: -50px;
+        left: 0;
+
+        /* width: 170%; */
+        /* width: 150%; */
+        /* margin-left: 45%; */
+    }
+}

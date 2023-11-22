@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Parallax } from 'react-scroll-parallax'
 import Text from '../Text'
 import GradientText from '../GradientText'
 import useScreenSize from '../../hooks/useScreenSize'
@@ -9,10 +10,16 @@ const IntroSectionContent = () => {
     return (
         <C>
             {!isScreenMedium ? (
-                <IntroSectionImg
-                    src="IntroducingEmethPicture.png"
-                    alt="Emeth"
-                />
+                <Parallax
+                    className="parallax-tablet"
+                    speed={5}
+                    translateX={['-200px', '0px']}
+                >
+                    <IntroSectionImg
+                        src="IntroducingEmethPicture.png"
+                        alt="Emeth"
+                    />
+                </Parallax>
             ) : null}
             <IntroSectionContentWrapper>
                 <IntroSectionDescriptionStyled>
@@ -61,19 +68,19 @@ const IntroSectionDescriptionStyled = styled.div`
 const IntroSectionImg = styled.img`
     flex: 0;
     flex-shrink: 0;
-    left: -20px;
+    /* left: -20px; */
     /* margin-left: -90px; */
     z-index: 6;
     /* border: 2px green solid; */
-    top: 212px;
-    width: 75%;
+    /* top: 212px; */
+    /* width: 75%; */
     max-width: 1200px;
     position: absolute;
 
     @media (max-width: 991px) {
         position: static;
-        margin-left: -50px;
-        left: 0;
+        /* margin-left: -50px; */
+        /* left: 0; */
 
         /* width: 170%; */
         /* width: 150%; */
