@@ -57,7 +57,6 @@ const ImageGradient = styled.img`
     animation: ${floatAnimation} 7s ease-in-out infinite;
 `
 
-// dorob small
 const GradientOverlay = styled.img`
     position: absolute;
     top: 70px;
@@ -153,7 +152,7 @@ export default FeaturesSection
 
 const FeaturesWrapper = styled.div`
     position: relative;
-    overflow: hidden;
+    /* overflow: hidden; */
     padding: 0 112px;
     margin-left: -112px;
     width: calc(100% + 224px);

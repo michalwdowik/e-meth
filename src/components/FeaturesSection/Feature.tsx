@@ -60,7 +60,7 @@ const FeatureDescription = styled.div`
 `
 
 const TextSection = styled.div`
-    max-width: 35%;
+    max-width: 33%;
     display: flex;
     flex-direction: column;
     gap: 40px;
