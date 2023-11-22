@@ -38,14 +38,14 @@ const VideoPlayerContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 64px;
+    /* margin-top: 64px; */
     /* @media (max-width: 1024px) {
         width: calc(100% + 144px);
     } */
 
     @media (max-width: 767px) {
-        width: calc(100% + 48px);
-        margin-top: 0px;
+        /* width: calc(100% + 48px); */
+        /* margin-top: 0px; */
     }
 `
 

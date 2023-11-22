@@ -36,17 +36,11 @@ const Home = () => {
         <ThemeProvider theme={theme}>
             <Navbar type="upper" />
             <HomeStyled>
-                {/* <Hero video />
-                <IntroSection />
-                <OurMissionBanner />
-                <FeaturesSection />
-                <ValuesSection />
-                <OurPartners /> */}
                 <Hero video />
                 <IntroSection />
                 <OurMissionBanner />
                 <FeaturesSection />
-                <ValuesSection />
+                {/* <ValuesSection /> */}
                 <OurPartners />
                 <Faq />
                 <NewsletterBanner />
