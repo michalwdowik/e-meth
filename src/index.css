@@ -48,6 +48,7 @@ li {
     }
     @media (max-width: 991px) {
         top: 120px;
+        /* margin-bottom: 100px; */
     }
 
     @media (max-width: 767px) {
@@ -69,8 +70,7 @@ li {
     left: -20px;
     /* margin-left: -90px; */
     z-index: 6;
-    /* border: 2px green solid; */
-    top: 212px;
+    top: 230px;
     width: 75%;
     max-width: 1200px;
     position: absolute;

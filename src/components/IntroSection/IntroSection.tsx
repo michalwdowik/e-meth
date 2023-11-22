@@ -11,6 +11,7 @@ interface IntroSectionStyledProps {
 
 const IntroSectionStyled = styled.div<IntroSectionStyledProps>`
     margin-top: 256px;
+
     display: flex;
     flex-direction: column;
     gap: 64px;
@@ -28,7 +29,7 @@ const IntroSectionStyled = styled.div<IntroSectionStyledProps>`
     @media (max-width: 991px) {
         height: auto;
         margin-bottom: 150px;
-        /* overflow: hidden; */
+        overflow: hidden;
     }
 
     @media (max-width: 830px) {
@@ -121,7 +122,7 @@ const IntroSection = ({ video }: IntroSectionProps) => {
             <Parallax
                 className="parallax-tablet-small"
                 speed={5}
-                translateX={['150px', '0px']}
+                translateX={['350px', '0px']}
             >
                 <IntroSectionImgSmall
                     src="IntroducingEmethPictureMobile.png"
@@ -136,9 +137,10 @@ const IntroSection = ({ video }: IntroSectionProps) => {
 export default IntroSection
 
 const IntroSectionImgSmall = styled.img`
-    overflow: hidden;
+    /* overflow: hidden; */
     width: calc(100% + 112px);
     display: none;
+    overflow: hidden;
     /* margin-left: 112px; */
     /* width: 100%; */
     /* border: 2px red solid; */

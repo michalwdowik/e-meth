@@ -64,7 +64,7 @@ const ImageGradient = styled.img`
 
     @media (max-width: 980px) {
         top: 120px;
-        margin-left: -150px;
+        margin-left: -170px;
     }
 
     @media (max-width: 860px) {

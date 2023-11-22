@@ -23,7 +23,6 @@ const HomeStyled = styled.div`
     margin: 0 auto;
     background-color: black;
     /* border: 2px red solid; */
-
     @media (max-width: 767px) {
         padding: 0 16px 48px 16px;
     }

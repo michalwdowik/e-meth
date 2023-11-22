@@ -13,7 +13,7 @@ const IntroSectionContent = () => {
                 <Parallax
                     className="parallax-tablet"
                     speed={5}
-                    translateX={['-200px', '0px']}
+                    translateX={['-250px', '0px']}
                 >
                     <IntroSectionImg
                         src="IntroducingEmethPicture.png"
@@ -68,13 +68,14 @@ const IntroSectionDescriptionStyled = styled.div`
 const IntroSectionImg = styled.img`
     flex: 0;
     flex-shrink: 0;
-    /* left: -20px; */
+    /* left: -120px; */
     /* margin-left: -90px; */
     z-index: 6;
     /* border: 2px green solid; */
     /* top: 212px; */
     /* width: 75%; */
-    max-width: 1200px;
+    width: 100%;
+    /* max-width: 1200px; */
     position: absolute;
 
     @media (max-width: 991px) {
