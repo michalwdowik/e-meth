@@ -54,7 +54,7 @@ const IntroSectionDescriptionStyled = styled.div`
     display: flex;
     flex-direction: column;
     gap: 64px;
-    width: 35%;
+    width: 31%;
     margin-top: 30px;
     /* border: 2px blue solid; */
 

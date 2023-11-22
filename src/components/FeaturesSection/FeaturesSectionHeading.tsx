@@ -57,7 +57,7 @@ const FeaturesSectionHeroTitle = styled.div`
 
 const FeaturesSectionHeroDescription = styled.div`
     margin-top: 128px;
-    max-width: 35%;
+    max-width: 31%;
 
     @media (max-width: 920px) {
         max-width: 100%;
