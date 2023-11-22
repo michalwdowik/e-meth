@@ -27,3 +27,37 @@ ul,
 li {
     list-style: none;
 }
+
+.parallax-hero {
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 1;
+    max-width: 1350px;
+    margin: 0 auto;
+    display: flex;
+    /* border: 2px red solid; */
+    position: absolute;
+    /* max-width: ${({ video }) => (video ? '1350px' : '1300px')}; */
+    left: 0;
+    right: 0;
+
+    @media (max-width: 1200px) {
+        top: 50px;
+    }
+    @media (max-width: 991px) {
+        top: 120px;
+    }
+
+    @media (max-width: 767px) {
+        top: -40px;
+    }
+
+    @media (max-width: 560px) {
+        top: 50px;
+    }
+
+    @media (max-width: 450px) {
+        top: 150px;
+    }
+}

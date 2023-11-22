@@ -15,14 +15,14 @@ const NavbarContainer = styled.nav<{ type: 'upper' | 'lower' }>`
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    padding: ${({ type }) => (type === 'upper' ? '40px 80px' : '0')};
+    padding: ${({ type }) => (type === 'upper' ? '40px 112px' : '0')};
     color: #fff;
 
     @media (max-width: 768px) {
         padding: ${({ type }) => (type === 'upper' ? '40px 16px' : '0')};
     }
 
-    @media screen and (min-width: 768px) and (max-width: 991px) {
+    @media screen and (min-width: 768px) and (max-width: 1040px) {
         padding: ${({ type }) => (type === 'upper' ? '40px 20px' : '0')};
     }
 `
@@ -33,18 +33,24 @@ interface NavItemsProps {
 const NavItems = styled.ul<NavItemsProps>`
     display: flex;
     z-index: 2;
+    gap: 52px;
+
+    @media (max-width: 991px) {
+        gap: ${({ type }) => (type === 'upper' ? '32px' : '16px')};
+    }
 
     @media (max-width: 766px) {
         display: none;
     }
 
     li {
-        padding: 0 15px;
+        /* padding: 0 15px; */
         cursor: pointer;
         font-size: 14px;
 
         @media (max-width: 901px) {
-            padding: ${({ type }) => (type === 'upper' ? '0 15px' : '0 8px')};
+            /* padding: ${({ type }) =>
+                type === 'upper' ? '0 15px' : '0 8px'}; */
         }
     }
 `
@@ -71,10 +77,13 @@ interface ItemsWrapperProps {
 const ItemsWrapper = styled.div<ItemsWrapperProps>`
     display: flex;
     align-items: center;
-    gap: 32px;
+    gap: 56px;
 
+    @media (max-width: 991px) {
+        gap: 32px;
+    }
     @media (max-width: 901px) {
-        gap: ${({ type }) => (type === 'upper' ? '32px' : '0')};
+        gap: ${({ type }) => (type === 'upper' ? '32px' : '8px')};
     }
 `
 
@@ -134,7 +143,9 @@ const Navbar = ({ type }: NavbarProps) => {
         </Button>
     )
 
-    const mobileButtonElement = isScreenSmall && <Button>Try Now</Button>
+    const mobileButtonElement = isScreenSmall && (
+        <Button size="normal">Try Now</Button>
+    )
 
     return (
         <>
