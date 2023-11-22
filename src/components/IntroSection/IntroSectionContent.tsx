@@ -16,7 +16,7 @@ const IntroSectionContent = () => {
             ) : (
                 <IntroSectionImgSmallWrapper>
                     <IntroSectionImgSmall
-                        src="IntroducingEmethPicture.png"
+                        src="IntroducingEmethPictureMobile.png"
                         alt="Emeth"
                     />
                 </IntroSectionImgSmallWrapper>
@@ -66,17 +66,20 @@ const IntroSectionDescriptionStyled = styled.div`
 const IntroSectionImg = styled.img`
     flex: 0;
     flex-shrink: 0;
-    left: 0;
-    margin-left: -90px;
+    left: -0px;
+    /* margin-left: -90px; */
     z-index: 3;
     /* border: 2px green solid; */
-    width: 70%;
-    max-width: 900px;
+    top: 180px;
+    width: 75%;
+    max-width: 1200px;
     position: absolute;
 
     @media (max-width: 991px) {
         position: static;
         margin-left: -50px;
+        left: 0;
+
         /* width: 170%; */
         /* width: 150%; */
         /* margin-left: 45%; */
@@ -114,7 +117,7 @@ const IntroSectionImgSmall = styled.img`
     /* position: absolute; */
     /* top: 0; */
     /* right: -100px; */
-    margin-left: 100px;
+    margin-left: 50px;
 `
 
 const IntroSectionImgSmallWrapper = styled.div`

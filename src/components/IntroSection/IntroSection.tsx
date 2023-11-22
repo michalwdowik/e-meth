@@ -14,7 +14,6 @@ const IntroSectionStyled = styled.div`
     margin-left: -112px;
     width: calc(100% + 224px);
     padding: 0 112px;
-    overflow: hidden;
     position: relative;
     /* height: 1000px; */
     height: 1000px;
@@ -23,6 +22,7 @@ const IntroSectionStyled = styled.div`
     @media (max-width: 991px) {
         height: auto;
         margin-bottom: 64px;
+        overflow: hidden;
     }
 
     @media (max-width: 830px) {

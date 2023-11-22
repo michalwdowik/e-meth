@@ -22,6 +22,7 @@ const OurMissionStyled = styled.div<OurMissionStyledProps>`
     background-size: contain;
     padding: 80px 112px;
     margin-left: -112px;
+    margin-top: 130px;
     width: calc(100% + 224px);
     /* margin-top: -260px; */
     margin-bottom: 80px;
