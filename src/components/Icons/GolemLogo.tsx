@@ -1,6 +1,7 @@
 const GolemLogo = () => {
     return (
         <svg
+            style={{ marginTop: '10px' }}
             xmlns="http://www.w3.org/2000/svg"
             width="76"
             height="36"

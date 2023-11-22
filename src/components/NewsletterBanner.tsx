@@ -6,27 +6,42 @@ import { greyGradient } from '../utils/gradient'
 import webkitMask from '../utils/webkitMask'
 import BeforePseudoElement from '../utils/beforePseudoElement'
 
+const NewsletterSectionWrapper = styled.div`
+    max-width: 1216px;
+    margin: 0 auto;
+    /* border: 2px red solid; */
+    width: 100%;
+    padding-left: ${(props) => props.theme.margins.medium};
+    padding-right: ${(props) => props.theme.margins.medium};
+    @media (max-width: 767px) {
+        padding: 0;
+    }
+`
+
 const NewsletterSectionStyled = styled.div`
     background: url('NewsletterGradient.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    height: 900px;
+    height: 870px;
     display: flex;
     align-items: center;
+    /* border: 2px green solid; */
+    /* width: 1008px; */
+    margin: 0 auto;
 
     @media (max-width: 767px) {
         height: 600px;
     }
 
     @media (max-width: 576px) {
-        margin-left: -24px;
-        width: calc(100% + 48px);
         background: url('NewsletterGradientMobile.png');
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center right;
         height: 550px;
+        margin-left: -16px;
+        width: calc(100% + 32px);
     }
 `
 
@@ -50,7 +65,11 @@ const NewsletterGlassyBanner = styled.div`
     -webkit-backdrop-filter: blur(50px);
     background: rgba(255, 255, 255, 0.05);
     overflow: hidden;
+    width: 100%;
 
+    @media (max-width: 1224px) {
+        height: auto;
+    }
     &::before {
         border-radius: 32px;
         padding: 1px;
@@ -64,12 +83,12 @@ const NewsletterGlassyBanner = styled.div`
     }
 
     @media (max-width: 991px) {
-        padding: 132px 76px 48px 76px;
+        padding: 96px 76px 48px 76px;
     }
 
-    @media (max-width: 767px) {
-        padding: 108px 76px 48px 76px;
-        gap: 32px;
+    @media (max-width: 870px) {
+        padding-top: 40px;
+        padding-bottom: 40px;
     }
 
     @media (max-width: 767px) {
@@ -90,17 +109,25 @@ const NewsletterGlassyBanner = styled.div`
 const NewsletterBanner = () => {
     const { isScreenExtraSmall } = useScreenSize()
     return (
-        <NewsletterSectionStyled>
-            <NewsletterGlassyBanner>
-                <Text lineHeight={130} fontSize={isScreenExtraSmall ? 24 : 40}>
-                    Join us on a journey to redefine what&apos;s <br /> possible
-                    in the DeFi space.
-                </Text>
-                <Button size={isScreenExtraSmall ? 'normal' : 'big'}>
-                    Join Now!
-                </Button>
-            </NewsletterGlassyBanner>
-        </NewsletterSectionStyled>
+        <NewsletterSectionWrapper>
+            <NewsletterSectionStyled>
+                <NewsletterGlassyBanner>
+                    <Text
+                        lineHeight={130}
+                        fontSize={isScreenExtraSmall ? 24 : 40}
+                    >
+                        Join us on a journey to redefine what&apos;s <br />{' '}
+                        possible in the DeFi space.
+                    </Text>
+                    <Button
+                        fontSize={isScreenExtraSmall ? 14 : 18}
+                        size={isScreenExtraSmall ? 'normal' : 'big'}
+                    >
+                        Join Now!
+                    </Button>
+                </NewsletterGlassyBanner>
+            </NewsletterSectionStyled>
+        </NewsletterSectionWrapper>
     )
 }
 

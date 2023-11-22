@@ -10,9 +10,10 @@ import { floatAnimation } from '../../utils/animations'
 
 const FeaturesSectionContent = styled.div`
     position: relative;
-    max-width: 1100px;
+    max-width: 1216px;
     margin: 0 auto;
     padding-bottom: 40px;
+    /* border: 2px red solid; */
 `
 
 const FeaturesStyled = styled.div`
@@ -40,7 +41,7 @@ const ImageWrapper = styled.div`
 
 const Image = styled.img`
     position: sticky;
-    top: 80px;
+    top: 70px;
     width: 100%;
     z-index: 1;
 `
@@ -53,6 +54,18 @@ const ImageGradient = styled.img`
     margin-top: 50px;
     margin-left: -170px;
     animation: ${floatAnimation} 7s ease-in-out infinite;
+`
+
+const GradientOverlay = styled.img`
+    position: absolute;
+    top: 180px;
+    left: 0;
+    width: 50%;
+
+    @media (max-width: 767px) {
+        width: 100%;
+        top: 0px;
+    }
 `
 
 const FeaturesSection = () => {
@@ -85,8 +98,13 @@ const FeaturesSection = () => {
 
     const getContainer = (id: number) => containers[id - 1].ref
 
+    const gradientOverlaySrc = isScreenSmall
+        ? 'FeaturesGradientMobile.png'
+        : 'FeaturesSectionGradient.png'
     return (
-        <div id="Features">
+        <FeaturesWrapper id="Features">
+            <GradientOverlay src={gradientOverlaySrc} />
+
             <FeaturesSectionHeading />
             <FeaturesSectionContent>
                 {!isScreenSmall && (
@@ -123,8 +141,22 @@ const FeaturesSection = () => {
                     ))}
                 </FeaturesStyled>
             </FeaturesSectionContent>
-        </div>
+        </FeaturesWrapper>
     )
 }
 
 export default FeaturesSection
+
+const FeaturesWrapper = styled.div`
+    position: relative;
+    /* border: 2px green solid; */
+    padding: 0 112px;
+    margin-left: -112px;
+    width: calc(100% + 224px);
+
+    @media (max-width: 767px) {
+        margin-left: -16px;
+        width: calc(100% + 32px);
+        padding: 0 16px;
+    }
+`

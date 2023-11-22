@@ -10,12 +10,16 @@ import TubblyLogo from './Icons/TubblyLogo'
 
 const OurPartnersSection = styled.div`
     display: flex;
+    /* border: 2px red solid; */
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 40px;
     z-index: 1;
-    margin: 64px 0;
+    margin: 0 auto;
+    margin-top: 120px;
+    width: 100%;
+    max-width: 1216px;
 `
 
 const OurPartnersDiv = styled.div`
@@ -42,7 +46,6 @@ const OurPartnersDiv = styled.div`
 
 const Divider = styled.div`
     width: 100%;
-    margin: 32px 0;
     border: 1px rgba(255, 255, 255, 0.2) solid;
 `
 

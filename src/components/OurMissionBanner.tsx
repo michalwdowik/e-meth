@@ -9,6 +9,7 @@ interface OurMissionStyledProps {
 }
 
 const OurMissionStyled = styled.div<OurMissionStyledProps>`
+    /* border: 2px red solid; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -18,15 +19,16 @@ const OurMissionStyled = styled.div<OurMissionStyledProps>`
         `url(${
             props.isScreenSmall ? 'OurMissionMobile.png' : 'OurMission.png'
         }) no-repeat right`};
-    background-size: cover;
+    background-size: contain;
     padding: 80px 112px;
     margin-left: -112px;
     width: calc(100% + 224px);
-    margin-top: -260px;
+    /* margin-top: -260px; */
     margin-bottom: 80px;
     overflow-x: hidden;
+    /* height: 559px; */
 
-    @media (max-width: 1230px) {
+    /* @media (max-width: 1230px) {
         margin-top: -160px;
     }
 
@@ -36,22 +38,24 @@ const OurMissionStyled = styled.div<OurMissionStyledProps>`
 
     @media (max-width: 1150px) {
         margin-top: -50px;
-    }
+    } */
     @media (max-width: 1024px) {
-        margin-left: -64px;
-        width: calc(100% + 128px);
-        padding: 80px 64px;
-    }
-
-    @media (max-width: 991px) {
-        margin-top: 0px;
+        margin-left: -112px;
+        width: calc(100% + 224px);
+        padding: 80px 112px;
+        background-size: cover;
     }
 
     @media (max-width: 767px) {
         padding: 80px 24px;
         margin-left: -24px;
         width: calc(100% + 48px);
-        margin-bottom: 0;
+        height: auto;
+        background-size: contain;
+    }
+
+    @media (max-width: 400px) {
+        background-size: cover;
     }
 `
 

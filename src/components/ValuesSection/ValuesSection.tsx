@@ -5,6 +5,7 @@ import Text from '../Text'
 import Cards from './Cards'
 
 const ValuesSectionStyled = styled.div`
+    margin-top: 206px;
     background: url('GlassyBannerGradient.png') no-repeat right
         calc(100% - 60px);
     position: relative;
@@ -15,39 +16,44 @@ const ValuesSectionStyled = styled.div`
     margin-left: -112px;
     width: calc(100% + 224px);
     padding: 0 112px;
-    margin-top: 64px;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
+    /* border: 2px green solid; */
 
     @media (max-width: 1027px) {
-        margin-left: -64px;
+        /* margin-left: -64px;
         width: calc(100% + 128px);
-        padding: 0 112px;
+        padding: 0 112px; */
     }
     @media (max-width: 991px) {
-        margin-left: -64px;
+        /* margin-left: -64px;
         width: calc(100% + 128px);
-        padding: 0 64px;
+        padding: 0 64px; */
     }
-    @media (max-width: 768px) {
+    @media (max-width: 767px) {
         background: none;
         margin-left: 0;
         width: calc(100% + 48px);
         margin-left: -24px;
         padding: 0 24px;
+        margin-top: 129px;
     }
 `
 
 const Heading = styled.div`
     text-align: start;
+    /* border: 2px red solid; */
+    max-width: 1216px;
+    width: 100%;
+    /* width: max-content; */
+    padding-left: ${(props) => props.theme.margins.medium};
     color: #fff;
-    margin-bottom: 80px;
-    margin-left: 106px;
+    margin-bottom: 120px;
     display: flex;
     flex-direction: column;
     gap: 24px;
 
-    @media (max-width: 1445px) {
-        margin-left: 0;
+    @media (max-width: 767px) {
+        padding-left: 0;
     }
 `
 
