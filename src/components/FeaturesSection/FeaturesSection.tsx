@@ -13,22 +13,20 @@ const FeaturesSectionContent = styled.div`
     max-width: 1216px;
     margin: 0 auto;
     padding-bottom: 40px;
-
-    /* border: 2px red solid; */
 `
 
 const FeaturesStyled = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 70px;
+    gap: 50px;
 `
 
 const ImageWrapper = styled.div`
     position: absolute;
     height: 100%;
-    top: 0;
-    right: 0;
-    width: 60%;
+    top: -50px;
+    right: -30px;
+    width: 65%;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -42,7 +40,7 @@ const ImageWrapper = styled.div`
 
 const Image = styled.img`
     position: sticky;
-    top: 70px;
+    top: 90px;
     width: 100%;
     z-index: 1;
 `
@@ -50,20 +48,36 @@ const Image = styled.img`
 const ImageGradient = styled.img`
     position: sticky;
     top: 200px;
-    width: 230px;
+    max-width: 250px;
+    width: 60%;
     z-index: 0;
-    margin-top: 50px;
-    margin-left: -170px;
+    margin-top: 90px;
+    margin-left: -160px;
     animation: ${floatAnimation} 7s ease-in-out infinite;
+
+    @media (max-width: 1100px) {
+        top: 159px;
+        margin-top: 70px;
+        width: 50%;
+        margin-left: -140px;
+    }
+
+    @media (max-width: 980px) {
+        top: 120px;
+    }
+
+    @media (max-width: 860px) {
+        top: 110px;
+    }
 `
 
 const GradientOverlay = styled.img`
     position: absolute;
-    top: 70px;
+    top: 50px;
     left: 0;
     z-index: 0;
     width: 50%;
-    max-width: 800px;
+    max-width: 550px;
 
     @media (max-width: 767px) {
         width: 100%;
@@ -117,7 +131,7 @@ const FeaturesSection = () => {
                             alt="change it"
                             ref={imageRef}
                         />
-                        <ImageGradient src={getGradient()} alt="change it" />
+                        <ImageGradient src={getGradient()} alt="gradient" />
                     </ImageWrapper>
                 )}
                 <FeaturesStyled>
@@ -130,7 +144,7 @@ const FeaturesSection = () => {
                                     ? { opacity: 1, scale: 1 }
                                     : { opacity: 0 }
                             }
-                            transition={{ duration: 0.2 }}
+                            transition={{ duration: 0.4 }}
                         >
                             <Feature
                                 key={feature.id}

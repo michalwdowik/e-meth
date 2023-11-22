@@ -21,12 +21,12 @@ const IntroSectionStyled = styled.div<IntroSectionStyledProps>`
     position: relative;
     /* height: 1000px; */
     height: 1000px;
-    margin-bottom: -120px;
+    margin-bottom: -80px;
     /* border: 2px d solid; */
     margin-top: ${(props) => (props.video ? '250px' : '100px')};
     @media (max-width: 991px) {
         height: auto;
-        margin-bottom: 64px;
+        margin-bottom: 150px;
         /* overflow: hidden; */
     }
 
@@ -35,10 +35,15 @@ const IntroSectionStyled = styled.div<IntroSectionStyledProps>`
     }
 
     @media (max-width: 767px) {
-        padding: 80px 16px;
+        padding: 80px 16px 0 16px;
         width: calc(100% + 32px);
         margin-left: -16px;
         margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    @media (max-width: 500px) {
+        margin-bottom: -50px;
     }
 `
 

@@ -25,7 +25,7 @@ const OurMissionStyled = styled.div<OurMissionStyledProps>`
     margin-top: 130px;
     width: calc(100% + 224px);
     /* margin-top: -260px; */
-    margin-bottom: 80px;
+    margin-bottom: 120px;
     overflow-x: hidden;
     /* height: 559px; */
 

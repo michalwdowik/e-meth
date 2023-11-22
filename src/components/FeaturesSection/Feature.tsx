@@ -60,14 +60,17 @@ const FeatureDescription = styled.div`
 `
 
 const TextSection = styled.div`
-    max-width: 33%;
+    max-width: 30%;
     display: flex;
     flex-direction: column;
     gap: 40px;
+    /* border: 2px red solid; */
+    padding: 64px 0;
 
     @media (max-width: 766px) {
         max-width: 100%;
-        gap: 16px;
+        gap: 32px;
+        padding: 0;
     }
 `
 
