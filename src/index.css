@@ -41,6 +41,7 @@ li {
     /* max-width: ${({ video }) => (video ? '1350px' : '1300px')}; */
     left: 0;
     right: 0;
+    top: -50px;
 
     @media (max-width: 1200px) {
         top: 50px;
