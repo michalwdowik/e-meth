@@ -21,16 +21,18 @@ const IntroSectionContent = () => {
                 </Parallax>
             ) : null} */}
             <IntroSectionContentWrapper>
-                <Parallax
-                    className="parallax-tablet"
-                    speed={0}
-                    translateX={['-250px', '-0px']}
-                >
-                    <IntroSectionImg
-                        src="IntroducingEmethPicture.png"
-                        alt="Emeth"
-                    />
-                </Parallax>
+                {!isScreenMedium ? (
+                    <Parallax
+                        className="parallax-tablet"
+                        speed={0}
+                        translateX={['-170px', '0px']}
+                    >
+                        <IntroSectionImg
+                            src="IntroducingEmethPicture.png"
+                            alt="Emeth"
+                        />
+                    </Parallax>
+                ) : null}
                 <IntroSectionDescriptionStyled>
                     <Text
                         fontSize={isScreenSmall ? 20 : 24}
