@@ -1,6 +1,6 @@
 /* eslint-disable no-nested-ternary */
 import styled from 'styled-components'
-import { Parallax } from 'react-scroll-parallax'
+import { ScrollParallax } from 'react-just-parallax'
 import useScreenSize from '../../hooks/useScreenSize'
 import HeroContent from './HeroContent'
 
@@ -15,78 +15,34 @@ const StyledHero = styled.div<StyledHeroProps>`
     align-items: center;
     gap: 32px;
     padding-top: ${(props) => (props.video ? '80px' : '100px')};
-    /* margin-left: -112px; */
-    /* width: calc(100% + 224px); */
-    /* position: relative; */
-    /* padding: 0 112px; */
 
     max-width: 786px;
     margin: 0 auto;
-    /* border: 1px green solid; */
 
     @media (max-width: 1024px) {
         width: 100%;
-        /* margin-left: -64px;
-        width: calc(100% + 128px); */
     }
 
     @media (max-width: 767px) {
-        /* margin-left: -24px;
-        width: calc(100% + 48px); */
         padding-top: 56px;
     }
 `
 
-// const GradientBackgroundContainer = styled.div<StyledHeroProps>`
-//     position: absolute;
-//     background-color: black;
-//     /* top: -230px; */
-//     /* top: ${({ video }) => (video ? '-150px' : '-200px')}; */
-//     /* left: ${({ video }) => (video ? '0px' : '30px')}; */
-//     width: 100%;
-//     height: auto;
-//     z-index: 1;
-//     flex-shrink: 2;
-
-//     @media (max-width: 991px) {
-//         left: 0;
-//         top: -120px;
-//     }
-
-//     @media (max-width: 766px) {
-//         top: ${({ video }) => (video ? '-55px' : '-100px')};
-//         left: 0;
-//     }
-
-//     @media (max-width: 500px) {
-//         width: ${({ video }) => (video ? '100%' : '120%')};
-//         left: ${({ video }) => (video ? '0' : '-70px')};
-//     }
-
-//     @media (max-width: 400px) {
-//         left: ${({ video }) => (video ? '0' : '-40px')};
-//     }
-// `
 interface GradientBackgroundProps {
     video: boolean
 }
 const GradientBackground = styled.img<GradientBackgroundProps>`
-    /* width: 108%; */
     height: auto;
     z-index: 1;
     max-width: 1250px;
     margin: 0 auto;
     display: flex;
     width: 100%;
-    /* border: 2px red solid; */
     position: absolute;
     margin: 0 auto;
     left: 0;
     right: 0;
     top: ${({ video }) => (video ? '-20px' : '-100px')};
-    /* left: 0; */
-    /* max-width: ${({ video }) => (video ? '1350px' : '1300px')}; */
-    /* left: ${({ video }) => (video ? '0' : '-20px')}; */
 
     right: 0;
 
@@ -114,15 +70,14 @@ const GradientBackground = styled.img<GradientBackgroundProps>`
     @media (max-width: 450px) {
         top: 150px;
         left: ${({ video }) => (video ? '0' : '-20px')};
+        margin-top: -250px;
     }
 `
 
 const Wrapper = styled.div`
     width: 100%;
-    /* border: 2px yellow solid; */
     padding: 0 208px;
     width: 100%;
-    /* width: calc(100 + 218px); */
     position: relative;
 
     @media (max-width: 1200px) {
@@ -149,22 +104,18 @@ const Hero = ({ video }: HeroProps) => {
 
     return (
         <Wrapper>
-            {/* <Parallax
-                className="parallax-hero"
-                speed={-10}
-                translateY={['-400px', '0px']}
-            > */}
-            <GradientBackground
-                video={video}
-                src={
-                    video
-                        ? isScreenSmall
-                            ? 'MobileHeroGradient.png'
-                            : 'HeroGradient.png'
-                        : 'HeroGradient-NoVideo.png'
-                }
-            />
-            {/* </Parallax> */}
+            <ScrollParallax isAbsolutelyPositioned>
+                <GradientBackground
+                    video={video}
+                    src={
+                        video
+                            ? isScreenSmall
+                                ? 'MobileHeroGradient.png'
+                                : 'HeroGradient.png'
+                            : 'HeroGradient-NoVideo.png'
+                    }
+                />
+            </ScrollParallax>
             <StyledHero video={video}>
                 <HeroContent video={video} isSmallScreen={isScreenSmall} />
             </StyledHero>

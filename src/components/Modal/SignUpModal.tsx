@@ -2,22 +2,36 @@ import styled from 'styled-components'
 import useScreenSize from '../../hooks/useScreenSize'
 import Text from '../Text'
 import SignUpButton from '../SignUpButton'
+import CloseButton from './CloseButton'
 
 interface SignUpModalProps {
     handleEmailChange: (e: React.ChangeEvent<HTMLInputElement>) => void
     isValidEmail: boolean
     handleSignUp: () => void
+    onClose: (event: React.MouseEvent) => void
 }
+
+const TitleWrapped = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`
 
 const SignUpModal = ({
     handleEmailChange,
     isValidEmail,
     handleSignUp,
+    onClose,
 }: SignUpModalProps) => {
     const { isScreenExtraSmall } = useScreenSize()
     return (
         <>
-            <Text fontSize={32}>Join the Emeth Revolution Early!</Text>
+            <TitleWrapped>
+                <Text align="left" fontSize={32}>
+                    Join the Emeth Revolution Early!
+                </Text>
+                <CloseButton onClose={onClose} />
+            </TitleWrapped>
             <Text
                 lineHeight={150}
                 align="left"

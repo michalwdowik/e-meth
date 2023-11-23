@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import SocialMediaButtonsModal from '../SocialMediaButtonsModal'
 import Text from '../Text'
 import useScreenSize from '../../hooks/useScreenSize'
-import CloseIcon from '../Icons/CloseIcon'
+import CloseButton from './CloseButton'
 
 interface SuccessModalProps {
     onClose: (event: React.MouseEvent) => void
@@ -16,9 +16,7 @@ const SuccessModal = ({ onClose }: SuccessModalProps) => {
                 <Text lineHeight={130} fontSize={isScreenSmall ? 20 : 32}>
                     Success! You&apos;re on the List!
                 </Text>
-                <StyledCloseIcon onClick={onClose}>
-                    <CloseIcon />
-                </StyledCloseIcon>
+                <CloseButton onClose={onClose} />
             </HeaderContainer>
             <Text
                 lineHeight={150}
@@ -57,12 +55,6 @@ export default SuccessModal
 const Divider = styled.div`
     width: 100%;
     border-top: 1px solid grey;
-`
-
-const StyledCloseIcon = styled.button`
-    cursor: pointer;
-    z-index: 1;
-    background-color: transparent;
 `
 
 const HeaderContainer = styled.div`

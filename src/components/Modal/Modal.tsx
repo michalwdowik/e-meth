@@ -19,7 +19,7 @@ const Overlay = styled.div<OverlayProps>`
     bottom: 0;
     z-index: 6;
     cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.6);
     animation: ${({ isVisible }) =>
         isVisible
             ? css`
@@ -100,6 +100,7 @@ const Modal = ({ isVisible, onClose }: ModalProps) => {
                     <SuccessModal onClose={onClose} />
                 ) : (
                     <SignUpModal
+                        onClose={onClose}
                         handleEmailChange={handleEmailChange}
                         isValidEmail={isValidEmail}
                         handleSignUp={handleSignUp}

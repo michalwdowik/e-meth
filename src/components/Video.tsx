@@ -117,7 +117,7 @@ const VideoPlayer = () => {
                     playing={isVideoPlaying}
                     controls
                     play
-                    width="100vw"
+                    width={isScreenSmall ? '100vw' : '640px'}
                     volume={0}
                 />
             </Modal>
