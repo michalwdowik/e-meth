@@ -56,13 +56,13 @@ li {
 }
 
 .parallax-tablet {
-    flex: 0;
-    flex-shrink: 0;
-    left: -20px;
+    /* flex: 0; */
+    /* flex-shrink: 0; */
+    /* left: -20px; */
     /* margin-left: -90px; */
-    z-index: 6;
-    top: 230px;
-    width: 75%;
+    /* z-index: 6; */
+    /* top: 230px; */
+    /* width: 75%; */
     max-width: 1200px;
     position: absolute;
 

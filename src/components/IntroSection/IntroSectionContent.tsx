@@ -9,19 +9,28 @@ const IntroSectionContent = () => {
 
     return (
         <C>
-            {!isScreenMedium ? (
+            {/* {!isScreenMedium ? (
                 <Parallax
-                    className="parallax-tablet"
-                    speed={5}
-                    translateX={['-250px', '0px']}
+                    speed={10}
+                    // translateX={['-250px', '0px']}
                 >
                     <IntroSectionImg
                         src="IntroducingEmethPicture.png"
                         alt="Emeth"
                     />
                 </Parallax>
-            ) : null}
+            ) : null} */}
             <IntroSectionContentWrapper>
+                <Parallax
+                    className="parallax-tablet"
+                    speed={0}
+                    translateX={['-250px', '-0px']}
+                >
+                    <IntroSectionImg
+                        src="IntroducingEmethPicture.png"
+                        alt="Emeth"
+                    />
+                </Parallax>
                 <IntroSectionDescriptionStyled>
                     <Text
                         fontSize={isScreenSmall ? 20 : 24}
@@ -56,7 +65,6 @@ const IntroSectionDescriptionStyled = styled.div`
     gap: 64px;
     width: 31%;
     margin-top: 30px;
-    /* border: 2px blue solid; */
 
     @media (max-width: 991px) {
         width: 100%;
@@ -66,27 +74,8 @@ const IntroSectionDescriptionStyled = styled.div`
 `
 
 const IntroSectionImg = styled.img`
-    flex: 0;
-    flex-shrink: 0;
-    /* left: -120px; */
-    /* margin-left: -90px; */
+    width: 70%;
     z-index: 6;
-    /* border: 2px green solid; */
-    /* top: 212px; */
-    /* width: 75%; */
-    width: 100%;
-    /* max-width: 1200px; */
-    position: absolute;
-
-    @media (max-width: 991px) {
-        position: static;
-        /* margin-left: -50px; */
-        /* left: 0; */
-
-        /* width: 170%; */
-        /* width: 150%; */
-        /* margin-left: 45%; */
-    }
 `
 
 const IntroSectionContentWrapper = styled.div`
@@ -94,8 +83,8 @@ const IntroSectionContentWrapper = styled.div`
     justify-content: flex-end;
     max-width: 1216px;
     width: 100%;
+    gap: 64px;
     margin: 0 auto;
-    /* border: 2px red solid; */
     position: relative;
 
     @media (max-width: 991px) {
