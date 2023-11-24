@@ -2,6 +2,7 @@ import { useRef } from 'react'
 import { useInView } from 'react-intersection-observer'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
+import { ScrollParallax } from 'react-just-parallax'
 import features from '../../utils/features'
 import Feature from './Feature'
 import useScreenSize from '../../hooks/useScreenSize'
@@ -24,13 +25,13 @@ const ImageWrapper = styled.div`
     position: absolute;
     height: 100%;
     top: -50px;
+    padding-top: 50px;
     right: -30px;
     width: 65%;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
 
-    /* border: 2px yellow solid; */
     @media (max-width: 766px) {
         position: static;
         width: 100%;
@@ -117,15 +118,15 @@ const FeaturesSection = () => {
                     {features.map((feature, index) => (
                         <motion.div
                             key={feature.id}
-                            initial={{ opacity: 0, scale: 0.95 }}
+                            initial={{ opacity: 0 }}
                             animate={
                                 index === getInViewImageIndex()
-                                    ? { opacity: 1, scale: 1 }
+                                    ? { opacity: 1 }
                                     : { opacity: 0 }
                             }
                             transition={{
-                                duration: 0.3,
-                                ease: 'easeOut',
+                                duration: 0.4,
+                                ease: 'easeInOut',
                                 // delay: 0.2,
                             }}
                             ref={imageContainers[index].ref}
@@ -135,8 +136,9 @@ const FeaturesSection = () => {
                                 title={feature.title}
                                 description={feature.description}
                                 icon={feature.icon}
-                                refValue={imageContainers[index].ref} // Use the corresponding image container ref
+                                refValue={imageContainers[index].ref}
                                 imageUrlMobile={feature.imageUrlMobile}
+                                featureId={feature.id}
                             />
                         </motion.div>
                     ))}

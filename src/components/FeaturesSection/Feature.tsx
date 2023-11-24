@@ -10,6 +10,7 @@ interface FeatureProps {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     refValue: any
     imageUrlMobile: string
+    featureId: number
 }
 
 const Feature = ({
@@ -18,13 +19,14 @@ const Feature = ({
     icon,
     refValue,
     imageUrlMobile,
+    featureId,
 }: FeatureProps) => {
     const { isScreenSmall } = useScreenSize()
 
     return (
         <>
             {isScreenSmall && <FeatureImage src={imageUrlMobile} alt={title} />}
-            <TextSection ref={refValue}>
+            <TextSection featureId={featureId} ref={refValue}>
                 {icon()}
                 <FeatureTitle>
                     <Text
@@ -59,13 +61,17 @@ const FeatureDescription = styled.div`
     z-index: 6;
 `
 
-const TextSection = styled.div`
+interface TextSectionProps {
+    featureId: number
+}
+
+const TextSection = styled.div<TextSectionProps>`
     max-width: 30%;
     display: flex;
     flex-direction: column;
     gap: 40px;
     /* border: 2px red solid; */
-    padding: 64px 0;
+    padding: ${({ featureId }) => (featureId !== 3 ? '0 0 240px 0' : '0')};
 
     @media (max-width: 766px) {
         max-width: 100%;
