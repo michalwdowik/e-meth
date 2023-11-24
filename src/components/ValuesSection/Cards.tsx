@@ -4,12 +4,6 @@ import BeforePseudoElement from '../../utils/beforePseudoElement'
 import { greyGradient } from '../../utils/gradient'
 import webkitMask from '../../utils/webkitMask'
 
-interface CardProps {
-    title: string
-    description: string
-    icon: () => JSX.Element
-}
-
 interface RowProps {
     justify: 'start' | 'end'
 }
@@ -21,7 +15,6 @@ const CardContainer = styled.div`
     max-width: 1216px;
     margin: 0 auto;
     gap: 32px;
-    /* border: 2px red solid; */
     position: relative;
     @media (max-width: 560px) {
         margin-top: -32px;
@@ -94,6 +87,12 @@ const Row = styled.div<RowProps>`
         align-items: center;
     }
 `
+
+interface CardProps {
+    title: string
+    description: string
+    icon: () => JSX.Element
+}
 
 const Card = ({ title, description, icon }: CardProps) => (
     <StyledCard>

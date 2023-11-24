@@ -9,7 +9,6 @@ import BeforePseudoElement from '../utils/beforePseudoElement'
 const NewsletterSectionWrapper = styled.div`
     max-width: 1216px;
     margin: 0 auto;
-    /* border: 2px red solid; */
     width: 100%;
     padding-left: ${(props) => props.theme.margins.medium};
     padding-right: ${(props) => props.theme.margins.medium};
@@ -26,8 +25,6 @@ const NewsletterSectionStyled = styled.div`
     height: 870px;
     display: flex;
     align-items: center;
-    /* border: 2px green solid; */
-    /* width: 1008px; */
     margin: 0 auto;
 
     @media (max-width: 767px) {

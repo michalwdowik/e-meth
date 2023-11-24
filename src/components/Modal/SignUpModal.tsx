@@ -17,6 +17,47 @@ const TitleWrapped = styled.div`
     align-items: center;
 `
 
+const InputButtonContainer = styled.div`
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
+`
+
+interface StyledInputProps {
+    isValid: boolean
+}
+
+const StyledInput = styled.input<StyledInputProps>`
+    padding: 0 12px 0 24px;
+    width: 100%;
+    background-color: #000;
+    height: 56px;
+    color: #fff;
+    position: relative;
+    border-radius: 56px;
+    border: 1px solid
+        ${({ isValid }) => (isValid ? 'rgba(255, 255, 255, 0.5)' : 'red')};
+    :focus {
+        outline: none;
+        border-color: ${({ isValid }) => (isValid ? '#da301f' : 'red')};
+    }
+    background: rgba(255, 255, 255, 0.1);
+    ::placeholder {
+        color: #555;
+    }
+    :focus {
+        outline: none;
+        border-color: #da301f;
+    }
+`
+
+const PositionedButton = styled.div`
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(calc(-50%));
+`
+
 const SignUpModal = ({
     handleEmailChange,
     isValidEmail,
@@ -71,44 +112,3 @@ const SignUpModal = ({
 }
 
 export default SignUpModal
-
-const InputButtonContainer = styled.div`
-    position: relative;
-    width: 100%;
-    margin-top: 20px;
-`
-
-interface StyledInputProps {
-    isValid: boolean
-}
-
-const StyledInput = styled.input<StyledInputProps>`
-    padding: 0 12px 0 24px;
-    width: 100%;
-    background-color: #000;
-    height: 56px;
-    color: #fff;
-    position: relative;
-    border-radius: 56px;
-    border: 1px solid
-        ${({ isValid }) => (isValid ? 'rgba(255, 255, 255, 0.5)' : 'red')};
-    :focus {
-        outline: none;
-        border-color: ${({ isValid }) => (isValid ? '#da301f' : 'red')};
-    }
-    background: rgba(255, 255, 255, 0.1);
-    ::placeholder {
-        color: #555;
-    }
-    :focus {
-        outline: none;
-        border-color: #da301f;
-    }
-`
-
-const PositionedButton = styled.div`
-    position: absolute;
-    right: 8px;
-    top: 50%;
-    transform: translateY(calc(-50%));
-`

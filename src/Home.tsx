@@ -19,10 +19,8 @@ const HomeStyled = styled.div`
     padding: 0 112px;
     padding-bottom: 48px;
     justify-content: center;
-    /* gap: 48px; */
     margin: 0 auto;
     background-color: black;
-    /* border: 2px red solid; */
     @media (max-width: 767px) {
         padding: 0 16px 48px 16px;
     }
@@ -30,7 +28,7 @@ const HomeStyled = styled.div`
 
 const Home = () => {
     const { isScreenSmall } = useScreenSize()
-    // const video = isMobileDevice() - use for checking if mobile device instead of isScreenSmall
+    // const video = isMobileDevice() - use for checking if user opened website on mobile device (returns true or false)
     return (
         <ThemeProvider theme={theme}>
             <Navbar type="upper" />

@@ -4,30 +4,13 @@ import Text from '../Text'
 import useScreenSize from '../../hooks/useScreenSize'
 
 const FeaturesSectionStyled = styled.div`
-    /* padding: 0 112px; */
-    /* margin-left: -112px; */
-    /* width: calc(100% + 224px); */
-    /* position: relative; */
-    /* border: 2px white solid; */
     max-width: 1216px;
     margin: 0 auto;
     margin-bottom: 200px;
-    /* @media (max-width: 1024px) {
-        margin-left: -64px;
-        width: calc(100% + 128px);
-        padding: 0 64px;
-    }
-
-    @media (max-width: 767px) {
-        padding: 160px 24px 0 24px;
-        margin-left: -24px;
-        width: calc(100% + 48px);
-    } */
 
     @media (max-width: 767px) {
         margin-bottom: 0;
         width: 100%;
-        /* padding-top: 80px;/ */
     }
 `
 
@@ -49,7 +32,6 @@ const FeaturesSectionHeroTitle = styled.div`
     flex-direction: column;
     gap: 10px;
     max-width: 700px;
-    /* border: 2px blue solid; */
     position: relative;
 
     @media (max-width: 920px) {
@@ -75,18 +57,14 @@ const GradientOverlay = styled.img`
     position: absolute;
     top: -230px;
     left: -520px;
-    /* left: 0; */
     z-index: 0;
-    /* width: 50%; */
     max-width: 1100px;
-    /* width: 100%; */
 
     @media (max-width: 767px) {
         width: calc(100% + 32px);
         margin-left: -16px;
         top: 0px;
         left: 0px;
-        /* max-width: 100%; */
     }
 `
 const FeaturesSectionHeading = () => {

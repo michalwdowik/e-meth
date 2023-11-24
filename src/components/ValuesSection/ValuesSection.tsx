@@ -6,8 +6,6 @@ import Cards from './Cards'
 
 const ValuesSectionStyled = styled.div`
     margin-top: 206px;
-    /* background: url('GlassyBannerGradient.png') no-repeat right
-        calc(100% - 60px); */
     position: relative;
     display: flex;
     flex-direction: column;
@@ -17,21 +15,8 @@ const ValuesSectionStyled = styled.div`
     width: calc(100% + 224px);
     padding: 0 112px;
     overflow: hidden;
-    /* border: 2px red solid; */
     padding-top: 32px;
-    /* overflow-x: hidden; */
-    /* border: 2px green solid; */
 
-    @media (max-width: 1027px) {
-        /* margin-left: -64px;
-        width: calc(100% + 128px);
-        padding: 0 112px; */
-    }
-    @media (max-width: 991px) {
-        /* margin-left: -64px;
-        width: calc(100% + 128px);
-        padding: 0 64px; */
-    }
     @media (max-width: 767px) {
         background: none;
         margin-left: 0;
@@ -44,10 +29,8 @@ const ValuesSectionStyled = styled.div`
 
 const Heading = styled.div`
     text-align: start;
-    /* border: 2px red solid; */
     max-width: 1216px;
     width: 100%;
-    /* width: max-content; */
     padding-left: ${(props) => props.theme.margins.medium};
     color: #fff;
     margin-bottom: 120px;
