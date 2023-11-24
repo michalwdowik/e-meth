@@ -2,7 +2,6 @@ import { useRef } from 'react'
 import { useInView } from 'react-intersection-observer'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
-import { ScrollParallax } from 'react-just-parallax'
 import features from '../../utils/features'
 import Feature from './Feature'
 import useScreenSize from '../../hooks/useScreenSize'
@@ -69,21 +68,19 @@ const FeaturesSection = () => {
     const { isScreenSmall } = useScreenSize()
     const imageRef = useRef(null)
 
-    // Use useInView for the image containers
     const imageContainers = [
         useInView({ threshold: 0.5 }),
         useInView({ threshold: 0.5 }),
         useInView({ threshold: 0.1 }),
     ]
 
-    // Function to get the index of the currently in-view image container
     const getInViewImageIndex = () => {
         for (let i = 0; i < imageContainers.length; i++) {
             if (imageContainers[i].inView) {
                 return i
             }
         }
-        return 0 // Default to the first image if none are in view
+        return 0
     }
 
     const gradientOverlaySrc = isScreenSmall

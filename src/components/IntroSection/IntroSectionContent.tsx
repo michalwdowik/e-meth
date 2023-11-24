@@ -25,7 +25,7 @@ const IntroSectionContent = () => {
                     <Parallax
                         className="parallax-tablet"
                         speed={0}
-                        translateX={['-170px', '0px']}
+                        translateX={['-250px', '-50px']}
                     >
                         <IntroSectionImg
                             src="IntroducingEmethPicture.png"
@@ -41,7 +41,12 @@ const IntroSectionContent = () => {
                     >
                         Your Strategic Ally <br /> in Digital Asset Management
                     </Text>
-                    <Text fontSize={16} fontWeight="light" align="left">
+                    <Text
+                        lineHeight={160}
+                        fontSize={16}
+                        fontWeight="light"
+                        align="left"
+                    >
                         In a realm where decentralization meets finance, Emeth
                         stands out as the beacon of intelligent
                         <GradientText> DeFi portfolio management</GradientText>,

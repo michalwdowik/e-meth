@@ -49,7 +49,7 @@ const AccordionBody = styled.div<AccordionBodyProps>`
     overflow: hidden;
     font-weight: 300;
     transition: height 0.3s ease-in-out;
-
+    line-height: 160%;
     ${({ active, bodyHeight }) =>
         active &&
         css`
