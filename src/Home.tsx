@@ -35,10 +35,8 @@ const Home = () => {
         <ThemeProvider theme={theme}>
             <Navbar type="upper" />
             <HomeStyled>
-                {/* <Hero video />
-                <IntroSection video /> */}
-                <Hero video={false} />
-                <IntroSection video={false} />
+                <Hero video />
+                <IntroSection video />
                 <OurMissionBanner />
                 <FeaturesSection />
                 <ValuesSection />
