@@ -27,7 +27,7 @@ const FeaturesSectionStyled = styled.div`
     @media (max-width: 767px) {
         margin-bottom: 0;
         width: 100%;
-        padding-top: 80px;
+        /* padding-top: 80px;/ */
     }
 `
 
