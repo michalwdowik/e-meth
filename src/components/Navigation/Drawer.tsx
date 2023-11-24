@@ -5,54 +5,6 @@ import SocialMedia from '../SocialMediaButtons'
 import hoverStyles from '../../utils/hoverStyles'
 import scrollToSection from '../../utils/scrollToSection'
 
-interface DrawerProps {
-    sections: string[]
-    isOpen: boolean
-    hideDrawer: () => void
-}
-
-const Drawer: React.FC<DrawerProps> = ({ sections, isOpen, hideDrawer }) => {
-    const handleDrawerItemClick = (sectionId: string) => {
-        scrollToSection(sectionId)
-        hideDrawer()
-    }
-
-    const drawerItems = sections.map((section) => (
-        <DrawerItem
-            key={section}
-            onClick={() => handleDrawerItemClick(section)}
-        >
-            {section}
-        </DrawerItem>
-    ))
-
-    return (
-        <DrawerMenu isOpen={isOpen}>
-            <CloseButton onClick={hideDrawer}>
-                Close
-                <CloseIcon
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="32"
-                    height="32"
-                    viewBox="0 0 32 32"
-                    fill="none"
-                >
-                    <path
-                        d="M8.53341 25.3332L6.66675 23.4665L14.1334 15.9998L6.66675 8.53317L8.53341 6.6665L16.0001 14.1332L23.4667 6.6665L25.3334 8.53317L17.8667 15.9998L25.3334 23.4665L23.4667 25.3332L16.0001 17.8665L8.53341 25.3332Z"
-                        fill="white"
-                    />
-                </CloseIcon>
-            </CloseButton>
-            <DrawerItems>{drawerItems}</DrawerItems>
-            <Button>Try Emeth Now!</Button>
-            <DrawerFooter>
-                <SocialMedia />
-                <Copyright>© 2023 Emeth. All rights reserved.</Copyright>
-            </DrawerFooter>
-        </DrawerMenu>
-    )
-}
-
 const DrawerMenu = styled.div<{ isOpen: boolean }>`
     position: fixed;
     top: 0;
@@ -135,5 +87,53 @@ const Copyright = styled.div`
     font-size: 14px;
     text-align: center;
 `
+
+interface DrawerProps {
+    sections: string[]
+    isOpen: boolean
+    hideDrawer: () => void
+}
+
+const Drawer: React.FC<DrawerProps> = ({ sections, isOpen, hideDrawer }) => {
+    const handleDrawerItemClick = (sectionId: string) => {
+        scrollToSection(sectionId)
+        hideDrawer()
+    }
+
+    const drawerItems = sections.map((section) => (
+        <DrawerItem
+            key={section}
+            onClick={() => handleDrawerItemClick(section)}
+        >
+            {section}
+        </DrawerItem>
+    ))
+
+    return (
+        <DrawerMenu isOpen={isOpen}>
+            <CloseButton onClick={hideDrawer}>
+                Close
+                <CloseIcon
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 32 32"
+                    fill="none"
+                >
+                    <path
+                        d="M8.53341 25.3332L6.66675 23.4665L14.1334 15.9998L6.66675 8.53317L8.53341 6.6665L16.0001 14.1332L23.4667 6.6665L25.3334 8.53317L17.8667 15.9998L25.3334 23.4665L23.4667 25.3332L16.0001 17.8665L8.53341 25.3332Z"
+                        fill="white"
+                    />
+                </CloseIcon>
+            </CloseButton>
+            <DrawerItems>{drawerItems}</DrawerItems>
+            <Button>Try Emeth Now!</Button>
+            <DrawerFooter>
+                <SocialMedia />
+                <Copyright>© 2023 Emeth. All rights reserved.</Copyright>
+            </DrawerFooter>
+        </DrawerMenu>
+    )
+}
 
 export default Drawer

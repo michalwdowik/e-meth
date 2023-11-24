@@ -7,6 +7,19 @@ import Feature from './Feature'
 import useScreenSize from '../../hooks/useScreenSize'
 import FeaturesSectionHeading from './FeaturesSectionHeading'
 
+const FeaturesWrapper = styled.div`
+    position: relative;
+    padding: 0 112px;
+    margin-left: -112px;
+    width: calc(100% + 224px);
+
+    @media (max-width: 767px) {
+        margin-left: -16px;
+        width: calc(100% + 32px);
+        padding: 0 16px;
+    }
+`
+
 const FeaturesSectionContent = styled.div`
     position: relative;
     max-width: 1216px;
@@ -103,7 +116,6 @@ const FeaturesSection = () => {
                             transition={{
                                 duration: 0.4,
                                 ease: 'easeInOut',
-                                // delay: 0.2,
                             }}
                             ref={imageContainers[index].ref}
                         >
@@ -125,17 +137,3 @@ const FeaturesSection = () => {
 }
 
 export default FeaturesSection
-
-const FeaturesWrapper = styled.div`
-    position: relative;
-    /* overflow: hidden; */
-    padding: 0 112px;
-    margin-left: -112px;
-    width: calc(100% + 224px);
-
-    @media (max-width: 767px) {
-        margin-left: -16px;
-        width: calc(100% + 32px);
-        padding: 0 16px;
-    }
-`

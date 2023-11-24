@@ -70,7 +70,6 @@ const TextSection = styled.div<TextSectionProps>`
     display: flex;
     flex-direction: column;
     gap: 40px;
-    /* border: 2px red solid; */
     padding: ${({ featureId }) =>
         featureId !== 3 ? '0 0 240px 0' : '0 0 64px 0'};
 

@@ -4,22 +4,15 @@ import Text from '../Text'
 import GradientText from '../GradientText'
 import useScreenSize from '../../hooks/useScreenSize'
 
+const IntroSectionContentContainer = styled.div`
+    width: 100%;
+`
+
 const IntroSectionContent = () => {
     const { isScreenSmall, isScreenMedium } = useScreenSize()
 
     return (
-        <C>
-            {/* {!isScreenMedium ? (
-                <Parallax
-                    speed={10}
-                    // translateX={['-250px', '0px']}
-                >
-                    <IntroSectionImg
-                        src="IntroducingEmethPicture.png"
-                        alt="Emeth"
-                    />
-                </Parallax>
-            ) : null} */}
+        <IntroSectionContentContainer>
             <IntroSectionContentWrapper>
                 {!isScreenMedium ? (
                     <Parallax
@@ -60,7 +53,7 @@ const IntroSectionContent = () => {
                     </Text>
                 </IntroSectionDescriptionStyled>
             </IntroSectionContentWrapper>
-        </C>
+        </IntroSectionContentContainer>
     )
 }
 
@@ -95,18 +88,12 @@ const IntroSectionContentWrapper = styled.div`
     position: relative;
 
     @media (max-width: 991px) {
-        /* flex-direction: column; */
         width: 100%;
         margin: 0;
         padding: 0;
     }
 
     @media (max-width: 767px) {
-        /* padding: 0 24px; */
         padding-bottom: 48px;
     }
-`
-
-const C = styled.div`
-    width: 100%;
 `

@@ -4,6 +4,27 @@ import { ScrollParallax } from 'react-just-parallax'
 import useScreenSize from '../../hooks/useScreenSize'
 import HeroContent from './HeroContent'
 
+const HeroWrapper = styled.div`
+    width: 100%;
+    padding: 0 208px;
+    width: 100%;
+    position: relative;
+
+    @media (max-width: 1200px) {
+        padding: 0 104px;
+    }
+
+    @media (max-width: 991px) {
+        padding: 0;
+    }
+
+    @media (max-width: 767px) {
+        width: calc(100% + 32px);
+        padding: 0 16px;
+        margin-left: -16px;
+    }
+`
+
 interface StyledHeroProps {
     video: boolean
 }
@@ -75,27 +96,6 @@ const GradientBackground = styled.img<GradientBackgroundProps>`
     }
 `
 
-const Wrapper = styled.div`
-    width: 100%;
-    padding: 0 208px;
-    width: 100%;
-    position: relative;
-
-    @media (max-width: 1200px) {
-        padding: 0 104px;
-    }
-
-    @media (max-width: 991px) {
-        padding: 0;
-    }
-
-    @media (max-width: 767px) {
-        width: calc(100% + 32px);
-        padding: 0 16px;
-        margin-left: -16px;
-    }
-`
-
 interface HeroProps {
     video: boolean
 }
@@ -104,7 +104,7 @@ const Hero = ({ video }: HeroProps) => {
     const { isScreenSmall } = useScreenSize()
 
     return (
-        <Wrapper>
+        <HeroWrapper>
             <ScrollParallax isAbsolutelyPositioned>
                 <GradientBackground
                     video={video}
@@ -120,7 +120,7 @@ const Hero = ({ video }: HeroProps) => {
             <StyledHero video={video}>
                 <HeroContent video={video} isSmallScreen={isScreenSmall} />
             </StyledHero>
-        </Wrapper>
+        </HeroWrapper>
     )
 }
 

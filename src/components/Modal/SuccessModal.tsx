@@ -4,6 +4,18 @@ import Text from '../Text'
 import useScreenSize from '../../hooks/useScreenSize'
 import CloseButton from './CloseButton'
 
+const Divider = styled.div`
+    width: 100%;
+    border-top: 1px solid grey;
+`
+
+const HeaderContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+`
+
 interface SuccessModalProps {
     onClose: (event: React.MouseEvent) => void
 }
@@ -51,15 +63,3 @@ const SuccessModal = ({ onClose }: SuccessModalProps) => {
 }
 
 export default SuccessModal
-
-const Divider = styled.div`
-    width: 100%;
-    border-top: 1px solid grey;
-`
-
-const HeaderContainer = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-`

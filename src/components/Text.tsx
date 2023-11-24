@@ -46,4 +46,3 @@ const Text = ({
 )
 
 export default Text
-// 160, 120, 130, 150,

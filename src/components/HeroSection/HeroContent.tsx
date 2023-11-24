@@ -3,10 +3,6 @@ import Text from '../Text'
 import VideoPlayer from '../Video'
 import Button from '../Button'
 
-interface HeroContentProps {
-    isSmallScreen: boolean
-    video: boolean
-}
 interface HeroContentStyledProps {
     video: boolean
 }
@@ -17,8 +13,6 @@ const HeroContentStyled = styled.div<HeroContentStyledProps>`
     flex-direction: column;
     align-items: center;
     gap: ${(props) => (props.video ? '120px' : '64px')};
-    /* max-width: 786px; */
-    /* width: 80%; */
 
     @media (max-width: 767px) {
         gap: 48px;
@@ -31,18 +25,13 @@ const HeroTextStyled = styled.div`
     justify-content: center;
     align-items: center;
     gap: 64px;
-    /* border: 2px blue solid; */
     text-align: justify;
     width: 100%;
-    /* max-width: 786px; */
 
     @media (max-width: 1024px) {
-        /* width: calc(100% + 128px); */
     }
 
     @media (max-width: 767px) {
-        /* max-width: 600px; */
-        /* width: calc(100% + 30px); */
         gap: 48px;
     }
 `
@@ -62,6 +51,10 @@ const HeroSubtitleStyled = styled.div`
         width: 100%;
     }
 `
+interface HeroContentProps {
+    isSmallScreen: boolean
+    video: boolean
+}
 
 const HeroContent = ({ isSmallScreen, video }: HeroContentProps) => {
     return (

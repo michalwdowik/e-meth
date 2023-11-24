@@ -44,14 +44,8 @@ const NavItems = styled.ul<NavItemsProps>`
     }
 
     li {
-        /* padding: 0 15px; */
         cursor: pointer;
         font-size: 14px;
-
-        @media (max-width: 901px) {
-            /* padding: ${({ type }) =>
-                type === 'upper' ? '0 15px' : '0 8px'}; */
-        }
     }
 `
 

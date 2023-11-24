@@ -20,7 +20,6 @@ body {
 
 html {
     scrollbar-width: none;
-    /* remove if you don't want to have bottom scrollbar */
 }
 
 ul,
@@ -39,7 +38,6 @@ li {
     }
     @media (max-width: 991px) {
         top: 120px;
-        /* margin-bottom: 100px; */
     }
 
     @media (max-width: 767px) {
@@ -56,13 +54,6 @@ li {
 }
 
 .parallax-tablet {
-    /* flex: 0; */
-    /* flex-shrink: 0; */
-    /* left: -20px; */
-    /* margin-left: -90px; */
-    /* z-index: 6; */
-    /* top: 230px; */
-    /* width: 75%; */
     max-width: 1200px;
     position: absolute;
 
@@ -70,10 +61,6 @@ li {
         position: static;
         margin-left: -50px;
         left: 0;
-
-        /* width: 170%; */
-        /* width: 150%; */
-        /* margin-left: 45%; */
     }
 }
 
@@ -81,13 +68,9 @@ li {
     overflow: hidden;
     width: calc(100% + 112px);
     display: none;
-    /* margin-left: 112px; */
-    /* width: 100%; */
-    /* border: 2px red solid; */
 
     @media (max-width: 991px) {
         display: flex;
-        /* margin-left: 112px; */
     }
 
     @media (max-width: 830px) {
@@ -96,6 +79,5 @@ li {
 
     @media (max-width: 767px) {
         width: calc(100% + 16px);
-        /* margin-left: 16px; */
     }
 }
