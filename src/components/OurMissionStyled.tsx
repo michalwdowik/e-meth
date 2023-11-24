@@ -1,14 +1,7 @@
 import styled from 'styled-components'
-import Badge from './Badge'
-import Button from './Button'
-import useScreenSize from '../hooks/useScreenSize'
-import Text from './Text'
+import { OurMissionStyledProps } from './OurMissionBanner'
 
-interface OurMissionStyledProps {
-    isScreenSmall: boolean
-}
-
-const OurMissionStyled = styled.div<OurMissionStyledProps>`
+export const OurMissionStyled = styled.div<OurMissionStyledProps>`
     /* border: 2px red solid; */
     display: flex;
     flex-direction: column;
@@ -57,7 +50,6 @@ const OurMissionStyled = styled.div<OurMissionStyledProps>`
         padding: 80px 16px;
         margin-left: -16px;
         width: calc(100% + 32px);
-        margin-bottom: 0px;
         height: auto;
         background-size: contain;
     }
@@ -66,22 +58,3 @@ const OurMissionStyled = styled.div<OurMissionStyledProps>`
         background-size: cover;
     }
 `
-
-const OurMissionBanner = () => {
-    const { isScreenSmall } = useScreenSize()
-    const fontSize = isScreenSmall ? 24 : 40
-
-    return (
-        <OurMissionStyled id="About" isScreenSmall={isScreenSmall}>
-            <Badge>OUR MISSION</Badge>
-            <Text lineHeight={130} fontWeight="bold" fontSize={fontSize}>
-                To streamline and automate DeFi operations, delivering <br />
-                unprecedented efficiency, cost-effectiveness, and <br />
-                transparency in managing digital assets.
-            </Text>
-            <Button size={isScreenSmall ? 'normal' : 'big'}>JOIN NOW</Button>
-        </OurMissionStyled>
-    )
-}
-
-export default OurMissionBanner
