@@ -22,7 +22,7 @@ const CardContainer = styled.div`
     margin: 0 auto;
     gap: 32px;
     /* border: 2px red solid; */
-
+    position: relative;
     @media (max-width: 560px) {
         margin-top: -32px;
     }
@@ -103,8 +103,27 @@ const Card = ({ title, description, icon }: CardProps) => (
     </StyledCard>
 )
 
+const GradientOverlay = styled.img`
+    position: absolute;
+    top: -460px;
+    left: 520px;
+
+    @media (max-width: 1200px) {
+        left: 200px;
+    }
+
+    @media (max-width: 991px) {
+        left: 100px;
+    }
+
+    @media (max-width: 767px) {
+        display: none;
+    }
+`
 const Cards = () => (
     <CardContainer>
+        <GradientOverlay src="ValuesSectionGradient.png" />
+
         <Row justify="start">
             {cardDataRow1.map((cardData) => (
                 <Card

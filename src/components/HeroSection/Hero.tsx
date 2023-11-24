@@ -68,7 +68,8 @@ const GradientBackground = styled.img<GradientBackgroundProps>`
     }
 
     @media (max-width: 450px) {
-        top: 150px;
+        top: ${({ video }) => (video ? '370px' : '270px')};
+
         left: ${({ video }) => (video ? '0' : '-20px')};
         margin-top: -250px;
     }

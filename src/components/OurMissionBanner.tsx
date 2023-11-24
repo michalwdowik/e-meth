@@ -14,6 +14,7 @@ const OurMissionStyled = styled.div<OurMissionStyledProps>`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    z-index: 4;
     gap: 32px;
     background: ${(props) =>
         `url(${

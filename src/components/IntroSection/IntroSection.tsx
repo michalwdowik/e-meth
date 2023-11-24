@@ -40,12 +40,12 @@ const IntroSectionStyled = styled.div<IntroSectionStyledProps>`
         padding: 80px 16px 0 16px;
         width: calc(100% + 32px);
         margin-left: -16px;
-        margin-top: 100px;
         margin-bottom: 50px;
     }
 
     @media (max-width: 500px) {
         margin-bottom: -50px;
+        margin-top: 100px;
     }
 `
 
@@ -122,7 +122,7 @@ const IntroSection = ({ video }: IntroSectionProps) => {
             <Parallax
                 className="parallax-tablet-small"
                 speed={5}
-                translateX={['65px', '-10px']}
+                translateX={['65px', '0px']}
             >
                 <IntroSectionImgSmall
                     src="IntroducingEmethPictureMobile.png"

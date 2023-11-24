@@ -49,9 +49,15 @@ const FeaturesSectionHeroTitle = styled.div`
     flex-direction: column;
     gap: 10px;
     max-width: 700px;
+    /* border: 2px blue solid; */
+    position: relative;
 
     @media (max-width: 920px) {
         max-width: 100%;
+    }
+
+    @media (max-width: 767px) {
+        padding-top: 80px;
     }
 `
 
@@ -65,16 +71,39 @@ const FeaturesSectionHeroDescription = styled.div`
     }
 `
 
+const GradientOverlay = styled.img`
+    position: absolute;
+    top: -230px;
+    left: -520px;
+    /* left: 0; */
+    z-index: 0;
+    /* width: 50%; */
+    max-width: 1100px;
+    /* width: 100%; */
+
+    @media (max-width: 767px) {
+        width: calc(100% + 32px);
+        margin-left: -16px;
+        top: 0px;
+        left: 0px;
+        /* max-width: 100%; */
+    }
+`
 const FeaturesSectionHeading = () => {
-    const { isScreenExtraSmall } = useScreenSize()
+    const { isScreenExtraSmall, isScreenSmall } = useScreenSize()
 
     const heroTitleFontSize = isScreenExtraSmall ? 28 : 56
     const heroDescriptionFontSize = isScreenExtraSmall ? 14 : 16
+    const gradientOverlaySrc = isScreenSmall
+        ? 'FeaturesGradientMobile.png'
+        : 'FeaturesSectionGradient.png'
 
     return (
         <FeaturesSectionStyled>
             <FeaturesSectionHero>
                 <FeaturesSectionHeroTitle>
+                    <GradientOverlay src={gradientOverlaySrc} />
+
                     <Badge>Features</Badge>
                     <Text
                         lineHeight={130}

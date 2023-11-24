@@ -6,8 +6,8 @@ import Cards from './Cards'
 
 const ValuesSectionStyled = styled.div`
     margin-top: 206px;
-    background: url('GlassyBannerGradient.png') no-repeat right
-        calc(100% - 60px);
+    /* background: url('GlassyBannerGradient.png') no-repeat right
+        calc(100% - 60px); */
     position: relative;
     display: flex;
     flex-direction: column;
@@ -16,6 +16,9 @@ const ValuesSectionStyled = styled.div`
     margin-left: -112px;
     width: calc(100% + 224px);
     padding: 0 112px;
+    overflow: hidden;
+    /* border: 2px red solid; */
+    padding-top: 32px;
     /* overflow-x: hidden; */
     /* border: 2px green solid; */
 

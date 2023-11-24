@@ -49,21 +49,6 @@ const Image = styled.img`
     }
 `
 
-const GradientOverlay = styled.img`
-    position: absolute;
-    top: 50px;
-    left: 0;
-    z-index: 0;
-    width: 50%;
-    max-width: 550px;
-
-    @media (max-width: 767px) {
-        width: 100%;
-        top: 0px;
-        max-width: 100%;
-    }
-`
-
 const FeaturesSection = () => {
     const { isScreenSmall } = useScreenSize()
     const imageRef = useRef(null)
@@ -83,14 +68,8 @@ const FeaturesSection = () => {
         return 0
     }
 
-    const gradientOverlaySrc = isScreenSmall
-        ? 'FeaturesGradientMobile.png'
-        : 'FeaturesSectionGradient.png'
-
     return (
         <FeaturesWrapper id="Features">
-            <GradientOverlay src={gradientOverlaySrc} />
-
             <FeaturesSectionHeading />
             <FeaturesSectionContent>
                 {!isScreenSmall && (
