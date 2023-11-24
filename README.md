@@ -1,16 +1,14 @@
-# Boilerplate
+# E-meth
 
-This is a boilerplate for vite projects
-
-Pre-installed:
+Included:
 - TypeScript
 - ESLint
 - Prettier
 - PWA
-- File Compression 
+- Image Compression library
 
 
-INSTRUCTION:
+Run:
 
 1. npm install 
 
